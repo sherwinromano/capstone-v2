@@ -1,0 +1,64 @@
+{% extends 'mainv2.html' %}
+{% load static %}
+
+{% block title %}Medical{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'styles/viewrequest.css' %}">
+    <link rel="stylesheet" media="print" href="{% static 'styles/print.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    {% if messages %}
+    <div class="message-container">
+        {% for message in messages %}
+        <p class="message {% if message.tags %}{{ message.tags }}{% endif %}">{{ message }}</p>
+        {% endfor %}
+    </div>
+    {% endif %}
+    <h2>List of PWD</h2>
+    <br><br>
+    <form method="POST" class="search-form">
+        {% csrf_token %}
+        <input type="text" name="student_id" placeholder="Search student">
+        <button type="submit">Search</button>
+    </form>
+    <div class="request">
+        <table>
+            <thead>
+                <tr class="tr-header">
+                    <th>Student ID</th>
+                    <th>Lastname</th>
+                    <th>Firstname</th>
+                    <th>Age</th>
+                    <th>Sex</th>
+                    <th>Type of Disability</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for pwd in pwds %}
+                    <tr class="tr-td">
+                        <td><a href="{% url 'medical:pwd_detail' pwd.patient.student.student_id %}">{{ pwd.patient.student.student_id }}</a></td>
+                        <td><a href="{% url 'medical:pwd_detail' pwd.patient.student.student_id %}">{{ pwd.patient.student.lastname|title }}</a></td>
+                        <td><a href="{% url 'medical:pwd_detail' pwd.patient.student.student_id %}">{{ pwd.patient.student.firstname|title }}</a></td>
+                        <td><a href="{% url 'medical:pwd_detail' pwd.patient.student.student_id %}">{{ pwd.patient.age }}</a></td>
+                        <td><a href="{% url 'medical:pwd_detail' pwd.patient.student.student_id %}">{{ pwd.patient.student.sex }}</a></td>
+                        <td><a href="{% url 'medical:pwd_detail' pwd.patient.student.student_id %}">{{ pwd.riskassessment.disability }}</a></td>
+                    </tr>
+                {% empty %}
+                    <tr class="tr-td">
+                        <td colspan="6">No patients found</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
+{% block extra_js %}
+<script>
+
+</script>
+{% endblock %}

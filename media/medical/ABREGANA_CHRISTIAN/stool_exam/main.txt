@@ -1,0 +1,138 @@
+<!--<main>
+            <div class="registration-cont">
+                <form class="registration-form" id="myForm" method="POST"> {{ csrf_token }}
+                    <h1>New Customer Contact Form</h1>
+                    <p class="input-title">Full Name</p>
+                    <div class="input-cont">
+                        <div class="input-group">
+                            <input type="text" id="firstname" name="firstname" required>
+                            <label for="firstname">First Name</label>
+                        </div>
+                        <div class="input-group">
+                            <input type="text" id="lastname" name="lastname" required>
+                            <label for="lastname">Last Name</label>
+                        </div>
+                    </div>
+                    <br/>
+                    <p class="input-title">Address</p>
+                    <div class="address">
+                        <div class="style1">
+                            <input type="text" id="street-address" name="street-address" required>
+                            <label for="street-address">Street Address</label>
+                        </div>
+                        <div class="style1">
+                            <input type="text" id="street-address2" name="street-address2" required>
+                            <label for="street-address2">Street Address 2</label>
+                        </div>
+                        <div class="input-cont">
+                            <div class="input-group">
+                                <input type="text" id="city" name="city" required>
+                                <label for="city">City</label>
+                            </div>
+                            <div class="input-group">
+                                <input type="text" id="province" name="province" required>
+                                <label for="province">State / Province</label>
+                            </div>
+                        </div>
+                        <div class="style1">
+                            <input type="number" id="postal" name="postal" required>
+                            <label for="postal">Postal / Zip Code</label>
+                        </div>
+                    </div>
+                    <br/>
+                    <div class="input-cont">
+                        <div class="contact-group">
+                            <p class="input-title">Phone Number</p>
+                            <div class="input-group">
+                                <input type="number" id="phone-number" name="phone-number" required>
+                            </div>
+                        </div>
+                        <div class="contact-group">
+                            <p class="input-title">Email</p>
+                            <div class="input-group">
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                        </div>
+                    </div>
+                    <br/>
+                    <br/>
+                    <div class="select">
+                        <p class="input-title">How did you hear about us?</p>
+                        <select id="referrer" name="referrer">
+                            <option value="">Please Select</option>
+                            <option value="1">Facebook</option>
+                            <option value="2">YouTube</option>
+                            <option value="3">Instagram</option>
+                            <option value="4">Twitter</option>
+                        </select>
+                    </div>
+                    <br/>
+                    <br/>
+                    <div class="txt-area">
+                        <p class="input-title">Feedback about us:</p>
+                        <textarea class="message" rows="8" required></textarea>
+                    </div>
+                    <br/>
+                    <br/>
+                    <div class="txt-area">
+                        <p class="input-title">Suggestions if any for further improvement:</p>
+                        <textarea class="message" rows="8"></textarea>
+                    </div>
+                    <br/>
+                    <br/>
+                    <div class="reccont">
+                        <p class="input-title">Will you be willing to recommend us?</p>
+                        <div class="radios">
+                            <div class="radio">
+                                <input type="radio" id="option1" name="option" required>
+                                <label for="option1">Yes</label>
+                            </div>
+                            <div class="radio">
+                                <input type="radio" id="option2" name="option" required>
+                                <label for="option2">No</label>
+                            </div>
+                            <div class="radio">
+                                <input type="radio" id="option3" name="option" required>
+                                <label for="option3">Maybe</label>
+                            </div>
+                        </div>
+                    </div>
+                    <br/>
+                    <div class="ref">
+                        <p class="input-title">Could you please supply reference for two people you believe might be
+                            potential new customers?
+                        </p>
+                        <div class="table">
+                            <div class="tr">
+                                <div class="th no">No</div>
+                                <div class="th">Full Name</div>
+                                <div class="th">Address</div>
+                                <div class="th">Contact Number</div>
+                            </div>
+                            <div class="tr">
+                                <div class="td">1</div>
+                                <div class="td"><input type="text"></div>
+                                <div class="td"><input type="text"></div>
+                                <div class="td"><input type="number"></div>
+                            </div>
+                            <div class="tr">
+                                <div class="td">2</div>
+                                <div class="td"><input type="text"></div>
+                                <div class="td"><input type="text"></div>
+                                <div class="td"><input type="number"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <br/>
+                    <br/>
+                    <div class="btn input-cont">
+                        <button type="submit" id="submit">Submit</button>
+                    </div>
+                    <br/>
+                    <div class="btn-home">
+                        <a href="index.html">Back to main page</a>
+                    </div>
+                    <br/>
+                </form>
+            </div>
+        </main> -->

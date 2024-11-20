@@ -1,0 +1,439 @@
+{% extends 'mainv2.html' %}
+{% load static %}
+
+{% block title %}Medical{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'styles/physicalexam.css' %}">
+    <link rel="stylesheet" media="print" href="{% static 'styles/print.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    {% if messages %}
+        {% for message in messages %}
+            <p class="message {% if message.tags %}{{ message.tags }}{% endif %}">{{ message }}</p>
+        {% endfor %}
+    {% endif %}
+    <form method="POST" enctype="multipart/form-data" id="physical-exam-form">
+        {% csrf_token %}
+        <div class="header">
+            <img class="ctu-bp-logo" src="{% static 'images/CTU_logo.png' %}" alt="CTU_logo">
+            <div class="header-text">
+                <div class="content1">REPUBLIC OF THE PHILIPPINES</div>
+                <div class="content2">CEBU TECHNOLOGICAL UNIVERSITY</div>
+                <div class="content3">ARGAO CAMPUS</div>
+                <div class="content4">Ed Kintanar Street, Lamacan, Argao, Cebu</div>
+                <div class="content4">Website: https://www.argao.ctu.edu.ph E-mail: cdargao@ctu.edu.ph</div>
+                <div class="content4">Phone No.:(032) 401-0737 local 1700</div>
+            </div>
+            <img class="ctu-bp-logo" src="{% static 'images/BP_logo.png' %}" alt="BP_logo">
+        </div>
+        <h1>PHYSICAL EXAMINATION</h1>
+        <fieldset>
+            <legend><strong>I. Information</strong></legend>
+            <input type="hidden" name="student_id" value="{{ students.student_id }}" disabled>
+            <div class="user-details">
+                <div class="input-box">
+                    <span class="details">Surname:</span>
+                    <input type="text" value="{{ patient.student.lastname|title }}" name="surname" disabled>
+                </div>
+                <div class="input-box">
+                    <span class="details">Firstname:</span>
+                    <input type="text" value="{{ patient.student.firstname|title }}" name="firstname" disabled>
+                </div>
+                <div class="input-box">
+                    <span class="details">Middlename:</span>
+                    <input type="text" value="{{ patient.student.middlename|title }}" name="middlename" disabled>
+                </div>
+                <div class="input-box">
+                    {% if examination.birth_date %}
+                        <span class="details">Birth Date:</span>
+                        <input type="text" name="birth_date" value="{{ patient.birth_date }}" disabled>
+                    {% else %}
+                        <span class="details">Birth Date:</span>
+                        <input type="date" name="birth_date" value="{{ patient.birth_date }}" disabled>
+                    {% endif %}
+                </div>
+                <div class="input-box">
+                    <span class="details">Home Address:</span>
+                    <input type="text" value="{{ patient.home_address|title }}" name="home_address" disabled>
+                </div>
+                <div class="input-box">
+                    <span class="details">Contact Number:</span>
+                    <input type="text" value="{{ patient.student.contact_number }}" name="contact-number" disabled>
+                </div>
+                <div class="input-box">
+                    <span class="details">Age:</span>
+                    <input type="number" value="{{ patient.age }}" name="age" disabled>
+                </div>
+                <div class="input-box">
+                    <span class="details">Sex:</span>
+                    <input type="text" name="sex" value="{{ patient.student.sex }}" disabled>
+                    <!-- <select name="sex" required>
+                        <option value="" selected disabled>Select your sex:</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="other">Other</option>
+                    </select> -->
+                </div>
+                <div class="input-box">
+                    <span class="details">Nationality:</span>
+                    <input type="text" value="{{ patient.nationality|title }}" name="nationality" disabled>
+                </div>
+                <div class="input-box">
+                    {% if  patient.civil_status %}
+                        <span class="details">Civil Status:</span>
+                        <input type="text" value="{{ patient.civil_status }}" name="civil_status" disabled>
+                    {% else %}
+                        <span class="details">Civil Status:</span>
+                        <select name="civil_status" required disabled>
+                            <option value="" selected disabled>Select your status:</option>
+                            <option value="Single">Single</option>
+                            <option value="Married">Married</option>
+                            <option value="Divorce">Divorce</option>
+                        </select>
+                    {% endif %}
+                </div>
+                <div class="input-box">
+                    <span class="details">Number of Children:</span>
+                    <input type="number" value="{{ patient.number_of_children }}" name="number_of_children" disabled>
+                </div>
+                <div class="input-box">
+                    <span class="details">Course:</span>
+                    <input type="text" value="{{ patient.student.degree|title }}" name="course" disabled>
+                </div>
+                <div class="input-box">
+                    <span class="details">Academic Year:</span>
+                    <input type="text" value="{{ patient.academic_year }}" name="academic_year" disabled>
+                </div>
+                <div class="input-box">
+                    <span class="details">Section:</span>
+                    <input type="text" value="{{ patient.section }}" name="section" disabled>
+                </div>
+                <div class="input-box">
+                    <span class="details">Parent/Guardian:</span>
+                    <input type="text" value="{{ patient.parent_guardian }}" name="parent_guardian" disabled>
+                </div>
+                <div class="input-box">
+                    <span class="details">Contact Number:</span>
+                    <input type="text" value="{{ patient.parent_guardian_contact_number }}" name="parent_guardian_contact_number" disabled>
+                </div>
+            </div>
+        </fieldset>
+        <div class="input-box">
+            {% if examination.date_of_physical_examination %}
+                <span class="details">Date of Examination:</span>
+                <input type="text" name="date" value="{{ examination.date_of_physical_examination }}">
+            {% else %}
+                <span class="details">Date of Examination:</span>
+                <input type="date" name="date" value="{{ examination.date_of_physical_examination }}">
+            {% endif %}
+        </div>
+        <fieldset>
+            <legend><strong>II. Medical History</strong></legend>
+            <div class="medical-history">
+                <div class="past-illnesses">
+                        <h3>Past Illnesses</h3>
+                        <br>
+                    <div class="row">
+                        <label>Past Illnesses (check if history is positive)</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <div>
+                            {% if examination.medicalhistory.tuberculosis %}
+                                <input type="checkbox" id="tuberculosis" name="tuberculosis" checked>
+                            {% else %}
+                                <input type="checkbox" id="tuberculosis" name="tuberculosis">
+                            {% endif %}
+                            <label for="tuberculosis">Tuberculosis</label>
+                        </div>
+                        <div>
+                            {% if examination.medicalhistory.peptic_ulcer %}
+                                <input type="checkbox" id="peptic-ulcer" name="peptic-ulcer" checked>
+                            {% else %}
+                                <input type="checkbox" id="peptic-ulcer" name="peptic-ulcer">
+                            {% endif %}
+                            <label for="peptic-ulcer">Peptic Ulcer</label>
+                        </div>
+                        <div>
+                            {% if examination.medicalhistory.venereal_disease %}
+                                <input type="checkbox" id="venereal_disease" name="venereal-disease" checked>
+                            {% else %}
+                                <input type="checkbox" id="venereal_disease" name="venereal-disease">
+                            {% endif %}
+                            <label for="venereal_disease">Venereal Disease</label>
+                        </div>
+                        <div>
+                            {% if examination.medicalhistory.hypertension %}
+                                <input type="checkbox" id="hypertension" name="hypertension" checked>
+                            {% else %}
+                                <input type="checkbox" id="hypertension" name="hypertension">
+                            {% endif %}
+                            <label for="hypertension">Hypertension</label>
+                        </div>
+                        <div>
+                            {% if examination.medicalhistory.kidney_disease %}
+                                <input type="checkbox" id="kidney_disease" name="kidney-disease" checked>
+                            {% else %}
+                                <input type="checkbox" id="kidney_disease" name="kidney-disease">
+                            {% endif %}
+                            <label for="kidney_disease">Kidney Disease</label>
+                        </div>
+                        <div>
+                            {% if examination.medicalhistory.allergic_reaction %}
+                                <input type="checkbox" id="allergic_reaction" name="allergic-reaction" checked>
+                            {% else %}
+                                <input type="checkbox" id="allergic_reaction" name="allergic-reaction">
+                            {% endif %}
+                            <label for="allergic_reaction">Allergic Reaction</label>
+                        </div>
+                        <div>
+                            {% if examination.medicalhistory.heart_diseases %}
+                                <input type="checkbox" id="heart_diseases" name="heart-diseases" checked>
+                            {% else %}
+                                <input type="checkbox" id="heart_diseases" name="heart-diseases">
+                            {% endif %}
+                            <label for="heart_diseases">Heart Diseases</label>
+                        </div>
+                        <div>
+                            {% if examination.medicalhistory.asthma %}
+                                <input type="checkbox" id="asthma" name="asthma" checked>
+                            {% else %}
+                                <input type="checkbox" id="asthma" name="asthma">
+                            {% endif %}
+                            <label for="asthma">Asthma</label>
+                        </div>
+                        <div>
+                            {% if examination.medicalhistory.nervous_breakdown %}
+                                <input type="checkbox" id="nervous_breakdown" name="nervous-breakdown" checked>
+                            {% else %}
+                                <input type="checkbox" id="nervous_breakdown" name="nervous-breakdown">
+                            {% endif %}
+                            <label for="nervous_breakdown">Nervous Breakdown</label>
+                        </div>
+                        <div>
+                            {% if examination.medicalhistory.hernia %}
+                                <input type="checkbox" id="hernia" name="hernia" checked>
+                            {% else %}
+                                <input type="checkbox" id="hernia" name="hernia">
+                            {% endif %}
+                            <label for="hernia">Hernia</label>
+                        </div>
+                        <div>
+                            {% if examination.medicalhistory.insomnia %}
+                                <input type="checkbox" id="insomnia" name="insomnia" checked>
+                            {% else %}
+                                <input type="checkbox" id="insomnia" name="insomnia">
+                            {% endif %}
+                            <label for="insomnia">Insomnia</label>
+                        </div>
+                        <div>
+                            {% if examination.medicalhistory.jaundice %}
+                                <input type="checkbox" id="jaundice" name="jaundice" checked>
+                            {% else %}
+                                <input type="checkbox" id="jaundice" name="jaundice">
+                            {% endif %}
+                            <label for="jaundice">Jaundice</label>
+                        </div>
+                        <div>
+                            {% if examination.medicalhistory.epilepsy %}
+                                <input type="checkbox" id="epilepsy" name="epilepsy" checked>
+                            {% else %}
+                                <input type="checkbox" id="epilepsy" name="epilepsy">
+                            {% endif %}
+                            <label for="epilepsy">Epilepsy</label>
+                        </div>
+                        <div>
+                            {% if examination.medicalhistory.malaria %}
+                                <input type="checkbox" id="malaria" name="malaria" checked>
+                            {% else %}
+                                <input type="checkbox" id="malaria" name="malaria">
+                            {% endif %}
+                            <label for="malaria">Malaria</label>
+                        </div>
+                        <div>
+                            <label for="others">Others</label>
+                            <input type="text" id="others" value="{{ patient.medicalhistory.others }}" name="others">
+                        </div>
+                        <div>
+                            {% if examination.medicalhistory.no_history %}
+                                <input type="checkbox" id="none" checked name="none">
+                            {% else %}
+                                <input type="checkbox" id="none" name="none">
+                            {% endif %}
+                            <label for="none">None</label>
+                        </div>
+                    </div>  
+                    <div class="row">
+                        <label for="operations"><b>Operations, Injuries, Accidents, Hospital Admissions (date and circumstances)</b></label>
+                        <textarea id="operations" name="operations">{{ examination.medicalhistory.hospital_admission }}</textarea>
+                    </div>
+                    <div class="row">
+                        <label for="medications"><b>Medications taken at present</b></label>
+                        <textarea id="medications" name="medications">{{ examination.medicalhistory.medications }}</textarea>
+                    </div>
+                </div>
+                <div class="family-history">
+                    <h3>Family History</h3>
+                    <br>
+                    <div class="row">
+                        <label for="illnesses">Past Illnesses of your family (check if history is positive)</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <div>
+                            {% if examination.familymedicalhistory.hypertension %}
+                                <input type="checkbox" id="hypertension-family" name="hypertension-family" checked>
+                            {% else %}
+                                <input type="checkbox" id="hypertension-family" name="hypertension-family">
+                            {% endif %}
+                            <label for="hypertension-family">Hypertension</label>
+                        </div>
+                        <div>
+                            {% if examination.familymedicalhistory.tuberculosis %}
+                                <input type="checkbox" id="tuberculosis-family" name="tuberculosis-family" checked>
+                            {% else %}
+                                <input type="checkbox" id="tuberculosis-family" name="tuberculosis-family">
+                            {% endif %}
+                            <label for="tuberculosis-family">Tuberculosis</label>
+                        </div>
+                        <div>
+                            {% if examination.familymedicalhistory.asthma %}
+                                <input type="checkbox" id="asthma-family" name="asthma-family" checked>
+                            {% else %}
+                                <input type="checkbox" id="asthma-family" name="asthma-family">
+                            {% endif %}
+                            <label for="asthma-family">Asthma</label>
+                        </div>
+                        <div>
+                            {% if examination.familymedicalhistory.diabetes %}
+                                <input type="checkbox" id="diabetes" name="diabetes" checked>
+                            {% else %}
+                                <input type="checkbox" id="diabetes" name="diabetes">
+                            {% endif %}
+                            <label for="diabetes">Diabetes</label>
+                        </div>
+                        <div>
+                            {% if examination.familymedicalhistory.cancer %}
+                                <input type="checkbox" id="cancer" name="cancer" checked>
+                            {% else %}
+                                <input type="checkbox" id="cancer" name="cancer">
+                            {% endif %}
+                            <label for="cancer">Cancer</label>
+                        </div>
+                        <div>
+                            {% if examination.familymedicalhistory.bleeding_disorder %}
+                                <input type="checkbox" id="bleeding-disorder" name="bleeding-disorder" checked>
+                            {% else %}
+                                <input type="checkbox" id="bleeding-disorder" name="bleeding-disorder">
+                            {% endif %}
+                            <label for="bleeding-disorder">Bleeding Disorder</label>
+                        </div>
+                        <div>
+                            {% if examination.familymedicalhistory.epilepsy %}
+                                <input type="checkbox" id="epilepsy-family" name="epilepsy-family" checked>
+                            {% else %}
+                                <input type="checkbox" id="epilepsy-family" name="epilepsy-family">
+                            {% endif %}
+                            <label for="epilepsy-family">Epilepsy</label>
+                        </div>
+                        <div>
+                            {% if examination.familymedicalhistory.mental_disorder %}
+                                <input type="checkbox" id="mental-disorder" name="mental-disorder" checked>
+                            {% else %}
+                                <input type="checkbox" id="mental-disorders" name="mental-disorder">
+                            {% endif %}
+                            <label for="mental-disorders">Mental Disorders</label>
+                        </div>
+                        <div>
+                            <label>Others</label>
+                            <input type="text" id="others" name="family-others" value="{{ patient.familymedicalhistory.other_medical_history }}">
+                        </div>
+                        <div>
+                            {% if examination.familymedicalhistory.no_history %}
+                                <input type="checkbox" id="family-none" checked name="no_history">
+                            {% else %}
+                                <input type="checkbox" id="family-none" name="no_history">
+                            {% endif %}
+                            <label for="family-none">None</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="ob-gyne_history">
+                    <h3>OB-GYNE History</h3>
+                    <br>
+                    <div class="user-details">
+                        <div class="input-box">
+                            <label class="details" for="menarche">Menarche:</label>
+                            <input type="text" id="menarche" name="menarche" value="{{ examination.obgynehistory.menarche }}">
+                        </div>
+                        <div class="input-box">
+                            {% if examination.obgynehistory.lmp %}
+                                <label class="details" for="lmp">LMP:</label>
+                                <input type="text" id="lmp" name="lmp" value="{{ examination.obgynehistory.lmp }}">
+                            {% else %}
+                                <label class="details" for="lmp">LMP:</label>
+                                <input type="date" id="lmp" name="lmp" value="{{ examination.obgynehistory.lmp }}">
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="user-details">
+                        <div class="input-box">
+                            <label class="details" for="gravida">Gravida:</label>
+                            <input type="text" id="gravida" name="gravida" value="{{ examination.obgynehistory.gravida }}">
+                        </div>
+                        <div class="input-box">
+                            <label class="details" for="para">Para:</label>
+                            <input type="text" id="para" name="para" value="{{ examination.obgynehistory.para }}">
+                        </div>
+                    </div>
+                    <div class="user-details">
+                        <div class="input-box">
+                            <label class="details" for="menopause">Menopause:</label>
+                            <input type="text" id="menopause" name="menopause" value="{{ examination.obgynehistory.menopause }}">
+                        </div>
+                        <div class="input-box">
+                            <label class="details" for="pap_smear">Pap smear (date and result):</label>
+                            <input type="text" id="pap_smear" name="pap_smear" value="{{ examination.obgynehistory.pap_smear }}">
+                        </div>
+                    </div>
+                    <br>
+                    <div class="input-box">
+                        <label class="details" for="additional-history">Additional History</label>
+                        <textarea id="additional-history" name="additional-history">{{ examination.obgynehistory.additional_history }}</textarea>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+        <fieldset>
+            <legend><strong>III. Declaration</strong></legend>
+            <div>
+                I declare that the answers above are all correct. I understand that any falsification of answer will be considered 
+			    sufficient reason for my dismissal from employment/school and disqualification for whatever purpose this may serve.
+            </div>
+        </fieldset>
+        <div class="footer"><img src="{% static 'images/footer.png' %}" alt=""></div>
+        <div style="display: flex;">
+            <a class="schedule-button" id="schedule-button" href="{% url 'medical:patient_profile' %}">Back</a>
+            <input type="submit" value="Save" id="print-btn">
+            <input type="button" value="Print" id="print-btn" onclick="printSpecificContent()">
+        </div>
+    </form>
+</div>
+{% endblock %}
+{% block extra_js %}
+<script>
+    // document.addEventListener('DOMContentLoaded', function() {
+    // });
+
+    function printSpecificContent() {
+        const printContent = document.getElementById('physical-exam-form').innerHTML;
+        const originalContent = document.body.innerHTML;
+
+        document.body.innerHTML = printContent;
+        window.print();
+        document.body.innerHTML = originalContent;
+        location.reload(true);
+    }
+</script>
+{% endblock %}

@@ -1,0 +1,94 @@
+protected void Save(object sender, EventArgs e)
+{
+    con.Open();
+
+    try
+    {
+        /*SqlCommand comm = new SqlCommand("UPDATE books SET bookID = @bookID, title = @title, author = @author, publisher = @publisher, datePublished = @datePublished, category = @category, shelf = @shelf WHERE bookID = @bookID;", con);
+
+        int bookID = int.Parse(txtID.Text);
+        string title = txtTitle.Text;
+        string author = txtAuthor.Text;
+        string publisher = txtPublisher.Text;
+        DateTime datePublished = DateTime.Parse(txtDate.Text);
+        string category = txtCategory.Text;
+        int shelfNo = int.Parse(txtShelf.Text);
+        //string bookCover = imgCover.ImageUrl.ToString();
+
+        comm.Parameters.AddWithValue("@bookID", bookID);
+        comm.Parameters.AddWithValue("@title", title);
+        comm.Parameters.AddWithValue("@author", author);
+        comm.Parameters.AddWithValue("@publisher", publisher);
+        comm.Parameters.AddWithValue("@datePublished", datePublished);
+        comm.Parameters.AddWithValue("@category", category);
+        comm.Parameters.AddWithValue("@shelf", shelfNo); */
+        //comm.Parameters.AddWithValue("@bookCover", bookCover);
+
+        DateTime strDate = DateTime.Parse(txtDate.Text);
+        int iShelf = int.Parse(txtShelf.Text);
+        int bookID = int.Parse(txtID.Text);
+        string title = txtTitle.Text;
+        string author = txtAuthor.Text;
+        string publisher = txtPublisher.Text;
+        string category = txtCategory.Text;
+
+        SqlCommand comm = new SqlCommand("UPDATE books SET title = '"+title+"', author = '"+author+"', publisher = '"+publisher+"', datePublished = '"+strDate+"', category = '"+category+"', shelf = '"+iShelf+"' WHERE bookID = '"+bookID+"';", con);
+        comm.ExecuteNonQuery();
+        con.Close();
+
+        ScriptManager.RegisterStartupScript(this, this.GetType(), "script", "alert('Updated Successfully')", true);
+        
+        /*txtID.Text = "";
+        txtTitle.Text = "";
+        txtAuthor.Text = "";
+        txtPublisher.Text = "";
+        txtDate.Text = "";
+        txtCategory.Text = "";
+        txtShelf.Text = "";
+        imgCover.ImageUrl = ""; */
+    }
+    catch (Exception ex)
+    {
+
+    }
+}
+
+
+from django.shortcuts import render
+from django.contrib import messages
+from .models import Patient, RiskAssessment, MedicalRequirement, Certification
+
+from datetime import datetime
+
+# Create your views here.
+def profile(request):
+    if request.method == "POST":
+        # Handle patient basic information
+        id_number = request.POST.get("id-number")
+        surname = request.POST.get("surname")
+        firstname = request.POST.get("firstname")
+        middlename = request.POST.get("middlename")
+        age = request.POST.get("age")
+        sex = request.POST.get("sex")
+        contact_number = request.POST.get("contact-number")
+        email = request.POST.get("email-add")
+
+        str_birth_date = request.POST.get("birth-date")
+        birth_date = datetime.strptime(str_birth_date, "%Y-%m-%d")
+
+        street_address = request.POST.get("street-address")
+        city = request.POST.get("city")
+        state_province = request.POST.get("state-province")
+        postal_zip_code = request.POST.get("postal-zip-code")
+        country = request.POST.get("country")
+
+        patient = Patient.objects.create(
+            id_number=id_number, surname=surname, firstname=firstname,
+            middlename=middlename, age=age, sex=sex, contact_number=contact_number,
+            email=email, birth_date=birth_date, address=street_address,
+            city=city, state_province=state_province, postal_zip_code=postal_zip_code,
+            country=country
+        )
+        messages.success(request, "Added Successfully")
+        
+    return render(request, "profile.html", {})

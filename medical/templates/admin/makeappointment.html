@@ -1,0 +1,91 @@
+{% extends 'mainv2.html' %}
+{% load static %}
+
+{% block title %}Dental Request{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'styles/admin/dentalappoint.css' %}">
+    <link rel="stylesheet" media="print" href="{% static 'styles/print.css' %}">
+{% endblock %}
+
+{% block content %}
+{% if messages %}
+    <div>
+        {% for message in messages %}
+            {{ message }}
+        {% endfor %}
+    </div>
+{% endif %}
+<div class="container">
+    <h2>Dental Services Request</h2>
+    <br><br>
+    <form method="POST" class="search-form">
+        {% csrf_token %}
+        <input type="text" name="search_query" placeholder="Search request">
+        <button type="submit">Search</button>
+    </form>
+    <div class="request">
+        <h3>Requests({{ service_request|length }})</h3>
+        <table>
+            <thead>
+                <tr class="tr-header">
+                    <th>Student ID</th>
+                    <th>Lastname</th>
+                    <th>Firstname</th>
+                    <th>Service Type</th>
+                    <th>Date Requested</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for request in service_request %}
+                    <tr class="tr-td">
+                        <td><a href="#">{{ request.student.student_id }}</a></td>
+                        <td><a href="#">{{ request.student.lastname|title }}</a></td>
+                        <td><a href="#">{{ request.student.firstname|title }}</a></td>
+                        <td><a href="#">{{ request.service_type }}</a></td>
+                        <td><a href="#">{{ request.date_requested }}</a></td>
+                        <td>
+                            <button class="action-button" onclick="openAppointmentForm('{{ request.student.student.student_id }}')">Set Appointment</button>
+                        </td>
+                    </tr>
+                {% empty %}
+                    <tr class="tr-td">
+                        <td colspan="6">No patients found</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- Appointment Modal -->
+<div id="appointmentModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeAppointmentForm()">&times;</span>
+        <h3>Set Appointment</h3>
+        <form method="POST" action=""> 
+            {% csrf_token %}
+            <input type="hidden" id="student_id" name="student_id">
+            <label for="appointment_date">Appointment Date:</label>
+            <input type="date" id="appointment_date" name="appointment_date" required>
+            <label for="appointment_time">Appointment Time:</label>
+            <input type="time" id="appointment_time" name="appointment_time" required>
+            <button type="submit" class="action-button">Set Appointment</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    function openAppointmentForm(studentId) {
+        document.getElementById('student_id').value = studentId;
+        document.getElementById('appointmentModal').style.display = 'block';
+    }
+
+    function closeAppointmentForm() {
+        document.getElementById('appointmentModal').style.display = 'none';
+    }
+</script>
+{% endblock %}

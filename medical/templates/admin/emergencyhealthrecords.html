@@ -1,0 +1,46 @@
+{% extends 'mainv2.html' %}
+{% load static %}
+
+{% block title %}Medical{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'styles/admin/patientlist.css' %}">
+    <link rel="stylesheet" media="print" href="{% static 'styles/print.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2>Emergency Health Assistance Records</h2>
+    <br><br>
+    <div class="request">
+        <table>
+            <thead>
+                <tr class="tr-header">
+                    <th>Student ID</th>
+                    <th>Name</th>
+                    <th>Reason</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for record in emrgncy_record %}
+                    <tr class="tr-td">
+                        <td>{{ record.patient.student.student_id }}</td>
+                        <td>{{ record.name }}</td>
+                        <td>{{ record.reason }}</td>
+                        <td>{{ record.date_assisted }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div><br><br>
+    <div style="display: flex;">
+        <a class="schedule-button" href="{% url 'medical:emergency_asst' %}">Back</a>
+    </div>
+</div>
+{% endblock %}
+{% block extra_js %}
+<script>
+
+</script>
+{% endblock %}

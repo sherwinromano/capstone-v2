@@ -1,0 +1,392 @@
+{% extends 'mainv2.html' %}
+{% load static %}
+
+{% block title %}Medical{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'styles/patientclearance.css' %}">
+    <link rel="stylesheet" media="print" href="{% static 'styles/print.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    {% if messages %}
+    <div class="message-container">
+        {% for message in messages %}
+        <p class="message {% if message.tags %}{{ message.tags }}{% endif %}">{{ message }}</p>
+        {% endfor %}
+    </div>
+    {% endif %}
+    <form id="medicalclearance-form" method="POST">
+        {% csrf_token %}
+        <div class="header">
+            <img class="ctu-bp-logo" src="{% static 'images/CTU_logo.png' %}" alt="CTU_logo">
+            <div class="header-text">
+                <div class="content1">REPUBLIC OF THE PHILIPPINES</div>
+                <div class="content2">CEBU TECHNOLOGICAL UNIVERSITY</div>
+                <div class="content3">ARGAO CAMPUS</div>
+                <div class="content4">Ed Kintanar Street, Lamacan, Argao, Cebu</div>
+                <div class="content4">Website: https://www.argao.ctu.edu.ph E-mail: cdargao@ctu.edu.ph</div>
+                <div class="content4">Phone No.:(032) 401-0737 local 1700</div>
+            </div>
+            <img class="ctu-bp-logo" src="{% static 'images/BP_logo.png' %}" alt="BP_logo">
+        </div>
+        <h1>MEDICAL CLINIC</h1>
+        <h2>Medical Clearance for /OJT/Practicum</h2>
+        <fieldset>
+            <legend><strong>I. Information</strong></legend>
+            <div class="user-details">
+                <div class="input-box">
+                    <span class="details">Student ID:</span>
+                    <input type="text" name="id-number" value="{{ patient.student.student_id }}" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">Surname:</span>
+                    <input type="text" name="surname" value="{{ patient.student.lastname }}" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">Firstname:</span>
+                    <input type="text" name="firstname" value="{{ patient.student.firstname }}" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">Middlename:</span>
+                    <input type="text" name="middlename" value="{{ patient.student.middlename }}" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">Age:</span>
+                    <input type="number" name="age" value="{{ patient.age }}" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">Sex:</span>
+                    <input type="text" name="sex" value="{{ patient.student.sex }}" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">Contact Number:</span>
+                    <input type="text" name="contact-number" value="{{ patient.student.contact_number }}" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">Email Address:</span>
+                    <input type="text" name="email-add" value="{{ patient.student.email }}" required>
+                </div>
+                <div class="input-box">
+                    {% if clearance.birth_date %}
+                        <span class="details">Birth Date:</span>
+                        <input type="text" id="birth-date" name="birth-date" value="{{ patient.birth_date }}" required>
+                    {% else %}
+                        <span class="details">Birth Date:</span>
+                        <input type="date" id="birth-date" name="birth-date" value="{{ patient.birth_date }}" required>
+                    {% endif %}
+                </div>
+                <div class="input-box">
+                    <span class="details">Address:</span>
+                    <input type="text" name="street-address" value="{{ patient.home_address }}" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">City:</span>
+                    <input type="text" name="city" value="{{ patient.city }}" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">State/Province:</span>
+                    <input type="text" name="state-province" value="{{ patient.state_province }}" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">Postal/ZIP Code:</span>
+                    <input type="text" name="postal-zip-code" value="{{ patient.postal_zipcode }}" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">Country:</span>
+                    <input type="text" name="country" value="{{ patient.country }}" required>
+                </div>
+            </div>
+        </fieldset>
+        <fieldset>
+            <legend><strong>II. Risk Assessment</strong></legend>
+            <h3>Do you have any of these?</h3>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Condition</th>
+                            <th>Yes</th>
+                            <th>No</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Above 60 years old</td>
+                            {% if clearance.riskassessment.age_above_60 %}
+                                <td><input type="radio" name="age_above_60" value="True" checked></td>
+                                <td><input type="radio" name="age_above_60" value="False"></td>
+                            {% else %}
+                                <td><input type="radio" name="age_above_60"  value="True"> </td>
+                                <td><input type="radio" name="age_above_60" value="False" checked></td>
+                            {% endif %}
+                        </tr>
+                        <tr>
+                            <td>Cardiovascular Disease/Hypertension</td>
+                            {% if clearance.riskassessment.cardiovascular_disease %}
+                                <td><input type="radio" name="cardiovascular-disease"value="True" checked></td>
+                                <td><input type="radio" name="cardiovascular-disease" value="False"></td>
+                            {% else %}
+                                <td><input type="radio" name="cardiovascular-disease" value="True"></td>
+                                <td><input type="radio" name="cardiovascular-disease" value="False" checked></td>
+                            {% endif %}
+                        </tr>
+                        <tr>
+                            <td>Chronic Lung Disease/Asthma</td>
+                            {% if clearance.riskassessment.chronic_lung_disease %}
+                                <td><input type="radio" name="lung-disease" value="True" checked></td>
+                                <td><input type="radio" name="lung-disease" value="False"></td>
+                            {% else %}
+                                <td><input type="radio" name="lung-disease" value="True"></td>
+                                <td><input type="radio" name="lung-disease" value="False" checked></td>
+                            {% endif %}
+                        </tr>
+                        <tr>
+                            <td>Chronic Metabolic Disease/Diabetes</td>
+                            {% if clearance.riskassessment.chronic_metabolic_disease %}
+                                <td><input type="radio" name="diabetes" value="True" checked></td>
+                                <td><input type="radio" name="diabetes" value="False"></td>
+                            {% else %}
+                                <td><input type="radio" name="diabetes" value="True"></td>
+                                <td><input type="radio" name="diabetes" value="False"checked></td>
+                            {% endif %}
+                        </tr>
+                        <tr>
+                            <td>Chronic Renal Disease</td>
+                            {% if clearance.riskassessment.chronic_renal_disease %}
+                                <td><input type="radio" name="renal-disease" value="True" checked></td>
+                                <td><input type="radio" name="renal-disease" value="False"></td>
+                            {% else %}
+                                <td><input type="radio" name="renal-disease" value="True"></td>
+                                <td><input type="radio" name="renal-disease" value="False"  checked></td>
+                            {% endif %}
+                        </tr>
+                        <tr>
+                            <td>Chronic Liver Disease</td>
+                            {% if clearance.riskassessment.chronic_liver_disease %}
+                                <td><input type="radio" name="liver-disease" value="True" checked></td>
+                                <td><input type="radio" name="liver-disease" value="False"></td>
+                            {% else %}
+                                <td><input type="radio" name="liver-disease" value="True"></td>
+                                <td><input type="radio" name="liver-disease" value="False" checked></td>
+                            {% endif %}
+                        </tr>
+                        <tr>
+                            <td>Cancer</td>
+                            {% if clearance.riskassessment.cancer %}
+                                <td><input type="radio" name="cancer" value="True" checked></td>
+                                <td><input type="radio" name="cancer" value="False" ></td>
+                            {% else %}
+                                <td><input type="radio" name="cancer" value="True"></td>
+                                <td><input type="radio" name="cancer" value="False" checked></td>
+                            {% endif %}
+                        </tr>
+                        <tr>
+                            <td>Autoimmune Disease, Immunodeficient State (HIV & Others)</td>
+                            {% if clearance.riskassessment.autoimmune_disease %}
+                                <td><input type="radio" name="autoimmune" value="True" checked></td>
+                                <td><input type="radio" name="autoimmune" value="False"></td>
+                            {% else %}
+                                <td><input type="radio" name="autoimmune" value="True"></td>
+                                <td><input type="radio" name="autoimmune" value="False" checked></td>
+                            {% endif %}
+                        </tr>
+                        <tr>
+                            <td>Pregnant, AOG</td>
+                            {% if clearance.riskassessment.pregnant %}
+                                <td><input type="radio" name="pregnant" value="True" checked></td>
+                                <td><input type="radio" name="pregnant" value="False"></td>
+                            {% else %}
+                                <td><input type="radio" name="pregnant" value="True"></td>
+                                <td><input type="radio" name="pregnant"value="False" checked></td>
+                            {% endif %}
+                        </tr>
+                        <tr>
+                            <td>Living with person belonging to vulnerable population</td>
+                            {% if clearance.riskassessment.living_with_vulnerable %}
+                                <td><input type="radio" name="living_with_vulnerable" value="True" checked></td>
+                                <td><input type="radio" name="living_with_vulnerable" value="False"></td>
+                            {% else %}
+                                <td><input type="radio" name="living_with_vulnerable" value="True" ></td>
+                                <td><input type="radio" name="living_with_vulnerable" value="False"checked></td>
+                            {% endif %}
+                        </tr>
+                        <tr>
+                            <td>Person with Disability (PWD)</td>
+                            {% if clearance.riskassessment.pwd %}
+                                <td><input type="radio" name="pwd" value="True" checked></td>
+                                <td><input type="radio" name="pwd" value="False"></td>
+                            {% else %}
+                                <td><input type="radio" name="pwd" value="True"></td>
+                                <td><input type="radio" name="pwd" value="False" checked></td>
+                            {% endif %}
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="input-box">
+                <input type="text" placeholder="Specify other conditions not listed above" name="other_conditions" value="{{ patient.riskassessment.other_conditions }}">
+            </div>
+            {% if clearance.riskassessment.pwd %}
+                <div class="input-box" id="pwd-details">
+                    <h4>If you are a PWD, please provide the following details:</h4>
+                    <div class="input-box">
+                        <span class="details">Type of Disability:</span>
+                        <input type="text" name="disability_type" value="{{ clearance.riskassessment.disability }}">
+                    </div>
+                </div>
+            {% else %}
+                <div class="input-box" id="pwd-details">
+                    <h4>If you are a PWD, please provide the following details:</h4>
+                    <div class="input-box">
+                        <span class="details">Type of Disability:</span>
+                        <input type="text" name="disability_type" value="{{ clearance.riskassessment.disability }}">
+                    </div>
+                </div> 
+            {% endif %}
+            <ul class="verify">
+                <li>If you answered yes to any of the above, you are advised against joining face-to-face activities and should opt for online mode of class/OJT/Practicum due to the health risk during the COVID-19 pandemic.</li>
+                <li>Insistence in joining face-to-face school activity will only be allowed upon the presentation of a medical certificate from an attending physician indicating the condition is stable and the patient is fit to physically attend class/OJT/Practicum. Student personnel will be responsible for acting against medical advice.</li>
+            </ul>
+        </fieldset>
+        <fieldset>
+            <legend><strong>III. Medical Requirements</strong></legend>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Medical Requirement</th>
+                            <th>Status</th>
+                            <th>1st Dose</th>
+                            <th>2nd Dose</th>
+                            <th>Booster Shot</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Covid-19 Vaccination</td>
+                            {% if med_requirements.vaccination_type %}
+                                <td><input type="text" value="{{ med_requirements.vaccination_type }}" name="vaccination_type"></td>
+                            {% else %}
+                                <td class="vacc-type">
+                                    <select name="vaccination_type" required>
+                                        <option value="Pfizer">Pfizer</option>
+                                        <option value="Moderna">Moderna</option>
+                                        <option value="Johnson & Johnson">Johnson & Johnson</option>
+                                        <option value="AstraZeneca">AstraZeneca</option>
+                                        <option value="Sinovac">Sinovac</option>
+                                        <option value="Sinopharm">Sinopharm</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+                                </td>
+                            {% endif %}
+                                <td style="text-align: center;">
+                                    {% if med_requirements.vaccinated_1st %}
+                                        <input type="checkbox" name="vaccinated_1st" checked>
+                                    {% else %}
+                                        <input type="checkbox" name="vaccinated_1st">
+                                    {% endif %}
+                                </td>
+                                <td style="text-align: center;">
+                                    {% if med_requirements.vaccinated_2nd %}
+                                        <input type="checkbox" name="vaccinated_2nd" checked>
+                                    {% else %}
+                                        <input type="checkbox" name="vaccinated_2nd">
+                                    {% endif %}
+                                </td>
+                                <td style="text-align: center;">
+                                    {% if med_requirements.vaccinated_booster %}
+                                        <input type="checkbox" name="vaccinated_booster" checked>
+                                    {% else %}
+                                        <input type="checkbox" name="vaccinated_booster">
+                                    {% endif %}
+                                </td>
+                        </tr>
+                        <tr>
+                            <td>Chest X-Ray (PA view)</td>
+                            <td><input type="text" name="x-ray-remark" value="{{ med_requirements.x_ray_remarks  }}" style="outline: none;" required></td>
+                            <td colspan="3"></td>
+                        </tr>
+                        <tr>
+                            <td>Complete Blood Count</td>
+                            <td><input type="text" name="cbc-remark" value="{{ med_requirements.cbc_remarks  }}" style="outline: none;" required></td>
+                            <td colspan="3"></td>
+                        </tr>
+                        <tr>
+                            <td>Drug Test (from DOH Accredited Laboratory)</td>
+                            <td><input type="text" name="drug-test-remark" value="{{ med_requirements.drug_test_remarks   }}" style="outline: none;" required></td>
+                            <td colspan="3"></td>
+                        </tr>
+                        <tr>
+                            <td>Stool Examination</td>
+                            <td><input type="text" name="stool-examination-remark" value="{{ med_requirements.stool_examination_remarks   }}" style="outline: none;" required></td>
+                            <td colspan="3"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </fieldset>
+        <fieldset>
+            <legend><strong>IV. Certification</strong></legend>
+            <div class="certification">
+                <div class="item">
+                    <p>Information I provided above are truthful and accurate. I have been appraised of health risk 
+                    in joining face-to-face school activity during the COVID-19 pandemic. I will abide by the health protocols.</p>
+                    <br><br><br>
+                    <div class="item2">
+                        <p>Student</p>
+                        <p>Date</p>
+                    </div>
+                </div>
+                <div style="border-left: 1px solid black;"></div>
+                <div class="item">
+                    <p>Above student/personnel was evaluated and appraised of health risk in joining face-to-face school activity, 
+                    and submitted the medical requirements. He/She is given medical clearance for face-to-face activity.</p>
+                    <br><br><br>
+                    <div class="item2">
+                        <p>Physician/Nurse</p>
+                        <p>Date</p>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+        <div class="footer"><img src="{% static 'images/footer.png' %}" alt=""></div>
+        <div style="display: flex;">
+            <a class="schedule-button" href="{% url 'medical:viewrequest' %}">Back</a>
+            <input type="submit" value="Save" id="print-btn">
+            <input type="button" value="Print" id="print-btn" onclick="printSpecificContent()">
+        </div>
+    </form>
+</div>
+{% endblock %}
+{% block extra_js %}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const form = document.getElementById('medicalclearance-form');
+
+        const pwdRadioButtons = document.getElementsByName('pwd');
+        const pwdDetailsSection = document.getElementById('pwd-details');
+
+        pwdRadioButtons.forEach(radio => {
+            radio.addEventListener('change', function() {
+                if (this.value === 'True') {
+                    pwdDetailsSection.style.display = 'block';
+                } else {
+                    pwdDetailsSection.style.display = 'none';
+                }
+            });
+        });
+    });
+    function printSpecificContent() {
+        const printContent = document.getElementById('medicalclearance-form').innerHTML;
+        const originalContent = document.body.innerHTML;
+
+        document.body.innerHTML = printContent;
+        window.print();
+        document.body.innerHTML = originalContent;
+        location.reload(true);
+    }
+
+</script>
+{% endblock %}

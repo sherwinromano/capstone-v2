@@ -1,0 +1,166 @@
+{% extends 'mainv2.html' %}
+{% load static %}
+
+{% block title %}Medical{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'styles/physicalexam.css' %}">
+    <link rel="stylesheet" media="print" href="{% static 'styles/print.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    {% if messages %}
+        {% for message in messages %}
+            <p class="message {% if message.tags %}{{ message.tags }}{% endif %}">{{ message }}</p>
+        {% endfor %}
+    {% endif %}
+    <form method="POST" enctype="multipart/form-data" id="physical-exam-form">
+        {% csrf_token %}
+        <h1>PATIENT'S BASIC INFORMATION</h1>
+        <fieldset>
+            <legend><strong>Information</strong></legend>
+            <!-- <input type="hidden" name="student_id" value="{{ students.student_id }}"> -->
+            <div class="user-details">
+                <div class="input-box">
+                    <span class="details">Student ID:</span>
+                    <input type="text" name="id-number" value="{{ student.student_id }}" disabled>
+                </div>
+                <div class="input-box">
+                    <span class="details">Surname:</span>
+                    <input type="text" value="{{ student.lastname|title }}" name="surname">
+                </div>
+                <div class="input-box">
+                    <span class="details">Firstname:</span>
+                    <input type="text" value="{{ student.firstname|title }}" name="firstname">
+                </div>
+                <div class="input-box">
+                    <span class="details">Middlename:</span>
+                    <input type="text" value="{{ student.middlename|title }}" name="middlename">
+                </div>
+                <div class="input-box">
+                    <span class="details">Sex:</span>
+                    <input type="text" name="sex" value="{{ student.sex }}">
+                    <!-- <select name="sex" required>
+                        <option value="" selected disabled>Select your sex:</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="other">Other</option>
+                    </select> -->
+                </div>
+                <div class="input-box">
+                    <span class="details">Email Address:</span>
+                    <input type="text" name="email-add" value="{{ student.email }}" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">Contact Number:</span>
+                    <input type="text" value="{{ student.contact_number }}" name="contact-number">
+                </div>
+                <div class="input-box">
+                    <span class="details">Course:</span>
+                    <input type="text" value="{{ student.degree|title }}" name="course">
+                </div>
+                <div class="input-box">
+                    {% if patient.birth_date %}
+                        <span class="details">Birth Date:</span>
+                        <input type="text" name="birth_date" value="{{ patient.birth_date }}" required>
+                    {% else %}
+                        <span class="details">Birth Date:</span>
+                        <input type="date" name="birth_date" value="{{ patient.birth_date }}" required>
+                    {% endif %}
+                </div>
+                <div class="input-box">
+                    <span class="details">Age:</span>
+                    <input type="number" value="{{ patient.age }}" name="age" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">Weight:</span>
+                    <input type="text" value="{{ patient.weight }}" name="weight" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">Height:</span>
+                    <input type="text" value="{{ patient.height }}" name="height" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">Bloodtype:</span>
+                    <input type="text" value="{{ patient.bloodtype }}" name="bloodtype" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">Allergies:</span>
+                    <input type="text" value="{{ patient.allergies }}" name="allergies" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">Medications:</span>
+                    <input type="text" value="{{ patient.medications }}" name="medications" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">Home Address:</span>
+                    <input type="text" value="{{ patient.home_address|title }}" name="home_address" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">City:</span>
+                    <input type="text" name="city" value="{{ patient.city }}" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">State/Province:</span>
+                    <input type="text" name="state-province" value="{{ patient.state_province }}" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">Postal/ZIP Code:</span>
+                    <input type="text" name="postal-zip-code" value="{{ patient.postal_zipcode }}" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">Country:</span>
+                    <input type="text" name="country" value="{{ patient.country }}" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">Nationality:</span>
+                    <input type="text" value="{{ patient.nationality|title }}" name="nationality">
+                </div>
+                <div class="input-box">
+                    {% if  patient.civil_status %}
+                        <span class="details">Civil Status:</span>
+                        <input type="text" value="{{ patient.civil_status }}" name="civil_status">
+                    {% else %}
+                        <span class="details">Civil Status:</span>
+                        <select name="civil_status" required>
+                            <option value="" selected disabled>Select your status:</option>
+                            <option value="Single">Single</option>
+                            <option value="Married">Married</option>
+                            <option value="Divorce">Divorce</option>
+                        </select>
+                    {% endif %}
+                </div>
+                <div class="input-box">
+                    <span class="details">Number of Children:</span>
+                    <input type="number" value="{{ patient.number_of_children }}" name="number_of_children" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">Academic Year:</span>
+                    <input type="text" value="{{ patient.academic_year }}" name="academic_year" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">Section:</span>
+                    <input type="text" value="{{ patient.section }}" name="section" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">Parent/Guardian:</span>
+                    <input type="text" value="{{ patient.parent_guardian }}" name="parent_guardian" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">Parent/Guardian Contact Number:</span>
+                    <input type="text" value="{{ patient.parent_guardian_contact_number }}" name="parent_guardian_contact_number" required>
+                </div>
+            </div>
+        </fieldset>
+        <div style="display: flex;">
+            <a class="schedule-button" id="schedule-button" href="{% url 'medical:request' %}">Back</a>
+            <input type="submit" value="Save" id="print-btn">
+        </div>
+    </form>
+</div>
+{% endblock %}
+{% block extra_js %}
+<script>
+</script>
+{% endblock %}

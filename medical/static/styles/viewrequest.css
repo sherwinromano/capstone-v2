@@ -1,0 +1,256 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #f8f9fa;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    /* max-width: 800px; */
+    width: 100%;
+    margin: 20px auto;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    justify-content: center;
+    height:700px;
+}
+
+.message {
+    margin-top: -15px;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.message.info {
+    background-color: #cce5ff;
+    color: #004085;
+    border: 1px solid #b8daff;
+}
+
+.message.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.message.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+button.tab-button {
+    padding: 10px 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px 4px 0 0;
+    background-color: #f0f0f0;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    margin-right: -1px;
+}
+
+button.tab-button:hover {
+    background-color: #e0e0e0;
+}
+
+button.tab-button.active {
+    background-color: #ffffff;
+    border-bottom: 1px solid #ffffff;
+    z-index: 1;
+}
+
+.tab-container {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.approve-table {
+    display: none;
+    margin-top: 20px;
+}
+
+.request, .approve-table {
+    border-top: none;
+    padding-top: 20px;
+}
+
+h1, h2, h3 {
+    text-align: center;
+    margin-top: 0;
+}
+/* Search container */
+.search-form {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 20px;
+}
+
+.search-form input {
+    padding: 10px;
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 4px 0 0 4px;
+    outline: none;
+}
+
+.search-form button {
+    padding: 10px;
+    background-color: #FF8000;
+    color: white;
+    border: none;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+}
+
+.search-form button:hover {
+    background-color: #FF8000;
+}
+
+.request h3 {
+    text-align: left;
+    padding: 10px;
+    margin-top: 0;
+}
+
+.request {
+    margin-top: 20px;
+}
+
+.approve-table h3 {
+    text-align: left;
+    padding: 10px;
+    margin-top: 0;
+}
+
+.approve-table {
+    display: none;
+    margin-top: 20px;
+}
+
+
+/*Logo na part*/
+header {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+}
+
+header img {
+    height: 80px;
+    margin-right: 20px;
+}
+
+/*design sa table*/
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 5px;
+}
+
+.tr-header {
+    background-color: #f0f0f0; 
+}
+
+.tr-td:hover {
+    background-color: #f0f0f0; 
+}
+
+table td a {
+    text-decoration: none;
+    color: black;
+}
+
+table th, table td {
+    border: none;
+    padding: 10px;
+    text-align: center;
+}
+
+.table-container {
+    overflow-x: auto;
+}
+
+/* Add these styles to your existing CSS file */
+
+.student-detail {
+    width: 60%;
+    margin: 0 auto;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+.detail-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.detail-title {
+    font-weight: bold;
+    color: #333;
+}
+
+.detail-content {
+    color: #555;
+}
+
+/* Styles for Approve and Reject buttons */
+button.approve, button.reject {
+    padding: 5px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+    margin: 0 5px;
+}
+
+button.approve {
+    background-color: #28a745;
+    color: white;
+}
+
+button.approve:hover {
+    background-color: #218838;
+}
+
+button.reject {
+    background-color: #dc3545;
+    color: white;
+}
+
+button.reject:hover {
+    background-color: #c82333;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    margin-bottom: 20px;
+}
+
+.ctu-bp-logo {
+    width: 100px;
+    height: 100px;
+}
+
+.header-text {
+    text-align: center;
+}
+.footer{
+    display: flex;
+    justify-content: center;
+}
+
+.footer img {
+    margin-top: 35px;
+    width: 650px;
+}

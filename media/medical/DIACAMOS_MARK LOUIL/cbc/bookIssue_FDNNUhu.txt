@@ -1,0 +1,37 @@
+protected void IssueBook(object sender, EventArgs e)
+{
+    con.Open();
+
+    try
+    {
+        SqlCommand comm = new SqlCommand("INSERT INTO bookIssues (bookID, bookTitle, studentID, dueDate) VALUES (@bookID, @bookTitle, @studentID, @dueDate;", con);
+
+        int bookID = int.Parse(txtID.Text);
+        string title = txtTitle.Text;
+        int studentID = int.Parse(txtStudentID.Text);
+        DateTime dueDate = DateTime.Parse(txtDue.Text);
+        
+
+        //comm.Parameters.AddWithValue("@studentID", studentID);
+        comm.Parameters.AddWithValue("@bookID", bookID);
+        comm.Parameters.AddWithValue("@bookTitle", title);
+        comm.Parameters.AddWithValue("@studentID", studentID);
+        comm.Parameters.AddWithValue("@dueDate", dueDate);
+
+        comm.ExecuteNonQuery();
+        con.Close();
+
+        ScriptManager.RegisterStartupScript(this, this.GetType(), "script", "alert('Book Issued Successfully')", true);
+
+        txtStudentID.Text = "";
+        txtID.Text = "";
+        txtTitle.Text = "";
+        txtStudentID.Text = "";
+        txtDue.Text = "";
+        imgCover.ImageUrl = "";
+    }
+    catch (Exception ex)
+    {
+        ScriptManager.RegisterStartupScript(this, this.GetType(), "script", $"alert('{ex}')", true);
+    }
+}

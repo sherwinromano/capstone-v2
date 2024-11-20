@@ -1,0 +1,62 @@
+protected void Search(object sender, EventArgs e)
+{
+    if (txtSearch.Text.IsNullOrWhiteSpace())
+    {
+        return;
+    }
+
+    con.Open();
+
+    int bookId = 0;
+    bool val = int.TryParse(txtSearch.Text, out bookId);
+
+    SqlCommand comm = new SqlCommand("SELECT * FROM books WHERE bookID = '"+bookId+"' OR title LIKE '"+"*"+"' '"+txtSearch.Text+"' '"+"*"+"' OR author LIKE '"+"*"+"' '"+txtSearch.Text+"' '"+"*"+"';", con);
+    //comm.Parameters.AddWithValue("@value1", int.Parse(txtSearch.Text.ToString()));
+    //comm.Parameters.AddWithValue("@value2", txtSearch.Text);
+    //comm.Parameters.AddWithValue("@value3", txtSearch.Text);
+
+    SqlDataAdapter adpt = new SqlDataAdapter(comm);
+    DataTable dt = new DataTable();
+    adpt.Fill(dt);
+
+    for (int i = 0; i < dt.Rows.Count; i++)
+    {
+        HtmlGenericControl div = new HtmlGenericControl("div");
+        div.Attributes["class"] = "items";
+
+        HtmlGenericControl a1 = new HtmlGenericControl("a");
+        a1.Attributes["href"] = $"BookView.aspx?bookID={dt.Rows[i][0]}";
+
+        HtmlGenericControl a2 = new HtmlGenericControl("a");
+        a2.Attributes["href"] = $"BookView.aspx?bookID={dt.Rows[i][0]}";
+        a2.Attributes["style"] = "text-decoration: none; color: black";
+
+        Image img = new Image();
+        img.Width = 163;
+        img.Height = 215;
+
+        img.ImageUrl = dt.Rows[i]["bookCover"].ToString();
+
+        Label desc = new Label();
+        desc.Width = 163;
+        desc.Height = 50;
+        desc.Attributes["class"] = "desc";
+        desc.Attributes["style"] = "text-align: center;";
+        desc.Text = dt.Rows[i]["title"].ToString();
+
+        a1.Controls.Add(img);
+        a2.Controls.Add(desc);
+
+        //main.Controls.Add(a1);
+        //main.Controls.Add(a2);
+
+        div.Controls.Add(a1);
+        div.Controls.Add(a2);
+
+        main.Controls.Add(div);
+
+        //form1.Controls.Add();
+        //HtmlGenericControl mainDiv = new HtmlGenericControl(form1.FindControl();
+    }
+    con.Close();
+}

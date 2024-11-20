@@ -1,0 +1,208 @@
+{% extends 'mainv2.html' %}
+{% load static %}
+
+{% block title %}Eligibility Form{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'styles/admin/eligibility_form.css' %}">
+    <link rel="stylesheet" media="print" href="{% static 'styles/print.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    {% if messages %}
+        {% for message in messages %}
+            <p class="message {% if message.tags %}{{ message.tags }}{% endif %}">{{ message }}</p>
+        {% endfor %}
+    {% endif %}
+    <form action="" method="POST">
+        {% csrf_token %}
+        <div class="eligibility_form" id="eligibility_form">
+            <div class="header">
+                <img class="ctu-bp-logo" src="{% static 'images/CTU_logo.png' %}" alt="CTU_logo">
+                <div class="header-text">
+                    <div class="content1">REPUBLIC OF THE PHILIPPINES</div>
+                    <div class="content2">CEBU TECHNOLOGICAL UNIVERSITY</div>
+                    <div class="content3">ARGAO CAMPUS</div>
+                    <div class="content4">Ed Kintanar Street, Lamacan, Argao, Cebu</div>
+                    <div class="content4">Website: https://www.argao.ctu.edu.ph E-mail: cdargao@ctu.edu.ph</div>
+                    <div class="content4">Phone No.:(032) 401-0737 local 1700</div>
+                </div>
+                <img class="ctu-bp-logo" src="{% static 'images/BP_logo.png' %}" alt="BP_logo">
+            </div>
+            <h1> ELIGIBILITY FORM</h1>
+            <fieldset>
+                <legend><strong>Information</strong></legend>
+                <div class="user-details">
+                    <div class="input-box">
+                        <span class="details">Name of Athlete:</span>
+                        <input type="text" value="{{ patient.student.firstname|title }} {{ patient.student.lastname|title }}" name="name" required>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Age:</span>
+                        <input type="number" placeholder="Enter your age" name="age" value="{{ patient.age }}" required>
+                    </div>
+                    <div class="input-box">
+                        {% if eligibility_form.birth_date %}
+                            <span class="details">Birth Date:</span>
+                            <input type="text" name="birth-date" value="{{ patient.birth_date }}" required>
+                        {% else %}
+                            <span class="details">Birth Date:</span>
+                            <input type="date" name="birth-date" value="{{ patient.birth_date }}" required>
+                        {% endif %}
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Weight:</span>
+                        <input type="text" placeholder="Enter your weight" name="weight" value="{{ patient.weight }}" required>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Height:</span>
+                        <input type="text" placeholder="Enter your height" name="height" value="{{ patient.height }}" required>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Bloodtype:</span>
+                        <input type="text" id="blood-type" name="blood-type" placeholder="Enter your bloodtype" value="{{ patient.bloodtype }}" required>
+                    </div>
+                    <div style="display: flex; flex-direction: row; gap: 10px; width: 100%;">
+                        <div class="input-box">
+                            <span class="details">Allergies:</span>
+                            <input type="text" placeholder="Enter your allergies" value="{{ patient.allergies }}" name="allergies" required>
+                        </div>
+                        <div class="input-box">
+                            <span class="details">Medications (if any):</span>
+                            <input type="text" placeholder="Enter your medication" name="medication" value="{{ patient.medications }}" required>
+                        </div>
+                    </div>
+                    <div style="display: flex; flex-direction: row; gap: 10px; width: 100%;">
+                        <div class="input-box">
+                            <span class="details">Address:</span>
+                            <input type="text" id="address" name="address" placeholder="Enter your address" value="{{ patient.home_address }}" required>
+                        </div>
+                        <div class="input-box">
+                            <span class="details">Contact Number:</span>
+                            <input type="number" name="contact-number" value="{{ patient.student.contact_number }}" required>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend><strong>Medical Certificate</strong></legend>
+                <div>This is to certify that: {{ student.firstname }} {{ student.lastname }} is Physically Fit to participate the following competitions; <input class="place-event" type="text" name="competition" value="{{ eligibility_form.competetions }}" style="outline: none;"> on
+                {% if eligibility_form.date_of_event %}
+                    <input style="outline: none;" class="date-event" type="text" name="date-event" value="{{ eligibility_form.date_of_event }}" required>
+                {% else %}
+                    <input style="outline: none;" class="date-event" type="date" name="date-event" value="{{ eligibility_form.date_of_event }}" required>
+                {% endif %}    
+                 at <input class="place-event" 
+                    name="place-event" type="text" value="{{ eligibility_form.venue }}" style="outline: none;" > </div>
+                <div style="display: flex; flex-direction: row; gap: 10px; width: 100%; margin-bottom: 10px;">
+                    <div class="input-box">
+                        <span class="details">Blood Pressure:</span>
+                        <input type="text" name="blood-pressure" placeholder="Enter blood pressure" value="{{ eligibility_form.blood_pressure }}" required>
+                    </div>
+                    <div class="input-box">
+                        {% if eligibility_form.date_of_examination %}
+                            <span class="details">Date of Examination:</span>
+                            <input type="text" name="date-exam" value="{{ eligibility_form.date_of_examination }}" required>
+                        {% else %}
+                            <span class="details">Date of Examination:</span>
+                            <input type="date" name="date-exam" value="{{ eligibility_form.date_of_examination }}" required>
+                        {% endif %}
+                    </div>
+                </div>
+                <div style="display: flex; flex-direction: row; gap: 10px; width: 100%;">
+                    <div class="input-box">
+                        <span class="details">Liscence Number:</span>
+                        <input type="number" name="liscence-number" placeholder="Liscence Number" value="{{ eligibility_form.liscence_number }}" required>
+                    </div>
+                    <div class="input-box">
+                        {% if eligibility_form.validity_date %}
+                            <span class="details">Validity Date:</span>
+                            <input type="text" name="validity-date" value="{{ eligibility_form.validity_date }}" required>
+                        {% else %}
+                            <span class="details">Validity Date:</span>
+                            <input type="date" name="validity-date" value="{{ eligibility_form.validity_date }}" required>
+                        {% endif %}
+                    </div>
+                </div><br><br><br>
+                <div style="display: flex; align-items: center; flex-direction: column;">
+                    <div style="border-top: 1px solid black; width: 50%;"></div>
+                    <p>Name and Signature of Physician</p>
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend><strong>Athletes Waiver And Release Agreement</strong></legend>
+                <p style="text-align: justify;">
+                    In consideration of the acceptance of my entry, myself, my heirs, executors, 
+                    administrators and assigns, do hereby release and discharge the organizers of the CTU Triangular 
+                    Meet 2024, assisting groups of private or government agencies, 
+                    the Commission of Higher Education, and other concerned institutions, respective schools and 
+                    officials, and other parties, individual or group, from all claims and damages, 
+                    demands or actions whatsoever in any manner arising from or growing out of my participation in, 
+                    or while traveling to and from the above-mentioned sports competition. 
+                    I further attest and verify that I have obtained the necessary clearance from my medical doctor 
+                    and guaranteed Physically Fit to participate in the said sports competitions.
+                </p>
+                <br><br>
+                <div style="display: flex; justify-content: space-between;">
+                    <div style="display: flex; align-items: center; flex-direction: column;">
+                        <div style="border-top: 1px solid black; width: 100%;"></div>
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Name and Signature of Athlete&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+                    </div>
+                    <div style="display: flex; align-items: center; flex-direction: column;">
+                        <div style="border-top: 1px solid black; width: 100%;"></div>
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Contact Number&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend><strong>Parent/Guardian Permit/Consent</strong></legend>
+                <div>This is to certify that I have full knowledge of and permission for my son/daughter/foster child 
+                    to join the following competetions;<input class="place-event" type="text" name="competitionv2" value="{{ eligibility_form.competetions }}" style="outline: none;" required>  on 
+                    {% if eligibility_form.date_of_event %}
+                        <input style="width: 100px;" class="date-event" type="text" value="{{ eligibility_form.date_of_event }}" name="date-events" required> 
+                   {% else %}
+                        <input style="width: 100px;" class="date-event" type="date" value="{{ eligibility_form.date_of_event }}" name="date-events" required>
+                    {% endif %} at 
+                    <input class="place-event" type="text" value="{{ eligibility_form.venue }}" required>
+                </div>
+                <p>I concur and agree on the rules and regulations being implemented by the concerned organizers.</p>
+                <br><br>
+                <div style="display: flex; justify-content: space-between;">
+                    <div style="display: flex; align-items: center; flex-direction: column;">
+                        <div style="border-top: 1px solid black; width: 100%;"></div>
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Name and Signature of Parent/Guardian&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+                    </div>
+                    <div style="display: flex; align-items: center; flex-direction: column;">
+                        <div style="border-top: 1px solid black; width: 100%;"></div>
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Contact Number&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+                    </div>
+                </div>
+            </fieldset>
+            <div class="footer"><img src="{% static 'images/footer.png' %}" alt=""></div>
+        </div>
+        <div style="display: flex;">
+            <a class="schedule-button" href="{% url 'medical:viewrequest' %}">Back</a>
+            <input type="submit" value="Save" id="print-btn">
+            <input type="button" value="Print" id="print-btn" onclick="printSpecificContent()">
+        </div>
+    </form>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    function printSpecificContent() {
+        const printContent = document.getElementById('eligibility_form').innerHTML;
+        const originalContent = document.body.innerHTML;
+
+        document.body.innerHTML = printContent;
+        window.print();
+        document.body.innerHTML = originalContent;
+        location.reload(true);
+    }
+
+</script>
+{% endblock %}

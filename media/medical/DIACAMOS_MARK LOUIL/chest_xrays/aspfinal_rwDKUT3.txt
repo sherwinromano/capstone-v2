@@ -1,0 +1,140 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.Data.SqlClient;
+using System.IO;
+using System.Globalization;
+
+namespace Library_Management_System
+{
+    public partial class AddStudent : System.Web.UI.Page
+    {
+        SqlConnection con = new SqlConnection("Data Source=.\\sqlexpress;Initial Catalog=systemdb;Integrated Security=True;");
+
+        protected void Page_Load(object sender, EventArgs e)
+        {
+
+        }
+        protected void PreviewImage(object sender, EventArgs e)
+        {
+            if (FileUpload.HasFile)
+            {
+                try
+                {
+                    string fileName = Path.GetFileName(FileUpload.FileName);
+                    string filePath = @"C:\Users\dmark\Dev\c#projects\Library Management System\Library Management System\UploadedImages\" + fileName;
+
+                    FileUpload.SaveAs(filePath);
+
+                    imgCover.ImageUrl = "UploadedImages/" + fileName;
+
+                }
+                catch (Exception ex)
+                {
+
+                }
+            }
+
+        }
+        protected void SaveRecord(object sender, EventArgs e)
+        {
+            con.Open();
+
+            try
+            {
+                SqlCommand comm = new SqlCommand("INSERT INTO students VALUES (@studentID, @lrn, @lastname, @firstname, @middlename, @degree, @sex, @coverProfile)", con);
+
+                int studentID = int.Parse(txtStudentID.Text);
+                string lrn = txtLrn.Text;
+                string lastname = txtLastname.Text;
+                string firstname = txtFirstname.Text;
+                // DateTime datePublished = DateTime.Parse(txtDate.Text);
+                string middlename = txtMiddlename.Text;
+                string degree = txtDegree.Text;
+                string coverProfile = imgCover.ImageUrl.ToString();
+
+                comm.Parameters.AddWithValue("@studentID", studentID);
+                comm.Parameters.AddWithValue("@lrn", lrn);
+                comm.Parameters.AddWithValue("@lastname", lastname);
+                comm.Parameters.AddWithValue("@firstname", firstname);
+                comm.Parameters.AddWithValue("@middlename", middlename);
+                comm.Parameters.AddWithValue("@degree", degree);
+                comm.Parameters.AddWithValue("@sex", coverProfile);
+                comm.Parameters.AddWithValue("@coverProfile", coverProfile);
+
+                comm.ExecuteNonQuery();
+                con.Close();
+
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "script", "alert('Added Successfully')", true);
+
+                txtStudentID.Text = "";
+                txtLrn.Text = "";
+                txtLastname.Text = "";
+                txtFirstname.Text = "";
+                txtMiddlename.Text = "";
+                txtDegree.Text = "";
+                txtSex.Text = "";
+                imgCover.ImageUrl = "";
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
+    }
+}
+
+# Issue 
+
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Issue.aspx.cs" Inherits="Library_Management_System.Issue" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Issue Book</title>
+    <link rel="stylesheet" type="text/css" href="issue.css" />
+</head>
+<body>
+    <div class="cont">
+    <div class="title-cont">
+        <div class="back-btn"><a href="BookIssue.aspx"><img src="images/left-arrow.png" /></a></div>
+        <h1 class="title">Issue Book</h1>
+    </div>
+    <form runat="server">
+        <div class="item-desc">
+            <div class="item">
+                <asp:Label ID="Label1" CssClass="desc" runat="server" Text="Issue ID:" Width="135px"></asp:Label>
+                <asp:TextBox ID="txtID" runat="server" Height="25px" Width="250" TextMode="Number" Enabled="True"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="*Required" ControlToValidate="txtID" Font-Size="8.8pt" ForeColor="#FF9900"></asp:RequiredFieldValidator>
+            </div>
+            <div class="item">
+                <asp:Label ID="Label2" CssClass="desc" runat="server" Text="Book ID:" Width="135px"></asp:Label>
+                <asp:TextBox ID="txtBookID" runat="server" Height="25px" Width="250" TextMode="Number"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="*Required" ControlToValidate="txtBookID" Font-Size="8.8pt" ForeColor="#FF9900"></asp:RequiredFieldValidator>                    
+            </div>
+            <div class="item">
+                <asp:Label ID="Label3" CssClass="desc" runat="server" Text="Student ID:" Width="135px"></asp:Label>
+                <asp:TextBox ID="txtStudentID" runat="server" Height="25px" Width="250" TextMode="Number"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="*Required" ControlToValidate="txtStudentID" Font-Size="8.8pt" ForeColor="#FF9900"></asp:RequiredFieldValidator>                    
+            </div>
+            <div class="item">
+                <asp:Label ID="Label4" CssClass="desc" runat="server" Text="Due Date:" Width="135px"></asp:Label>
+                <asp:TextBox ID="txtDueDate" runat="server" Height="25px" Width="250"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="*Required" ControlToValidate="txtDueDate" Font-Size="8.8pt" ForeColor="#FF9900"></asp:RequiredFieldValidator>
+            </div>
+            <div class="item">
+                <asp:Label ID="Label5" CssClass="desc" runat="server" Text="Date Returned:" Width="135px"></asp:Label>
+                <asp:TextBox ID="txtDateReturned" runat="server" type="date" Width="250px" Height="25px"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="*Required" ControlToValidate="txtDateReturned" Font-Size="8.8pt" ForeColor="#FF9900"></asp:RequiredFieldValidator>                    
+            </div>
+            <asp:Button CssClass="btn-save" ID="Button2" runat="server" Text="Save" Height="25px" Width="50px"/>
+            <asp:Button ID="Button3" runat="server" Text="Edit" Height="25px" Width="50px"/>
+        </div>
+    </form>
+</div>
+</body>
+</html>

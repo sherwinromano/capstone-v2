@@ -1,0 +1,102 @@
+{% extends 'mainv2.html' %}
+{% load static %}
+
+{% block title %}Prescription Issuance{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'styles/admin/prescription.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    {% if messages %}
+        {% for message in messages %}
+            <p class="message {% if message.tags %}{{ message.tags }}{% endif %}">{{ message }}</p>
+        {% endfor %}
+    {% endif %}
+    <h2>Prescription Issuance</h2>
+    <form method="POST" class="prescription-form">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="student_id">Student ID:</label>
+            <div style="display: flex; gap: 5px;">
+                <input type="text" id="student_id" name="student_id" required>
+                <button type="button" id="btn-get">Get</button>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+            <label for="problem">Problem:</label>
+            <input type="text" id="problem" name="problem" required>
+        </div>
+        <div class="form-group">
+            <label for="treatment">Treatment:</label>
+            <textarea id="treatment" name="treatment" rows="4" required></textarea>
+        </div>
+        <div class="form-group">
+            <label for="date">Date:</label>
+            <input type="date" id="date" name="date_prescribed" required>
+        </div>
+        <div style="display: flex;">
+            <button type="submit" class="action-button" name="action" value="issue">Issue Prescription</button>
+            <a class="schedule-button" href="{% url 'medical:prescription_records' %}">View Records</a>
+        </div>
+    </form>
+</div>
+
+<script>
+
+    const csrf_token = "{{ csrf_token }}";
+    var btn = document.getElementById("btn-get")
+
+    btn.addEventListener("click", function() {
+        var id = document.getElementById("student_id").value;
+        console.log(id);
+        const data = {
+            student_id: id
+        }
+
+        fetch("/medical/getstudentname/", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "X-CSRFToken": csrf_token
+          },
+          body: JSON.stringify(data)
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.student_name){
+                document.getElementById("name").value = data.student_name;
+            } else if(data.error) {
+                alert(data.error);
+            }else{
+                console.error("Unexpected response:", data);   
+            }
+        })
+        .catch(error => {
+            console.error("Error fetching student name:", error);
+        })
+    });
+
+/* document.addEventListener("DOMContentLoaded", function() {
+    const studentIdInput = document.getElementById("student_id");
+    const nameInput = document.getElementById("name");
+
+    studentIdInput.addEventListener("change", function() {
+        const studentId = this.value;
+        fetch(`/api/get_student_name/?student_id=${studentId}`)
+            .then(response => response.json())
+            .then(data => {
+                nameInput.value = data.name;
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+    });
+}); */
+</script>
+{% endblock %}

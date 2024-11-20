@@ -1,0 +1,88 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.Data.SqlClient;
+using System.IO;
+using System.Globalization;
+
+namespace Library_Management_System
+{
+    public partial class AddStudent : System.Web.UI.Page
+    {
+        SqlConnection con = new SqlConnection("Data Source=.\\sqlexpress;Initial Catalog=systemdb;Integrated Security=True;");
+
+        protected void Page_Load(object sender, EventArgs e)
+        {
+
+        }
+        protected void PreviewImage(object sender, EventArgs e)
+        {
+            if (FileUpload.HasFile)
+            {
+                try
+                {
+                    string fileName = Path.GetFileName(FileUpload.FileName);
+                    string filePath = @"C:\Users\dmark\Dev\c#projects\Library Management System\Library Management System\UploadedImages\" + fileName;
+
+                    FileUpload.SaveAs(filePath);
+
+                    imgCover.ImageUrl = "UploadedImages/" + fileName;
+
+                }
+                catch (Exception ex)
+                {
+
+                }
+            }
+
+        }
+        protected void SaveRecord(object sender, EventArgs e)
+        {
+            con.Open();
+
+            try
+            {
+                SqlCommand comm = new SqlCommand("INSERT INTO students VALUES (@studentID, @lrn, @lastname, @firstname, @middlename, @degree, @sex, @coverProfile)", con);
+
+                int studentID = int.Parse(txtStudentID.Text);
+                string lrn = txtLrn.Text;
+                string lastname = txtLastname.Text;
+                string firstname = txtFirstname.Text;
+                // DateTime datePublished = DateTime.Parse(txtDate.Text);
+                string middlename = txtMiddlename.Text;
+                string degree = txtDegree.Text;
+                string coverProfile = imgCover.ImageUrl.ToString();
+
+                comm.Parameters.AddWithValue("@studentID", studentID);
+                comm.Parameters.AddWithValue("@lrn", lrn);
+                comm.Parameters.AddWithValue("@lastname", lastname);
+                comm.Parameters.AddWithValue("@firstname", firstname);
+                comm.Parameters.AddWithValue("@middlename", middlename);
+                comm.Parameters.AddWithValue("@degree", degree);
+                comm.Parameters.AddWithValue("@sex", coverProfile);
+                comm.Parameters.AddWithValue("@coverProfile", coverProfile);
+
+                comm.ExecuteNonQuery();
+                con.Close();
+
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "script", "alert('Added Successfully')", true);
+
+                txtStudentID.Text = "";
+                txtLrn.Text = "";
+                txtLastname.Text = "";
+                txtFirstname.Text = "";
+                txtMiddlename.Text = "";
+                txtDegree.Text = "";
+                txtSex.Text = "";
+                imgCover.ImageUrl = "";
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
+    }
+}

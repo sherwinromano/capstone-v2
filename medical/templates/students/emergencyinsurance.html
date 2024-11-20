@@ -1,0 +1,28 @@
+{% extends 'mainv2.html' %}
+{% load static %}
+
+{% block title %}Emergency Health Assistance Record{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'styles/admin/prescription.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    {% if messages %}
+        {% for message in messages %}
+            <p class="message {% if message.tags %}{{ message.tags }}{% endif %}">{{ message }}</p>
+        {% endfor %}
+    {% endif %}
+    <h2>Emergency Health Assistance</h2><br><br>
+    <h3>Check If You are Eligible for an Insurance</h3><br>
+    <form method="POST" class="search-form">
+        {% csrf_token %}
+        <input type="text" name="student_id" placeholder="Enter Student ID">
+        <button type="submit">Check</button>
+    </form>
+    {% if eligible %}
+        <button class="btn-claim" type="button" onclick="alert('We are now processing your claim')">Claim Insurance</button>
+    {% endif %}
+</div>
+{% endblock %}

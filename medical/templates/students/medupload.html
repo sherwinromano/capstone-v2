@@ -1,0 +1,110 @@
+{% extends 'mainv2.html' %}
+{% load static %}
+
+{% block title %}Upload Medical Requirements{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'styles/students/uploadrequirements.css' %}">
+<style>
+    .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .form-group {
+        margin-bottom: 15px;
+    }
+    .form-group label {
+        display: block;
+        margin-bottom: 5px;
+    }
+    .form-group input[type="text"],
+    .form-group input[type="file"] {
+        width: 100%;
+        padding: 8px;
+        box-sizing: border-box;
+    }
+    .action-button {
+        background-color: #007bff;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    .action-button:hover {
+        background-color: #0056b3;
+    }
+    .uploaded-documents {
+        margin-top: 20px;
+        margin-bottom: 20px; /* Added space after uploaded documents */
+    }
+    .uploaded-documents p {
+        margin: 5px 0;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    {% if messages %}
+        {% for message in messages %}
+            <p class="message {% if message.tags %}{{ message.tags }}{% endif %}">{{ message }}</p>
+        {% endfor %}
+    {% endif %}
+    <h2>Upload Medical Requirements</h2>
+    <form method="GET" class="upload-form">
+        <div class="form-group">
+            <label for="student_id">Student ID:</label>
+            <input type="text" id="student_id" name="student_id" value="{{ patient.student.student_id }}" required>
+        </div>
+        <button type="submit" class="action-button">Check</button>
+    </form>
+
+    {% if patient %}
+    <h3>Patient: {{ patient }}</h3>
+        {% if md %}
+        <div class="uploaded-documents">
+            <h3>Uploaded Documents</h3>
+            <p>Chest X-ray: <a href="{{ md.chest_xray.url }}" target="_blank">{{ md.chest_xray.name }}</a></p>
+            <p>CBC: <a href="{{ md.cbc.url }}" target="_blank">{{ md.cbc.name }}</a></p>
+            <p>Drug Test: <a href="{{ md.drug_test.url }}" target="_blank">{{ md.drug_test.name }}</a></p>
+            <p>Stool Examination: <a href="{{ md.stool_examination.url }}" target="_blank">{{ md.stool_examination.name }}</a></p>
+            {% if md.pwd_card %}
+                <p>PWD Card: <a href="{{ md.pwd_card.url }}" target="_blank">{{ md.pwd_card.name }}</a></p>
+            {% endif %}
+        </div>
+        {% endif %}
+
+        <h3>{{ md|default:"Upload New" }}</h3>
+        <form method="POST" enctype="multipart/form-data" class="upload-form">
+            {% csrf_token %}
+            <input type="hidden" name="student_id" value="{{ patient.student.student_id }}">
+            <div class="form-group">
+                <label for="x-ray">Chest X-Ray:</label>
+                <input type="file" id="x-ray" name="x-ray" {% if not md %}required{% endif %}>
+            </div>
+            <div class="form-group">
+                <label for="cbc">Complete Blood Count:</label>
+                <input type="file" id="cbc" name="cbc" {% if not md %}required{% endif %}>
+            </div>
+            <div class="form-group">
+                <label for="drug-test">Drug Test:</label>
+                <input type="file" id="drug-test" name="drug-test" {% if not md %}required{% endif %}>
+            </div>
+            <div class="form-group">
+                <label for="stool-exam">Stool Examination:</label>
+                <input type="file" id="stool-exam" name="stool-exam">
+            </div>
+            <div class="form-group">
+                <label for="pwd-card">PWD ID Card (If you are a PWD):</label>
+                <input type="file" id="pwd-card" name="pwd-card">
+            </div>
+            <button type="submit" class="action-button">{{ md|default:"Upload" }} Files</button>
+        </form>
+    {% endif %}
+</div>
+{% endblock %}

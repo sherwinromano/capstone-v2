@@ -1,0 +1,133 @@
+""" def submit_physical_examination(request):
+    if request.user.is_superuser or request.user.is_staff: # datetime.strptime(str_birth_date, "%Y-%m-%d")
+        if request.method == "POST":
+            # data = json.loads(request.body)
+            student_id = request.POST.get("student_id")
+            print(student_id)
+            patient = Patient.objects.get(student__student_id = student_id)
+
+            # Get patient basic information
+            str_date_exam = request.POST.get("date")
+            str_birthdate = request.POST.get("birth_date")
+            home_address = request.POST.get("home_address")
+            age = request.POST.get("age")
+            nationality = request.POST.get("nationality")
+            civil_status = request.POST.get("civil_status")
+            number_of_children = request.POST.get("number_of_children")
+            academic_year = civil_status = request.POST.get("academic_year")
+            section = request.POST.get("academic_year")
+            parent_guardian = request.POST.get("parent_guardian")
+            parent_contact = request.POST.get("parent_guardian_contact_number")
+            
+            # Insert data to patient models
+            #patient.birth_date = datetime.strptime(str_birthdate, "%Y-%m-%d")
+            patient.address = home_address
+            patient.age = age
+            patient.nationality = nationality
+            patient.civil_status = civil_status
+            patient.number_of_children = number_of_children
+            patient.academic_year = academic_year
+            patient.section = section
+            #patient.date_of_physical_examination = datetime.strptime(str_date_exam, "%Y-%m-%d")
+            patient.parent_guardian = parent_guardian
+            patient.parent_guardian_contact_number = parent_contact
+            patient.save()
+
+            # Get patient medical history
+            tuberculosis = request.POST.get("tuberculosis") == "tuberculosis"
+            peptic_ulcer = request.POST.get("peptic-ulcer") == "peptic-ulcer"
+            venereal = request.POST.get("venereal-disease") == "venereal-disease"
+            hypertension = request.POST.get("hypertension") == "hypertension"
+            kidney_disease = request.POST.get("kidney-disease") == "kidney-disease"
+            allergic_reaction = request.POST.get("allergic-reaction") == "allergic-reaction"
+            heart_disease = request.POST.get("heart-diseases") == "heart-diseases"
+            asthma = request.POST.get("asthma") == "asthma"
+            nervous_breakdown = request.POST.get("nervous-breakdown") == "nervous-breakdown"
+            hernia = request.POST.get("hernia") == "hernia"
+            insomnia = request.POST.get("insomnia") == "insomnia"
+            jaundice = request.POST.get("jaundice") == "jaundice"
+            epilepsy = request.POST.get("epilepsy") == "epilepsy"
+            malaria = request.POST.get("malaria") == "malaria"
+            others = request.POST.get("others")
+            no_history = request.POST.get("none") == "none"
+            print("None - ", no_history)
+            hospital_admission = request.POST.get("operations")
+            medications = request.POST.get("medications")
+
+            # Insert data into the medical history of the patients model
+            MedicalHistory.objects.create(
+                student = patient,
+                tuberculosis = tuberculosis,
+                hypertension = hypertension,
+                heart_disease = heart_disease,
+                hernia = hernia,
+                epilepsy = epilepsy,
+                peptic_ulcer = peptic_ulcer,
+                kidney_disease = kidney_disease,
+                asthma = asthma,
+                insomnia = insomnia,
+                malaria = malaria,
+                venereal_disease = venereal,
+                allergic_reaction = allergic_reaction,
+                nervous_breakdown = nervous_breakdown,
+                jaundice = jaundice,
+                others = others,
+                no_history = no_history,
+                hospital_admission = hospital_admission,
+                medications = medications
+            )
+
+            # Get patient's family medical history
+            hypertension_family = request.POST.get("hypertension-family") == "hypertension"
+            print("Hyper - ", hypertension_family)
+            tuberculosis_family = request.POST.get("tuberculosis-family") == "tuberculosis"
+            asthma_family = request.POST.get("asthma-family") == "asthma"
+            diabetes = request.POST.get("diabetes") == "diabetes"
+            cancer = request.POST.get("cancer") == "cancer"
+            bleeding_disorder = request.POST.get("bleeding-disorder") == "bleeding-disorder"
+            epilepsy_family = request.POST.get("epilepsy-family") == "epilepsy"
+            mental_disorders = request.POST.get("mental-disorders") == "mental-disorders"
+            family_others = request.POST.get("family-others") == "family-others"
+            family_no_history = request.POST.get("family-none") == "family-none"
+
+            # Insert to patient's family's medical history
+            FamilyMedicalHistory.objects.create(
+                student = patient,
+                hypertension = hypertension_family,
+                asthma = asthma_family,
+                cancer = cancer,
+                tuberculosis = tuberculosis_family,
+                diabetes = diabetes,
+                bleeding_disorder = bleeding_disorder,
+                epilepsy = epilepsy_family,
+                mental_disorder = mental_disorders,
+                no_history = family_no_history,
+                other_medical_history = family_others
+            )
+
+            # Get OB-GYNE history
+            menarche = request.POST.get("menarche")
+            lmp = request.POST.get("lmp")
+            gravida = request.POST.get("gravida")
+            para = request.POST.get("para")
+            menopause = request.POST.get("menopause")
+            pap_smear = request.POST.get("pap_swear")
+            additional_history = request.POST.get("additional-history")
+
+            # Insert to OB-GYNE models
+            ObgyneHistory.objects.create(
+                student = patient,
+                menarche = menarche,
+                lmp = lmp,
+                pap_smear = pap_smear,
+                gravida = gravida,
+                para = para,
+                menopause = menopause,
+                additional_history = additional_history
+            )
+
+            messages.success(request, "Physical Examination Done!")
+            record_transaction(patient, "Physical Examination")
+            return render(request, "admin/physicalexamcomp.html", {"patient": patient})
+    else:
+        return HttpResponseForbidden("You don't have permission to access this page.") """

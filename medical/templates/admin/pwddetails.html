@@ -1,0 +1,64 @@
+{% extends 'mainv2.html' %}
+{% load static %}
+
+{% block title %}Student Detail{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'styles/admin/pwd_details.css' %}">
+    <style>
+        .student-id img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto 20px; /* Add some bottom margin */
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    {% if messages %}
+    <div class="message-container">
+        {% for message in messages %}
+        <p class="message {% if message.tags %}{{ message.tags }}{% endif %}">{{ message }}</p>
+        {% endfor %}
+    </div>
+    {% endif %}
+    <h2>Student Detail</h2><br><br>
+    {% if md.pwd_card.url %}
+        <div class="student-id">
+            <img class="pwd-card" src="{{ md.pwd_card.url }}" alt="PWD ID Card">
+        </div>
+    {% else %}
+        <div class="student-id">
+            <img class="pwd-card" src="#" alt="PWD ID Card">
+        </div>
+    {% endif %}
+    <div class="student-detail">
+        <div class="detail-row">
+            <span class="detail-title">Lastname:</span>
+            <span class="detail-content">{{ pwd.patient.student.lastname|title }}</span>
+        </div>
+        <div class="detail-row">
+            <span class="detail-title">Firstname:</span>
+            <span class="detail-content">{{ pwd.patient.student.firstname|title }}</span>
+        </div>
+        <div class="detail-row">
+            <span class="detail-title">Age:</span>
+            <span class="detail-content">{{ pwd.patient.age }}</span>
+        </div>
+        <div class="detail-row">
+            <span class="detail-title">Sex:</span>
+            <span class="detail-content">{{ pwd.patient.student.sex }}</span>
+        </div>
+        <div class="detail-row">
+            <span class="detail-title">Type of Disability:</span>
+            <span class="detail-content">{{ pwd.riskassessment.disability }}</span>
+        </div>
+    </div>
+
+    <div style="display: flex;">
+        <a class="schedule-button" href="{% url 'medical:pwdlist' %}">Back</a>
+    </div>
+</div>
+{% endblock %}

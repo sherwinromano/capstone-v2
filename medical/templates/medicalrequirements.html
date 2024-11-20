@@ -1,0 +1,106 @@
+{% extends 'mainv2.html' %}
+{% load static %}
+
+{% block title %}Medical Requirements Tracking{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'styles/medicalrequirements.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    {% if messages %}
+    <div class="message-container">
+        {% for message in messages %}
+        <p class="message {% if message.tags %}{{ message.tags }}{% endif %}">{{ message }}</p>
+        {% endfor %}
+    </div>
+    {% endif %}
+    <h2>Medical Requirements Tracker</h2><br><br>
+    {% if user.is_superuser or user.is_staff %}
+        <form method="POST" class="search-form">
+            {% csrf_token %}
+            <input type="number" name="student_id" placeholder="Search by Student ID">
+            <button type="submit">Search</button>
+        </form>
+    {% endif %}
+    <div class="requirements">
+        <h3>List of Requirements</h3>
+        <table>
+            <thead>
+                <tr class="tr-header">
+                    <th>Requirement</th>
+                    <th>Status</th>
+                    <th>File</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    {% if med_requirements.chest_xray or med_requirements.cbc or med_requirements.drug_test or med_requirements.stool_examination %}
+                        <td>Chest X-Ray</td>
+                        {% if med_requirements.chest_xray.url %}
+                            <td>Submitted</td>
+                            <td><a href="{{ med_requirements.chest_xray.url }}">Chest X-Ray</a></td>
+                        {% else %}
+                            <td>Not Submitted</td>
+                        {% endif %}
+                    {% endif %}
+                </tr>
+                <tr>
+                    {% if med_requirements.chest_xray or med_requirements.cbc or med_requirements.drug_test or med_requirements.stool_examination %}
+                        <td>Complete Blood Count</td>
+                        {% if med_requirements.cbc.url %}
+                            <td>Submitted</td>
+                            <td><a href="{{ med_requirements.cbc.url }}">Complete Blood Count</a></td>
+                        {% else %}
+                            <td>Not Submitted</td>
+                        {% endif %}
+                    {% endif %}
+                </tr>
+                <tr>
+                    {% if med_requirements.chest_xray or med_requirements.cbc or med_requirements.drug_test or med_requirements.stool_examination %}
+                        <td>Drug Test</td>
+                        {% if med_requirements.drug_test.url %}
+                            <td>Submitted</td>
+                            <td><a href="{{ med_requirements.drug_test.url }}">Drug Test</a></td>
+                        {% else %}
+                            <td>Not Submitted</td>
+                        {% endif %}
+                    {% endif %}
+                </tr>
+                <tr>
+                    {% if med_requirements.chest_xray or med_requirements.cbc or med_requirements.drug_test or med_requirements.stool_examination %}
+                        <td>Stool Examination</td>
+                        {% if med_requirements.stool_examination.url %}
+                            <td>Submitted</td>
+                            <td><a href="{{ med_requirements.stool_examination.url }}">Stool Examination</a></td>
+                        {% else %}
+                            <td>Not Submitted</td>
+                        {% endif %}
+                    {% endif %}
+                </tr>
+                {% if med_requirements.pwd_card %}
+                    <tr>
+                        <td>PWD Card</td>
+                        <td>Submitted</td>
+                        <td><a href="{{ med_requirements.pwd_card.url }}">PWD Card</a></td>
+                    </tr>
+                {% endif %}
+                <!-- {% for requirement in medical_requirements %}
+                    <tr class="tr-td">
+                        <td></td>
+                        <td></td>
+                    </tr>
+                {% empty %}
+                    <tr class="tr-td">
+                        <td colspan="2">No medical requirements found</td>
+                    </tr>
+                {% endfor %} -->
+            </tbody>
+        </table>
+    </div>
+    {% if not user.is_superuser and not user.is_staff %}
+        <div class="btn-cont"><a class="upload-button" href="{% url 'medical:upload_requirements' %}">Upload Requirement</a></div>
+    {% endif %}
+</div>
+{% endblock %}

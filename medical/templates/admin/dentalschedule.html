@@ -1,0 +1,71 @@
+{% extends 'mainv2.html' %}
+{% load static %}
+
+{% block title %}Dental Request{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'styles/admin/dentalappoint.css' %}">
+    <link rel="stylesheet" media="print" href="{% static 'styles/print.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    {% if messages %}
+        {% for message in messages %}
+            <p class="message {% if message.tags %}{{ message.tags }}{% endif %}">{{ message }}</p>
+        {% endfor %}
+    {% endif %}
+    <h2>Appointment Schedule</h2>
+    <br><br>
+    <div class="scheduled-appointments">
+        <h3>Scheduled Appointments</h3>
+        <table>
+            <thead>
+                <tr class="tr-header">
+                    <th>Student ID</th>
+                    <th>Lastname</th>
+                    <th>Firstname</th>
+                    <th>Service Type</th>
+                    <th>Appointment Date</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for appointment in schedules %}
+                    {% if appointment.date_appointed %}
+                    <tr class="tr-td">
+                        <form method="POST" action="">
+                            {% csrf_token %}
+                            <input type="hidden" name="student_id" value="{{ appointment.patient.student.student_id }}">
+                            <input type="hidden" name="service_type" value="{{ appointment.service_type }}">
+                            <td>{{ appointment.patient.student.student_id }}</td>
+                            <td>{{ appointment.patient.student.lastname|title }}</td>
+                            <td>{{ appointment.patient.student.firstname|title }}</td>
+                            <td>{{ appointment.service_type }}</td>
+                            <td>{{ appointment.date_appointed }}</td>
+                            <td>
+                                <button type="submit" class="approve">Mark As Done</button>
+                            </td>
+                        </form>
+                    </tr>
+                    {% endif %}
+                {% empty %}
+                    <tr class="tr-td">
+                        <td colspan="6">No scheduled appointments</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div class="sc-btn">
+        <a class="schedule-button " href="{% url 'medical:dentalrequest' %}">Request</a>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block extra_js %}
+<script>
+</script>
+{% endblock %}
