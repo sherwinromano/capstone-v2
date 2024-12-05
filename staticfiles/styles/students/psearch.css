@@ -1,0 +1,94 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #f8f9fa;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    width: 100%;
+    margin: 40px auto;
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.message {
+    margin-top: -20px;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.message.info {
+    background-color: #cce5ff;
+    color: #004085;
+    border: 1px solid #b8daff;
+}
+
+.message.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.message.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+h1, h2, h3 {
+    text-align: center;
+    margin-top: 0;
+}
+
+h2 {
+    font-size: 2em;
+    color: #343a40;
+}
+
+h3 {
+    font-size: 1.5em;
+    color: #495057;
+    margin-bottom: 20px;
+}
+
+.request-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+.request-table th {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: left;
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+.request-table td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+.request-table input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+}
+.request-table select {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+}
+.request-table button {
+    padding: 8px 16px;
+    background-color: #FF8000;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+}
+.request-table button:hover {
+    background-color: #FF8000;
+}

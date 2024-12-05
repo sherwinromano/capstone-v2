@@ -1,0 +1,26 @@
+/* Hide navigation bar and other elements that shouldn't be printed */
+#submit, #print-btn {
+    display: none;
+}
+
+.schedule-button {
+    display: none;
+}
+
+/* Ensure the form content is styled appropriately for print */
+.container {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.table-container table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table-container th, .table-container td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: left;
+}

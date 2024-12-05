@@ -1,0 +1,317 @@
+body {
+    font-family: Arial, sans-serif;
+    background: white;
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    margin-bottom: 20px;
+}
+
+.ctu-bp-logo {
+    width: 100px;
+    height: 100px;
+}
+
+.header-text {
+    text-align: center;
+}
+
+.container {
+    max-width: 800px;
+    width: 100%;
+    margin: 5px auto;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
+    justify-content: center;
+}
+
+.message {
+    margin: 0;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.message.info {
+    background-color: #cce5ff;
+    color: #004085;
+    border: 1px solid #b8daff;
+}
+
+.message.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.message.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+h1, h2, h3 {
+    text-align: center;
+    margin-top: 0;
+}
+
+/* .request ul {
+    list-style-type: none; /* Remove default list styles *s/
+    padding: 0;
+} */
+
+.user-details {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.input-box {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 200px;
+}
+
+.input-box .details {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.input-box input[type="text"],
+.input-box input[type="number"],
+.input-box input[type="date"],
+.input-box input[type="file"],
+.input-box select,
+.input-box textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.datetime-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.datetime-group .datetime-field {
+    flex: 1;
+    min-width: 200px;
+}
+
+fieldset {
+    margin-top: 30px;
+    padding: 10px;
+    border: 1px solid #4cbaff;
+    border-radius: 5px;
+}
+
+#pwd-details {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+#pwd-details h4 {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+#pwd-details .input-box {
+    margin-bottom: 10px;
+}
+
+#pwd-details .input-box .details {
+    font-weight: bold;
+}
+
+#pwd-details input[type="text"] {
+    width: calc(100% - 20px);
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#pwd-details input[type="file"] {
+    width: calc(100% - 20px);
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#pwd-details input[type="file"]::-webkit-file-upload-button {
+    background-color: #4682B4;
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#pwd-details input[type="file"]::-webkit-file-upload-button:hover {
+    background-color: #365f8b;
+}
+
+#pwd-details input[type="file"]:hover {
+    border-color: #4682B4;
+}
+
+#pwd-details input[type="file"]:focus {
+    outline-color: #4682B4;
+}
+
+.verify {
+    font-style: italic;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 20px;
+    margin-top: 20px;
+}
+
+.verify li {
+    list-style: disc;
+}
+
+/*Logo na part*/
+header {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+}
+
+header img {
+    height: 80px;
+    margin-right: 20px;
+}
+
+/*design sa table*/
+
+table input[type="text"] {
+    width: auto; 
+    margin: 0;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    border: none;
+}
+
+table input[type="text"] {
+    outline: none;
+}
+
+/* Style for the vaccination type select tag */
+.vacc-type select[name="vaccination_type"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 16px; 
+}
+
+.vacc-type select[name="vaccination_type"]:focus {
+    outline: none;
+    border-color: #4682B4;
+    box-shadow: 0 0 0 2px rgba(70, 130, 180, 0.2);
+}
+
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table th, table td {
+    border: 1px solid #000000;
+    padding: 10px;
+    text-align: left;
+}
+
+.table-container {
+    overflow-x: auto;
+}
+
+table th {
+    background-color: #fd992e;
+}
+
+input[type="submit"],
+input[type="button"] {
+    background-color: #4682B4;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    display: block;
+    margin: 20px auto;
+}
+
+.certification {
+    display: flex;
+    flex: 1;
+    width: 100%;
+}
+
+.item {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    padding: 5px;
+}
+
+.item p {
+    font-style: italic;
+}
+
+.item2 {
+    display: flex;
+    padding-top: 5px;
+    margin-bottom: -10px;
+    justify-content: space-evenly;
+    border-top: 1px solid black;
+}
+
+.footer{
+    display: flex;
+    justify-content: center;
+}
+
+.footer img {
+    margin-top: 35px;
+    width: 650px;
+}
+
+.schedule-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: #FF8000;
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    margin: 20px auto;
+}
+
+.schedule-button:hover {
+    background-color: #FF8000;
+}

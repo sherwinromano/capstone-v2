@@ -3,8 +3,12 @@ from django.conf.urls.static import static
 from django.urls import path, include
 from . import views
 
+app_name = 'main'
+
 urlpatterns = [
-    path('main/', views.main, name='main'),
+    path('', views.login_view, name='login'),
+    path('register/', views.register, name='register'),
+    path('main/', views.main_view, name='main'),
     path('medical/', include('medical.urls', namespace='medical')),
 ]
 

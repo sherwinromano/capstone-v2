@@ -1,0 +1,294 @@
+body {
+    font-family: Arial, sans-serif;
+    background: white;
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    margin-bottom: 20px;
+}
+
+.ctu-bp-logo {
+    width: 100px;
+    height: 100px;
+}
+
+.header-text {
+    text-align: center;
+}
+
+.container {
+    max-width: 800px;
+    width: 100%;
+    margin: 20px auto;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
+    justify-content: center;
+}
+
+.message {
+    margin-top: -15px;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.message.info {
+    background-color: #cce5ff;
+    color: #004085;
+    border: 1px solid #b8daff;
+}
+
+.message.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.message.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+h1, h2, h3 {
+    text-align: center;
+    margin-top: 0;
+}
+
+.return-button {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.return-button a {
+    background-color: #4682B4;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.return-button a:hover {
+    background-color: #365f8b;
+}
+
+.message-container {
+    /* background-color: #f8f8f8; */
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+
+.message {
+    margin: 0;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.message.info {
+    background-color: #cce5ff;
+    color: #004085;
+    border: 1px solid #b8daff;
+}
+
+.message.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.message.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+.user-details {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.input-box {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 200px;
+}
+
+.input-box .details {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.input-box input[type="text"],
+.input-box input[type="number"],
+.input-box input[type="date"],
+.input-box input[type="file"],
+.input-box select,
+.input-box textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+#others{
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    height: 30px;
+}
+
+.datetime-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.datetime-group .datetime-field {
+    flex: 1;
+    min-width: 200px;
+}
+
+fieldset {
+    margin-top: 30px;
+    padding: 10px;
+    border: 1px solid #4cbaff;
+    border-radius: 5px;
+}
+
+/*Logo na part*/
+header {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+}
+
+header img {
+    height: 80px;
+    margin-right: 20px;
+}
+
+input[type="submit"],
+input[type="button"] {
+    background-color: #4682B4;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    display: block;
+    margin: 20px auto;
+}
+
+/* Styling for Medical History section */
+
+.checkbox-group {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 20px; /* Add some bottom margin for better spacing */
+}
+
+.checkbox-group div {
+    flex: 0 0 50%; /* Two checkboxes per row */
+    margin-bottom: 10px;
+}
+
+.checkbox-group input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+.checkbox-group label {
+    display: inline-block;
+}
+
+.row {
+    margin-bottom: 20px; /* Add some bottom margin for better spacing */
+}
+
+.row label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.row textarea {
+    width: 100%;
+    height: 60px; /* Adjust height as needed */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: vertical; /* Allow vertical resizing */
+}
+
+.schedule-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: #FF8000;
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    margin: 20px auto;
+}
+
+.schedule-button:hover {
+    background-color: #FF8000;
+}
+
+.footer{
+    display: flex;
+    justify-content: center;
+}
+
+.footer img {
+    margin-top: 35px;
+    width: 650px;
+}
+
+/* #print-btn {
+    background-color: #4682B4;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+#print-btn:hover {
+    background-color: #365f8b;
+} */
+
+/* .return-button {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.return-button a {
+    background-color: #4682B4;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.return-button a:hover {
+    background-color: #365f8b;
+} */
