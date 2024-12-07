@@ -60,15 +60,25 @@
     gap: 1rem;
   }
   
+  /* Form Row Layout */
   .form-row {
     display: flex;
     gap: 1rem;
+    width: 100%;
   }
   
   .form-group {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
+    flex: 1;  /* This makes all form groups take equal space */
+  }
+  
+  /* Adjust middle initial width */
+  .form-group input[id="middleInitial"] {
+    width: 100%;  /* Make input fill its container */
+  }
+  
+  /* Make the middle initial form group smaller */
+  .form-group:nth-child(2) {
+    flex: 0.5;  /* Make the middle initial column take less space */
   }
   
   label {
