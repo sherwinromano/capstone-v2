@@ -8,6 +8,8 @@ app_name = 'main'
 urlpatterns = [
     path('', views.login_view, name='login'),
     path('register/', views.register, name='register'),
+    path('recovery/', views.recovery, name='recovery'),
+    path('password-reset/', views.password_reset, name='password-reset'),
     path('main/', views.main_view, name='main'),
     path('medical/', include('medical.urls', namespace='medical')),
 ]

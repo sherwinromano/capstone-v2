@@ -1,281 +1,270 @@
-/* General Reset */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
-    min-height: 100vh;
-    padding: 40px 0;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-  }
-  
-  /* Container */
-  .container {
-    background: #fff;
-    padding: 1.5rem 3rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    width: 70%;
-    max-width: 500px;
-    margin: 10px auto;
-  }
-  
-  /* Header */
-  .header {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin-bottom: 1rem;
-    padding: 0 1rem;
-  }
-  
-  .logo {
-    width: 50px;
-    height: auto;
-  }
-  
-  .header-text h1 {
-    font-size: 1.3rem;
-    font-weight: bold;
-    margin-bottom: 0.2rem;
-  }
-  
-  .header-text p {
-    font-size: 0.8rem;
-    line-height: 1.4;
-    margin: 0;
-  }
-  
-  /* Form */
-  .form-title {
-    margin: 1rem 0;
-    font-size: 1.3rem;
-  }
-  
-  .sign-up-form {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-  
-  /* Form Row Layout */
-  .form-row {
-    display: flex;
-    gap: 1rem;
-    width: 100%;
-  }
-  
-  .form-group {
-    flex: 1;  /* This makes all form groups take equal space */
-    margin-bottom: 10px;
-  }
-  
-  /* Adjust middle initial width */
-  .form-group input[id="middleInitial"] {
-    width: 100%;  /* Make input fill its container */
-  }
-  
-  /* Make the middle initial form group smaller */
-  .form-group:nth-child(2) {
-    flex: 0.5;  /* Make the middle initial column take less space */
-  }
-  
-  label {
-    font-size: 0.9rem;
-    margin-bottom: 4px;
-  }
-  
-  input,
-  select {
-    padding: 8px 12px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 0.9rem;
-  }
-  
-  input:focus,
-  select:focus {
-    outline: none;
-    border-color: #007bff;
-  }
-  
-  .password-validation {
-    font-size: 0.8rem;
-    color: #666;
-  }
-  
-  .password-validation ul {
-    list-style-type: disc;
-    margin-left: 1.5rem;
-  }
-  
-  .submit-btn {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    padding: 10px;
-    border-radius: 4px;
-    font-size: 0.9rem;
-    cursor: pointer;
-    margin-top: 10px;
-  }
-  
-  .submit-btn:hover {
-    background-color: #0056b3;
-  }
-  
-  .sign-in-link {
-    text-align: center;
-    font-size: 0.8rem;
-    margin-top: 10px;
-  }
-  
-  .sign-in-link a {
-    color: #007bff;
-    text-decoration: none;
-  }
-  
-  .sign-in-link a:hover {
-    text-decoration: underline;
-  }
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
 
-  
-  /* Add these styles to your existing CSS */
+body {
+  background-color: #f4f4f4;
+  color: #333;
+  min-height: 100vh;
+  padding: 40px 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.container {
+  background: #fff;
+  padding: 1.5rem 3rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 70%;
+  max-width: 500px;
+  margin: 10px auto;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  padding: 0 1rem;
+}
+
+.logo {
+  width: 50px;
+  height: auto;
+}
+
+.header-text h1 {
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin-bottom: 0.2rem;
+}
+
+.header-text p {
+  font-size: 0.8rem;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.form-title {
+  margin: 1rem 0;
+  font-size: 1.3rem;
+}
+
+.sign-up-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.form-row {
+  display: flex;
+  gap: 1rem;
+  width: 100%;
+}
+
+.form-group {
+  flex: 1;
+  margin-bottom: 10px;
+}
+
+.form-group input[id="middleInitial"] {
+  width: 100%;
+}
+
+.form-group:nth-child(2) {
+  flex: 0.5;
+}
+
+label {
+  font-size: 0.9rem;
+  margin-bottom: 4px;
+}
+
+input,
+select {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+.password-validation {
+  font-size: 0.8rem;
+  color: #666;
+}
+
+.password-validation ul {
+  list-style-type: disc;
+  margin-left: 1.5rem;
+}
+
+.submit-btn {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.submit-btn:hover {
+  background-color: #0056b3;
+}
+
+.sign-in-link {
+  text-align: center;
+  font-size: 0.8rem;
+  margin-top: 10px;
+}
+
+.sign-in-link a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.sign-in-link a:hover {
+  text-decoration: underline;
+}
+
 .error {
-    border: 2px solid red !important;
+  border: 2px solid red !important;
 }
 
 .form-group input:invalid {
-    border-color: #ff6b6b;
+  border-color: #ff6b6b;
 }
 
 .form-group input:valid {
-    border-color: #51cf66;
+  border-color: #51cf66;
 }
 
 #passwordValidation li {
-    color: red;
-    transition: color 0.3s ease;
+  color: red;
+  transition: color 0.3s ease;
 }
 
 .form-group input.error {
-    border-color: #ff6b6b;
-    background-color: #fff0f0;
+  border-color: #ff6b6b;
+  background-color: #fff0f0;
 }
 
 .form-group input:valid {
-    border-color: #51cf66;
+  border-color: #51cf66;
 }
 
 .password-validation li {
-    list-style: none;
-    color: #dc3545;
-    margin: 2px 0;
+  list-style: none;
+  color: #dc3545;
+  margin: 2px 0;
 }
 
 .password-validation li i {
-    margin-right: 5px;
-    display: none;  /* Hide checkmarks by default */
+  margin-right: 5px;
+  display: none; 
 }
 
 .password-validation li.valid {
-    color: #28a745;
+  color: #28a745;
 }
 
 .password-validation li.valid i {
-    display: inline-block;  /* Show checkmark when valid */
-    color: #28a745;
+  display: inline-block; 
+  color: #28a745;
 }
 
-/* Form Fields */
 .form-group {
-    margin-bottom: 20px;
-    position: relative;
+  margin-bottom: 20px;
+  position: relative;
 }
 
 .form-group label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: 500;
-    color: #333;
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: #333;
 }
 
 .form-group input,
 .form-group select {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    background-color: #fff;
-    font-size: 14px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-    transition: all 0.3s ease;
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #fff;
+  font-size: 14px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
 }
 
 .form-group input:focus,
 .form-group select:focus {
-    outline: none;
-    border-color: #007bff;
-    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
 }
 
-/* Form Row for Name Fields */
 .form-row {
-    display: flex;
-    gap: 15px;
-    margin-bottom: 20px;
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
 }
 
 .form-row .form-group {
-    flex: 1;
-    margin-bottom: 0;
+  flex: 1;
+  margin-bottom: 0;
 }
 
 /* Middle Initial Field */
 .form-row .form-group:nth-child(2) {
-    flex: 0.5;
+  flex: 0.5;
 }
 
 /* Password Validation Box */
 .password-validation {
-    margin-top: 10px;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    background-color: #f8f9fa;
+  margin-top: 10px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f8f9fa;
 }
 
 .password-validation p {
-    margin-bottom: 5px;
-    font-weight: 500;
+  margin-bottom: 5px;
+  font-weight: 500;
 }
 
 .password-validation ul {
-    margin: 0;
-    padding-left: 20px;
+  margin: 0;
+  padding-left: 20px;
 }
 
 /* Submit Button */
 .submit-btn {
-    width: 100%;
-    padding: 12px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-size: 16px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+  width: 100%;
+  padding: 12px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 .submit-btn:hover {
-    background-color: #0056b3;
+  background-color: #0056b3;
 }

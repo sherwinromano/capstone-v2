@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HealthHub Connect | Account Recovery</title>
+    <link
+      rel="shortcut icon"
+      href="../static/images/CTU_logo.png"
+      type="image/x-icon"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../static/styles/recovery.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="image-wrapper">
+        <img src="../static/images/auth-image.webp" alt="Consultation image" />
+      </div>
+      <div class="recovery-wrapper">
+        <div class="recovery-container">
+          <div class="header">
+            <div class="logo-container">
+              <img
+                class="logo"
+                src="../static/images/CTU_logo.png"
+                alt="CTU Logo"
+              />
+            </div>
+            <div class="title-container">
+              <h1 class="title">HealthHub Connect</h1>
+              <p class="subtitle">
+                An Integrated Kahimsug Clinic Management System in CTU Argao
+              </p>
+            </div>
+          </div>
+          <div class="account-recovery">
+            <h2 class="recovery-title">Account Recovery</h2>
+            <p class="recovery-description">
+              Please enter your email to change your password
+            </p>
+          </div>
+          <form>
+            <label for="email" class="label">Email</label>
+            <input
+              id="email"
+              name="email"
+              class="input"
+              type="email"
+              required
+              placeholder="Enter your email"
+            />
+            <div id="error-message" class="error-message"></div>
+            <input class="submit-button" type="submit" value="Submit" />
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
