@@ -31,8 +31,12 @@
     {% block extra_css %}{% endblock %}
   </head>
   <body>
-    <main class="main-container">
-      <nav>
+    <main
+      class="{% if user.is_superuser or user.is_staff %}admin-container main-container{% else %}user-container main-container{% endif %}"
+    >
+      <nav
+        class="{% if user.is_superuser or user.is_staff %}admin-nav{% else %}user-nav{% endif %}"
+      >
         <div>
           <img src="{% static 'images/CTU_logo.png' %}" class="logo" />
           <h1>HealthHub Connect</h1>
@@ -85,17 +89,36 @@
       </nav>
       <section>
         <div class="mobile-menu">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+            />
           </svg>
         </div>
-        <div class="content-page">
-            {% block content %} {% endblock %}
-        </div>
+        <div class="content-page">{% block content %} {% endblock %}</div>
         <div class="sidebar-nav hidden">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 close-btn">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
-          </svg>          
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="size-6 close-btn"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M6 18 18 6M6 6l12 12"
+            />
+          </svg>
           <nav>
             <div>
               <img src="{% static 'images/CTU_logo.png' %}" class="logo" />
@@ -104,9 +127,13 @@
             <ul>
               {% if user.is_superuser or user.is_staff %}
               <li class="menu-item">
-                <a href="{% url 'medical:patient_profile' %}">Patient Profile</a>
+                <a href="{% url 'medical:patient_profile' %}"
+                  >Patient Profile</a
+                >
               </li>
-              <li class="menu-item"><a href="{% url 'medical:viewrequest' %}">View Requests</a></li>
+              <li class="menu-item">
+                <a href="{% url 'medical:viewrequest' %}">View Requests</a>
+              </li>
               <li class="menu-item">
                 <a href="{% url 'medical:medtracker' %}"
                   >Student Medical Requirements Tracker</a
@@ -117,15 +144,21 @@
                   >Emergency Health Assistance</a
                 >
               </li>
-              <li class="menu-item"><a href="{% url 'medical:pwdlist' %}">PWD Profile</a></li>
+              <li class="menu-item">
+                <a href="{% url 'medical:pwdlist' %}">PWD Profile</a>
+              </li>
               <li class="menu-item">
                 <a href="{% url 'medical:dentalrequest' %}">Dental Services</a>
               </li>
               <li class="menu-item">
-                <a href="{% url 'medical:prescription' %}">Prescription Issuance</a>
+                <a href="{% url 'medical:prescription' %}"
+                  >Prescription Issuance</a
+                >
               </li>
               <li class="menu-item">
-                <a href="{% url 'medical:transactions' %}">Transaction Reports</a>
+                <a href="{% url 'medical:transactions' %}"
+                  >Transaction Reports</a
+                >
               </li>
               {% else %}
               <li class="menu-item">
@@ -143,39 +176,39 @@
                 >
               </li>
               {% endif %}
-    
+
               <br /><br /><br /><br />
             </ul>
           </nav>
         </div>
         <div class="overlay hidden"></div>
-    </section>
+      </section>
     </main>
     <!-- </div>  -->
     <script>
       const sidebar = document.querySelector(".sidebar-nav");
-      const overlay = document.querySelector('.overlay');
+      const overlay = document.querySelector(".overlay");
 
-      document.querySelector(".mobile-menu").addEventListener('click', () => {
-        sidebar.classList.add('visible');
-        sidebar.classList.remove('hidden');
-        overlay.classList.add('visible');
-        overlay.classList.remove('hidden');
+      document.querySelector(".mobile-menu").addEventListener("click", () => {
+        sidebar.classList.add("visible");
+        sidebar.classList.remove("hidden");
+        overlay.classList.add("visible");
+        overlay.classList.remove("hidden");
       });
 
-      document.querySelector(".close-btn").addEventListener('click', () => {
-        sidebar.classList.add('hidden');
-        sidebar.classList.remove('visible');
-        overlay.classList.add('hidden');
-        overlay.classList.remove('visible');
+      document.querySelector(".close-btn").addEventListener("click", () => {
+        sidebar.classList.add("hidden");
+        sidebar.classList.remove("visible");
+        overlay.classList.add("hidden");
+        overlay.classList.remove("visible");
       });
 
-      document.querySelector(".menu-item").addEventListener('click', () => {
-        sidebar.classList.add('hidden');
-        sidebar.classList.remove('visible');
-        overlay.classList.add('hidden');
-        overlay.classList.remove('visible');
-      })
+      document.querySelector(".menu-item").addEventListener("click", () => {
+        sidebar.classList.add("hidden");
+        sidebar.classList.remove("visible");
+        overlay.classList.add("hidden");
+        overlay.classList.remove("visible");
+      });
     </script>
     <script src="{% static 'scripts/jquery/jquery-3.7.1.min.js' %}"></script>
     <script src="{% static 'scripts/newmain.js' %}"></script>
