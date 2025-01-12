@@ -47,6 +47,7 @@
           </div>
           <h2 class="form-title">Register</h2>
           <form class="sign-up-form">
+            <!-- First Name, M.I, Last Name section -->
             <div class="form-row">
               <div class="form-group">
                 <label for="firstName">First Name</label>
@@ -77,16 +78,50 @@
                 />
               </div>
             </div>
-            <div class="form-group">
-              <label for="idNumber">ID Number</label>
-              <input
-                type="text"
-                id="idNumber"
-                maxlength="7"
-                placeholder="Enter your ID number"
-                required
-              />
+            <!-- Gender, Year Level Section -->
+            <div class="form-row two-content">
+              <div class="form-group">
+                <label for="lastName">Gender</label>
+                <select name="gender" id="gender">
+                  <option value="male">Male</option>
+                  <option value="female">Female</option>
+                  <option value="others">Others</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="lastName">Year Level</label>
+                <select name="yrLevel" id="yrLevel">
+                  <option value="first">First Year</option>
+                  <option value="second">Second Year</option>
+                  <option value="third">Third Year</option>
+                  <option value="fourth">Fourth Year</option>
+                </select>
+              </div>
             </div>
+            <!-- ID Number, LRN Section -->
+            <div class="form-row two-content">
+              <div class="form-group">
+                <label for="idNumber">ID Number</label>
+                <input
+                  type="text"
+                  id="idNumber"
+                  maxlength="7"
+                  placeholder="Enter your ID number"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="idNumber">LRN</label>
+                <input
+                  type="text"
+                  id="idNumber"
+                  maxlength="7"
+                  placeholder="Enter your LRN"
+                  required
+                />
+              </div>
+            </div>
+
             <div class="form-group">
               <label for="course">Course</label>
               <select id="course" required>
