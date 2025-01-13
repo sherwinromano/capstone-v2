@@ -29,13 +29,19 @@
 				</div>
 			</div>
 			<form action="#" method="POST" class="sign-in-form">
+				{% csrf_token %}
 				<label for="emailOrID" class="label">Email</label>
-				<input type="text" id="email" class="input" placeholder="Enter your email">
+				<input type="email" id="email" class="input" placeholder="Enter your email">
 				<span class="error-message" id="emailError"></span>
 				
 				<label for="password" class="label">Password</label>
 				<input type="password" id="password" class="input" placeholder="Enter your password">
 				<span class="error-message" id="passwordError"></span>
+	
+				<div class="remember-me">
+					<input type="checkbox" id="rememberMe" class="checkbox">
+					<label for="rememberMe" class="label">Remember Me</label>
+				</div>
 	
 				<div class="form-footer">
 					<input type="submit" value="Login" class="submit-button">

@@ -1,0 +1,168 @@
+{% extends 'mainv2.html' %}
+{% load static %}
+
+{% block title %}Admin Dashboard{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'styles/admin/dashboard.css' %}">
+    <link href='https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css' rel='stylesheet' />
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="dashboard-card card-students">
+            <div class="card-content">
+                <div class="card-title">TOTAL STUDENTS</div>
+                <div class="card-number">{{ total_students }}</div>
+            </div>
+            <i class="fas fa-users card-icon"></i>
+        </div>
+
+        <div class="dashboard-card card-medical">
+            <div class="card-content">
+                <div class="card-title">MEDICAL CERTIFICATES</div>
+                <div class="card-number">{{ total_medical_certs }}</div>
+            </div>
+            <i class="fas fa-file-medical card-icon"></i>
+        </div>
+
+        <div class="dashboard-card card-dental">
+            <div class="card-content">
+                <div class="card-title">DENTAL RECORDS</div>
+                <div class="card-number">{{ total_dental_records }}</div>
+            </div>
+            <i class="fas fa-tooth card-icon"></i>
+        </div>
+
+        <div class="dashboard-card card-emergency">
+            <div class="card-content">
+                <div class="card-title">EMERGENCY CASES</div>
+                <div class="card-number">{{ total_emergencies }}</div>
+            </div>
+            <i class="fas fa-ambulance card-icon"></i>
+        </div>
+    </div>
+
+    <div class="tables-row">
+        <div class="table-container">
+            <div class="table-title">Upcoming Requests</div>
+            <table class="dashboard-table">
+                <thead>
+                    <tr>
+                        <th>Student</th>
+                        <th>Request Type</th>
+                        <th>Date</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% if upcoming_requests %}
+                        {% for request in upcoming_requests %}
+                        <tr>
+                            <td>{{ request.patient.student.firstname }} {{ request.patient.student.lastname }}</td>
+                            <td>{{ request.request_type }}</td>
+                            <td>{{ request.date_requested|date:"M d, Y" }}</td>
+                            <td><span class="badge bg-warning">Pending</span></td>
+                        </tr>
+                        {% endfor %}
+                    {% else %}
+                        <tr><td colspan="4" class="text-center">No upcoming requests</td></tr>
+                    {% endif %}
+                </tbody>
+            </table>
+        </div>
+
+        <div class="table-container">
+            <div class="table-title">Upcoming Schedules</div>
+            <div class="calendar-wrapper">
+                <div id="calendar"></div>
+                <div class="schedule-list">
+                    <table class="dashboard-table">
+                        <thead>
+                            <tr>
+                                <th>Student</th>
+                                <th>Service Type</th>
+                                <th>Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% if upcoming_schedules %}
+                                {% for schedule in upcoming_schedules %}
+                                <tr>
+                                    <td>{{ schedule.patient.student.firstname }} {{ schedule.patient.student.lastname }}</td>
+                                    <td>{{ schedule.service_type }}</td>
+                                    <td>{{ schedule.date_appointed|date:"F d, Y" }}</td>
+                                </tr>
+                                {% endfor %}
+                            {% else %}
+                                <tr><td colspan="3" class="text-center">No upcoming schedules</td></tr>
+                            {% endif %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js'></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var calendarEl = document.getElementById('calendar');
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+            initialView: 'dayGridMonth',
+            headerToolbar: {
+                left: 'prev',
+                center: 'title',
+                right: 'next'
+            },
+            height: 400,
+            dayMaxEvents: true,
+            selectable: true,
+            events: [
+                {% for schedule in upcoming_schedules %}
+                {
+                    id: '{{ forloop.counter }}',
+                    title: '{{ schedule.service_type }}',
+                    start: '{{ schedule.date_appointed|date:"Y-m-d" }}',
+                    backgroundColor: '#4e73df',
+                    borderColor: '#4e73df',
+                    extendedProps: {
+                        student: '{{ schedule.patient.student.firstname }} {{ schedule.patient.student.lastname }}',
+                        serviceType: '{{ schedule.service_type }}',
+                        date: '{{ schedule.date_appointed|date:"F d, Y" }}'
+                    }
+                },
+                {% endfor %}
+            ],
+            eventClick: function(info) {
+                const props = info.event.extendedProps;
+                const scheduleDetails = document.createElement('div');
+                scheduleDetails.innerHTML = `
+                    <div class="schedule-popup">
+                        <h4>Appointment Details</h4>
+                        <p><strong>Student:</strong> ${props.student}</p>
+                        <p><strong>Service:</strong> ${props.serviceType}</p>
+                        <p><strong>Date:</strong> ${props.date}</p>
+                    </div>
+                `;
+                
+                if (window.schedulePopup) {
+                    window.schedulePopup.remove();
+                }
+                window.schedulePopup = scheduleDetails;
+                info.el.appendChild(scheduleDetails);
+            },
+            eventMouseLeave: function() {
+                if (window.schedulePopup) {
+                    window.schedulePopup.remove();
+                }
+            }
+        });
+        calendar.render();
+    });
+</script>
+{% endblock %}

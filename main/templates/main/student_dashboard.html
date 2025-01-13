@@ -1,0 +1,67 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard | HealthHub Connect</title>
+    <link rel="shortcut icon" href="{% static 'images/CTU_logo.png' %}" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'styles/student_dashboard.css' %}">
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <div class="logo">
+                <img src="{% static 'images/CTU_logo.png' %}" alt="CTU Logo">
+                <span>HealthHub Connect</span>
+            </div>
+            <div class="nav-items">
+                <a href="{% url 'main:student_dashboard' %}" class="active">
+                    <i class="fas fa-home"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="{% url 'main:logout' %}">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </a>
+            </div>
+        </nav>
+        
+        <main>
+            <header>
+                <h1>Welcome, {{ student.firstname }}!</h1>
+            </header>
+            
+            <div class="student-info">
+                <div class="info-card">
+                    <h2>Personal Information</h2>
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <label>Name:</label>
+                            <span>{{ student.firstname }} {{ student.lastname }}</span>
+                        </div>
+                        <div class="info-item">
+                            <label>Course:</label>
+                            <span>{{ student.degree }}</span>
+                        </div>
+                        <div class="info-item">
+                            <label>Sex:</label>
+                            <span>{{ student.sex }}</span>
+                        </div>
+                        <div class="info-item">
+                            <label>Year Level:</label>
+                            <span>{{ student.year_level }}</span>
+                        </div>
+                        <div class="info-item">
+                            <label>Section:</label>
+                            <span>{{ student.section }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html> 

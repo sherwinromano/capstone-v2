@@ -1,8 +1,10 @@
 from django.db import models
 import os
+from django.contrib.auth.models import User
 
 # Create your models here.
 class Student(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
     student_id = models.CharField(max_length=100, primary_key=True)
     lrn = models.CharField(max_length=100)
     lastname = models.CharField(max_length=100)
@@ -10,6 +12,12 @@ class Student(models.Model):
     middlename = models.CharField(max_length=100, null=True, blank=True)
     degree = models.CharField(max_length=100)
     year_level = models.PositiveIntegerField()
+    section = models.CharField(max_length=1, choices=[
+        ('A', 'A'),
+        ('B', 'B'),
+        ('C', 'C'),
+        ('D', 'D')
+    ])
     sex = models.CharField(max_length=6)
     email = models.EmailField()
     contact_number = models.CharField(max_length=15)

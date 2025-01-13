@@ -30,6 +30,7 @@ from django.conf import settings
 import json
 import calendar
 import csv
+from django.contrib.auth.decorators import login_required
 
 from .forms import UploadFileForm
 
@@ -1355,3 +1356,44 @@ def upload_file(request):
     else:
         form = UploadFileForm()
     return render(request, 'upload.html', {'form': form})
+
+@login_required
+def basic_info_view(request):
+    try:
+        student = Student.objects.get(email=request.user.email)
+        patient, created = Patient.objects.get_or_create(student=student)
+        
+        if request.method == 'POST':
+            # Update patient information
+            patient.birth_date = request.POST.get('birth_date')
+            patient.age = request.POST.get('age')
+            patient.weight = request.POST.get('weight')
+            patient.height = request.POST.get('height')
+            patient.bloodtype = request.POST.get('bloodtype')
+            patient.allergies = request.POST.get('allergies')
+            patient.medications = request.POST.get('medications')
+            patient.home_address = request.POST.get('home_address')
+            patient.city = request.POST.get('city')
+            patient.state_province = request.POST.get('state-province')
+            patient.postal_zipcode = request.POST.get('postal-zip-code')
+            patient.country = request.POST.get('country')
+            patient.nationality = request.POST.get('nationality')
+            patient.civil_status = request.POST.get('civil_status')
+            patient.number_of_children = request.POST.get('number_of_children')
+            patient.academic_year = request.POST.get('academic_year')
+            patient.section = request.POST.get('section')
+            patient.parent_guardian = request.POST.get('parent_guardian')
+            patient.parent_guardian_contact_number = request.POST.get('parent_guardian_contact_number')
+            patient.save()
+            
+            messages.success(request, 'Basic information saved successfully!')
+            return redirect('main:student_dashboard')
+            
+        return render(request, 'students/basicinfo.html', {
+            'student': student,
+            'patient': patient
+        })
+        
+    except Student.DoesNotExist:
+        messages.error(request, 'Student profile not found.')
+        return redirect('main:login')
