@@ -29,12 +29,19 @@
 				</div>
 			</div>
 			<form action="#" method="POST" class="sign-in-form">
-				<label for="emailOrID" class="label">Email</label>
-				<input type="text" id="email" class="input" placeholder="Enter your email">
-				<span class="error-message" id="emailError"></span>
+				{% csrf_token %}
+				<label for="email" class="label">Email or Student ID</label>
+				<input type="text" id="email" name="email" class="input" placeholder="Enter your email or student ID" required>
+				<span class="error-message" id="emailError">
+					{% if messages %}
+						{% for message in messages %}
+							{{ message }}
+						{% endfor %}
+					{% endif %}
+				</span>
 				
 				<label for="password" class="label">Password</label>
-				<input type="password" id="password" class="input" placeholder="Enter your password">
+				<input type="password" id="password" name="password" class="input" placeholder="Enter your password" required>
 				<span class="error-message" id="passwordError"></span>
 	
 				<div class="form-footer">

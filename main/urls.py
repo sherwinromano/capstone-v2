@@ -12,6 +12,9 @@ urlpatterns = [
     path('password-reset/', views.password_reset, name='password-reset'),
     path('main/', views.main_view, name='main'),
     path('medical/', include('medical.urls', namespace='medical')),
+    path('patient-form/', views.patient_form_view, name='patient_form'),
+    path('admin-dashboard/', views.admin_dashboard_view, name='admin_dashboard'),
+    path('student-dashboard/', views.dashboard_view, name='student_dashboard'),
 ]
 
 if settings.DEBUG:

@@ -211,3 +211,34 @@ label {
     padding: 5rem;
   }
 }
+
+.messages {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.message {
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.message i {
+    font-size: 16px;
+}
+
+.message-error {
+    background-color: #ffe6e6;
+    color: #dc3545;
+    border: 1px solid #dc3545;
+}
+
+.message-success {
+    background-color: #e6ffe6;
+    color: #28a745;
+    border: 1px solid #28a745;
+}

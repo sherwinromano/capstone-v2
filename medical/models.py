@@ -1,5 +1,7 @@
 from django.db import models
 import os
+from django.contrib.auth.models import User
+from main.models import Student
 
 # Create your models here.
 class Student(models.Model):
@@ -18,7 +20,7 @@ class Student(models.Model):
         return f"{self.lastname}, {self.firstname}"
 
 class Patient(models.Model):
-    student = models.OneToOneField(Student, on_delete=models.CASCADE, primary_key=True)
+    student = models.ForeignKey(Student, on_delete=models.CASCADE)
     birth_date = models.CharField(max_length=100)
     age = models.PositiveIntegerField()
     weight = models.FloatField()
@@ -38,16 +40,18 @@ class Patient(models.Model):
     section = models.CharField(max_length=20)
     parent_guardian = models.CharField(max_length=100)
     parent_guardian_contact_number = models.CharField(max_length=15, null=True, blank=True)
+    examination = models.ForeignKey('PhysicalExamination', on_delete=models.CASCADE)
 
     def __str__(self):
         return f"{self.student.firstname} {self.student.lastname}"
 
 class PhysicalExamination(models.Model):
-    patient = models.OneToOneField(Patient, on_delete=models.CASCADE, primary_key=True)
+    student = models.ForeignKey(Student, on_delete=models.CASCADE)
+    date_created = models.DateTimeField(auto_now_add=True)
     date_of_physical_examination = models.CharField(max_length=100)
     
     def __str__(self):
-        return f"Physical Examination of {self.patient.student.firstname} {self.patient.student.lastname}"
+        return f"Physical Examination of {self.student.firstname} {self.student.lastname}"
 
 class MedicalHistory(models.Model):
     examination = models.OneToOneField(PhysicalExamination, on_delete=models.CASCADE)
@@ -71,7 +75,7 @@ class MedicalHistory(models.Model):
     medications = models.CharField(max_length=255, null=True, blank=True)
     
     def __str__(self):
-        return f"Medical history of {self.examination.patient.student.firstname} {self.examination.patient.student.lastname}"
+        return f"Medical history of {self.examination.student.firstname} {self.examination.student.lastname}"
 
 class FamilyMedicalHistory(models.Model):
     examination = models.OneToOneField(PhysicalExamination, on_delete=models.CASCADE)
@@ -87,7 +91,7 @@ class FamilyMedicalHistory(models.Model):
     other_medical_history = models.CharField(max_length=100, null=True, blank=True)
 
     def __str__(self):
-        return f"Family Medical History of {self.examination.patient.student.firstname} {self.examination.patient.student.lastname}"
+        return f"Family Medical History of {self.examination.student.firstname} {self.examination.student.lastname}"
 
 class ObgyneHistory(models.Model):
     examination = models.OneToOneField(PhysicalExamination, on_delete=models.CASCADE)
@@ -100,7 +104,7 @@ class ObgyneHistory(models.Model):
     additional_history = models.CharField(max_length=255, null=True, blank=True)
 
     def __str__(self):
-        return f"OB-GYNE History of {self.examination.patient.student.firstname} {self.examination.patient.student.lastname}"
+        return f"OB-GYNE History of {self.examination.student.firstname} {self.examination.student.lastname}"
     
 class MedicalClearance(models.Model):
     patient = models.OneToOneField(Patient, on_delete=models.CASCADE, primary_key=True)
@@ -109,23 +113,23 @@ class MedicalClearance(models.Model):
         return f"Medical clearance for {self.patient.student.firstname} {self.patient.student.lastname}"
 
 class RiskAssessment(models.Model):
-    clearance = models.OneToOneField(MedicalClearance, on_delete=models.CASCADE)
-    age_above_60 = models.BooleanField(default=False)
+    id = models.AutoField(primary_key=True)
+    clearance = models.OneToOneField(Patient, on_delete=models.CASCADE)
     cardiovascular_disease = models.BooleanField(default=False)
     chronic_lung_disease = models.BooleanField(default=False)
-    chronic_metabolic_disease = models.BooleanField(default=False)
     chronic_renal_disease = models.BooleanField(default=False)
     chronic_liver_disease = models.BooleanField(default=False)
     cancer = models.BooleanField(default=False)
     autoimmune_disease = models.BooleanField(default=False)
-    pregnant = models.BooleanField(default=False)
-    other_conditions = models.CharField(max_length=100, blank=True, null=True)
-    living_with_vulnerable = models.BooleanField(default=False)
     pwd = models.BooleanField(default=False)
-    disability = models.CharField(max_length=100, null=True, blank=True)
+    disability = models.CharField(max_length=255, blank=True)
 
     def __str__(self):
-        return f"Risk Assessment for {self.clearance.patient.student.firstname} {self.clearance.patient.student.lastname}"
+        return f"Risk Assessment for {self.clearance}"
+
+    class Meta:
+        verbose_name = "Risk Assessment"
+        verbose_name_plural = "Risk Assessments"
     
     # def pwd_path(instance, filename, field_name):
     #     return os.path.join('pwd', f'{instance.clearance.student.lastname}_{instance.clearance.student.firstname}', field_name, filename)

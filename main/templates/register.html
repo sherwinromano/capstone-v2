@@ -46,7 +46,22 @@
             </div>
           </div>
           <h2 class="form-title">Register</h2>
-          <form class="sign-up-form">
+          {% if messages %}
+          <div class="messages">
+              {% for message in messages %}
+              <div class="message {% if message.tags %}message-{{ message.tags }}{% endif %}">
+                  {% if message.tags == 'error' %}
+                      <i class="fas fa-exclamation-circle"></i>
+                  {% elif message.tags == 'success' %}
+                      <i class="fas fa-check-circle"></i>
+                  {% endif %}
+                  {{ message }}
+              </div>
+              {% endfor %}
+          </div>
+          {% endif %}
+          <form class="sign-up-form" method="POST">
+            {% csrf_token %}
             <!-- First Name, M.I, Last Name section -->
             <div class="form-row">
               <div class="form-group">
@@ -54,6 +69,7 @@
                 <input
                   type="text"
                   id="firstName"
+                  name="firstName"
                   placeholder="Enter your first name"
                   required
                 />
@@ -63,6 +79,7 @@
                 <input
                   type="text"
                   id="middleInitial"
+                  name="middleInitial"
                   maxlength="1"
                   placeholder="Enter your middle initial"
                   required
@@ -73,28 +90,28 @@
                 <input
                   type="text"
                   id="lastName"
+                  name="lastName"
                   placeholder="Enter your last name"
                   required
                 />
               </div>
             </div>
-            <!-- Gender, Year Level Section -->
+            <!-- Sex, Year Level Section -->
             <div class="form-row two-content">
               <div class="form-group">
-                <label for="lastName">Gender</label>
-                <select name="gender" id="gender">
-                  <option value="male">Male</option>
-                  <option value="female">Female</option>
-                  <option value="others">Others</option>
+                <label for="sex">Sex</label>
+                <select name="sex" id="sex" required>
+                  <option value="M">Male</option>
+                  <option value="F">Female</option>
                 </select>
               </div>
               <div class="form-group">
-                <label for="lastName">Year Level</label>
-                <select name="yrLevel" id="yrLevel">
-                  <option value="first">First Year</option>
-                  <option value="second">Second Year</option>
-                  <option value="third">Third Year</option>
-                  <option value="fourth">Fourth Year</option>
+                <label for="yrLevel">Year Level</label>
+                <select name="yrLevel" id="yrLevel" required>
+                  <option value="1">First Year</option>
+                  <option value="2">Second Year</option>
+                  <option value="3">Third Year</option>
+                  <option value="4">Fourth Year</option>
                 </select>
               </div>
             </div>
@@ -105,17 +122,19 @@
                 <input
                   type="text"
                   id="idNumber"
+                  name="idNumber"
                   maxlength="7"
                   placeholder="Enter your ID number"
                   required
                 />
               </div>
               <div class="form-group">
-                <label for="idNumber">LRN</label>
+                <label for="lrn">LRN</label>
                 <input
                   type="text"
-                  id="idNumber"
-                  maxlength="7"
+                  id="lrn"
+                  name="lrn"
+                  maxlength="12"
                   placeholder="Enter your LRN"
                   required
                 />
@@ -124,7 +143,7 @@
 
             <div class="form-group">
               <label for="course">Course</label>
-              <select id="course" required>
+              <select id="course" name="course" required>
                 <optgroup label="College of Education">
                   <option value="Bachelor of Elementary Education">
                     Bachelor of Elementary Education
@@ -233,6 +252,7 @@
               <input
                 type="email"
                 id="email"
+                name="email"
                 placeholder="Enter your email"
                 required
               />
@@ -242,6 +262,7 @@
               <input
                 type="password"
                 id="password"
+                name="password"
                 placeholder="Enter your password"
                 required
               />
@@ -251,6 +272,7 @@
               <input
                 type="password"
                 id="confirmPassword"
+                name="confirmPassword"
                 placeholder="Confirm your password"
                 required
               />
