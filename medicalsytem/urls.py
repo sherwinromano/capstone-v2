@@ -18,20 +18,9 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
-from main import views
 
 urlpatterns = [
+    path('', include('main.urls')),
+    path('medical/', include('medical.urls')),
     path('admin/', admin.site.urls),
-    path('', views.login_view, name='login'),  # Root URL for login
-    path('register/', views.register, name='register'),
-    path('recovery/', views.recovery, name='recovery'),
-    path('password-reset/', views.password_reset, name='password-reset'),
-    path('main/', include('main.urls')),  # Include main app URLs
-    path('medical/', include('medical.urls')),  # Include medical app URLs
-    path('dashboard/', views.admin_dashboard, name='admin_dashboard'),
-    path('student/dashboard/', views.student_dashboard, name='student_dashboard'),
-    path('mainv2/', views.mainv2_view, name='mainv2'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-
-if settings.DEBUG:
-    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

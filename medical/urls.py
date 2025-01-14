@@ -31,5 +31,4 @@ urlpatterns = [
     path('daily_transactions/', views.daily_transactions_view, name='daily_transactions'),
     # path('yearly/', views.yearly_transactions, name='yearly_transactions'),
     path('upload/', views.upload_file, name='upload'),
-    path('basic-info/', views.basic_info_view, name='basic_info'),
 ]
