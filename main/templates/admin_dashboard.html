@@ -1,110 +1,107 @@
-{% extends 'mainv2.html' %}
-{% load static %}
-
-{% block content %}
+{% extends 'mainv2.html' %} {% load static %} {% block content %}
 <div class="dashboard-wrapper">
-    <div class="stats-row">
-        <div class="stat-box">
-            <div class="stat-content">
-                <div class="stat-header">TOTAL STUDENTS</div>
-                <div class="stat-number">{{ total_patients }}</div>
-            </div>
-            <div class="stat-icon">
-                <i class="fas fa-users"></i>
-            </div>
-        </div>
-
-        <div class="stat-box">
-            <div class="stat-content">
-                <div class="stat-header">MEDICAL CERTIFICATES</div>
-                <div class="stat-number">{{ pending_clearances }}</div>
-            </div>
-            <div class="stat-icon">
-                <i class="fas fa-file-medical"></i>
-            </div>
-        </div>
-
-        <div class="stat-box">
-            <div class="stat-content">
-                <div class="stat-header">DENTAL RECORDS</div>
-                <div class="stat-number">3</div>
-            </div>
-            <div class="stat-icon">
-                <i class="fas fa-tooth"></i>
-            </div>
-        </div>
-
-        <div class="stat-box">
-            <div class="stat-content">
-                <div class="stat-header">EMERGENCY CASES</div>
-                <div class="stat-number">0</div>
-            </div>
-            <div class="stat-icon">
-                <i class="fas fa-ambulance"></i>
-            </div>
-        </div>
+  <div class="stats-row">
+    <div class="stat-box">
+      <div class="stat-content">
+        <div class="stat-header">TOTAL STUDENTS</div>
+        <div class="stat-number">{{ total_patients }}</div>
+      </div>
+      <div class="stat-icon">
+        <i class="fas fa-users"></i>
+      </div>
     </div>
 
-    <div class="dashboard-main">
-        <div class="requests-section">
-            <h2>Upcoming Requests</h2>
-            <table class="requests-table">
-                <thead>
-                    <tr>
-                        <th>Student</th>
-                        <th>Request Type</th>
-                        <th>Date</th>
-                        <th>Status</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% if recent_examinations %}
-                        {% for exam in recent_examinations %}
-                        <tr>
-                            <td>{{ exam.student.get_full_name }}</td>
-                            <td>Medical Examination</td>
-                            <td>{{ exam.date_created|date:"F d, Y" }}</td>
-                            <td><span class="status-badge">Completed</span></td>
-                        </tr>
-                        {% endfor %}
-                    {% else %}
-                        <tr>
-                            <td colspan="4" class="no-data">No upcoming requests</td>
-                        </tr>
-                    {% endif %}
-                </tbody>
-            </table>
-        </div>
-
-        <div class="calendar-section">
-            <div class="calendar-header">
-                <button class="calendar-nav prev"><i class="fas fa-chevron-left"></i></button>
-                <h2>January 2025</h2>
-                <button class="calendar-nav next"><i class="fas fa-chevron-right"></i></button>
-            </div>
-            <div class="calendar-grid">
-                <div class="weekdays">
-                    <div>Sun</div>
-                    <div>Mon</div>
-                    <div>Tue</div>
-                    <div>Wed</div>
-                    <div>Thu</div>
-                    <div>Fri</div>
-                    <div>Sat</div>
-                </div>
-                <div class="days"></div>
-            </div>
-            <div class="schedule-list">
-                <!-- Schedule items will be dynamically populated -->
-            </div>
-        </div>
+    <div class="stat-box">
+      <div class="stat-content">
+        <div class="stat-header">MEDICAL CERTIFICATES</div>
+        <div class="stat-number">{{ pending_clearances }}</div>
+      </div>
+      <div class="stat-icon">
+        <i class="fas fa-file-medical"></i>
+      </div>
     </div>
+
+    <div class="stat-box">
+      <div class="stat-content">
+        <div class="stat-header">DENTAL RECORDS</div>
+        <div class="stat-number">3</div>
+      </div>
+      <div class="stat-icon">
+        <i class="fas fa-tooth"></i>
+      </div>
+    </div>
+
+    <div class="stat-box">
+      <div class="stat-content">
+        <div class="stat-header">EMERGENCY CASES</div>
+        <div class="stat-number">0</div>
+      </div>
+      <div class="stat-icon">
+        <i class="fas fa-ambulance"></i>
+      </div>
+    </div>
+  </div>
+
+  <div class="dashboard-main">
+    <div class="requests-section">
+      <h2>Upcoming Requests</h2>
+      <table class="requests-table">
+        <thead>
+          <tr>
+            <th>Student</th>
+            <th>Request Type</th>
+            <th>Date</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% if recent_examinations %} {% for exam in recent_examinations %}
+          <tr>
+            <td>{{ exam.student.get_full_name }}</td>
+            <td>Medical Examination</td>
+            <td>{{ exam.date_created|date:"F d, Y" }}</td>
+            <td><span class="status-badge">Completed</span></td>
+          </tr>
+          {% endfor %} {% else %}
+          <tr>
+            <td colspan="4" class="no-data">No upcoming requests</td>
+          </tr>
+          {% endif %}
+        </tbody>
+      </table>
+    </div>
+
+    <div class="calendar-section">
+      <div class="calendar-header">
+        <button class="calendar-nav prev">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+        <h2>January 2025</h2>
+        <button class="calendar-nav next">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+      </div>
+      <div class="calendar-grid">
+        <div class="weekdays">
+          <div>Sun</div>
+          <div>Mon</div>
+          <div>Tue</div>
+          <div>Wed</div>
+          <div>Thu</div>
+          <div>Fri</div>
+          <div>Sat</div>
+        </div>
+        <div class="days"></div>
+      </div>
+      <div class="schedule-list">
+        <!-- Schedule items will be dynamically populated -->
+      </div>
+    </div>
+  </div>
 </div>
-{% endblock %}
-
-{% block extra_js %}
+{% endblock %} {% block extra_js %}
 <script>
-    const events = {{ events|safe }};
+  const events = {{ events|safe }};
 </script>
 <script src="{% static 'scripts/dashboard.js' %}"></script>
 {% endblock %}

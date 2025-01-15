@@ -47,7 +47,13 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'main',
     'medical',
+    'tailwind',
+    'theme'
 ]
+
+TAILWIND_APP_NAME = 'theme'
+
+NPM_BIN_PATH = "C:/Program Files/nodejs/npm.cmd"
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -64,7 +70,10 @@ ROOT_URLCONF = 'medicalsytem.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            BASE_DIR / 'main',
+            BASE_DIR / 'medical'
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
