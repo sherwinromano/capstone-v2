@@ -1,3 +1,4 @@
+{% load static tailwind_tags %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -9,54 +10,43 @@
       href="../static/images/CTU_logo.png"
       type="image/x-icon"
     />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="../static/styles/recovery.css" />
+    {% tailwind_css %}
+    <link rel="stylesheet" href="{% static 'styles/base.css' %}" />
   </head>
   <body>
-    <div class="container">
-      <div class="image-wrapper">
-        <img src="../static/images/auth-image.webp" alt="Consultation image" />
+    <div class="flex w-full h-screen">
+      <div class="w-1/2 xs:hidden lg:flex">
+        <img class="h-full" src="../static/images/auth-image.webp" alt="Consultation image" />
       </div>
-      <div class="recovery-wrapper">
-        <div class="recovery-container">
-          <div class="header">
-            <div class="logo-container">
-              <img
-                class="logo"
-                src="../static/images/CTU_logo.png"
-                alt="CTU Logo"
-              />
+      <div class="xs:w-full lg:w-1/2 flex items-center justify-center xs:p-4 md:p-14 lg:p-[8rem]">
+        <div class="flex flex-col gap-4">
+          <div class="flex flex-col gap-2">
+            <div class="self-center">
+              <img class="size-[7rem]" src="../static/images/CTU_logo.png" alt="CTU Logo">
             </div>
-            <div class="title-container">
-              <h1 class="title">HealthHub Connect</h1>
-              <p class="subtitle">
-                An Integrated Kahimsug Clinic Management System in CTU Argao
-              </p>
+            <div class="flex flex-col items-center">
+              <h1 class="text-[1.5rem] font-bold">HealthHub Connect</h1>
+              <p class="font-normal w-[70%] text-center">An Integrated Kahimsug Clinic Management System in CTU Argao</p>
             </div>
           </div>
-          <div class="account-recovery">
-            <h2 class="recovery-title">Account Recovery</h2>
-            <p class="recovery-description">
+          <div class="flex flex-col w-fit">
+            <h2 class="font-bold text-[1.3rem] w-fit">Account Recovery</h2>
+            <p class="text-base w-fit">
               Please enter your email to change your password
             </p>
           </div>
-          <form>
-            <label for="email" class="label">Email</label>
+          <form class="flex flex-col gap-2">
+            <label for="email">Email</label>
             <input
               id="email"
               name="email"
-              class="input"
+              class="w-full"
               type="email"
               required
               placeholder="Enter your email"
             />
             <div id="error-message" class="error-message"></div>
-            <input class="submit-button" type="submit" value="Submit" />
+            <input class="bg-[#3b82f6] text-white text-[14px] p-2 rounded-md w-[30%] cursor-pointer" type="submit" value="Submit" />
           </form>
         </div>
       </div>

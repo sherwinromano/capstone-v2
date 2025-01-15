@@ -14,7 +14,7 @@
 		<div class="w-1/2 xs:hidden lg:flex">
 			<img class="h-full" src="../static/images/auth-image.webp" alt="Consultation image">
 		</div>
-		<div class="w-1/2 flex items-center justify-center p-[8rem]">
+		<div class="xs:w-full lg:w-1/2 flex items-center justify-center xs:p-4 md:p-14 lg:p-[8rem]">
 			<div class="flex flex-col w-full gap-4">
 				<div class="flex flex-col gap-2">
 					<div class="self-center">
@@ -46,7 +46,7 @@
 						<a href="{% url 'main:recovery' %}" class="text-[14px]">Forgot Password?</a>
 					</div>
 				</form>
-				<p class="sign-up-text">Don't have an account? <a href="{% url 'main:register' %}" class="text-blue-500 underline">Register</a></p>
+				<p class="text-[14px]">Don't have an account? <a href="{% url 'main:register' %}" class="text-blue-500 underline">Register</a></p>
 			</div>
 			
 		</div>

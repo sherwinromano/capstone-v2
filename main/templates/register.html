@@ -1,4 +1,4 @@
-{% load static %}
+{% load static tailwind_tags %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -17,35 +17,23 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="{% static 'styles/register.css' %}" />
+    {% tailwind_css %}
+    <link rel="stylesheet" href="{% static 'styles/base.css' %}" />
   </head>
   <body>
-    <div class="container">
-      <div class="image-wrapper">
-        <img src="../static/images/auth-image.webp" alt="Consultation image" />
-      </div>
-      <div class="register-wrapper">
-        <div class="register-container">
-          <div class="header">
-            <img
-              src="../static/images/CTU_logo.png"
-              alt="CTU Logo"
-              class="logo"
-            />
-            <div class="header-text">
-              <h1>HealthHub Connect</h1>
-              <p>
-                An Integrated Kahimsug Clinic Management System in CTU Argao
-              </p>
+    <div class="flex w-full h-auto overflow-hidden">
+      <div class="xs:w-full flex items-center justify-center xs:p-4 md:p-14 lg:px-[24rem] overflow-auto">
+        <div class="w-full flex flex-col gap-4">
+          <div class="flex flex-col gap-2">
+            <div class="self-center">
+              <img class="size-[7rem]" src="../static/images/CTU_logo.png" alt="CTU Logo">
+            </div>
+            <div class="flex flex-col items-center">
+              <h1 class="text-[1.5rem] font-bold">HealthHub Connect</h1>
+              <p class="font-normal w-[70%] text-center">An Integrated Kahimsug Clinic Management System in CTU Argao</p>
             </div>
           </div>
-          <h2 class="form-title">Register</h2>
+          <h2 class="font-bold text-[1.3rem]">Account Registration</h2>
           {% if messages %}
           <div class="messages">
               {% for message in messages %}
@@ -60,24 +48,25 @@
               {% endfor %}
           </div>
           {% endif %}
-          <form class="sign-up-form" method="POST">
+          <form class="flex flex-col w-full gap-2" method="POST">
             {% csrf_token %}
-            <!-- First Name, M.I, Last Name section -->
-            <div class="form-row">
-              <div class="form-group">
-                <label for="firstName">First Name</label>
+            <div class="flex w-full gap-2">
+              <div class="w-full flex flex-col">
+                <label for="firstName" class="w-fit">First Name</label>
                 <input
                   type="text"
+                  class="w-full"
                   id="firstName"
                   name="firstName"
                   placeholder="Enter your first name"
                   required
                 />
               </div>
-              <div class="form-group">
-                <label for="middleInitial">M.I</label>
+              <div class="w-full flex flex-col">
+                <label for="middleInitial" class="w-fit">M.I</label>
                 <input
                   type="text"
+                  class="w-full"
                   id="middleInitial"
                   name="middleInitial"
                   maxlength="1"
@@ -85,10 +74,12 @@
                   required
                 />
               </div>
-              <div class="form-group">
-                <label for="lastName">Last Name</label>
+              <div class="w-full flex flex-col">
+                <label for="lastName" class="w-fit">Last Name</label>
                 <input
+                  class="w-full"
                   type="text"
+                  class="w-full"
                   id="lastName"
                   name="lastName"
                   placeholder="Enter your last name"
@@ -97,17 +88,17 @@
               </div>
             </div>
             <!-- Sex, Year Level Section -->
-            <div class="form-row two-content">
-              <div class="form-group">
+            <div class="flex w-full gap-2">
+              <div class="flex flex-col w-full">
                 <label for="sex">Sex</label>
-                <select name="sex" id="sex" required>
+                <select class="w-full" name="sex" id="sex" required>
                   <option value="M">Male</option>
                   <option value="F">Female</option>
                 </select>
               </div>
-              <div class="form-group">
+              <div class="flex flex-col w-full">
                 <label for="yrLevel">Year Level</label>
-                <select name="yrLevel" id="yrLevel" required>
+                <select class="w-full" name="yrLevel" id="yrLevel" required>
                   <option value="1">First Year</option>
                   <option value="2">Second Year</option>
                   <option value="3">Third Year</option>
@@ -115,11 +106,12 @@
                 </select>
               </div>
             </div>
-            <!-- ID Number, LRN Section -->
-            <div class="form-row two-content">
-              <div class="form-group">
+         
+            <div class="flex w-full gap-2">
+              <div class="flex flex-col w-full">
                 <label for="idNumber">ID Number</label>
                 <input
+                  class="w-full"
                   type="text"
                   id="idNumber"
                   name="idNumber"
@@ -128,9 +120,10 @@
                   required
                 />
               </div>
-              <div class="form-group">
+              <div class="flex flex-col w-full">
                 <label for="lrn">LRN</label>
                 <input
+                  class="w-full"
                   type="text"
                   id="lrn"
                   name="lrn"
@@ -141,9 +134,9 @@
               </div>
             </div>
 
-            <div class="form-group">
+            <div class="flex flex-col w-full">
               <label for="course">Course</label>
-              <select id="course" name="course" required>
+              <select class="w-full" id="course" name="course" required>
                 <optgroup label="College of Education">
                   <option value="Bachelor of Elementary Education">
                     Bachelor of Elementary Education
@@ -247,9 +240,10 @@
                 </optgroup>
               </select>
             </div>
-            <div class="form-group">
+            <div class="flex flex-col w-full">
               <label for="email">Email</label>
               <input
+                class="w-full"
                 type="email"
                 id="email"
                 name="email"
@@ -257,9 +251,10 @@
                 required
               />
             </div>
-            <div class="form-group">
+            <div class="flex flex-col w-full">
               <label for="password">Password</label>
               <input
+                class="w-full"
                 type="password"
                 id="password"
                 name="password"
@@ -267,9 +262,10 @@
                 required
               />
             </div>
-            <div class="form-group">
+            <div class="flex flex-col w-full">
               <label for="confirmPassword">Confirm Password</label>
               <input
+                class="w-full"
                 type="password"
                 id="confirmPassword"
                 name="confirmPassword"
@@ -277,33 +273,10 @@
                 required
               />
             </div>
-            <div id="passwordValidation" class="password-validation">
-              <p>Password must contain:</p>
-              <ul>
-                <li>
-                  <i class="fa-solid fa-circle-check"></i> At least 8 characters
-                </li>
-                <li>
-                  <i class="fa-solid fa-circle-check"></i> At least one
-                  uppercase letter
-                </li>
-                <li>
-                  <i class="fa-solid fa-circle-check"></i> At least one
-                  lowercase letter
-                </li>
-                <li>
-                  <i class="fa-solid fa-circle-check"></i> At least one number
-                </li>
-                <li>
-                  <i class="fa-solid fa-circle-check"></i> At least one special
-                  character
-                </li>
-              </ul>
-            </div>
-            <button type="submit" class="submit-btn">Register</button>
+            <button type="submit" class="bg-[#3b82f6] text-white text-[14px] p-3 rounded-md w-full cursor-pointer mt-4">Register</button>
           </form>
-          <p class="sign-in-link">
-            Already have an account? <a href="{% url 'main:login' %}">Login</a>
+          <p class="text-center text-[14px] mt-2">
+            Already have an account? <a href="{% url 'main:login' %}" class="underline">Login</a>
           </p>
         </div>
       </div>

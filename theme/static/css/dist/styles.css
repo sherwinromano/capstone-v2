@@ -860,12 +860,21 @@ select {
   height: 7rem;
 }
 
+.size-4 {
+  width: 1rem;
+  height: 1rem;
+}
+
 .h-full {
   height: 100%;
 }
 
 .h-screen {
   height: 100vh;
+}
+
+.h-auto {
+  height: auto;
 }
 
 .w-1\/2 {
@@ -884,6 +893,15 @@ select {
   width: 100%;
 }
 
+.w-fit {
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.w-0 {
+  width: 0px;
+}
+
 .border-collapse {
   border-collapse: collapse;
 }
@@ -898,6 +916,10 @@ select {
 
 .flex-col {
   flex-direction: column;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
 }
 
 .items-center {
@@ -928,6 +950,14 @@ select {
   align-self: center;
 }
 
+.overflow-auto {
+  overflow: auto;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
 .rounded-md {
   border-radius: 0.375rem;
 }
@@ -946,12 +976,39 @@ select {
   background-color: rgb(249 250 251 / var(--tw-bg-opacity, 1));
 }
 
+.bg-\[red\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 0 0 / var(--tw-bg-opacity, 1));
+}
+
 .p-2 {
   padding: 0.5rem;
 }
 
 .p-\[8rem\] {
   padding: 8rem;
+}
+
+.p-3 {
+  padding: 0.75rem;
+}
+
+.p-4 {
+  padding: 1rem;
+}
+
+.p-\[5rem\] {
+  padding: 5rem;
+}
+
+.px-4 {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.py-2 {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
 }
 
 .text-center {
@@ -978,6 +1035,10 @@ select {
 .text-base {
   font-size: 1rem;
   line-height: 1.5rem;
+}
+
+.text-\[1\.3rem\] {
+  font-size: 1.3rem;
 }
 
 .font-bold {
@@ -1044,6 +1105,24 @@ select {
   .xs\:hidden {
     display: none;
   }
+
+  .xs\:w-full {
+    width: 100%;
+  }
+
+  .xs\:p-4 {
+    padding: 1rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .md\:p-8 {
+    padding: 2rem;
+  }
+
+  .md\:p-14 {
+    padding: 3.5rem;
+  }
 }
 
 @media (min-width: 1024px) {
@@ -1053,5 +1132,44 @@ select {
 
   .lg\:hidden {
     display: none;
+  }
+
+  .lg\:w-1\/2 {
+    width: 50%;
+  }
+
+  .lg\:p-\[8rem\] {
+    padding: 8rem;
+  }
+
+  .lg\:p-\[4rem\] {
+    padding: 4rem;
+  }
+
+  .lg\:p-\[5rem\] {
+    padding: 5rem;
+  }
+
+  .lg\:p-\[7rem\] {
+    padding: 7rem;
+  }
+
+  .lg\:p-\[14rem\] {
+    padding: 14rem;
+  }
+
+  .lg\:px-\[14rem\] {
+    padding-left: 14rem;
+    padding-right: 14rem;
+  }
+
+  .lg\:px-\[18rem\] {
+    padding-left: 18rem;
+    padding-right: 18rem;
+  }
+
+  .lg\:px-\[24rem\] {
+    padding-left: 24rem;
+    padding-right: 24rem;
   }
 }
