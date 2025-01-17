@@ -1,7 +1,7 @@
-{% load static %}
+{% load static tailwind_tags %}
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <link
       rel="shortcut icon"
@@ -13,91 +13,79 @@
     </title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> -->
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"> -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-      rel="stylesheet"
-    />
     <link
       rel="stylesheet"
       href="{% static 'styles/fontawesome-free-6.5.2-web/css/all.min.css' %}"
     />
-    <link rel="stylesheet" href="{% static 'styles/mainv2.css' %}" />
+    {% tailwind_css %}
+    <link rel="stylesheet" href="{% static 'styles/base.css' %}" />
     {% block extra_css %}{% endblock %}
   </head>
   <body>
     <main
-      class="{% if user.is_superuser or user.is_staff %}admin-container main-container{% else %}user-container main-container{% endif %}"
+      class="relative overflow-hidden h-screen {% if user.is_superuser or user.is_staff %}xs:flex xs:flex-col lg:flex-row {% else %} flex flex-col{% endif %}"
     >
       <nav
-        class="{% if user.is_superuser or user.is_staff %}admin-nav{% else %}user-nav{% endif %}"
+        class="bg-[#FFD700] {% if user.is_superuser or user.is_staff %}flex xs:flex-row xs:justify-between lg:justify-normal lg:flex-col xs:w-full lg:w-[30%]{% else %}flex justify-between h-[5rem]{% endif %}"
       >
-        <div>
-          <img src="{% static 'images/CTU_logo.png' %}" class="logo" />
-          <h1>HealthHub Connect</h1>
+        <div class="flex gap-2 p-4 items-stretch bg-[#3b82f6] {% if user.is_superuser or user.is_staff %} justify-center {% else %} justify-normal {% endif %}">
+          <img class="h-full {% if user.is_superuser or user.is_staff %} size-14 {% else %} size-min {% endif %}" src="{% static 'images/CTU_logo.png' %}" />
+          <h1 class="font-bold text-[1.3rem] self-center tracking-tight">HealthHub Connect</h1>
         </div>
-        <ul>
+        <ul class="xs:hidden {% if user.is_superuser or user.is_staff %} lg:flex flex-col {% else %} lg:flex {% endif %}">
           {% if user.is_superuser or user.is_staff %}
           <li>
-            <a href="{% url 'main:admin_dashboard' %}">Dashboard</a>
+            <a class="flex justify-center items-center h-full tracking-tight hover:bg-[#e6c300] py-4 font-medium hover:border-r-[4px] hover:border-[#3b82f6] transition-all" href="{% url 'main:admin_dashboard' %}">Dashboard</a>
           </li>
           <li>
-            <a href="{% url 'medical:patient_profile' %}">Patient Profile</a>
+            <a class="flex justify-center items-center h-full tracking-tight hover:bg-[#e6c300] py-4 font-medium hover:border-r-[4px] hover:border-[#3b82f6] transition-all" href="{% url 'medical:patient_profile' %}">Patient Profile</a>
           </li>
-          <li><a href="{% url 'medical:viewrequest' %}">View Requests</a></li>
+          <li><a class="flex justify-center items-center h-full tracking-tight hover:bg-[#e6c300] py-4 font-medium hover:border-r-[4px] hover:border-[#3b82f6] transition-all" href="{% url 'medical:viewrequest' %}">View Requests</a></li>
           <li>
-            <a href="{% url 'medical:medtracker' %}"
+            <a class="flex justify-center items-center h-full tracking-tight hover:bg-[#e6c300] py-4 font-medium hover:border-r-[4px] hover:border-[#3b82f6] transition-all" href="{% url 'medical:medtracker' %}"
               >Student Medical Requirements Tracker</a
             >
           </li>
           <li>
-            <a href="{% url 'medical:emergency_asst' %}"
+            <a class="flex justify-center items-center h-full tracking-tight hover:bg-[#e6c300] py-4 font-medium hover:border-r-[4px] hover:border-[#3b82f6] transition-all" href="{% url 'medical:emergency_asst' %}"
               >Emergency Health Assistance</a
             >
           </li>
-          <li><a href="{% url 'medical:pwdlist' %}">PWD Profile</a></li>
+          <li><a class="flex justify-center items-center h-full tracking-tight hover:bg-[#e6c300] py-4 font-medium hover:border-r-[4px] hover:border-[#3b82f6] transition-all" href="{% url 'medical:pwdlist' %}">PWD Profile</a></li>
           <li>
-            <a href="{% url 'medical:dentalrequest' %}">Dental Services</a>
+            <a class="flex justify-center items-center h-full tracking-tight hover:bg-[#e6c300] py-4 font-medium hover:border-r-[4px] hover:border-[#3b82f6] transition-all" href="{% url 'medical:dentalrequest' %}">Dental Services</a>
           </li>
           <li>
-            <a href="{% url 'medical:prescription' %}">Prescription Issuance</a>
+            <a class="flex justify-center items-center h-full tracking-tight hover:bg-[#e6c300] py-4 font-medium hover:border-r-[4px] hover:border-[#3b82f6] transition-all" href="{% url 'medical:prescription' %}">Prescription Issuance</a>
           </li>
           <li>
-            <a href="{% url 'medical:transactions' %}">Transaction Reports</a>
+            <a class="flex justify-center items-center h-full tracking-tight hover:bg-[#e6c300] py-4 font-medium hover:border-r-[4px] hover:border-[#3b82f6] transition-all" href="{% url 'medical:transactions' %}">Transaction Reports</a>
           </li>
           {% else %}
           <li>
-            <a href="{% url 'main:student_dashboard' %}">Dashboard</a>
+            <a class="flex justify-center items-center h-full tracking-tight hover:bg-[#e6c300] px-4 font-medium hover:border-b-[4px] hover:border-[#3b82f6] transition-all" href="{% url 'main:student_dashboard' %}">Dashboard</a>
           </li>
           <li>
-            <a href="{% url 'medical:request' %}">Documentary Request</a>
+            <a class="flex justify-center items-center h-full tracking-tight hover:bg-[#e6c300] px-4 font-medium hover:border-b-[4px] hover:border-[#3b82f6] transition-all" href="{% url 'medical:request' %}">Documentary Request</a>
           </li>
           <li>
-            <a href="{% url 'medical:medtracker' %}"
+            <a class="flex justify-center items-center h-full tracking-tight hover:bg-[#e6c300] px-4 font-medium hover:border-b-[4px] hover:border-[#3b82f6] transition-all" href="{% url 'medical:medtracker' %}"
               >Medical Requirements Upload</a
             >
           </li>
           <!-- <li><a href="{% url 'medical:insurance_eligibility' %}">Emergency Health Assistance</a></li> -->
           <li>
-            <a href="{% url 'medical:dentalservice' %}"
+            <a class="flex justify-center items-center h-full tracking-tight hover:bg-[#e6c300] px-4 font-medium hover:border-b-[4px] hover:border-[#3b82f6] transition-all" href="{% url 'medical:dentalservice' %}"
               >Dental Services Availment</a
             >
           </li>
           {% endif %}
-
-          <br /><br /><br /><br />
         </ul>
-      </nav>
-      <section>
-        <div class="mobile-menu">
-          <svg
+        <svg
+            id="toggleMenuBtn"
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
+            class="xs:block lg:hidden size-8 self-center cursor-pointer mr-4"
             viewBox="0 0 24 24"
             stroke-width="1.5"
             stroke="currentColor"
@@ -107,17 +95,19 @@
               stroke-linejoin="round"
               d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
             />
-          </svg>
-        </div>
-        <div class="content-page">{% block content %} {% endblock %}</div>
-        <div class="sidebar-nav hidden">
+        </svg>
+      </nav>
+      <section class="bg-[#E5F2FF] h-full w-full flex{% if user.is_superuser or user.is_staff %} p-[1.4rem] overflow-auto{% else %}p-0 justify-center items-center overflow-hidden{% endif %}">
+          {% block content %} {% endblock %}
+      </section>
+      <div id="sidebar-nav" class="absolute bg-[#FFD700] top-0 right-0 z-50 translate-x-full transition-all duration-300 h-full w-1/2 p-4 flex flex-col gap-4">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
             stroke-width="1.5"
             stroke="currentColor"
-            class="size-6 close-btn"
+            class="size-6 close-btn cursor-pointer"
           >
             <path
               stroke-linecap="round"
@@ -125,101 +115,86 @@
               d="M6 18 18 6M6 6l12 12"
             />
           </svg>
-          <nav>
-            <div>
-              <img src="{% static 'images/CTU_logo.png' %}" class="logo" />
-              <h1>HealthHub Connect</h1>
-            </div>
-            <ul>
+          <nav class="h-fit">
+            <ul class="flex flex-col gap-2">
               {% if user.is_superuser or user.is_staff %}
-              <li class="menu-item">
-                <a href="{% url 'main:admin_dashboard' %}">Dashboard</a>
+              <li class="menu-item border-b border-[#e6c300] flex">
+                <a class="p-3 font-bold text-black w-full" href="{% url 'main:admin_dashboard' %}">Dashboard</a>
               </li>
-              <li class="menu-item">
-                <a href="{% url 'medical:patient_profile' %}"
+              <li class="menu-item border-b border-[#e6c300] flex">
+                <a class="p-3 font-bold text-black w-full" href="{% url 'medical:patient_profile' %}"
                   >Patient Profile</a
                 >
               </li>
-              <li class="menu-item">
-                <a href="{% url 'medical:viewrequest' %}">View Requests</a>
+              <li class="menu-item border-b border-[#e6c300] flex">
+                <a class="p-3 font-bold text-black w-full" href="{% url 'medical:viewrequest' %}">View Requests</a>
               </li>
-              <li class="menu-item">
-                <a href="{% url 'medical:medtracker' %}"
+              <li class="menu-item border-b border-[#e6c300] flex">
+                <a class="p-3 font-bold text-black w-full" href="{% url 'medical:medtracker' %}"
                   >Student Medical Requirements Tracker</a
                 >
               </li>
-              <li class="menu-item">
-                <a href="{% url 'medical:emergency_asst' %}"
+              <li class="menu-item border-b border-[#e6c300] flex">
+                <a class="p-3 font-bold text-black w-full" href="{% url 'medical:emergency_asst' %}"
                   >Emergency Health Assistance</a
                 >
               </li>
-              <li class="menu-item">
-                <a href="{% url 'medical:pwdlist' %}">PWD Profile</a>
+              <li class="menu-item border-b border-[#e6c300] flex">
+                <a class="p-3 font-bold text-black w-full" href="{% url 'medical:pwdlist' %}">PWD Profile</a>
               </li>
-              <li class="menu-item">
-                <a href="{% url 'medical:dentalrequest' %}">Dental Services</a>
+              <li class="menu-item border-b border-[#e6c300] flex">
+                <a class="p-3 font-bold text-black w-full" href="{% url 'medical:dentalrequest' %}">Dental Services</a>
               </li>
-              <li class="menu-item">
-                <a href="{% url 'medical:prescription' %}"
+              <li class="menu-item border-b border-[#e6c300] flex">
+                <a class="p-3 font-bold text-black w-full" href="{% url 'medical:prescription' %}"
                   >Prescription Issuance</a
                 >
               </li>
-              <li class="menu-item">
-                <a href="{% url 'medical:transactions' %}"
+              <li class="menu-item border-b border-[#e6c300] flex">
+                <a class="p-3 font-bold text-black w-full" href="{% url 'medical:transactions' %}"
                   >Transaction Reports</a
                 >
               </li>
               {% else %}
-              <li class="menu-item">
-                <a href="{% url 'main:student_dashboard' %}">Dashboard</a>
+              <li class="menu-item border-b border-[#e6c300] flex">
+                <a class="p-3 font-bold text-black w-full" href="{% url 'main:student_dashboard' %}">Dashboard</a>
               </li>
-              <li class="menu-item">
-                <a href="{% url 'medical:request' %}">Documentary Request</a>
+              <li class="menu-item border-b border-[#e6c300] flex">
+                <a class="p-3 font-bold text-black w-full" href="{% url 'medical:request' %}">Documentary Request</a>
               </li>
-              <li class="menu-item">
-                <a href="{% url 'medical:medtracker' %}"
+              <li class="menu-item border-b border-[#e6c300] flex">
+                <a class="p-3 font-bold text-black w-full" href="{% url 'medical:medtracker' %}"
                   >Medical Requirements Upload</a
                 >
               </li>
-              <!-- <li><a href="{% url 'medical:insurance_eligibility' %}">Emergency Health Assistance</a></li> -->
-              <li class="menu-item">
-                <a href="{% url 'medical:dentalservice' %}"
+              <li class="menu-item border-b border-[#e6c300] flex">
+                <a class="p-3 font-bold text-black w-full" href="{% url 'medical:dentalservice' %}"
                   >Dental Services Availment</a
                 >
               </li>
               {% endif %}
-
-              <br /><br /><br /><br />
             </ul>
           </nav>
-        </div>
-        <div class="overlay hidden"></div>
-      </section>
+      </div>
+      <div id="overlay" class="absolute top-0 right-0 bottom-0 left-0 h-full z-10 bg-[#00000050] hidden"></div>
     </main>
-    <!-- </div>  -->
     <script>
-      const sidebar = document.querySelector(".sidebar-nav");
-      const overlay = document.querySelector(".overlay");
+      const sidebar = document.querySelector("#sidebar-nav");
+      const overlay = document.querySelector("#overlay");
 
-      document.querySelector(".mobile-menu").addEventListener("click", () => {
-        sidebar.classList.add("visible");
-        sidebar.classList.remove("hidden");
-        overlay.classList.add("visible");
-        overlay.classList.remove("hidden");
+      document.querySelector("#toggleMenuBtn").addEventListener("click", () => {
+        sidebar.classList.replace("translate-x-full", "translate-x-0");
+        overlay.classList.replace("hidden", "block");
       });
 
       document.querySelector(".close-btn").addEventListener("click", () => {
-        sidebar.classList.add("hidden");
-        sidebar.classList.remove("visible");
-        overlay.classList.add("hidden");
-        overlay.classList.remove("visible");
+        sidebar.classList.replace("translate-x-0", "translate-x-full");
+        overlay.classList.replace("block", "hidden");
       });
 
       document.querySelector(".menu-item").addEventListener("click", () => {
-        sidebar.classList.add("hidden");
-        sidebar.classList.remove("visible");
-        overlay.classList.add("hidden");
-        overlay.classList.remove("visible");
+        sidebar.classList.replace("translate-x-0", "translate-x-full");
+        overlay.classList.replace("block", "hidden");
       });
     </script>
     <script src="{% static 'scripts/jquery/jquery-3.7.1.min.js' %}"></script>
@@ -228,7 +203,7 @@
     {% if user.is_authenticated %}
         {% if user.is_staff %}
             <!-- Admin Dashboard Section -->
-            <div class="row">
+            <!-- <div class="row">
                 <div class="col-md-4">
                     <div class="card">
                         <div class="card-body">
@@ -285,7 +260,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
         {% else %}
             <!-- Student Dashboard Section -->
             {% if patient %}

@@ -1,16 +1,13 @@
 {% extends 'mainv2.html' %} 
-{% load static %} 
-
-{% block title %}Medical{% endblock %} 
-
+{% load static tailwind_tags %} 
+{% block title %}HealthHub Connect | Patient Profile{% endblock %} 
 {% block extra_css %}
-    <link rel="stylesheet" href="{% static 'styles/admin/patientlist.css' %}" />
-    <link rel="stylesheet" media="print" href="{% static 'styles/print.css' %}" />
+{% tailwind_css %}
 {% endblock %}
 
 {% block content %}
 
-<div class="container">
+<!-- <div class="w-fit h-fit bg-white p-8">
   {% if messages %}
   <div class="message-container">
     {% for message in messages %}
@@ -87,10 +84,8 @@
       </tbody>
     </table>
   </div>
-</div>
+</div> -->
+<h1>Hellow</h1>
 {% endblock %}
 {% block extra_js %}
-<script>
-
-</script>
 {% endblock %}

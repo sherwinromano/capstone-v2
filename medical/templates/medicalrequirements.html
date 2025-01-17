@@ -1,14 +1,12 @@
 {% extends 'mainv2.html' %}
-{% load static %}
-
-{% block title %}Medical Requirements Tracking{% endblock %}
-
+{% load static tailwind_tags %}
+{% block title %}HealthHub Connect | Medical Requirements Tracking{% endblock %}
 {% block extra_css %}
-    <link rel="stylesheet" href="{% static 'styles/medicalrequirements.css' %}">
+{% tailwind_css %}
 {% endblock %}
 
 {% block content %}
-<div class="container">
+<div class="w-full p-8 bg-white rounded-[18px] flex flex-col gap-4">
     {% if messages %}
     <div class="message-container">
         {% for message in messages %}
@@ -16,7 +14,7 @@
         {% endfor %}
     </div>
     {% endif %}
-    <h2>Medical Requirements Tracker</h2><br><br>
+    <h2 class="font-bold text-[1.5rem] text-black tracking-tight py-4 text-center">Medical Requirements Tracker</h2>
     {% if user.is_superuser or user.is_staff %}
         <form method="POST" class="search-form">
             {% csrf_token %}
@@ -25,13 +23,13 @@
         </form>
     {% endif %}
     <div class="requirements">
-        <h3>List of Requirements</h3>
-        <table>
-            <thead>
+        <h3 class="text-center">List of Requirements</h3>
+        <table class="w-full">
+            <thead class="bg-[#e6e6e6] w-full">
                 <tr class="tr-header">
-                    <th>Requirement</th>
-                    <th>Status</th>
-                    <th>File</th>
+                    <th class="text-center p-2">Requirement</th>
+                    <th class="text-center p-2">Status</th>
+                    <th class="text-center p-2">File</th>
                 </tr>
             </thead>
             <tbody>
@@ -100,7 +98,9 @@
         </table>
     </div>
     {% if not user.is_superuser and not user.is_staff %}
-        <div class="btn-cont"><a class="upload-button" href="{% url 'medical:upload_requirements' %}">Upload Requirement</a></div>
+        <button class="bg-[#3b82f6] mt-8 text-white text-[14px] py-2 px-4 rounded-md w-full cursor-pointer">
+            <a href="{% url 'medical:upload_requirements' %}">Upload Requirement</a>
+        </button>
     {% endif %}
 </div>
 {% endblock %}

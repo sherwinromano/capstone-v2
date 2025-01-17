@@ -1,48 +1,40 @@
 {% extends 'mainv2.html' %}
-{% load static %}
+{% load static tailwind_tags %}
 
-{% block title %} Submit a Request {% endblock %}
+{% block title %} HealthHub Connect | Dental Request {% endblock %}
 
 {% block extra_css %} 
-<link rel="stylesheet" href="{% static 'styles/students/dentalreq.css' %}">
+{% tailwind_css %}
 {% endblock %}
 
 {% block content %}
 
-<div class="container">
-    {% if messages %}
-        {% for message in messages %}
-            <p class="message {% if message.tags %}{{ message.tags }}{% endif %}">{{ message }}</p>
-        {% endfor %}
-    {% endif %}
-    <h2>Dental Services Request Form</h2>
-    <br><br>
-    <form method="POST">
+<div class="bg-white p-8 flex flex-col gap-2 rounded-[18px]">
+    <h2 class="font-bold text-[1.5rem] text-black tracking-tight py-4 text-center">Dental Request Form</h2>
+    <form method="POST" class="flex flex-col">
         {% csrf_token %}
-        <table class="request-table">
-            <tr>
-                <th><label for="student_id">Student ID:</label></th>
-                <th><label for="request_type">Service Type:</label></th>
-                <th>Action:</th>
-            </tr>
-            <tr>
-                <td>
-                    <input type="text" id="student_id" placeholder="Enter Your ID" name="student_id">
-                </td>
-                <td class="serv-type">
-                    <select id="requestType" name="service_type" class="form-control" required>
-                        <option value="">Select Service Type</option>
-                        <option value="Cleaning">Cleaning</option>
-                        <option value="Dental Filling">Dental Filling</option>
-                        <option value="Tooth Extraction">Tooth Extraction</option>
-                    </select>
-                </td>
-                <td>
-                    <button type="submit" class="btn btn-submit">Submit</button>
-                </td>
-            </tr>
-        </table>
-        <br><br>
+        <div class="flex flex-col">
+            <div class="flex bg-[#e6e6e6] p-2">
+                <label class="w-full text-center font-bold" for="studentId">Student ID</label>
+                <label class="w-full text-center font-bold" for="requestType">Service Type</label>
+            </div>
+            <div class="flex gap-2 py-2">
+                <input class="w-full" type="text" id="student_id" placeholder="Enter Your ID" name="student_id">
+                <select class="w-full" id="requestType" name="service_type" required>
+                    <option value="">Select Service Type</option>
+                    <option value="Cleaning">Cleaning</option>
+                    <option value="Dental Filling">Dental Filling</option>
+                    <option value="Tooth Extraction">Tooth Extraction</option>
+                </select>
+            </div>
+        </div>
+       
+        {% if messages %}
+        {% for message in messages %}
+            <p class="text-red-500 {% if message.tags %}{{ message.tags }}{% endif %}">{{ message }}</p>
+        {% endfor %}
+        {% endif %}
+        <input class="bg-[#3b82f6] mt-8 text-white text-[14px] py-2 px-4 rounded-md w-[8rem] cursor-pointer" type="submit" value="Submit">
     </form>
 </div>
 {% endblock %}
