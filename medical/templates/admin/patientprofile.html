@@ -7,33 +7,23 @@
 
 {% block content %}
 
-<!-- <div class="w-fit h-fit bg-white p-8">
-  {% if messages %}
-  <div class="message-container">
-    {% for message in messages %}
-    <p class="message {% if message.tags %}{{ message.tags }}{% endif %}">
-      {{ message }}
-    </p>
-    {% endfor %}
-  </div>
-  {% endif %}
-  <h2>Patient Profile</h2>
-  <br /><br />
-  <form method="POST" class="search-form">
+<div class="w-full h-full rounded-[14px] bg-white xs:p-4 md:p-8 flex flex-col gap-2 overflow-hidden">
+  <h2 class="font-bold xs:text-[1.3rem] sm:text-[1.5rem] mb-4">Patient Profile</h2>
+  <form method="POST" class="flex items-center gap-2">
     {% csrf_token %}
-    <input type="text" name="student_id" placeholder="Enter ID to search" />
-    <button type="submit">Search</button>
+    <input class="xs:p-1 sm:p-2 w-full xs:text-[14px] sm:text-base h-full" type="text" name="student_id" placeholder="Enter ID to search" />
+    <button class="bg-[#3b82f6] text-white text-[14px] p-2 w-[30%] h-full cursor-pointer" type="submit">Search</button>
   </form>
-  <div class="request">
-    <table>
-      <thead>
+  <div class="flex w-full h-full xs:overflow-auto md:overflow-hidden">
+    <table class="h-full w-full">
+      <thead class="bg-[#e6e6e6] w-full">
         <tr class="tr-header">
-          <th>Student ID</th>
-          <th>Lastname</th>
-          <th>Firstname</th>
-          <th>Degree</th>
-          <th>Year Level</th>
-          <th>Sex</th>
+          <th class="text-center p-2 xs:text-[14px] sm:text-base">Student ID</th>
+          <th class="text-center p-2 xs:text-[14px] sm:text-base">Lastname</th>
+          <th class="text-center p-2 xs:text-[14px] sm:text-base">Firstname</th>
+          <th class="text-center p-2 xs:text-[14px] sm:text-base">Degree</th>
+          <th class="text-center p-2 xs:text-[14px] sm:text-base">Year Level</th>
+          <th class="text-center p-2 xs:text-[14px] sm:text-base">Sex</th>
         </tr>
       </thead>
       <tbody>
@@ -84,8 +74,19 @@
       </tbody>
     </table>
   </div>
-</div> -->
-<h1>Hellow</h1>
+    
+ 
+  {% if messages %}
+  <div class="message-container">
+    {% for message in messages %}
+    <p class="message {% if message.tags %}{{ message.tags }}{% endif %}">
+      {{ message }}
+    </p>
+    {% endfor %}
+  </div>
+  {% endif %}
+</div>
+
 {% endblock %}
 {% block extra_js %}
 {% endblock %}

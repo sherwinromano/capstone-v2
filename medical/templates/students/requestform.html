@@ -9,18 +9,18 @@
 
 {% block content %}
 
-<div class="bg-white p-8 flex flex-col gap-2 rounded-[18px]">
-    <h2 class="font-bold text-[1.5rem] text-black tracking-tight py-4 text-center">Documentary Request</h2>
-    <form method="POST" class="flex flex-col">
+<div class="bg-white h-[80%] xs:p-4 lg:p-8 flex flex-col gap-2 rounded-[18px]">
+    <h2 class="font-bold xs:text-[1.3rem] md:text-[1.5rem] text-black tracking-tight py-4 text-center">Documentary Request</h2>
+    <form method="POST" class="flex flex-col justify-between h-full">
         {% csrf_token %}
         <div class="flex flex-col">
             <div class="flex bg-[#e6e6e6] p-2">
-                <label class="w-full text-center font-bold" for="studentId">Student ID</label>
-                <label class="w-full text-center font-bold" for="requestType">Request Type</label>
+                <label class="w-full text-center font-bold xs:text-[14px] md:text-base" for="studentId">Student ID</label>
+                <label class="w-full text-center font-bold xs:text-[14px] md:text-base" for="requestType">Request Type</label>
             </div>
             <div class="flex gap-2 py-2">
-                <input class="w-full" type="text" id="student_id" placeholder="Enter Your ID" name="student_id">
-                <select class="w-full" id="requestType" name="request_type" required>
+                <input class="w-full xs:text-[14px] md:text-base" type="text" id="student_id" placeholder="Enter Your ID" name="student_id">
+                <select class="w-full xs:text-[14px] md:text-base" id="requestType" name="request_type" required>
                     <option value="">Select Request Type</option>
                     <option value="Eligibility Form">Eligibility Form</option>
                     <option value="Medical Certificate for Intramurals">Medical Certificate for Intramurals</option>

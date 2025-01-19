@@ -1,149 +1,148 @@
-{% extends 'mainv2.html' %}
-{% load static %}
-
-{% block title %}Medical{% endblock %}
-
+{% extends 'mainv2.html' %} 
+{% load static tailwind_tags %} 
+{% block title %}HealthHub Connect | View Request{% endblock %} 
 {% block extra_css %}
-    <link rel="stylesheet" href="{% static 'styles/viewrequest.css' %}">
-    <link rel="stylesheet" media="print" href="{% static 'styles/print.css' %}">
+{% tailwind_css %}
 {% endblock %}
 
 {% block content %}
-<div class="container">
+
+<div class="w-full h-full rounded-[14px] bg-white xs:p-4 md:p-8 flex flex-col gap-2">
+    <h2 class="font-bold xs:text-[1.3rem] sm:text-[1.5rem] mb-4 tracking-tight">Students Request</h2>
+    <div class="flex gap-2 xs:w-full md:w-fit">
+        <button type="button" class="border border-[#cccccc] p-2 xs:w-full md:w-[10rem] rounded-md active xs:text-[14px] sm:text-base" onclick="showTab('request')">Request</button>
+        <button type="button" class="border border-[#cccccc] p-2 xs:w-full md:w-[10rem] rounded-md xs:text-[14px] sm:text-base" onclick="showTab('approve-table')">Approve</button>
+    </div>
+    <div class="h-full w-full overflow-auto flex">
+        <div class="h-full w-full" id="request">
+            <h3 class="font-medium xs:text-base sm:text-[1.3rem] mb-2">Request</h3>
+            <table class="w-full">
+                <thead class="bg-[#e6e6e6] w-full">
+                    <tr class="tr-header">
+                        <th class="text-center p-2 xs:text-[14px] sm:text-base">Student ID</th>
+                        <th class="text-center p-2 xs:text-[14px] sm:text-base">Lastname</th>
+                        <th class="text-center p-2 xs:text-[14px] sm:text-base">Firstname</th>
+                        <th class="text-center p-2 xs:text-[14px] sm:text-base">Request Type</th>
+                        <th class="text-center p-2 xs:text-[14px] sm:text-base">Date Requested</th>
+                        <th class="text-center p-2 xs:text-[14px] sm:text-base">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for request in patient_requests %}
+                        {% if not request.approve %}
+                                <tr class="tr-td">
+                                    <form action="" method="POST">
+                                        {% csrf_token %}
+                                        <input type="hidden" name="request_id" value="{{ request.request_id }}">
+                                        <input type="hidden" name="request_type" value="{{ request.request_type }}">
+                                        <td><a href="#">{{ request.patient.student.student_id }}</a></td>
+                                        <td><a href="#">{{ request.patient.student.lastname|title }}</a></td>
+                                        <td><a href="#">{{ request.patient.student.firstname|title }}</a></td>
+                                        <td><a href="#">{{ request.request_type }}</a></td>
+                                        <td><a href="#">{{ request.date_requested }}</a></td>
+                                        <td>
+                                            <button type="submit" name="action" value="approve" class="approve">Approve</button>
+                                            <button type="submit" name="action" value="reject" class="reject">Reject</button>
+                                        </td>
+                                    </form>
+                                </tr>
+                            
+                        {% endif %}
+                    {% empty %}
+                        <tr class="tr-td">
+                            <td colspan="6">No requests found</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="h-full w-full" id="approve-table" style="display:none;">
+            <h3 class="font-medium xs:text-base sm:text-[1.3rem] mb-2">Approved</h3>
+            <table class="w-full">
+                <thead class="bg-[#e6e6e6] w-full">
+                    <tr class="tr-header">
+                        <th class="text-center p-2 xs:text-[14px] sm:text-base">Student ID</th>
+                        <th class="text-center p-2 xs:text-[14px] sm:text-base">Lastname</th>
+                        <th class="text-center p-2 xs:text-[14px] sm:text-base">Firstname</th>
+                        <th class="text-center p-2 xs:text-[14px] sm:text-base">Request Type</th>
+                        <th class="text-center p-2 xs:text-[14px] sm:text-base">Date Approved</th>
+                        <th class="text-center p-2 xs:text-[14px] sm:text-base">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for request in patient_requests %}
+                        {% if request.approve %}
+                            {% if request.request_type == "Eligibility Form" %}
+                                <tr class="tr-td">
+                                    <form action="" method="POST">
+                                        {% csrf_token %}
+                                        <input type="hidden" name="request_id" value="{{ request.request_id }}">
+                                        <input type="hidden" name="request_type" value="{{ request.request_type }}">
+                                        <td><a href="{% url 'medical:eligibility_form' request.patient.student.student_id %}">{{ request.patient.student.student_id }}</a></td>
+                                        <td><a href="{% url 'medical:eligibility_form' request.patient.student.student_id %}">{{ request.patient.student.lastname|title }}</a></td>
+                                        <td><a href="{% url 'medical:eligibility_form' request.patient.student.student_id %}">{{ request.patient.student.firstname|title }}</a></td>
+                                        <td><a href="{% url 'medical:eligibility_form' request.patient.student.student_id %}">{{ request.request_type }}</a></td>
+                                        <td><a href="{% url 'medical:eligibility_form' request.patient.student.student_id %}">{{ request.date_approved }}</a></td>
+                                        <td>
+                                            <button type="submit" name="action" value="done" class="approve">Mark As Done</button>
+                                        </td>
+                                    </form>
+                                </tr>
+                            {% elif request.request_type == "Medical Clearance for OJT/Practicum" %}
+                                <tr class="tr-td">
+                                    <form action="" method="POST">
+                                        {% csrf_token %}
+                                        <input type="hidden" name="request_id" value="{{ request.request_id }}">
+                                        <input type="hidden" name="request_type" value="{{ request.request_type }}">
+                                        <td><a href="{% url 'medical:medicalclearance' request.patient.student.student_id %}">{{ request.patient.student.student_id }}</a></td>
+                                        <td><a href="{% url 'medical:medicalclearance' request.patient.student.student_id %}">{{ request.patient.student.lastname|title }}</a></td>
+                                        <td><a href="{% url 'medical:medicalclearance' request.patient.student.student_id %}">{{ request.patient.student.firstname|title }}</a></td>
+                                        <td><a href="{% url 'medical:medicalclearance' request.patient.student.student_id %}">{{ request.request_type }}</a></td>
+                                        <td><a href="{% url 'medical:medicalclearance' request.patient.student.student_id %}">{{ request.date_approved }}</a></td>
+                                        <td>
+                                            <button type="submit" name="action" value="done" class="approve">Mark As Done</button>
+                                        </td>
+                                    </form>
+                                </tr>
+                            {% elif request.request_type == "Medical Certificate for Intramurals" %}
+                                <tr class="tr-td">
+                                    <form action="" method="POST">
+                                        {% csrf_token %}
+                                        <input type="hidden" name="request_id" value="{{ request.request_id }}">
+                                        <input type="hidden" name="request_type" value="{{ request.request_type }}">
+                                        <td><a href="{% url 'medical:med_cert_for_intrams' request.patient.student.student_id %}">{{ request.patient.student.student_id }}</a></td>
+                                        <td><a href="{% url 'medical:med_cert_for_intrams' request.patient.student.student_id %}">{{ request.patient.student.lastname|title }}</a></td>
+                                        <td><a href="{% url 'medical:med_cert_for_intrams' request.patient.student.student_id %}">{{ request.patient.student.firstname|title }}</a></td>
+                                        <td><a href="{% url 'medical:med_cert_for_intrams' request.patient.student.student_id %}">{{ request.request_type }}</a></td>
+                                        <td><a href="{% url 'medical:med_cert_for_intrams' request.patient.student.student_id %}">{{ request.date_approved }}</a></td>
+                                        <td>
+                                            <button type="submit" name="action" value="done" class="approve">Mark As Done</button>
+                                        </td>
+                                    </form>
+                                </tr>
+                            {% endif %}
+                        {% endif %}
+                    {% empty %}
+                        <tr class="tr-td">
+                            <td colspan="6">No requests found</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
     {% if messages %}
         {% for message in messages %}
             <p class="message {% if message.tags %}{{ message.tags }}{% endif %}">{{ message }}</p>
         {% endfor %}
     {% endif %}
-    <h2>STUDENTS REQUEST</h2>
-    <div class="tab-container">
-        <button type="button" class="tab-button active" onclick="showTab('request')">Request</button>
-        <button type="button" class="tab-button" onclick="showTab('approve-table')">Approve</button>
-    </div>
-    <div class="request" id="request">
-        <h3>Request</h3>
-        <table>
-            <thead>
-                <tr class="tr-header">
-                    <th>Student ID</th>
-                    <th>Lastname</th>
-                    <th>Firstname</th>
-                    <th>Request Type</th>
-                    <th>Date Requested</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for request in patient_requests %}
-                    {% if not request.approve %}
-                            <tr class="tr-td">
-                                <form action="" method="POST">
-                                    {% csrf_token %}
-                                    <input type="hidden" name="request_id" value="{{ request.request_id }}">
-                                    <input type="hidden" name="request_type" value="{{ request.request_type }}">
-                                    <td><a href="#">{{ request.patient.student.student_id }}</a></td>
-                                    <td><a href="#">{{ request.patient.student.lastname|title }}</a></td>
-                                    <td><a href="#">{{ request.patient.student.firstname|title }}</a></td>
-                                    <td><a href="#">{{ request.request_type }}</a></td>
-                                    <td><a href="#">{{ request.date_requested }}</a></td>
-                                    <td>
-                                        <button type="submit" name="action" value="approve" class="approve">Approve</button>
-                                        <button type="submit" name="action" value="reject" class="reject">Reject</button>
-                                    </td>
-                                </form>
-                            </tr>
-                        
-                    {% endif %}
-                {% empty %}
-                    <tr class="tr-td">
-                        <td colspan="6">No requests found</td>
-                    </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-    </div>
-    <div class="approve-table" id="approve-table" style="display:none;">
-        <h3>Approved</h3>
-        <table>
-            <thead>
-                <tr class="tr-header">
-                    <th>Student ID</th>
-                    <th>Lastname</th>
-                    <th>Firstname</th>
-                    <th>Request Type</th>
-                    <th>Date Approved</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for request in patient_requests %}
-                    {% if request.approve %}
-                        {% if request.request_type == "Eligibility Form" %}
-                            <tr class="tr-td">
-                                <form action="" method="POST">
-                                    {% csrf_token %}
-                                    <input type="hidden" name="request_id" value="{{ request.request_id }}">
-                                    <input type="hidden" name="request_type" value="{{ request.request_type }}">
-                                    <td><a href="{% url 'medical:eligibility_form' request.patient.student.student_id %}">{{ request.patient.student.student_id }}</a></td>
-                                    <td><a href="{% url 'medical:eligibility_form' request.patient.student.student_id %}">{{ request.patient.student.lastname|title }}</a></td>
-                                    <td><a href="{% url 'medical:eligibility_form' request.patient.student.student_id %}">{{ request.patient.student.firstname|title }}</a></td>
-                                    <td><a href="{% url 'medical:eligibility_form' request.patient.student.student_id %}">{{ request.request_type }}</a></td>
-                                    <td><a href="{% url 'medical:eligibility_form' request.patient.student.student_id %}">{{ request.date_approved }}</a></td>
-                                    <td>
-                                        <button type="submit" name="action" value="done" class="approve">Mark As Done</button>
-                                    </td>
-                                </form>
-                            </tr>
-                        {% elif request.request_type == "Medical Clearance for OJT/Practicum" %}
-                            <tr class="tr-td">
-                                <form action="" method="POST">
-                                    {% csrf_token %}
-                                    <input type="hidden" name="request_id" value="{{ request.request_id }}">
-                                    <input type="hidden" name="request_type" value="{{ request.request_type }}">
-                                    <td><a href="{% url 'medical:medicalclearance' request.patient.student.student_id %}">{{ request.patient.student.student_id }}</a></td>
-                                    <td><a href="{% url 'medical:medicalclearance' request.patient.student.student_id %}">{{ request.patient.student.lastname|title }}</a></td>
-                                    <td><a href="{% url 'medical:medicalclearance' request.patient.student.student_id %}">{{ request.patient.student.firstname|title }}</a></td>
-                                    <td><a href="{% url 'medical:medicalclearance' request.patient.student.student_id %}">{{ request.request_type }}</a></td>
-                                    <td><a href="{% url 'medical:medicalclearance' request.patient.student.student_id %}">{{ request.date_approved }}</a></td>
-                                    <td>
-                                        <button type="submit" name="action" value="done" class="approve">Mark As Done</button>
-                                    </td>
-                                </form>
-                            </tr>
-                        {% elif request.request_type == "Medical Certificate for Intramurals" %}
-                            <tr class="tr-td">
-                                <form action="" method="POST">
-                                    {% csrf_token %}
-                                    <input type="hidden" name="request_id" value="{{ request.request_id }}">
-                                    <input type="hidden" name="request_type" value="{{ request.request_type }}">
-                                    <td><a href="{% url 'medical:med_cert_for_intrams' request.patient.student.student_id %}">{{ request.patient.student.student_id }}</a></td>
-                                    <td><a href="{% url 'medical:med_cert_for_intrams' request.patient.student.student_id %}">{{ request.patient.student.lastname|title }}</a></td>
-                                    <td><a href="{% url 'medical:med_cert_for_intrams' request.patient.student.student_id %}">{{ request.patient.student.firstname|title }}</a></td>
-                                    <td><a href="{% url 'medical:med_cert_for_intrams' request.patient.student.student_id %}">{{ request.request_type }}</a></td>
-                                    <td><a href="{% url 'medical:med_cert_for_intrams' request.patient.student.student_id %}">{{ request.date_approved }}</a></td>
-                                    <td>
-                                        <button type="submit" name="action" value="done" class="approve">Mark As Done</button>
-                                    </td>
-                                </form>
-                            </tr>
-                        {% endif %}
-                    {% endif %}
-                {% empty %}
-                    <tr class="tr-td">
-                        <td colspan="6">No requests found</td>
-                    </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-    </div>
 </div>
 {% endblock %}
-
 {% block extra_js %}
 <script>
     function showTab(tabId) {
-        var tabs = document.querySelectorAll('.tab-button');
-        var contents = document.querySelectorAll('.request, .approve-table');
+        var tabs = document.querySelectorAll('button[type="button"]');
+        var contents = document.querySelectorAll('#request, #approve-table');
         tabs.forEach(function(tab) {
             tab.classList.remove('active');
         });

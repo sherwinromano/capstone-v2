@@ -1,50 +1,49 @@
-{% extends 'mainv2.html' %}
-{% load static %}
-
-{% block title %}Prescription Issuance{% endblock %}
-
+{% extends 'mainv2.html' %} 
+{% load static tailwind_tags %} 
+{% block title %}HealthHub Connect | Prescription Issuance{% endblock %} 
 {% block extra_css %}
-    <link rel="stylesheet" href="{% static 'styles/admin/prescription.css' %}">
+{% tailwind_css %}
 {% endblock %}
 
 {% block content %}
-<div class="container">
-    {% if messages %}
-        {% for message in messages %}
-            <p class="message {% if message.tags %}{{ message.tags }}{% endif %}">{{ message }}</p>
-        {% endfor %}
-    {% endif %}
-    <h2>Prescription Issuance</h2>
-    <form method="POST" class="prescription-form">
+<div class="w-full xs:h-fit lg:h-screen xs:p-4 md:p-8 bg-white rounded-[18px] flex flex-col items-center gap-4">
+    <h2 class="font-bold xs:text-[1.3rem] sm:text-[1.5rem] text-center mb-4">Prescription Issuance</h2>
+    <form method="POST" class="flex flex-col xs:gap-2 md:gap-4 xs:w-full md:w-[60%]">
         {% csrf_token %}
-        <div class="form-group">
-            <label for="student_id">Student ID:</label>
-            <div style="display: flex; gap: 5px;">
-                <input type="text" id="student_id" name="student_id" required>
-                <button type="button" id="btn-get">Get</button>
+        <div class="flex flex-col">
+            <label for="student_id" class="xs:text-[14px] sm:text-base">Student ID</label>
+            <div class="flex gap-2">
+                <input class="w-full p-2 xs:text-[14px] sm:text-base" type="text" id="student_id" name="student_id" required>
+                <button class="bg-[#3b82f6] text-white text-[14px] py-2 px-4 w-[30%] h-full cursor-pointer" type="button" id="btn-get">Get</button>
             </div>
         </div>
-        <div class="form-group">
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required>
+        <div class="flex flex-col">
+            <label class="xs:text-[14px] sm:text-base" for="name">Name</label>
+            <input class="xs:text-[14px] sm:text-base" type="text" id="name" name="name" required>
         </div>
-        <div class="form-group">
-            <label for="problem">Problem:</label>
-            <input type="text" id="problem" name="problem" required>
+        <div class="flex flex-col">
+            <label class="xs:text-[14px] sm:text-base" for="problem">Problem</label>
+            <input class="xs:text-[14px] sm:text-base" type="text" id="problem" name="problem" required>
         </div>
-        <div class="form-group">
-            <label for="treatment">Treatment:</label>
-            <textarea id="treatment" name="treatment" rows="4" required></textarea>
+        <div class="flex flex-col">
+            <label class="xs:text-[14px] sm:text-base" for="treatment">Treatment</label>
+            <textarea class="xs:text-[14px] sm:text-base" id="treatment" name="treatment" rows="4" required></textarea>
         </div>
-        <div class="form-group">
-            <label for="date">Date:</label>
-            <input type="date" id="date" name="date_prescribed" required>
+        <div class="flex flex-col">
+            <label class="xs:text-[14px] sm:text-base" for="date">Date</label>
+            <input class="xs:text-[14px] sm:text-base" type="date" id="date" name="date_prescribed" required>
         </div>
-        <div style="display: flex;">
-            <button type="submit" class="action-button" name="action" value="issue">Issue Prescription</button>
-            <a class="schedule-button" href="{% url 'medical:prescription_records' %}">View Records</a>
+        <div class="flex gap-2 xs:w-full lg:w-[60%] mt-4">
+            <button type="submit" class="bg-[#FFD700] p-3 w-full rounded-md text-[14px]" name="action" value="issue">Issue Prescription</button>
+            <button class="bg-[#FFD700] w-full flex rounded-md text-[14px]"> <a class="p-3 w-full" href="{% url 'medical:prescription_records' %}">View Records</a></button>
         </div>
+        {% if messages %}
+            {% for message in messages %}
+                <p class="message {% if message.tags %}{{ message.tags }}{% endif %}">{{ message }}</p>
+            {% endfor %}
+        {% endif %}
     </form>
+
 </div>
 
 <script>

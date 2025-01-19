@@ -1,5 +1,5 @@
 /* Hide navigation bar and other elements that shouldn't be printed */
-#submit, #print-btn {
+#submit, #print-btn, #navbar {
     display: none;
 }
 
