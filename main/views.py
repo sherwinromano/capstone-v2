@@ -27,7 +27,7 @@ def login_view(request):
         username = request.POST.get('email')
         password = request.POST.get('password')
 
-        # Try to authenticate with username (student ID)
+        # Try to authenticate with username
         user = authenticate(request, username=username, password=password)
         
         # If authentication fails, try with email
@@ -41,29 +41,32 @@ def login_view(request):
         if user is not None:
             login(request, user)
             
-            # Get or create student record
+            # If user is admin/staff, redirect directly to main
+            if user.is_staff or user.is_superuser:
+                return redirect('main:main')
+                
+            # For regular users, check student record
             try:
                 student = Student.objects.get(student_id=user.username)
             except Student.DoesNotExist:
                 messages.error(request, 'Student profile not found.')
                 return redirect('main:login')
 
-            # Check if medical student profile exists
+            # Check medical student profile
             try:
                 medical_student = medical_models.Student.objects.get(student_id=student.student_id)
-                # Check if patient profile exists
                 try:
                     patient = medical_models.Patient.objects.get(student=medical_student)
                     return redirect('main:main')
                 except medical_models.Patient.DoesNotExist:
-                    # If no patient profile exists, redirect to patient form
                     return redirect('main:patient_form')
             except medical_models.Student.DoesNotExist:
                 messages.error(request, 'Medical profile not found.')
                 return redirect('main:patient_form')
         else:
             messages.error(request, 'Invalid ID number/Email or password')
-            
+            return redirect('main:login')
+
     return render(request, 'login.html')
 
 def register(request):
