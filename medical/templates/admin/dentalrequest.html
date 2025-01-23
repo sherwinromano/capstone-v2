@@ -1,6 +1,5 @@
 {% extends 'mainv2.html' %}
-{% load static %}
-
+{% load static tailwind_tags %}
 {% block title %}Dental Request{% endblock %}
 
 {% block extra_css %}
@@ -9,27 +8,27 @@
 {% endblock %}
 {% block content %}
 
-<div class="container">
+<div class="container w-full xs:h-fit lg:h-full xs:p-4 md:p-8 bg-white rounded-[18px] flex flex-col xs:gap-2 md:gap-4">
     {% if messages %}
         {% for message in messages %}
             <p class="message {% if message.tags %}{{ message.tags }}{% endif %}">{{ message }}</p>
         {% endfor %}
     {% endif %}
-    <form action="" method="POST">
+    <form action="" method="POST" class="flex flex-col h-full">
         {% csrf_token %}
-        <h2>Dental Services Request</h2>
-        <br><br>
-        <div class="request">
-            <h3>Request</h3>
-            <table>
-                <thead>
+        <h2 class="font-bold xs:text-[1.3rem] sm:text-[1.5rem] mb-4 self-start w-fit">Dental Services Request</h2>
+       
+        <div class="request h-full">
+            <h3 class="font-medium xs:text-base sm:text-[1.3rem] mb-2">Request</h3>
+            <table class="h-full w-full">
+                <thead class="bg-[#e6e6e6] w-full">
                     <tr class="tr-header">
-                        <th>Student ID</th>
-                        <th>Lastname</th>
-                        <th>Firstname</th>
-                        <th>Service Type</th>
-                        <th>Date Requested</th>
-                        <th>Action</th>
+                        <th class="text-center p-2 xs:text-[14px] sm:text-base">Student ID</th>
+                        <th class="text-center p-2 xs:text-[14px] sm:text-base">Lastname</th>
+                        <th class="text-center p-2 xs:text-[14px] sm:text-base">Firstname</th>
+                        <th class="text-center p-2 xs:text-[14px] sm:text-base">Service Type</th>
+                        <th class="text-center p-2 xs:text-[14px] sm:text-base">Date Requested</th>
+                        <th class="text-center p-2 xs:text-[14px] sm:text-base">Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -56,8 +55,8 @@
                 </tbody>
             </table>
         </div>
-        <div class="sc-btn">
-            <a class="schedule-button " href="{% url 'medical:dentalschedule' %}">Schedule</a>
+        <div class="bg-[#3b82f6] w-fit p-2 rounded-md">
+            <a class="text-white" href="{% url 'medical:dentalschedule' %}">Schedule</a>
         </div>
         <!-- </div> -->
         <!-- Appointment Modal -->

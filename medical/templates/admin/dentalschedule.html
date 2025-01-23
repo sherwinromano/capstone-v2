@@ -1,34 +1,31 @@
-{% extends 'mainv2.html' %}
-{% load static %}
-
-{% block title %}Dental Request{% endblock %}
-
+{% extends 'mainv2.html' %} 
+{% load static tailwind_tags %} 
+{% block title %}HealthHub Connect | Dental Schedule{% endblock %} 
+{% tailwind_css %}
 {% block extra_css %}
-    <link rel="stylesheet" href="{% static 'styles/admin/dentalappoint.css' %}">
     <link rel="stylesheet" media="print" href="{% static 'styles/print.css' %}">
 {% endblock %}
 
 {% block content %}
 
-<div class="container">
+<div class="w-full xs:h-fit lg:h-full xs:p-4 md:p-8 bg-white rounded-[18px] flex flex-col xs:gap-2 md:gap-4">
     {% if messages %}
         {% for message in messages %}
             <p class="message {% if message.tags %}{{ message.tags }}{% endif %}">{{ message }}</p>
         {% endfor %}
     {% endif %}
-    <h2>Appointment Schedule</h2>
-    <br><br>
-    <div class="scheduled-appointments">
-        <h3>Scheduled Appointments</h3>
-        <table>
-            <thead>
+    <h2 class="font-bold xs:text-[1.3rem] sm:text-[1.5rem] mb-4">Appointment Schedule</h2>
+    <div class="flex flex-col h-full">
+        <h3 class="font-medium xs:text-base sm:text-[1.3rem] mb-2">Scheduled Appointments</h3>
+        <table class="h-full w-full">
+            <thead class="bg-[#e6e6e6] w-full">
                 <tr class="tr-header">
-                    <th>Student ID</th>
-                    <th>Lastname</th>
-                    <th>Firstname</th>
-                    <th>Service Type</th>
-                    <th>Appointment Date</th>
-                    <th>Action</th>
+                    <th class="text-center p-2 xs:text-[14px] sm:text-base">Student ID</th>
+                    <th class="text-center p-2 xs:text-[14px] sm:text-base">Lastname</th>
+                    <th class="text-center p-2 xs:text-[14px] sm:text-base">Firstname</th>
+                    <th class="text-center p-2 xs:text-[14px] sm:text-base">Service Type</th>
+                    <th class="text-center p-2 xs:text-[14px] sm:text-base">Appointment Date</th>
+                    <th class="text-center p-2 xs:text-[14px] sm:text-base">Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -58,8 +55,8 @@
             </tbody>
         </table>
     </div>
-    <div class="sc-btn">
-        <a class="schedule-button " href="{% url 'medical:dentalrequest' %}">Request</a>
+    <div class="bg-[#3b82f6] w-fit p-2 rounded-md">
+        <a class="text-white" href="{% url 'medical:dentalrequest' %}">Request</a>
     </div>
 </div>
 
