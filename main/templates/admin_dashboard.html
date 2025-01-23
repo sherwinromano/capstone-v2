@@ -43,6 +43,7 @@
   </div>
 
   <div class="dashboard-main">
+    <!-- Requests Section -->
     <div class="requests-section">
       <h2>Upcoming Requests</h2>
       <table class="requests-table">
@@ -55,31 +56,28 @@
           </tr>
         </thead>
         <tbody>
-          {% if recent_examinations %} {% for exam in recent_examinations %}
+          {% for request in upcoming_requests %}
           <tr>
-            <td>{{ exam.student.get_full_name }}</td>
-            <td>Medical Examination</td>
-            <td>{{ exam.date_created|date:"F d, Y" }}</td>
-            <td><span class="status-badge">Completed</span></td>
+            <td>{{ request.student }}</td>
+            <td>{{ request.request_type }}</td>
+            <td>{{ request.date }}</td>
+            <td><span class="status-badge">{{ request.status }}</span></td>
           </tr>
-          {% endfor %} {% else %}
+          {% empty %}
           <tr>
-            <td colspan="4" class="no-data">No upcoming requests</td>
+            <td colspan="4" class="text-center">No upcoming requests</td>
           </tr>
-          {% endif %}
+          {% endfor %}
         </tbody>
       </table>
     </div>
 
+    <!-- Calendar Section -->
     <div class="calendar-section">
       <div class="calendar-header">
-        <button class="calendar-nav prev">
-          <i class="fas fa-chevron-left"></i>
-        </button>
+        <button class="calendar-nav"><i class="fas fa-chevron-left"></i></button>
         <h2>January 2025</h2>
-        <button class="calendar-nav next">
-          <i class="fas fa-chevron-right"></i>
-        </button>
+        <button class="calendar-nav"><i class="fas fa-chevron-right"></i></button>
       </div>
       <div class="calendar-grid">
         <div class="weekdays">
@@ -91,10 +89,12 @@
           <div>Fri</div>
           <div>Sat</div>
         </div>
-        <div class="days"></div>
+        <div class="days calendar-days">
+          <!-- Calendar days will be populated by JavaScript -->
+        </div>
       </div>
       <div class="schedule-list">
-        <!-- Schedule items will be dynamically populated -->
+        <!-- Schedule items will be populated by JavaScript -->
       </div>
     </div>
   </div>

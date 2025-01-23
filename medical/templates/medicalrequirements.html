@@ -23,6 +23,7 @@
                     <th class="text-center p-2 xs:text-[14px] md:text-base">Requirement</th>
                     <th class="text-center p-2 xs:text-[14px] md:text-base">Status</th>
                     <th class="text-center p-2 xs:text-[14px] md:text-base">File</th>
+                    <th class="text-center p-2 xs:text-[14px] md:text-base">Preview</th>
                 </tr>
             </thead>
             <tbody>
@@ -32,8 +33,11 @@
                         {% if med_requirements.chest_xray.url %}
                             <td>Submitted</td>
                             <td><a href="{{ med_requirements.chest_xray.url }}">Chest X-Ray</a></td>
+                            <td><button class="preview-btn" onclick="previewFile('{{ med_requirements.chest_xray.url }}')">View</button></td>
                         {% else %}
                             <td>Not Submitted</td>
+                            <td>-</td>
+                            <td>-</td>
                         {% endif %}
                     {% endif %}
                 </tr>
@@ -43,8 +47,11 @@
                         {% if med_requirements.cbc.url %}
                             <td>Submitted</td>
                             <td><a href="{{ med_requirements.cbc.url }}">Complete Blood Count</a></td>
+                            <td><button class="preview-btn" onclick="previewFile('{{ med_requirements.cbc.url }}')">View</button></td>
                         {% else %}
                             <td>Not Submitted</td>
+                            <td>-</td>
+                            <td>-</td>
                         {% endif %}
                     {% endif %}
                 </tr>
@@ -54,8 +61,11 @@
                         {% if med_requirements.drug_test.url %}
                             <td>Submitted</td>
                             <td><a href="{{ med_requirements.drug_test.url }}">Drug Test</a></td>
+                            <td><button class="preview-btn" onclick="previewFile('{{ med_requirements.drug_test.url }}')">View</button></td>
                         {% else %}
                             <td>Not Submitted</td>
+                            <td>-</td>
+                            <td>-</td>
                         {% endif %}
                     {% endif %}
                 </tr>
@@ -65,8 +75,11 @@
                         {% if med_requirements.stool_examination.url %}
                             <td>Submitted</td>
                             <td><a href="{{ med_requirements.stool_examination.url }}">Stool Examination</a></td>
+                            <td><button class="preview-btn" onclick="previewFile('{{ med_requirements.stool_examination.url }}')">View</button></td>
                         {% else %}
                             <td>Not Submitted</td>
+                            <td>-</td>
+                            <td>-</td>
                         {% endif %}
                     {% endif %}
                 </tr>
@@ -75,6 +88,7 @@
                         <td>PWD Card</td>
                         <td>Submitted</td>
                         <td><a href="{{ med_requirements.pwd_card.url }}">PWD Card</a></td>
+                        <td><button class="preview-btn" onclick="previewFile('{{ med_requirements.pwd_card.url }}')">View</button></td>
                     </tr>
                 {% endif %}
                 <!-- {% for requirement in medical_requirements %}
@@ -103,4 +117,75 @@
         </button>
     {% endif %}
 </div>
+
+<div id="previewModal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <div id="previewContainer">
+            <!-- For PDFs -->
+            <object id="filePreview" 
+                    data="" 
+                    type="application/pdf" 
+                    width="100%" 
+                    height="600px" 
+                    style="display: none;">
+                <p>Unable to display PDF file. <a id="fallbackLink" href="" target="_blank">Download</a> instead.</p>
+            </object>
+            <!-- For Images -->
+            <img id="imagePreview" style="display: none;">
+        </div>
+    </div>
+</div>
+
+<script>
+    function previewFile(fileUrl) {
+        const modal = document.getElementById('previewModal');
+        const objectPreview = document.getElementById('filePreview');
+        const imagePreview = document.getElementById('imagePreview');
+        const fallbackLink = document.getElementById('fallbackLink');
+        
+        // Check file type based on extension
+        const isImage = /\.(jpg|jpeg|png|gif|webp)$/i.test(fileUrl);
+        const isPDF = /\.pdf$/i.test(fileUrl);
+        
+        if (isImage) {
+            // Handle image files
+            imagePreview.src = fileUrl;
+            imagePreview.style.display = 'block';
+            objectPreview.style.display = 'none';
+        } else if (isPDF) {
+            // Handle PDF files
+            objectPreview.data = fileUrl;
+            fallbackLink.href = fileUrl;
+            objectPreview.style.display = 'block';
+            imagePreview.style.display = 'none';
+        }
+        
+        modal.style.display = 'block';
+    }
+
+    document.querySelector('.close-modal').onclick = function() {
+        const modal = document.getElementById('previewModal');
+        const objectPreview = document.getElementById('filePreview');
+        const imagePreview = document.getElementById('imagePreview');
+        
+        modal.style.display = 'none';
+        // Clear the sources when closing
+        objectPreview.data = '';
+        imagePreview.src = '';
+    }
+
+    window.onclick = function(event) {
+        const modal = document.getElementById('previewModal');
+        if (event.target == modal) {
+            const objectPreview = document.getElementById('filePreview');
+            const imagePreview = document.getElementById('imagePreview');
+            
+            modal.style.display = 'none';
+            // Clear the sources when closing
+            objectPreview.data = '';
+            imagePreview.src = '';
+        }
+    }
+</script>
 {% endblock %}
