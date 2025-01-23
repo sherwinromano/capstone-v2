@@ -16,7 +16,8 @@ from .models import (
     DentalRecords,
     MedicalClearance,
     EligibilityForm,
-    MedicalCertificate
+    MedicalCertificate,
+    MentalHealthRecord
 )
 
 # Register your models here.
@@ -65,3 +66,4 @@ admin.site.register(ObgyneHistory)
 admin.site.register(DentalRecords, DentalRecordsAdmin)
 admin.site.register(EligibilityForm)
 admin.site.register(MedicalCertificate)
+admin.site.register(MentalHealthRecord)

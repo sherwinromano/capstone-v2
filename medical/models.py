@@ -20,7 +20,7 @@ class Student(models.Model):
         return f"{self.lastname}, {self.firstname}"
 
 class Patient(models.Model):
-    student = models.ForeignKey(Student, on_delete=models.CASCADE)
+    student = models.OneToOneField(Student, on_delete=models.CASCADE)
     birth_date = models.CharField(max_length=100)
     age = models.PositiveIntegerField()
     weight = models.FloatField()
@@ -40,18 +40,18 @@ class Patient(models.Model):
     section = models.CharField(max_length=20)
     parent_guardian = models.CharField(max_length=100)
     parent_guardian_contact_number = models.CharField(max_length=15, null=True, blank=True)
-    examination = models.ForeignKey('PhysicalExamination', on_delete=models.CASCADE)
+    examination = models.OneToOneField('PhysicalExamination', on_delete=models.CASCADE)
 
     def __str__(self):
         return f"{self.student.firstname} {self.student.lastname}"
 
 class PhysicalExamination(models.Model):
-    student = models.ForeignKey(Student, on_delete=models.CASCADE)
+    student = models.OneToOneField(Student, on_delete=models.CASCADE)
     date_created = models.DateTimeField(auto_now_add=True)
     date_of_physical_examination = models.CharField(max_length=100)
     
     def __str__(self):
-        return f"Physical Examination of {self.student.firstname} {self.student.lastname}"
+        return f"Physical Exam - {self.student.firstname} {self.student.lastname}"
 
 class MedicalHistory(models.Model):
     examination = models.OneToOneField(PhysicalExamination, on_delete=models.CASCADE)
@@ -265,4 +265,21 @@ class TransactionRecord(models.Model):
 
     # def __str__(self):
     #     return f"{self.student.firstname} {self.student.lastname}"
+    
+class MentalHealthRecord(models.Model):
+    patient = models.ForeignKey(Patient, on_delete=models.CASCADE)
+    date_submitted = models.DateTimeField(auto_now_add=True)
+    prescription = models.FileField(upload_to='mental_health/prescriptions/')
+    certification = models.FileField(upload_to='mental_health/certifications/')
+    status = models.CharField(max_length=20, choices=[
+        ('pending', 'Pending Review'),
+        ('approved', 'Approved'),
+        ('rejected', 'Rejected')
+    ], default='pending')
+    notes = models.TextField(blank=True)
+    reviewed_by = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
+    reviewed_at = models.DateTimeField(null=True, blank=True)
+
+    def __str__(self):
+        return f"Mental Health Record - {self.patient.student.firstname} {self.patient.student.lastname}"
     

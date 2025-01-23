@@ -9,9 +9,15 @@ from medical.models import (
     Patient,
     MedicalHistory,
     FamilyMedicalHistory,
-    RiskAssessment
+    RiskAssessment,
+    MentalHealthRecord
 )
-from datetime import datetime
+from datetime import datetime, date
+from django.utils import timezone
+from django.core.mail import send_mail
+from django.conf import settings
+from django.urls import reverse
+from medical import models as medical_models
 
 def is_admin(user):
     return user.is_staff
@@ -39,21 +45,21 @@ def login_view(request):
             try:
                 student = Student.objects.get(student_id=user.username)
             except Student.DoesNotExist:
-                # If student doesn't exist in main app, create it
-                student = Student.objects.create(
-                    user=user,
-                    student_id=user.username,
-                    first_name=user.first_name,
-                    last_name=user.last_name,
-                    email=user.email
-                )
+                messages.error(request, 'Student profile not found.')
+                return redirect('main:login')
 
-            # Check if patient profile exists
+            # Check if medical student profile exists
             try:
-                patient = Patient.objects.get(student__student_id=user.username)
-                return redirect('main:main')
-            except Patient.DoesNotExist:
-                # If no patient profile exists, redirect to patient form
+                medical_student = medical_models.Student.objects.get(student_id=student.student_id)
+                # Check if patient profile exists
+                try:
+                    patient = medical_models.Patient.objects.get(student=medical_student)
+                    return redirect('main:main')
+                except medical_models.Patient.DoesNotExist:
+                    # If no patient profile exists, redirect to patient form
+                    return redirect('main:patient_form')
+            except medical_models.Student.DoesNotExist:
+                messages.error(request, 'Medical profile not found.')
                 return redirect('main:patient_form')
         else:
             messages.error(request, 'Invalid ID number/Email or password')
@@ -62,37 +68,18 @@ def login_view(request):
 
 def register(request):
     if request.method == 'POST':
-        # Get form data
-        first_name = request.POST.get('firstName')
-        middle_initial = request.POST.get('middleInitial')
-        last_name = request.POST.get('lastName')
-        sex = request.POST.get('sex')
-        year_level = request.POST.get('yrLevel')
-        student_id = request.POST.get('idNumber')
-        lrn = request.POST.get('lrn')
-        degree = request.POST.get('course')
-        email = request.POST.get('email')
-        password = request.POST.get('password')
-        confirm_password = request.POST.get('confirmPassword')
-
-        # Validate passwords match
-        if password != confirm_password:
-            messages.error(request, 'Passwords do not match')
-            return redirect('main:register')
-
         try:
-            # Check if student_id or lrn already exists
-            if Student.objects.filter(student_id=student_id).exists():
-                messages.error(request, 'Student ID already exists')
-                return redirect('main:register')
-            
-            if Student.objects.filter(lrn=lrn).exists():
-                messages.error(request, 'LRN already exists')
-                return redirect('main:register')
-            
-            if User.objects.filter(email=email).exists():
-                messages.error(request, 'Email already exists')
-                return redirect('main:register')
+            # Get form data
+            first_name = request.POST.get('firstName')
+            middle_initial = request.POST.get('middleInitial')
+            last_name = request.POST.get('lastName')
+            sex = request.POST.get('sex')
+            year_level = request.POST.get('yrLevel')
+            student_id = request.POST.get('idNumber')
+            lrn = request.POST.get('lrn')
+            degree = request.POST.get('course')
+            email = request.POST.get('email')
+            password = request.POST.get('password')
 
             # Create User account
             user = User.objects.create_user(
@@ -103,7 +90,7 @@ def register(request):
                 last_name=last_name
             )
 
-            # Create Student profile with all required fields
+            # Create Student in main app only
             Student.objects.create(
                 student_id=student_id,
                 lrn=lrn,
@@ -114,10 +101,10 @@ def register(request):
                 year_level=int(year_level),
                 sex=sex,
                 email=email,
-                contact_number=''  # This field is required but can be updated later
+                contact_number=''
             )
 
-            messages.success(request, 'Registration successful! Please login.')
+            messages.success(request, 'Registration successful! Please complete your medical profile.')
             return redirect('main:login')
 
         except Exception as e:
@@ -138,9 +125,20 @@ def main_view(request):
         # For regular users (students)
         if not request.user.is_staff and not request.user.is_superuser:
             try:
-                student = Student.objects.get(student_id=request.user.username)
-                return render(request, 'mainv2.html', {'student': student})
-            except Student.DoesNotExist:
+                # Check medical student record
+                medical_student = medical_models.Student.objects.get(student_id=request.user.username)
+                
+                # Check if student has completed medical profile
+                try:
+                    patient = medical_models.Patient.objects.get(student=medical_student)
+                    # If patient record exists, show main dashboard
+                    return render(request, 'mainv2.html', {'student': medical_student})
+                except medical_models.Patient.DoesNotExist:
+                    # If no patient record, redirect to patient form
+                    messages.info(request, 'Please complete your medical profile first.')
+                    return redirect('main:patient_form')
+                    
+            except medical_models.Student.DoesNotExist:
                 messages.error(request, 'Student profile not found.')
                 return redirect('main:login')
         # For staff/admin users
@@ -149,43 +147,27 @@ def main_view(request):
     return redirect('main:login')
 
 @login_required
-def patient_form_view(request):
+def patient_form(request):
     try:
-        # Get the student instance using User's username (student_id)
-        student = Student.objects.get(student_id=request.user.username)
+        # Get the medical student instance
+        medical_student = medical_models.Student.objects.get(student_id=request.user.username)
         
-        # Check if patient profile already exists
-        existing_patient = Patient.objects.filter(student__student_id=student.student_id).exists()
-        if existing_patient:
-            return redirect('main:main')
-
-    except Student.DoesNotExist:
-        # Create student record if it doesn't exist
-        student = Student.objects.create(
-            user=request.user,
-            student_id=request.user.username,
-            first_name=request.user.first_name,
-            last_name=request.user.last_name,
-            email=request.user.email
-        )
-
-    if request.method == 'POST':
-        try:
-            # Create physical examination record
-            physical_exam = PhysicalExamination.objects.create(
-                student=student
+        if request.method == 'POST':
+            # Create PhysicalExamination first
+            physical_exam = medical_models.PhysicalExamination.objects.create(
+                student=medical_student,
+                date_of_physical_examination=timezone.now().strftime('%Y-%m-%d')
             )
-
-            # Create patient record
-            patient = Patient.objects.create(
-                student=student,
-                examination=physical_exam,
+            
+            # Create Patient record
+            patient = medical_models.Patient.objects.create(
+                student=medical_student,
                 birth_date=request.POST.get('birth_date'),
                 age=calculate_age(request.POST.get('birth_date')),
                 weight=float(request.POST.get('weight')),
                 height=float(request.POST.get('height')),
                 bloodtype=request.POST.get('bloodtype'),
-                allergies=process_checkboxes(request.POST.getlist('allergies'), request.POST.get('other_allergies')),
+                allergies=request.POST.get('allergies'),
                 medications=request.POST.get('medications', 'None'),
                 home_address=request.POST.get('home_address'),
                 city=request.POST.get('city'),
@@ -195,73 +177,28 @@ def patient_form_view(request):
                 nationality=request.POST.get('nationality'),
                 civil_status=request.POST.get('civil_status'),
                 number_of_children=0,
-                academic_year=f"{datetime.now().year}-{datetime.now().year + 1}",
-                section="TBA",
+                academic_year=f"{timezone.now().year}-{timezone.now().year + 1}",
+                section=request.POST.get('section', 'TBA'),
                 parent_guardian=request.POST.get('parent_guardian'),
-                parent_guardian_contact_number=request.POST.get('parent_guardian_contact')
+                parent_guardian_contact_number=request.POST.get('parent_guardian_contact'),
+                examination=physical_exam
             )
-
-            # Create medical history
-            medical_history = MedicalHistory.objects.create(
-                examination=physical_exam,
-                tuberculosis='tuberculosis' in request.POST.getlist('medical_history', []),
-                hypertension='hypertension' in request.POST.getlist('medical_history', []),
-                heart_disease='heart_disease' in request.POST.getlist('medical_history', []),
-                hernia='hernia' in request.POST.getlist('medical_history', []),
-                epilepsy='epilepsy' in request.POST.getlist('medical_history', []),
-                peptic_ulcer='peptic_ulcer' in request.POST.getlist('medical_history', []),
-                kidney_disease='kidney_disease' in request.POST.getlist('medical_history', []),
-                asthma='asthma' in request.POST.getlist('medical_history', []),
-                insomnia='insomnia' in request.POST.getlist('medical_history', []),
-                malaria='malaria' in request.POST.getlist('medical_history', []),
-                venereal_disease='venereal_disease' in request.POST.getlist('medical_history', []),
-                nervous_breakdown='nervous_breakdown' in request.POST.getlist('medical_history', []),
-                jaundice='jaundice' in request.POST.getlist('medical_history', []),
-                others=request.POST.get('other_medical', '')
-            )
-
-            # Create family history
-            family_history = FamilyMedicalHistory.objects.create(
-                examination=physical_exam,
-                hypertension='hypertension' in request.POST.getlist('family_history', []),
-                asthma='asthma' in request.POST.getlist('family_history', []),
-                cancer='cancer' in request.POST.getlist('family_history', []),
-                tuberculosis='tuberculosis' in request.POST.getlist('family_history', []),
-                diabetes='diabetes' in request.POST.getlist('family_history', []),
-                bleeding_disorder='bleeding_disorder' in request.POST.getlist('family_history', []),
-                epilepsy='epilepsy' in request.POST.getlist('family_history', []),
-                mental_disorder='mental_disorder' in request.POST.getlist('family_history', []),
-                other_medical_history=request.POST.get('other_family_medical', '')
-            )
-
-            # Create risk assessment
-            risk_assessment = RiskAssessment.objects.create(
-                clearance=patient,
-                age_above_60='age_above_60' in request.POST.getlist('risk_assessment', []),
-                cardiovascular_disease='cardiovascular_disease' in request.POST.getlist('risk_assessment', []),
-                chronic_lung_disease='chronic_lung_disease' in request.POST.getlist('risk_assessment', []),
-                chronic_renal_disease='chronic_kidney_disease' in request.POST.getlist('risk_assessment', []),
-                chronic_liver_disease='chronic_liver_disease' in request.POST.getlist('risk_assessment', []),
-                cancer='cancer' in request.POST.getlist('risk_assessment', []),
-                autoimmune_disease='autoimmune_disease' in request.POST.getlist('risk_assessment', []),
-                pwd='pwd' in request.POST.getlist('risk_assessment', []),
-                disability=request.POST.get('disability', '')
-            )
-
-            messages.success(request, 'Patient information saved successfully!')
-            return redirect('main:main')
-
-        except Exception as e:
-            messages.error(request, f'Error saving patient information: {str(e)}')
-            return render(request, 'patient_form.html')
-
+            
+            messages.success(request, 'Medical information submitted successfully!')
+            return redirect('main:student_dashboard')
+            
+    except medical_models.Student.DoesNotExist:
+        messages.error(request, 'Student profile not found.')
+        return redirect('main:login')
+    except Exception as e:
+        messages.error(request, f'Error saving patient information: {str(e)}')
+        
     return render(request, 'patient_form.html')
 
 def calculate_age(birthdate):
-    born = datetime.strptime(birthdate, '%Y-%m-%d')
-    today = datetime.today()
-    age = today.year - born.year - ((today.month, today.day) < (born.month, born.day))
-    return age
+    born = datetime.strptime(birthdate, '%Y-%m-%d').date()
+    today = date.today()
+    return today.year - born.year - ((today.month, today.day) < (born.month, born.day))
 
 def process_checkboxes(checkbox_list, other_value):
     if 'None' in checkbox_list:
@@ -307,23 +244,120 @@ def admin_dashboard_view(request):
 @login_required
 def dashboard_view(request):
     try:
+        # Get student by student_id (username)
         student = Student.objects.get(student_id=request.user.username)
-        patient = Patient.objects.filter(student=student).first()
         
-        if patient:
+        try:
+            # Get the medical student instance
+            medical_student = medical_models.Student.objects.get(student_id=student.student_id)
+            patient = medical_models.Patient.objects.filter(student=medical_student).first()
+            
+            if patient:
+                context = {
+                    'student': student,
+                    'patient': patient,
+                    'medical_history': medical_models.MedicalHistory.objects.filter(examination=patient.examination).first(),
+                    'family_history': medical_models.FamilyMedicalHistory.objects.filter(examination=patient.examination).first(),
+                    'risk_assessment': medical_models.RiskAssessment.objects.filter(clearance=patient).first(),
+                    'physical_exam': patient.examination,
+                }
+            else:
+                context = {
+                    'student': student,
+                    'patient': None
+                }
+                messages.info(request, 'Please complete your medical profile.')
+                return redirect('main:patient_form')
+                
+        except medical_models.Student.DoesNotExist:
             context = {
-                'patient': patient,
-                'medical_history': MedicalHistory.objects.filter(examination=patient.examination).first(),
-                'family_history': FamilyMedicalHistory.objects.filter(examination=patient.examination).first(),
-                'risk_assessment': RiskAssessment.objects.filter(clearance=patient).first(),
-                'physical_exam': patient.examination,
+                'student': student,
+                'patient': None
             }
-        else:
-            context = {'patient': None}
+            messages.error(request, 'Medical profile not found.')
+            return redirect('main:patient_form')
             
     except Student.DoesNotExist:
-        context = {'patient': None}
         messages.error(request, 'Student profile not found.')
         return redirect('main:login')
 
     return render(request, 'student_dashboard.html', context)
+
+@user_passes_test(is_admin)
+def mental_health_view(request):
+    records = MentalHealthRecord.objects.all().order_by('-date_submitted')
+    pending_count = records.filter(status='pending').count()
+    
+    context = {
+        'records': records,
+        'pending_count': pending_count,
+    }
+    return render(request, 'admin/mental_health.html', context)
+
+@login_required
+def mental_health_submit(request):
+    if request.method == 'POST':
+        try:
+            patient = Patient.objects.get(student__student_id=request.user.username)
+            prescription = request.FILES.get('prescription')
+            certification = request.FILES.get('certification')
+            
+            if not prescription or not certification:
+                messages.error(request, 'Both prescription and certification are required.')
+                return redirect('main:mental_health')
+            
+            MentalHealthRecord.objects.create(
+                patient=patient,
+                prescription=prescription,
+                certification=certification
+            )
+            
+            messages.success(request, 'Mental health documents submitted successfully.')
+            return redirect('main:student_dashboard')
+            
+        except Patient.DoesNotExist:
+            messages.error(request, 'Patient profile not found.')
+            return redirect('main:patient_form')
+            
+    return render(request, 'mental_health_submit.html')
+
+@user_passes_test(is_admin)
+def mental_health_review(request, record_id):
+    record = get_object_or_404(MentalHealthRecord, id=record_id)
+    
+    if request.method == 'POST':
+        status = request.POST.get('status')
+        notes = request.POST.get('notes')
+        
+        record.status = status
+        record.notes = notes
+        record.reviewed_by = request.user
+        record.reviewed_at = timezone.now()
+        record.save()
+        
+        # Send email notification to student
+        subject = f'Mental Health Record Review - {status.title()}'
+        message = f"""
+        Dear {record.patient.student.firstname},
+        
+        Your mental health records have been reviewed.
+        Status: {status.title()}
+        
+        Notes: {notes if notes else 'No additional notes.'}
+        
+        Best regards,
+        Medical Services Team
+        """
+        
+        send_mail(
+            subject,
+            message,
+            settings.EMAIL_HOST_USER,
+            [record.patient.student.email],
+            fail_silently=False,
+        )
+        
+        messages.success(request, 'Record reviewed successfully.')
+        return redirect('main:mental_health')
+        
+    return render(request, 'admin/mental_health_review.html', {'record': record})

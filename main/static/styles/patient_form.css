@@ -119,3 +119,17 @@ input, select {
         grid-template-columns: 1fr;
     }
 } 
+.input-hint {
+    display: block;
+    font-size: 0.8rem;
+    color: #666;
+    margin-top: 0.2rem;
+}
+
+input:invalid {
+    border-color: #dc3545;
+}
+
+input:invalid + .input-hint {
+    color: #dc3545;
+}

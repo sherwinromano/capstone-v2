@@ -41,4 +41,26 @@ document.addEventListener('DOMContentLoaded', function() {
             pwdDetails.style.display = this.checked ? 'block' : 'none';
         });
     }
+
+    // Add this to your existing DOMContentLoaded event listener
+    const contactInput = document.getElementById('parent_guardian_contact');
+    if (contactInput) {
+        contactInput.addEventListener('input', function(e) {
+            let value = e.target.value;
+            
+            // Remove any non-numeric characters
+            value = value.replace(/[^0-9]/g, '');
+            
+            // Ensure it starts with '09'
+            if (value.length >= 2 && !value.startsWith('09')) {
+                value = '09' + value.slice(2);
+            }
+            
+            // Limit to 11 digits
+            value = value.slice(0, 11);
+            
+            // Update input value
+            e.target.value = value;
+        });
+    }
 });
