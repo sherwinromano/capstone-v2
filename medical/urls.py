@@ -31,4 +31,6 @@ urlpatterns = [
     path('daily_transactions/', views.daily_transactions_view, name='daily_transactions'),
     # path('yearly/', views.yearly_transactions, name='yearly_transactions'),
     path('upload/', views.upload_file, name='upload'),
+    path('mental-health/', views.mental_health_view, name='mental_health'),
+    path('mental-health/submit/', views.mental_health_submit, name='mental_health_submit'),
 ]

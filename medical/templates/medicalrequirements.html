@@ -9,10 +9,12 @@
 <div class="xs:p-4 lg:p-8 bg-white rounded-[18px] flex flex-col gap-4 {% if user.is_superuser or user.is_staff %} w-full {% else %}xs:w-full md:w-1/2 h-[80%] {% endif %}">
     <h2 class="font-bold xs:text-[1.3rem] md:text-[1.5rem] text-black tracking-tight py-4 text-center">Medical Requirements Tracker</h2>
     {% if user.is_superuser or user.is_staff %}
-        <form method="POST" class="flex items-center gap-2">
+        <form method="POST" class="flex gap-4">
             {% csrf_token %}
-            <input class="p-2 w-full" type="number" name="student_id" placeholder="Search by Student ID">
-            <button class="bg-[#3b82f6] text-white text-[14px] py-2 px-4 w-[30%] h-full cursor-pointer" type="submit">Search</button>
+            <input type="text" name="student_id" placeholder="Search by Student ID" class="w-full p-2 border rounded-md">
+            <button type="submit" class="bg-[#3b82f6] text-white py-2 px-8 rounded-md hover:bg-[#2563eb] transition-colors">
+                Search
+            </button>
         </form>
     {% endif %}
     <div class="flex flex-col gap-2 h-fit max-h-full">
@@ -20,6 +22,9 @@
         <table class="w-full table-auto border-separate border-spacing-0">
             <thead class="bg-[#e6e6e6] w-full">
                 <tr class="tr-header">
+                    {% if user.is_superuser or user.is_staff %}
+                        <th class="text-center p-2 xs:text-[14px] md:text-base">Remarks</th>
+                    {% endif %}
                     <th class="text-center p-2 xs:text-[14px] md:text-base">Requirement</th>
                     <th class="text-center p-2 xs:text-[14px] md:text-base">Status</th>
                     <th class="text-center p-2 xs:text-[14px] md:text-base">File</th>
@@ -28,6 +33,14 @@
             </thead>
             <tbody>
                 <tr>
+                    {% if user.is_superuser or user.is_staff %}
+                        <td class="flex gap-2 items-center">
+                            <input type="text" name="x-ray-remark" value="{{ med_requirements.x_ray_remarks }}" class="w-full p-1 border rounded">
+                            <button type="submit" name="save_remark" value="x-ray" class="bg-green-500 text-white px-2 py-1 rounded text-sm hover:bg-green-600">
+                                Save
+                            </button>
+                        </td>
+                    {% endif %}
                     {% if med_requirements.chest_xray or med_requirements.cbc or med_requirements.drug_test or med_requirements.stool_examination %}
                         <td class="text-center">Chest X-Ray</td>
                         {% if med_requirements.chest_xray.url %}
@@ -42,6 +55,14 @@
                     {% endif %}
                 </tr>
                 <tr>
+                    {% if user.is_superuser or user.is_staff %}
+                        <td class="flex gap-2 items-center">
+                            <input type="text" name="cbc-remark" value="{{ med_requirements.cbc_remarks }}" class="w-full p-1 border rounded">
+                            <button type="submit" name="save_remark" value="cbc" class="bg-green-500 text-white px-2 py-1 rounded text-sm hover:bg-green-600">
+                                Save
+                            </button>
+                        </td>
+                    {% endif %}
                     {% if med_requirements.chest_xray or med_requirements.cbc or med_requirements.drug_test or med_requirements.stool_examination %}
                         <td class="text-center">Complete Blood Count</td>
                         {% if med_requirements.cbc.url %}
@@ -56,6 +77,14 @@
                     {% endif %}
                 </tr>
                 <tr>
+                    {% if user.is_superuser or user.is_staff %}
+                        <td class="flex gap-2 items-center">
+                            <input type="text" name="drug-test-remark" value="{{ med_requirements.drug_test_remarks }}" class="w-full p-1 border rounded">
+                            <button type="submit" name="save_remark" value="drug-test" class="bg-green-500 text-white px-2 py-1 rounded text-sm hover:bg-green-600">
+                                Save
+                            </button>
+                        </td>
+                    {% endif %}
                     {% if med_requirements.chest_xray or med_requirements.cbc or med_requirements.drug_test or med_requirements.stool_examination %}
                         <td class="text-center">Drug Test</td>
                         {% if med_requirements.drug_test.url %}
@@ -70,6 +99,14 @@
                     {% endif %}
                 </tr>
                 <tr>
+                    {% if user.is_superuser or user.is_staff %}
+                        <td class="flex gap-2 items-center">
+                            <input type="text" name="stool-examination-remark" value="{{ med_requirements.stool_examination_remarks }}" class="w-full p-1 border rounded">
+                            <button type="submit" name="save_remark" value="stool-examination" class="bg-green-500 text-white px-2 py-1 rounded text-sm hover:bg-green-600">
+                                Save
+                            </button>
+                        </td>
+                    {% endif %}
                     {% if med_requirements.chest_xray or med_requirements.cbc or med_requirements.drug_test or med_requirements.stool_examination %}
                         <td class="text-center">Stool Examination</td>
                         {% if med_requirements.stool_examination.url %}
@@ -85,6 +122,14 @@
                 </tr>
                 {% if med_requirements.pwd_card %}
                     <tr>
+                        {% if user.is_superuser or user.is_staff %}
+                            <td class="flex gap-2 items-center">
+                                <input type="text" name="pwd-card-remark" value="{{ med_requirements.pwd_card_remarks }}" class="w-full p-1 border rounded">
+                                <button type="submit" name="save_remark" value="pwd-card" class="bg-green-500 text-white px-2 py-1 rounded text-sm hover:bg-green-600">
+                                    Save
+                                </button>
+                            </td>
+                        {% endif %}
                         <td class="text-center">PWD Card</td>
                         <td class="text-center">Submitted</td>
                         <td class="text-center"><a href="{{ med_requirements.pwd_card.url }}">PWD Card</a></td>
@@ -187,5 +232,13 @@
             imagePreview.src = '';
         }
     }
+
+    {% if messages %}
+        {% for message in messages %}
+            {% if message.tags == 'success' %}
+                alert("{{ message }}");
+            {% endif %}
+        {% endfor %}
+    {% endif %}
 </script>
 {% endblock %}

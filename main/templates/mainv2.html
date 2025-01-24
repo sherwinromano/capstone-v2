@@ -61,6 +61,9 @@
           <li>
             <a class="flex justify-center items-center h-full tracking-tight hover:bg-[#f0f0f0] py-4 font-medium hover:border-r-[4px] hover:border-[#3b82f6] transition-all" href="{% url 'medical:transactions' %}">Transaction Reports</a>
           </li>
+          <li>
+            <a class="flex justify-center items-center h-full tracking-tight hover:bg-[#f0f0f0] py-4 font-medium hover:border-r-[4px] hover:border-[#3b82f6] transition-all" href="{% url 'medical:mental_health' %}">Mental Health Services</a>
+          </li>
           {% else %}
           <li>
             <a class="flex justify-center items-center h-full tracking-tight hover:bg-[#f0f0f0] px-4 font-medium hover:border-b-[4px] hover:border-[#3b82f6] transition-all" href="{% url 'main:student_dashboard' %}">Dashboard</a>
@@ -154,6 +157,9 @@
                 <a class="p-3 font-bold text-black w-full" href="{% url 'medical:transactions' %}"
                   >Transaction Reports</a
                 >
+              </li>
+              <li class="menu-item border-b border-[#e6e6e6] flex">
+                <a class="p-3 font-bold text-black w-full" href="{% url 'medical:mental_health' %}">Mental Health Services</a>
               </li>
               {% else %}
               <li class="menu-item border-b border-[#e6e6e6] flex">

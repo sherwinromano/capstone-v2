@@ -23,15 +23,21 @@ from . models import(
     EligibilityForm,
     EmergencyHealthAssistanceRecord,
     PrescriptionRecord,
-    MedicalCertificate
+    MedicalCertificate,
+    MentalHealthRecord
 )
 from django.core.mail import send_mail
 from django.conf import settings
 import json
 import calendar
 import csv
+from django.contrib.auth.decorators import user_passes_test, login_required
 
 from .forms import UploadFileForm
+
+# Add this function at the top of the file
+def is_admin(user):
+    return user.is_superuser or user.is_staff
 
 # Patient's basic information
 def patient_basic_info(request, student_id):
@@ -850,23 +856,43 @@ def submit_request(request):
 
 # Views for medical requirements tracker
 def student_medical_requirements_tracker(request):
-     if request.method == "POST":
+    if request.method == "POST":
         student_id = request.POST.get("student_id")
-        patient = Patient.objects.filter(student__student_id = student_id).exists()
-        if not patient:
-            messages.error(request, "The student ID you entered does not exists")
-            return render(request, "medicalrequirements.html", {})
-        # if not MedicalRequirement.objects.filter(clearance__student__student_id = student_id).exists():
-        #     messages.error(request, "This student did not upload any requirements")
-        #     return render(request, "medicalrequirements.html", {})
+        
+        # Handle individual remark saves
+        if 'save_remark' in request.POST and (request.user.is_superuser or request.user.is_staff):
+            try:
+                med_requirements = MedicalRequirement.objects.get(patient__student__student_id=student_id)
+                remark_type = request.POST.get("save_remark")
+                
+                # Update specific remark based on type
+                if remark_type == "x-ray":
+                    med_requirements.x_ray_remarks = request.POST.get("x-ray-remark", "")
+                elif remark_type == "cbc":
+                    med_requirements.cbc_remarks = request.POST.get("cbc-remark", "")
+                elif remark_type == "drug-test":
+                    med_requirements.drug_test_remarks = request.POST.get("drug-test-remark", "")
+                elif remark_type == "stool-examination":
+                    med_requirements.stool_examination_remarks = request.POST.get("stool-examination-remark", "")
+                elif remark_type == "pwd-card":
+                    med_requirements.pwd_card_remarks = request.POST.get("pwd-card-remark", "")
+                
+                med_requirements.save()
+                messages.success(request, f"Remark updated successfully")
+                return render(request, "medicalrequirements.html", {"med_requirements": med_requirements})
+            except MedicalRequirement.DoesNotExist:
+                messages.error(request, "Medical requirements not found")
+                return render(request, "medicalrequirements.html", {})
+        
+        # Handle student search (existing code)
         try:
-            med_requirements = MedicalRequirement.objects.get(patient__student__student_id = student_id)
-            print(med_requirements.cbc.url)
+            med_requirements = MedicalRequirement.objects.get(patient__student__student_id=student_id)
+            return render(request, "medicalrequirements.html", {"med_requirements": med_requirements})
         except MedicalRequirement.DoesNotExist:
-            messages.error(request, "This student did not upload any requirements")
+            messages.error(request, "Medical requirements not found")
             return render(request, "medicalrequirements.html", {})
-        return render(request, "medicalrequirements.html", {"med_requirements": med_requirements})
-     return render(request, "medicalrequirements.html", {})
+
+    return render(request, "medicalrequirements.html", {})
 
 # Views for handling the medical requirements uploaded file
 def upload_requirements(request):
@@ -1355,3 +1381,41 @@ def upload_file(request):
     else:
         form = UploadFileForm()
     return render(request, 'upload.html', {'form': form})
+
+@user_passes_test(is_admin)
+def mental_health_view(request):
+    records = MentalHealthRecord.objects.all().order_by('-date_submitted')
+    pending_count = records.filter(status='pending').count()
+    
+    context = {
+        'records': records,
+        'pending_count': pending_count,
+    }
+    return render(request, 'admin/mental_health.html', context)
+
+@login_required
+def mental_health_submit(request):
+    if request.method == 'POST':
+        try:
+            patient = Patient.objects.get(student__student_id=request.user.username)
+            prescription = request.FILES.get('prescription')
+            certification = request.FILES.get('certification')
+            
+            if not prescription or not certification:
+                messages.error(request, 'Both prescription and certification are required.')
+                return redirect('medical:mental_health_submit')
+            
+            MentalHealthRecord.objects.create(
+                patient=patient,
+                prescription=prescription,
+                certification=certification
+            )
+            
+            messages.success(request, 'Mental health documents submitted successfully.')
+            return redirect('main:student_dashboard')
+            
+        except Patient.DoesNotExist:
+            messages.error(request, 'Patient profile not found.')
+            return redirect('main:patient_form')
+            
+    return render(request, 'mental_health_submit.html')

@@ -267,19 +267,19 @@ class TransactionRecord(models.Model):
     #     return f"{self.student.firstname} {self.student.lastname}"
     
 class MentalHealthRecord(models.Model):
+    STATUS_CHOICES = [
+        ('pending', 'Pending'),
+        ('approved', 'Approved'),
+        ('rejected', 'Rejected'),
+    ]
+    
     patient = models.ForeignKey(Patient, on_delete=models.CASCADE)
-    date_submitted = models.DateTimeField(auto_now_add=True)
     prescription = models.FileField(upload_to='mental_health/prescriptions/')
     certification = models.FileField(upload_to='mental_health/certifications/')
-    status = models.CharField(max_length=20, choices=[
-        ('pending', 'Pending Review'),
-        ('approved', 'Approved'),
-        ('rejected', 'Rejected')
-    ], default='pending')
+    date_submitted = models.DateTimeField(auto_now_add=True)
+    status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='pending')
     notes = models.TextField(blank=True)
-    reviewed_by = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
-    reviewed_at = models.DateTimeField(null=True, blank=True)
 
     def __str__(self):
-        return f"Mental Health Record - {self.patient.student.firstname} {self.patient.student.lastname}"
+        return f"Mental Health Record - {self.patient.student.student_id}"
     
