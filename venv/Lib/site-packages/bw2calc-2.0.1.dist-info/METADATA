@@ -1,0 +1,66 @@
+Metadata-Version: 2.1
+Name: bw2calc
+Version: 2.0.1
+Summary: The calculation engine for the Brightway life cycle assessment framework.
+Author-email:  Chris Mutel <cmutel@gmail.com>
+Maintainer-email:  Chris Mutel <cmutel@gmail.com>
+Project-URL: source, https://github.com/brightway-lca/brightway2-calc
+Project-URL: homepage, https://github.com/brightway-lca/brightway2-calc
+Project-URL: tracker, https://github.com/brightway-lca/brightway2-calc/issues
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Scientific/Engineering
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: bw_processing>=1.0
+Requires-Dist: fsspec
+Requires-Dist: matrix_utils>=0.6
+Requires-Dist: numpy<2
+Requires-Dist: pandas
+Requires-Dist: pydantic
+Requires-Dist: scipy
+Requires-Dist: stats_arrays
+Provides-Extra: testing
+Requires-Dist: bw2calc; extra == "testing"
+Requires-Dist: bw2data>=4.0.DEV39; extra == "testing"
+Requires-Dist: pytest; extra == "testing"
+Requires-Dist: pytest-cov; extra == "testing"
+Requires-Dist: pytest-randomly; extra == "testing"
+Requires-Dist: python-coveralls; extra == "testing"
+Provides-Extra: dev
+Requires-Dist: build; extra == "dev"
+Requires-Dist: pre-commit; extra == "dev"
+Requires-Dist: pylint; extra == "dev"
+Requires-Dist: pytest; extra == "dev"
+Requires-Dist: pytest-cov; extra == "dev"
+Requires-Dist: setuptools; extra == "dev"
+Requires-Dist: Flake8-pyproject; extra == "dev"
+
+---
+title: Brightway2 Calculations
+---
+
+[![pypi version](https://img.shields.io/pypi/v/bw2calc.svg)](https://pypi.org/project/bw2calc/)
+
+[![conda-forge version](https://img.shields.io/conda/vn/conda-forge/bw2calc.svg)](https://anaconda.org/conda-forge/bw2calc)
+
+[![bw2calc appveyor build status](https://ci.appveyor.com/api/projects/status/uqixaochulbu6vjv?svg=true)](https://ci.appveyor.com/project/cmutel/brightway2-calc)
+
+[![Test coverage report](https://coveralls.io/repos/bitbucket/cmutel/brightway2-calc/badge.svg?branch=master)](https://coveralls.io/bitbucket/cmutel/brightway2-calc?branch=default)
+
+This package provides the calculation engine for the [Brightway2 life
+cycle assessment framework](https://brightway.dev). [Online
+documentation](https://docs.brightway.dev) is available, and the source
+code is hosted on
+[Github](https://github.com/brightway-lca/brightway2-calc).
+
+The emphasis here has been on speed of solving the linear systems, for
+normal LCA calculations, graph traversal, or Monte Carlo uncertainty
+analysis.
+
+Relies on [bw_processing](https://github.com/brightway-lca/bw_processing)
+for input array formatting.

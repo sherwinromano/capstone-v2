@@ -1,0 +1,2325 @@
+{
+  "name": "ecoinvent-2.2-biosphere-ecoinvent-3.0-biosphere",
+  "description": "Convert biosphere flow names from ecoinvent 2 to 3",
+  "contributors": [
+    {
+      "title": "Chris Mutel",
+      "path": "https://chris.mutel.org/",
+      "role": "author"
+    }
+  ],
+  "created": "2024-08-29T19:09:57.487154+00:00",
+  "version": "1.0.0",
+  "licenses": [
+    {
+      "name": "CC BY 4.0",
+      "path": "https://creativecommons.org/licenses/by/4.0/",
+      "title": "Creative Commons Attribution 4.0 International"
+    }
+  ],
+  "graph_context": [
+    "nodes",
+    "edges"
+  ],
+  "mapping": {
+    "source": {
+      "expression language": "XPath",
+      "labels": {
+        "name": "//*:exchange[*:outputGroup = '4' or *:outputGroup = '5']/@name",
+        "unit": "//*:exchange[*:outputGroup = '4' or *:outputGroup = '5']/@unit",
+        "context": [
+          "//*:exchange[*:outputGroup = '4' or *:outputGroup = '5']/@category",
+          "//*:exchange[*:outputGroup = '4' or *:outputGroup = '5']/@subCategory"
+        ]
+      }
+    },
+    "target": {
+      "expression language": "XPath",
+      "labels": {
+        "name": "//*:elementaryExchange/*:name/text()",
+        "unit": "//*:elementaryExchange/*:unitName/text()",
+        "uuid": "//*:elementaryExchange/@elementaryExchangeId",
+        "context": [
+          "//*:elementaryExchange/*:compartment/*:compartment/text()",
+          "//*:elementaryExchange/*:compartment/*:subcompartment/text()"
+        ]
+      }
+    }
+  },
+  "source_id": "ecoinvent-2.2-biosphere",
+  "target_id": "ecoinvent-3.0-biosphere",
+  "replace": [
+    {
+      "source": {
+        "name": "Aluminum"
+      },
+      "target": {
+        "name": "Aluminium"
+      }
+    },
+    {
+      "source": {
+        "name": "Aluminum"
+      },
+      "target": {
+        "name": "Aluminium"
+      }
+    },
+    {
+      "source": {
+        "name": "Aluminum"
+      },
+      "target": {
+        "name": "Aluminium"
+      }
+    },
+    {
+      "source": {
+        "name": "Aluminum"
+      },
+      "target": {
+        "name": "Aluminium"
+      }
+    },
+    {
+      "source": {
+        "name": "Aluminum"
+      },
+      "target": {
+        "name": "Aluminium"
+      }
+    },
+    {
+      "source": {
+        "name": "Carbon dioxide, biogenic"
+      },
+      "target": {
+        "name": "Carbon dioxide, non-fossil"
+      }
+    },
+    {
+      "source": {
+        "name": "Carbon dioxide, biogenic"
+      },
+      "target": {
+        "name": "Carbon dioxide, non-fossil"
+      }
+    },
+    {
+      "source": {
+        "name": "Carbon dioxide, biogenic"
+      },
+      "target": {
+        "name": "Carbon dioxide, non-fossil"
+      }
+    },
+    {
+      "source": {
+        "name": "Carbon dioxide, biogenic"
+      },
+      "target": {
+        "name": "Carbon dioxide, non-fossil"
+      }
+    },
+    {
+      "source": {
+        "name": "Carbon dioxide, biogenic"
+      },
+      "target": {
+        "name": "Carbon dioxide, non-fossil"
+      }
+    },
+    {
+      "source": {
+        "name": "Carbon dioxide, land transformation"
+      },
+      "target": {
+        "name": "Carbon dioxide, from soil or biomass stock"
+      }
+    },
+    {
+      "source": {
+        "name": "Carbon dioxide, land transformation"
+      },
+      "target": {
+        "name": "Carbon dioxide, from soil or biomass stock"
+      }
+    },
+    {
+      "source": {
+        "name": "Carbon dioxide, land transformation"
+      },
+      "target": {
+        "name": "Carbon dioxide, from soil or biomass stock"
+      }
+    },
+    {
+      "source": {
+        "name": "Carbon dioxide, land transformation"
+      },
+      "target": {
+        "name": "Carbon dioxide, from soil or biomass stock"
+      }
+    },
+    {
+      "source": {
+        "name": "Carbon dioxide, land transformation"
+      },
+      "target": {
+        "name": "Carbon dioxide, from soil or biomass stock"
+      }
+    },
+    {
+      "source": {
+        "name": "Carbon monoxide, biogenic"
+      },
+      "target": {
+        "name": "Carbon monoxide, non-fossil"
+      }
+    },
+    {
+      "source": {
+        "name": "Carbon monoxide, biogenic"
+      },
+      "target": {
+        "name": "Carbon monoxide, non-fossil"
+      }
+    },
+    {
+      "source": {
+        "name": "Carbon monoxide, biogenic"
+      },
+      "target": {
+        "name": "Carbon monoxide, non-fossil"
+      }
+    },
+    {
+      "source": {
+        "name": "Carbon monoxide, biogenic"
+      },
+      "target": {
+        "name": "Carbon monoxide, non-fossil"
+      }
+    },
+    {
+      "source": {
+        "name": "Carbon monoxide, biogenic"
+      },
+      "target": {
+        "name": "Carbon monoxide, non-fossil"
+      }
+    },
+    {
+      "source": {
+        "name": "Methane, biogenic"
+      },
+      "target": {
+        "name": "Methane, non-fossil"
+      }
+    },
+    {
+      "source": {
+        "name": "Methane, biogenic"
+      },
+      "target": {
+        "name": "Methane, non-fossil"
+      }
+    },
+    {
+      "source": {
+        "name": "Methane, biogenic"
+      },
+      "target": {
+        "name": "Methane, non-fossil"
+      }
+    },
+    {
+      "source": {
+        "name": "Methane, biogenic"
+      },
+      "target": {
+        "name": "Methane, non-fossil"
+      }
+    },
+    {
+      "source": {
+        "name": "Methane, biogenic"
+      },
+      "target": {
+        "name": "Methane, non-fossil"
+      }
+    },
+    {
+      "source": {
+        "name": "Sodium tetrahydroborate"
+      },
+      "target": {
+        "name": "Sodium tetrahydridoborate"
+      }
+    },
+    {
+      "source": {
+        "name": "Sodium tetrahydroborate"
+      },
+      "target": {
+        "name": "Sodium tetrahydridoborate"
+      }
+    },
+    {
+      "source": {
+        "name": "Sodium tetrahydroborate"
+      },
+      "target": {
+        "name": "Sodium tetrahydridoborate"
+      }
+    },
+    {
+      "source": {
+        "name": "Sodium tetrahydroborate"
+      },
+      "target": {
+        "name": "Sodium tetrahydridoborate"
+      }
+    },
+    {
+      "source": {
+        "name": "Sodium tetrahydroborate"
+      },
+      "target": {
+        "name": "Sodium tetrahydridoborate"
+      }
+    },
+    {
+      "source": {
+        "name": "Sulphur trioxide"
+      },
+      "target": {
+        "name": "Sulfur trioxide"
+      }
+    },
+    {
+      "source": {
+        "name": "Sulphur trioxide"
+      },
+      "target": {
+        "name": "Sulfur trioxide"
+      }
+    },
+    {
+      "source": {
+        "name": "Sulphur trioxide"
+      },
+      "target": {
+        "name": "Sulfur trioxide"
+      }
+    },
+    {
+      "source": {
+        "name": "Sulphur trioxide"
+      },
+      "target": {
+        "name": "Sulfur trioxide"
+      }
+    },
+    {
+      "source": {
+        "name": "Sulphur trioxide"
+      },
+      "target": {
+        "name": "Sulfur trioxide"
+      }
+    },
+    {
+      "source": {
+        "name": "Bromine, 0.0023% in water"
+      },
+      "target": {
+        "name": "Bromine, 0.23% in water"
+      }
+    },
+    {
+      "source": {
+        "name": "Carbon, in organic matter, in soil"
+      },
+      "target": {
+        "name": "Carbon, organic, in soil or biomass stock"
+      }
+    },
+    {
+      "source": {
+        "name": "Copper, Cu 0.38%, Au 9.7E-4%, Ag 9.7E-4%, Zn 0.63%, Pb 0.014%, in ore, in ground"
+      },
+      "target": {
+        "name": "Copper, Cu 0.38%, in mixed ore, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "Gold, Au 9.7E-4%, Ag 9.7E-4%, Zn 0.63%, Cu 0.38%, Pb 0.014%, in ore, in ground"
+      },
+      "target": {
+        "name": "Gold, Au 9.7E-4%, in mixed ore, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "Lead, Pb 0.014%, Au 9.7E-4%, Ag 9.7E-4%, Zn 0.63%, Cu 0.38%, in ore, in ground"
+      },
+      "target": {
+        "name": "Lead, Pb 0.014%, in mixed ore, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "Occupation, arable"
+      },
+      "target": {
+        "name": "Occupation, arable land, unspecified use"
+      }
+    },
+    {
+      "source": {
+        "name": "Occupation, arable, non-irrigated"
+      },
+      "target": {
+        "name": "Occupation, annual crop, non-irrigated"
+      }
+    },
+    {
+      "source": {
+        "name": "Occupation, arable, non-irrigated, diverse-intensive"
+      },
+      "target": {
+        "name": "Occupation, annual crop, non-irrigated, extensive"
+      }
+    },
+    {
+      "source": {
+        "name": "Occupation, arable, non-irrigated, fallow"
+      },
+      "target": {
+        "name": "Occupation, cropland fallow (non-use)"
+      }
+    },
+    {
+      "source": {
+        "name": "Occupation, arable, non-irrigated, monotone-intensive"
+      },
+      "target": {
+        "name": "Occupation, annual crop, non-irrigated, intensive"
+      }
+    },
+    {
+      "source": {
+        "name": "Occupation, dump site, benthos"
+      },
+      "target": {
+        "name": "Occupation, seabed, drilling and mining"
+      }
+    },
+    {
+      "source": {
+        "name": "Occupation, forest"
+      },
+      "target": {
+        "name": "Occupation, forest, unspecified"
+      }
+    },
+    {
+      "source": {
+        "name": "Occupation, forest, intensive, clear-cutting"
+      },
+      "target": {
+        "name": "Occupation, forest, intensive"
+      }
+    },
+    {
+      "source": {
+        "name": "Occupation, forest, intensive, normal"
+      },
+      "target": {
+        "name": "Occupation, forest, intensive"
+      }
+    },
+    {
+      "source": {
+        "name": "Occupation, forest, intensive, short-cycle"
+      },
+      "target": {
+        "name": "Occupation, forest, intensive"
+      }
+    },
+    {
+      "source": {
+        "name": "Occupation, industrial area, benthos"
+      },
+      "target": {
+        "name": "Occupation, industrial area"
+      }
+    },
+    {
+      "source": {
+        "name": "Occupation, industrial area, built up"
+      },
+      "target": {
+        "name": "Occupation, industrial area"
+      }
+    },
+    {
+      "source": {
+        "name": "Occupation, industrial area, vegetation"
+      },
+      "target": {
+        "name": "Occupation, industrial area"
+      }
+    },
+    {
+      "source": {
+        "name": "Occupation, pasture and meadow"
+      },
+      "target": {
+        "name": "Occupation, pasture, man made"
+      }
+    },
+    {
+      "source": {
+        "name": "Occupation, pasture and meadow, extensive"
+      },
+      "target": {
+        "name": "Occupation, pasture, man made, extensive"
+      }
+    },
+    {
+      "source": {
+        "name": "Occupation, pasture and meadow, intensive"
+      },
+      "target": {
+        "name": "Occupation, pasture, man made, intensive"
+      }
+    },
+    {
+      "source": {
+        "name": "Occupation, permanent crop, fruit"
+      },
+      "target": {
+        "name": "Occupation, permanent crop, irrigated"
+      }
+    },
+    {
+      "source": {
+        "name": "Occupation, permanent crop, fruit, extensive"
+      },
+      "target": {
+        "name": "Occupation, permanent crop, irrigated, extensive"
+      }
+    },
+    {
+      "source": {
+        "name": "Occupation, permanent crop, fruit, intensive"
+      },
+      "target": {
+        "name": "Occupation, permanent crop, irrigated, intensive"
+      }
+    },
+    {
+      "source": {
+        "name": "Occupation, permanent crop, vine"
+      },
+      "target": {
+        "name": "Occupation, permanent crop, non-irrigated"
+      }
+    },
+    {
+      "source": {
+        "name": "Occupation, permanent crop, vine, extensive"
+      },
+      "target": {
+        "name": "Occupation, permanent crop, non-irrigated, extensive"
+      }
+    },
+    {
+      "source": {
+        "name": "Occupation, permanent crop, vine, intensive"
+      },
+      "target": {
+        "name": "Occupation, permanent crop, non-irrigated, intensive"
+      }
+    },
+    {
+      "source": {
+        "name": "Occupation, sea and ocean"
+      },
+      "target": {
+        "name": "Occupation, seabed, unspecified"
+      }
+    },
+    {
+      "source": {
+        "name": "Occupation, traffic area, rail embankment"
+      },
+      "target": {
+        "name": "Occupation, traffic area, rail/road embankment"
+      }
+    },
+    {
+      "source": {
+        "name": "Occupation, traffic area, road embankment"
+      },
+      "target": {
+        "name": "Occupation, traffic area, rail/road embankment"
+      }
+    },
+    {
+      "source": {
+        "name": "Occupation, tropical rain forest"
+      },
+      "target": {
+        "name": "Occupation, forest, primary (non-use)"
+      }
+    },
+    {
+      "source": {
+        "name": "Occupation, unknown"
+      },
+      "target": {
+        "name": "Occupation, unspecified"
+      }
+    },
+    {
+      "source": {
+        "name": "Occupation, water bodies, artificial"
+      },
+      "target": {
+        "name": "Occupation, lake, artificial"
+      }
+    },
+    {
+      "source": {
+        "name": "Occupation, water courses, artificial"
+      },
+      "target": {
+        "name": "Occupation, river, artificial"
+      }
+    },
+    {
+      "source": {
+        "name": "Silver, Ag 9.7E-4%, Au 9.7E-4%, Zn 0.63%, Cu 0.38%, Pb 0.014%, in ore, in ground"
+      },
+      "target": {
+        "name": "Silver, Ag 9.7E-4%, in mixed ore, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, from arable"
+      },
+      "target": {
+        "name": "Transformation, from arable land, unspecified use"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, from arable, non-irrigated"
+      },
+      "target": {
+        "name": "Transformation, from annual crop, non-irrigated"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, from arable, non-irrigated, diverse-intensive"
+      },
+      "target": {
+        "name": "Transformation, from annual crop, non-irrigated, extensive"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, from arable, non-irrigated, fallow"
+      },
+      "target": {
+        "name": "Transformation, from cropland fallow (non-use)"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, from arable, non-irrigated, monotone-intensive"
+      },
+      "target": {
+        "name": "Transformation, from annual crop, non-irrigated, intensive"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, from dump site, benthos"
+      },
+      "target": {
+        "name": "Transformation, from seabed, drilling and mining"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, from forest"
+      },
+      "target": {
+        "name": "Transformation, from forest, unspecified"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, from forest, intensive, clear-cutting"
+      },
+      "target": {
+        "name": "Transformation, from forest, intensive"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, from forest, intensive, normal"
+      },
+      "target": {
+        "name": "Transformation, from forest, intensive"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, from forest, intensive, short-cycle"
+      },
+      "target": {
+        "name": "Transformation, from forest, intensive"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, from industrial area, benthos"
+      },
+      "target": {
+        "name": "Transformation, from industrial area"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, from industrial area, built up"
+      },
+      "target": {
+        "name": "Transformation, from industrial area"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, from industrial area, vegetation"
+      },
+      "target": {
+        "name": "Transformation, from industrial area"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, from pasture and meadow"
+      },
+      "target": {
+        "name": "Transformation, from pasture, man made"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, from pasture and meadow, extensive"
+      },
+      "target": {
+        "name": "Transformation, from pasture, man made, extensive"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, from pasture and meadow, intensive"
+      },
+      "target": {
+        "name": "Transformation, from pasture, man made, intensive"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, from permanent crop, fruit"
+      },
+      "target": {
+        "name": "Transformation, from permanent crop, irrigated"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, from permanent crop, fruit, extensive"
+      },
+      "target": {
+        "name": "Transformation, from permanent crop, irrigated, extensive"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, from permanent crop, fruit, intensive"
+      },
+      "target": {
+        "name": "Transformation, from permanent crop, irrigated, intensive"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, from permanent crop, vine"
+      },
+      "target": {
+        "name": "Transformation, from permanent crop, non-irrigated"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, from permanent crop, vine, extensive"
+      },
+      "target": {
+        "name": "Transformation, from permanent crop, non-irrigated, extensive"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, from permanent crop, vine, intensive"
+      },
+      "target": {
+        "name": "Transformation, from permanent crop, non-irrigated, intensive"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, from sea and ocean"
+      },
+      "target": {
+        "name": "Transformation, from seabed, unspecified"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, from traffic area, rail embankment"
+      },
+      "target": {
+        "name": "Transformation, from traffic area, rail/road embankment"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, from traffic area, road embankment"
+      },
+      "target": {
+        "name": "Transformation, from traffic area, rail/road embankment"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, from tropical rain forest"
+      },
+      "target": {
+        "name": "Transformation, from forest, primary (non-use)"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, from unknown"
+      },
+      "target": {
+        "name": "Transformation, from unspecified"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, from water bodies, artificial"
+      },
+      "target": {
+        "name": "Transformation, from lake, artificial"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, from water courses, artificial"
+      },
+      "target": {
+        "name": "Transformation, from river, artificial"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, to arable"
+      },
+      "target": {
+        "name": "Transformation, to arable land, unspecified use"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, to arable, non-irrigated"
+      },
+      "target": {
+        "name": "Transformation, to annual crop, non-irrigated"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, to arable, non-irrigated, diverse-intensive"
+      },
+      "target": {
+        "name": "Transformation, to annual crop, non-irrigated, extensive"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, to arable, non-irrigated, fallow"
+      },
+      "target": {
+        "name": "Transformation, to cropland fallow (non-use)"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, to arable, non-irrigated, monotone-intensive"
+      },
+      "target": {
+        "name": "Transformation, to annual crop, non-irrigated, intensive"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, to dump site, benthos"
+      },
+      "target": {
+        "name": "Transformation, to seabed, drilling and mining"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, to forest"
+      },
+      "target": {
+        "name": "Transformation, to forest, unspecified"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, to forest, intensive, clear-cutting"
+      },
+      "target": {
+        "name": "Transformation, to forest, intensive"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, to forest, intensive, normal"
+      },
+      "target": {
+        "name": "Transformation, to forest, intensive"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, to forest, intensive, short-cycle"
+      },
+      "target": {
+        "name": "Transformation, to forest, intensive"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, to industrial area, benthos"
+      },
+      "target": {
+        "name": "Transformation, to industrial area"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, to industrial area, built up"
+      },
+      "target": {
+        "name": "Transformation, to industrial area"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, to industrial area, vegetation"
+      },
+      "target": {
+        "name": "Transformation, to industrial area"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, to pasture and meadow"
+      },
+      "target": {
+        "name": "Transformation, to pasture, man made"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, to pasture and meadow, extensive"
+      },
+      "target": {
+        "name": "Transformation, to pasture, man made, extensive"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, to pasture and meadow, intensive"
+      },
+      "target": {
+        "name": "Transformation, to pasture, man made, intensive"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, to permanent crop, fruit"
+      },
+      "target": {
+        "name": "Transformation, to permanent crop, irrigated"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, to permanent crop, fruit, extensive"
+      },
+      "target": {
+        "name": "Transformation, to permanent crop, irrigated, extensive"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, to permanent crop, fruit, intensive"
+      },
+      "target": {
+        "name": "Transformation, to permanent crop, irrigated, intensive"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, to permanent crop, vine"
+      },
+      "target": {
+        "name": "Transformation, to permanent crop, non-irrigated"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, to permanent crop, vine, extensive"
+      },
+      "target": {
+        "name": "Transformation, to permanent crop, non-irrigated, extensive"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, to permanent crop, vine, intensive"
+      },
+      "target": {
+        "name": "Transformation, to permanent crop, non-irrigated, intensive"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, to sea and ocean"
+      },
+      "target": {
+        "name": "Transformation, to seabed, unspecified"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, to traffic area, rail embankment"
+      },
+      "target": {
+        "name": "Transformation, to traffic area, rail/road embankment"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, to traffic area, road embankment"
+      },
+      "target": {
+        "name": "Transformation, to traffic area, rail/road embankment"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, to tropical rain forest"
+      },
+      "target": {
+        "name": "Transformation, to forest, primary (non-use)"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, to unknown"
+      },
+      "target": {
+        "name": "Transformation, to unspecified"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, to water bodies, artificial"
+      },
+      "target": {
+        "name": "Transformation, to lake, artificial"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, to water courses, artificial"
+      },
+      "target": {
+        "name": "Transformation, to river, artificial"
+      }
+    },
+    {
+      "source": {
+        "name": "Zinc, Zn 0.63%, Au 9.7E-4%, Ag 9.7E-4%, Cu 0.38%, Pb 0.014%, in ore, in ground"
+      },
+      "target": {
+        "name": "Zinc, Zn 0.63%, in mixed ore, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "Aluminum"
+      },
+      "target": {
+        "name": "Aluminium"
+      }
+    },
+    {
+      "source": {
+        "name": "Aluminum"
+      },
+      "target": {
+        "name": "Aluminium"
+      }
+    },
+    {
+      "source": {
+        "name": "Aluminum"
+      },
+      "target": {
+        "name": "Aluminium"
+      }
+    },
+    {
+      "source": {
+        "name": "Aluminum"
+      },
+      "target": {
+        "name": "Aluminium"
+      }
+    },
+    {
+      "source": {
+        "name": "Oils, biogenic"
+      },
+      "target": {
+        "name": "Oils, non-fossil"
+      }
+    },
+    {
+      "source": {
+        "name": "Oils, biogenic"
+      },
+      "target": {
+        "name": "Oils, non-fossil"
+      }
+    },
+    {
+      "source": {
+        "name": "Oils, biogenic"
+      },
+      "target": {
+        "name": "Oils, non-fossil"
+      }
+    },
+    {
+      "source": {
+        "name": "Oils, biogenic"
+      },
+      "target": {
+        "name": "Oils, non-fossil"
+      }
+    },
+    {
+      "source": {
+        "name": "Aluminum"
+      },
+      "target": {
+        "name": "Aluminium"
+      }
+    },
+    {
+      "source": {
+        "name": "Aluminum"
+      },
+      "target": {
+        "name": "Aluminium"
+      }
+    },
+    {
+      "source": {
+        "name": "Aluminum"
+      },
+      "target": {
+        "name": "Aluminium"
+      }
+    },
+    {
+      "source": {
+        "name": "Aluminum"
+      },
+      "target": {
+        "name": "Aluminium"
+      }
+    },
+    {
+      "source": {
+        "name": "Aluminum"
+      },
+      "target": {
+        "name": "Aluminium"
+      }
+    },
+    {
+      "source": {
+        "name": "Aluminum"
+      },
+      "target": {
+        "name": "Aluminium"
+      }
+    },
+    {
+      "source": {
+        "name": "Aluminum"
+      },
+      "target": {
+        "name": "Aluminium"
+      }
+    },
+    {
+      "source": {
+        "name": "Aluminum"
+      },
+      "target": {
+        "name": "Aluminium"
+      }
+    },
+    {
+      "source": {
+        "name": "Aluminum"
+      },
+      "target": {
+        "name": "Aluminium"
+      }
+    },
+    {
+      "source": {
+        "name": "Aluminum"
+      },
+      "target": {
+        "name": "Aluminium"
+      }
+    },
+    {
+      "source": {
+        "name": "Carbon dioxide, biogenic"
+      },
+      "target": {
+        "name": "Carbon dioxide, non-fossil"
+      }
+    },
+    {
+      "source": {
+        "name": "Carbon dioxide, biogenic"
+      },
+      "target": {
+        "name": "Carbon dioxide, non-fossil"
+      }
+    },
+    {
+      "source": {
+        "name": "Carbon dioxide, biogenic"
+      },
+      "target": {
+        "name": "Carbon dioxide, non-fossil"
+      }
+    },
+    {
+      "source": {
+        "name": "Carbon dioxide, biogenic"
+      },
+      "target": {
+        "name": "Carbon dioxide, non-fossil"
+      }
+    },
+    {
+      "source": {
+        "name": "Carbon dioxide, biogenic"
+      },
+      "target": {
+        "name": "Carbon dioxide, non-fossil"
+      }
+    },
+    {
+      "source": {
+        "name": "Carbon dioxide, land transformation"
+      },
+      "target": {
+        "name": "Carbon dioxide, from soil or biomass stock"
+      }
+    },
+    {
+      "source": {
+        "name": "Carbon dioxide, land transformation"
+      },
+      "target": {
+        "name": "Carbon dioxide, from soil or biomass stock"
+      }
+    },
+    {
+      "source": {
+        "name": "Carbon dioxide, land transformation"
+      },
+      "target": {
+        "name": "Carbon dioxide, from soil or biomass stock"
+      }
+    },
+    {
+      "source": {
+        "name": "Carbon dioxide, land transformation"
+      },
+      "target": {
+        "name": "Carbon dioxide, from soil or biomass stock"
+      }
+    },
+    {
+      "source": {
+        "name": "Carbon dioxide, land transformation"
+      },
+      "target": {
+        "name": "Carbon dioxide, from soil or biomass stock"
+      }
+    },
+    {
+      "source": {
+        "name": "Carbon monoxide, biogenic"
+      },
+      "target": {
+        "name": "Carbon monoxide, non-fossil"
+      }
+    },
+    {
+      "source": {
+        "name": "Carbon monoxide, biogenic"
+      },
+      "target": {
+        "name": "Carbon monoxide, non-fossil"
+      }
+    },
+    {
+      "source": {
+        "name": "Carbon monoxide, biogenic"
+      },
+      "target": {
+        "name": "Carbon monoxide, non-fossil"
+      }
+    },
+    {
+      "source": {
+        "name": "Carbon monoxide, biogenic"
+      },
+      "target": {
+        "name": "Carbon monoxide, non-fossil"
+      }
+    },
+    {
+      "source": {
+        "name": "Carbon monoxide, biogenic"
+      },
+      "target": {
+        "name": "Carbon monoxide, non-fossil"
+      }
+    },
+    {
+      "source": {
+        "name": "Methane, biogenic"
+      },
+      "target": {
+        "name": "Methane, non-fossil"
+      }
+    },
+    {
+      "source": {
+        "name": "Methane, biogenic"
+      },
+      "target": {
+        "name": "Methane, non-fossil"
+      }
+    },
+    {
+      "source": {
+        "name": "Methane, biogenic"
+      },
+      "target": {
+        "name": "Methane, non-fossil"
+      }
+    },
+    {
+      "source": {
+        "name": "Methane, biogenic"
+      },
+      "target": {
+        "name": "Methane, non-fossil"
+      }
+    },
+    {
+      "source": {
+        "name": "Methane, biogenic"
+      },
+      "target": {
+        "name": "Methane, non-fossil"
+      }
+    },
+    {
+      "source": {
+        "name": "Sodium tetrahydroborate"
+      },
+      "target": {
+        "name": "Sodium tetrahydridoborate"
+      }
+    },
+    {
+      "source": {
+        "name": "Sodium tetrahydroborate"
+      },
+      "target": {
+        "name": "Sodium tetrahydridoborate"
+      }
+    },
+    {
+      "source": {
+        "name": "Sodium tetrahydroborate"
+      },
+      "target": {
+        "name": "Sodium tetrahydridoborate"
+      }
+    },
+    {
+      "source": {
+        "name": "Sodium tetrahydroborate"
+      },
+      "target": {
+        "name": "Sodium tetrahydridoborate"
+      }
+    },
+    {
+      "source": {
+        "name": "Sodium tetrahydroborate"
+      },
+      "target": {
+        "name": "Sodium tetrahydridoborate"
+      }
+    },
+    {
+      "source": {
+        "name": "Sulphur trioxide"
+      },
+      "target": {
+        "name": "Sulfur trioxide"
+      }
+    },
+    {
+      "source": {
+        "name": "Sulphur trioxide"
+      },
+      "target": {
+        "name": "Sulfur trioxide"
+      }
+    },
+    {
+      "source": {
+        "name": "Sulphur trioxide"
+      },
+      "target": {
+        "name": "Sulfur trioxide"
+      }
+    },
+    {
+      "source": {
+        "name": "Sulphur trioxide"
+      },
+      "target": {
+        "name": "Sulfur trioxide"
+      }
+    },
+    {
+      "source": {
+        "name": "Sulphur trioxide"
+      },
+      "target": {
+        "name": "Sulfur trioxide"
+      }
+    },
+    {
+      "source": {
+        "name": "Bromine, 0.0023% in water"
+      },
+      "target": {
+        "name": "Bromine, 0.23% in water"
+      }
+    },
+    {
+      "source": {
+        "name": "Carbon, in organic matter, in soil"
+      },
+      "target": {
+        "name": "Carbon, organic, in soil or biomass stock"
+      }
+    },
+    {
+      "source": {
+        "name": "Copper, Cu 0.38%, Au 9.7E-4%, Ag 9.7E-4%, Zn 0.63%, Pb 0.014%, in ore, in ground"
+      },
+      "target": {
+        "name": "Copper, Cu 0.38%, in mixed ore, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "Gold, Au 9.7E-4%, Ag 9.7E-4%, Zn 0.63%, Cu 0.38%, Pb 0.014%, in ore, in ground"
+      },
+      "target": {
+        "name": "Gold, Au 9.7E-4%, in mixed ore, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "Lead, Pb 0.014%, Au 9.7E-4%, Ag 9.7E-4%, Zn 0.63%, Cu 0.38%, in ore, in ground"
+      },
+      "target": {
+        "name": "Lead, Pb 0.014%, in mixed ore, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "Occupation, arable"
+      },
+      "target": {
+        "name": "Occupation, arable land, unspecified use"
+      }
+    },
+    {
+      "source": {
+        "name": "Occupation, arable, non-irrigated"
+      },
+      "target": {
+        "name": "Occupation, annual crop, non-irrigated"
+      }
+    },
+    {
+      "source": {
+        "name": "Occupation, arable, non-irrigated, diverse-intensive"
+      },
+      "target": {
+        "name": "Occupation, annual crop, non-irrigated, extensive"
+      }
+    },
+    {
+      "source": {
+        "name": "Occupation, arable, non-irrigated, fallow"
+      },
+      "target": {
+        "name": "Occupation, cropland fallow (non-use)"
+      }
+    },
+    {
+      "source": {
+        "name": "Occupation, arable, non-irrigated, monotone-intensive"
+      },
+      "target": {
+        "name": "Occupation, annual crop, non-irrigated, intensive"
+      }
+    },
+    {
+      "source": {
+        "name": "Occupation, dump site, benthos"
+      },
+      "target": {
+        "name": "Occupation, seabed, drilling and mining"
+      }
+    },
+    {
+      "source": {
+        "name": "Occupation, forest"
+      },
+      "target": {
+        "name": "Occupation, forest, unspecified"
+      }
+    },
+    {
+      "source": {
+        "name": "Occupation, forest, intensive, clear-cutting"
+      },
+      "target": {
+        "name": "Occupation, forest, intensive"
+      }
+    },
+    {
+      "source": {
+        "name": "Occupation, forest, intensive, normal"
+      },
+      "target": {
+        "name": "Occupation, forest, intensive"
+      }
+    },
+    {
+      "source": {
+        "name": "Occupation, forest, intensive, short-cycle"
+      },
+      "target": {
+        "name": "Occupation, forest, intensive"
+      }
+    },
+    {
+      "source": {
+        "name": "Occupation, industrial area, benthos"
+      },
+      "target": {
+        "name": "Occupation, industrial area"
+      }
+    },
+    {
+      "source": {
+        "name": "Occupation, industrial area, built up"
+      },
+      "target": {
+        "name": "Occupation, industrial area"
+      }
+    },
+    {
+      "source": {
+        "name": "Occupation, industrial area, vegetation"
+      },
+      "target": {
+        "name": "Occupation, industrial area"
+      }
+    },
+    {
+      "source": {
+        "name": "Occupation, pasture and meadow"
+      },
+      "target": {
+        "name": "Occupation, pasture, man made"
+      }
+    },
+    {
+      "source": {
+        "name": "Occupation, pasture and meadow, extensive"
+      },
+      "target": {
+        "name": "Occupation, pasture, man made, extensive"
+      }
+    },
+    {
+      "source": {
+        "name": "Occupation, pasture and meadow, intensive"
+      },
+      "target": {
+        "name": "Occupation, pasture, man made, intensive"
+      }
+    },
+    {
+      "source": {
+        "name": "Occupation, permanent crop, fruit"
+      },
+      "target": {
+        "name": "Occupation, permanent crop, irrigated"
+      }
+    },
+    {
+      "source": {
+        "name": "Occupation, permanent crop, fruit, extensive"
+      },
+      "target": {
+        "name": "Occupation, permanent crop, irrigated, extensive"
+      }
+    },
+    {
+      "source": {
+        "name": "Occupation, permanent crop, fruit, intensive"
+      },
+      "target": {
+        "name": "Occupation, permanent crop, irrigated, intensive"
+      }
+    },
+    {
+      "source": {
+        "name": "Occupation, permanent crop, vine"
+      },
+      "target": {
+        "name": "Occupation, permanent crop, non-irrigated"
+      }
+    },
+    {
+      "source": {
+        "name": "Occupation, permanent crop, vine, extensive"
+      },
+      "target": {
+        "name": "Occupation, permanent crop, non-irrigated, extensive"
+      }
+    },
+    {
+      "source": {
+        "name": "Occupation, permanent crop, vine, intensive"
+      },
+      "target": {
+        "name": "Occupation, permanent crop, non-irrigated, intensive"
+      }
+    },
+    {
+      "source": {
+        "name": "Occupation, sea and ocean"
+      },
+      "target": {
+        "name": "Occupation, seabed, unspecified"
+      }
+    },
+    {
+      "source": {
+        "name": "Occupation, traffic area, rail embankment"
+      },
+      "target": {
+        "name": "Occupation, traffic area, rail/road embankment"
+      }
+    },
+    {
+      "source": {
+        "name": "Occupation, traffic area, road embankment"
+      },
+      "target": {
+        "name": "Occupation, traffic area, rail/road embankment"
+      }
+    },
+    {
+      "source": {
+        "name": "Occupation, tropical rain forest"
+      },
+      "target": {
+        "name": "Occupation, forest, primary (non-use)"
+      }
+    },
+    {
+      "source": {
+        "name": "Occupation, unknown"
+      },
+      "target": {
+        "name": "Occupation, unspecified"
+      }
+    },
+    {
+      "source": {
+        "name": "Occupation, water bodies, artificial"
+      },
+      "target": {
+        "name": "Occupation, lake, artificial"
+      }
+    },
+    {
+      "source": {
+        "name": "Occupation, water courses, artificial"
+      },
+      "target": {
+        "name": "Occupation, river, artificial"
+      }
+    },
+    {
+      "source": {
+        "name": "Silver, Ag 9.7E-4%, Au 9.7E-4%, Zn 0.63%, Cu 0.38%, Pb 0.014%, in ore, in ground"
+      },
+      "target": {
+        "name": "Silver, Ag 9.7E-4%, in mixed ore, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, from arable"
+      },
+      "target": {
+        "name": "Transformation, from arable land, unspecified use"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, from arable, non-irrigated"
+      },
+      "target": {
+        "name": "Transformation, from annual crop, non-irrigated"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, from arable, non-irrigated, diverse-intensive"
+      },
+      "target": {
+        "name": "Transformation, from annual crop, non-irrigated, extensive"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, from arable, non-irrigated, fallow"
+      },
+      "target": {
+        "name": "Transformation, from cropland fallow (non-use)"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, from arable, non-irrigated, monotone-intensive"
+      },
+      "target": {
+        "name": "Transformation, from annual crop, non-irrigated, intensive"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, from dump site, benthos"
+      },
+      "target": {
+        "name": "Transformation, from seabed, drilling and mining"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, from forest"
+      },
+      "target": {
+        "name": "Transformation, from forest, unspecified"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, from forest, intensive, clear-cutting"
+      },
+      "target": {
+        "name": "Transformation, from forest, intensive"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, from forest, intensive, normal"
+      },
+      "target": {
+        "name": "Transformation, from forest, intensive"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, from forest, intensive, short-cycle"
+      },
+      "target": {
+        "name": "Transformation, from forest, intensive"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, from industrial area, benthos"
+      },
+      "target": {
+        "name": "Transformation, from industrial area"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, from industrial area, built up"
+      },
+      "target": {
+        "name": "Transformation, from industrial area"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, from industrial area, vegetation"
+      },
+      "target": {
+        "name": "Transformation, from industrial area"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, from pasture and meadow"
+      },
+      "target": {
+        "name": "Transformation, from pasture, man made"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, from pasture and meadow, extensive"
+      },
+      "target": {
+        "name": "Transformation, from pasture, man made, extensive"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, from pasture and meadow, intensive"
+      },
+      "target": {
+        "name": "Transformation, from pasture, man made, intensive"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, from permanent crop, fruit"
+      },
+      "target": {
+        "name": "Transformation, from permanent crop, irrigated"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, from permanent crop, fruit, extensive"
+      },
+      "target": {
+        "name": "Transformation, from permanent crop, irrigated, extensive"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, from permanent crop, fruit, intensive"
+      },
+      "target": {
+        "name": "Transformation, from permanent crop, irrigated, intensive"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, from permanent crop, vine"
+      },
+      "target": {
+        "name": "Transformation, from permanent crop, non-irrigated"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, from permanent crop, vine, extensive"
+      },
+      "target": {
+        "name": "Transformation, from permanent crop, non-irrigated, extensive"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, from permanent crop, vine, intensive"
+      },
+      "target": {
+        "name": "Transformation, from permanent crop, non-irrigated, intensive"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, from sea and ocean"
+      },
+      "target": {
+        "name": "Transformation, from seabed, unspecified"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, from traffic area, rail embankment"
+      },
+      "target": {
+        "name": "Transformation, from traffic area, rail/road embankment"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, from traffic area, road embankment"
+      },
+      "target": {
+        "name": "Transformation, from traffic area, rail/road embankment"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, from tropical rain forest"
+      },
+      "target": {
+        "name": "Transformation, from forest, primary (non-use)"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, from unknown"
+      },
+      "target": {
+        "name": "Transformation, from unspecified"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, from water bodies, artificial"
+      },
+      "target": {
+        "name": "Transformation, from lake, artificial"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, from water courses, artificial"
+      },
+      "target": {
+        "name": "Transformation, from river, artificial"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, to arable"
+      },
+      "target": {
+        "name": "Transformation, to arable land, unspecified use"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, to arable, non-irrigated"
+      },
+      "target": {
+        "name": "Transformation, to annual crop, non-irrigated"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, to arable, non-irrigated, diverse-intensive"
+      },
+      "target": {
+        "name": "Transformation, to annual crop, non-irrigated, extensive"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, to arable, non-irrigated, fallow"
+      },
+      "target": {
+        "name": "Transformation, to cropland fallow (non-use)"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, to arable, non-irrigated, monotone-intensive"
+      },
+      "target": {
+        "name": "Transformation, to annual crop, non-irrigated, intensive"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, to dump site, benthos"
+      },
+      "target": {
+        "name": "Transformation, to seabed, drilling and mining"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, to forest"
+      },
+      "target": {
+        "name": "Transformation, to forest, unspecified"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, to forest, intensive, clear-cutting"
+      },
+      "target": {
+        "name": "Transformation, to forest, intensive"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, to forest, intensive, normal"
+      },
+      "target": {
+        "name": "Transformation, to forest, intensive"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, to forest, intensive, short-cycle"
+      },
+      "target": {
+        "name": "Transformation, to forest, intensive"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, to industrial area, benthos"
+      },
+      "target": {
+        "name": "Transformation, to industrial area"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, to industrial area, built up"
+      },
+      "target": {
+        "name": "Transformation, to industrial area"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, to industrial area, vegetation"
+      },
+      "target": {
+        "name": "Transformation, to industrial area"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, to pasture and meadow"
+      },
+      "target": {
+        "name": "Transformation, to pasture, man made"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, to pasture and meadow, extensive"
+      },
+      "target": {
+        "name": "Transformation, to pasture, man made, extensive"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, to pasture and meadow, intensive"
+      },
+      "target": {
+        "name": "Transformation, to pasture, man made, intensive"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, to permanent crop, fruit"
+      },
+      "target": {
+        "name": "Transformation, to permanent crop, irrigated"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, to permanent crop, fruit, extensive"
+      },
+      "target": {
+        "name": "Transformation, to permanent crop, irrigated, extensive"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, to permanent crop, fruit, intensive"
+      },
+      "target": {
+        "name": "Transformation, to permanent crop, irrigated, intensive"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, to permanent crop, vine"
+      },
+      "target": {
+        "name": "Transformation, to permanent crop, non-irrigated"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, to permanent crop, vine, extensive"
+      },
+      "target": {
+        "name": "Transformation, to permanent crop, non-irrigated, extensive"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, to permanent crop, vine, intensive"
+      },
+      "target": {
+        "name": "Transformation, to permanent crop, non-irrigated, intensive"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, to sea and ocean"
+      },
+      "target": {
+        "name": "Transformation, to seabed, unspecified"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, to traffic area, rail embankment"
+      },
+      "target": {
+        "name": "Transformation, to traffic area, rail/road embankment"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, to traffic area, road embankment"
+      },
+      "target": {
+        "name": "Transformation, to traffic area, rail/road embankment"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, to tropical rain forest"
+      },
+      "target": {
+        "name": "Transformation, to forest, primary (non-use)"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, to unknown"
+      },
+      "target": {
+        "name": "Transformation, to unspecified"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, to water bodies, artificial"
+      },
+      "target": {
+        "name": "Transformation, to lake, artificial"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, to water courses, artificial"
+      },
+      "target": {
+        "name": "Transformation, to river, artificial"
+      }
+    },
+    {
+      "source": {
+        "name": "Zinc, Zn 0.63%, Au 9.7E-4%, Ag 9.7E-4%, Cu 0.38%, Pb 0.014%, in ore, in ground"
+      },
+      "target": {
+        "name": "Zinc, Zn 0.63%, in mixed ore, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "Aluminum"
+      },
+      "target": {
+        "name": "Aluminium"
+      }
+    },
+    {
+      "source": {
+        "name": "Aluminum"
+      },
+      "target": {
+        "name": "Aluminium"
+      }
+    },
+    {
+      "source": {
+        "name": "Aluminum"
+      },
+      "target": {
+        "name": "Aluminium"
+      }
+    },
+    {
+      "source": {
+        "name": "Aluminum"
+      },
+      "target": {
+        "name": "Aluminium"
+      }
+    },
+    {
+      "source": {
+        "name": "Oils, biogenic"
+      },
+      "target": {
+        "name": "Oils, non-fossil"
+      }
+    },
+    {
+      "source": {
+        "name": "Oils, biogenic"
+      },
+      "target": {
+        "name": "Oils, non-fossil"
+      }
+    },
+    {
+      "source": {
+        "name": "Oils, biogenic"
+      },
+      "target": {
+        "name": "Oils, non-fossil"
+      }
+    },
+    {
+      "source": {
+        "name": "Oils, biogenic"
+      },
+      "target": {
+        "name": "Oils, non-fossil"
+      }
+    },
+    {
+      "source": {
+        "name": "Aluminum"
+      },
+      "target": {
+        "name": "Aluminium"
+      }
+    },
+    {
+      "source": {
+        "name": "Aluminum"
+      },
+      "target": {
+        "name": "Aluminium"
+      }
+    },
+    {
+      "source": {
+        "name": "Aluminum"
+      },
+      "target": {
+        "name": "Aluminium"
+      }
+    },
+    {
+      "source": {
+        "name": "Aluminum"
+      },
+      "target": {
+        "name": "Aluminium"
+      }
+    },
+    {
+      "source": {
+        "name": "Aluminum"
+      },
+      "target": {
+        "name": "Aluminium"
+      }
+    }
+  ]
+}

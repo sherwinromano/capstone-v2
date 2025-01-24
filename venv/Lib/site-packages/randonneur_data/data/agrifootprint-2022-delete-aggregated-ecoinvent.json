@@ -1,0 +1,635 @@
+{
+  "name": "agrifootprint-2022-delete-aggregated-ecoinvent",
+  "description": "Delete ecoinvent activities from Agrifootprint 2022 energy allocation given as aggregated processes.",
+  "contributors": [
+    {
+      "title": "Chris Mutel",
+      "path": "https://chris.mutel.org/",
+      "role": "author"
+    }
+  ],
+  "created": "2024-10-14T05:44:55.333495+00:00",
+  "version": "1.0.0",
+  "licenses": [
+    {
+      "name": "CC-BY-4.0",
+      "path": "https://creativecommons.org/licenses/by/4.0/legalcode",
+      "title": "Creative Commons Attribution 4.0 International"
+    }
+  ],
+  "graph_context": [
+    "nodes"
+  ],
+  "mapping": {
+    "source": {
+      "expression language": "like JSONPath",
+      "labels": {
+        "identifier": "Process[*].\"Process identifier\".text",
+        "name": "Process[*].Products[*].text[0]",
+        "platform_id": "Process[*].\"Platform Identifier\"",
+        "unit": [
+          "[\"Emissions to air/\", Process[*].\"Emissions to air\".[2]]",
+          "[\"Emissions to soil/\", Process[*].\"Emissions to soil\".[2]]",
+          "[\"Emissions to water/\", Process[*].\"Emissions to water\".[2]]",
+          "[\"Resources/\", Process[*].\"Resources\".[2]]"
+        ],
+        "context": [
+          "[\"Emissions to air/\", Process[*].\"Emissions to air\".[1]]",
+          "[\"Emissions to soil/\", Process[*].\"Emissions to soil\".[1]]",
+          "[\"Emissions to water/\", Process[*].\"Emissions to water\".[1]]",
+          "[\"Resources/\", Process[*].\"Resources\".[1]]"
+        ]
+      }
+    },
+    "target": {
+      "expression language": "like JSONPath",
+      "labels": {
+        "identifier": "Process[*].\"Process identifier\".text",
+        "name": "Process[*].Products[*].text[0]",
+        "platform_id": "Process[*].\"Platform Identifier\"",
+        "unit": [
+          "[\"Emissions to air/\", Process[*].\"Emissions to air\".[2]]",
+          "[\"Emissions to soil/\", Process[*].\"Emissions to soil\".[2]]",
+          "[\"Emissions to water/\", Process[*].\"Emissions to water\".[2]]",
+          "[\"Resources/\", Process[*].\"Resources\".[2]]"
+        ],
+        "context": [
+          "[\"Emissions to air/\", Process[*].\"Emissions to air\".[1]]",
+          "[\"Emissions to soil/\", Process[*].\"Emissions to soil\".[1]]",
+          "[\"Emissions to water/\", Process[*].\"Emissions to water\".[1]]",
+          "[\"Resources/\", Process[*].\"Resources\".[1]]"
+        ]
+      }
+    }
+  },
+  "source_id": "agrifootprint-2022",
+  "target_id": "agrifootprint-2022",
+  "homepage": "https://blonksustainability.nl/tools/agri-footprint",
+  "delete": [
+    {
+      "source": {
+        "name": "market for activated bentonite GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for activated carbon, granular GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for asbestos, crysotile type GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "base oil production, petroleum refinery operation RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for benzene GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for biowaste RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for calcium carbonate, precipitated RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for concrete slab RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for copper sulfate GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market group for diesel GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, low voltage AR"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, low voltage AT"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, low voltage AU"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, low voltage BE"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, low voltage BG"
+      }
+    },
+    {
+      "source": {
+        "name": "market group for electricity, low voltage BR"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, low voltage BY"
+      }
+    },
+    {
+      "source": {
+        "name": "market group for electricity, low voltage CA"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, low voltage CH"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, low voltage CL"
+      }
+    },
+    {
+      "source": {
+        "name": "market group for electricity, low voltage CN"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, low voltage CO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, low voltage CR"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, low voltage CY"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, low voltage CZ"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, low voltage DE"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, low voltage DK"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, low voltage EE"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, low voltage EG"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, low voltage ES"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, low voltage ET"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, low voltage FI"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, low voltage FR"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, low voltage GB"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, low voltage GR"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, low voltage HU"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, low voltage ID"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, low voltage IE"
+      }
+    },
+    {
+      "source": {
+        "name": "market group for electricity, low voltage IN"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, low voltage IT"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, low voltage JP"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, low voltage KH"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, low voltage LT"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, low voltage LV"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, low voltage MX"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, low voltage MY"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, low voltage NL"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, low voltage NO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, low voltage NZ"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, low voltage PE"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, low voltage PH"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, low voltage PK"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, low voltage PL"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, low voltage PT"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, low voltage PY"
+      }
+    },
+    {
+      "source": {
+        "name": "market group for electricity, low voltage RAF"
+      }
+    },
+    {
+      "source": {
+        "name": "market group for electricity, low voltage RAS"
+      }
+    },
+    {
+      "source": {
+        "name": "market group for electricity, low voltage RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market group for electricity, low voltage RLA"
+      }
+    },
+    {
+      "source": {
+        "name": "market group for electricity, low voltage RME"
+      }
+    },
+    {
+      "source": {
+        "name": "market group for electricity, low voltage RNA"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, low voltage RO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, low voltage RU"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, low voltage SD"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, low voltage SE"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, low voltage SI"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, low voltage SK"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, low voltage SN"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, low voltage TH"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, low voltage TR"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, low voltage UA"
+      }
+    },
+    {
+      "source": {
+        "name": "market group for electricity, low voltage US"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, low voltage UY"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, low voltage VE"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, low voltage VN"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, low voltage ZA"
+      }
+    },
+    {
+      "source": {
+        "name": "market for ethanol, without water, in 99.7% solution state, from ethylene RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for formaldehyde RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "heat production, natural gas, at industrial furnace >100kW Europe without Switze"
+      }
+    },
+    {
+      "source": {
+        "name": "heat production, natural gas, at industrial furnace >100kW RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "heat production, heavy fuel oil, at industrial furnace 1MW RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "heat production, light fuel oil, at industrial furnace 1MW RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for heavy fuel oil RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for hexane GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for hydrochloric acid, without water, in 30% solution state RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inert waste RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for kaolin GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for kerosene RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for lime RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "limestone quarry operation RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for municipal solid waste RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for naphtha RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for natural gas, low pressure RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for nitrogen, liquid RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for packaging film, low density polyethylene GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for polypropylene, granulate GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for quicklime, milled, loose RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for sand RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for saw dust, wet, measured as dry mass GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for scrap steel RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for sodium bicarbonate GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for sodium chloride, powder GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for sodium hydroxide, without water, in 50% solution state GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for steel, unalloyed GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for sulfur GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for sulfur dioxide, liquid RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for sulfuric acid RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for tap water RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for tractor, 4-wheel, agricultural GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for wastewater, average RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for water, deionised RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for zinc oxide GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for zinc sulfide GLO"
+      }
+    }
+  ]
+}

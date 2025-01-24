@@ -1,0 +1,43 @@
+Metadata-Version: 2.1
+Name: constructive_geometries
+Version: 1.0
+Summary: Simple tools to define world locations from a set of topological faces and set algebra
+Author-email: Chris Mutel <cmutel@gmail.com>
+Maintainer-email: Chris Mutel <cmutel@gmail.com>
+Project-URL: source, https://github.com/ecoinvent/constructive_geometries
+Project-URL: homepage, https://github.com/ecoinvent/constructive_geometries
+Project-URL: tracker, https://github.com/ecoinvent/constructive_geometries/issues
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Scientific/Engineering
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: country-converter
+Requires-Dist: wrapt
+Provides-Extra: dev
+Requires-Dist: build ; extra == 'dev'
+Requires-Dist: pre-commit ; extra == 'dev'
+Requires-Dist: pylint ; extra == 'dev'
+Requires-Dist: pytest ; extra == 'dev'
+Requires-Dist: pytest-cov ; extra == 'dev'
+Requires-Dist: setuptools ; extra == 'dev'
+Provides-Extra: gis
+Requires-Dist: constructive-geometries ; extra == 'gis'
+Requires-Dist: fiona ; extra == 'gis'
+Requires-Dist: shapely ; extra == 'gis'
+
+# Constructive Geometries - Python library
+
+[![Documentation Status](https://readthedocs.org/projects/constructive-geometries/badge/?version=latest)](http://constructive-geometries.readthedocs.io/?badge=latest) [![Build Status](https://travis-ci.org/cmutel/constructive_geometries.svg?branch=master)](https://travis-ci.org/cmutel/constructive_geometries) [![Coverage Status](https://coveralls.io/repos/github/cmutel/constructive_geometries/badge.svg?branch=master)](https://coveralls.io/github/cmutel/constructive_geometries?branch=master)
+
+Simple tools to define world locations from a set of topological faces and set algebra. For example, one could define a "rest of the world" which started from all countries, but excluded every country who name started with the letter "a".
+
+[Documentation](http://constructive-geometries.readthedocs.io/?badge=latest) and [usage example](https://github.com/cmutel/constructive_geometries/blob/master/examples/Geomatching.ipynb).
+
+Builds on top of [constructive geometries](https://github.com/cmutel/constructive_geometries).
+
+Basic installation needs [wrapt](http://wrapt.readthedocs.io/en/latest/) and [country_converter](https://github.com/konstantinstadler/country_converter); GIS functions need [shapely](https://github.com/Toblerity/Shapely), and [fiona](https://github.com/Toblerity/Fiona).

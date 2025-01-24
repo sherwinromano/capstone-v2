@@ -1,0 +1,219 @@
+{
+  "name": "ecoinvent-2.2-biosphere-context-ecoinvent-3.0-biosphere-context",
+  "description": "Convert context (category and subcategory) labels from ecoinvent 2 to 3 standards",
+  "contributors": [
+    {
+      "title": "Chris Mutel",
+      "path": "https://chris.mutel.org/",
+      "role": "author"
+    }
+  ],
+  "created": "2024-08-29T18:09:28.794527+00:00",
+  "version": "1.0.0",
+  "licenses": [
+    {
+      "name": "CC BY 4.0",
+      "path": "https://creativecommons.org/licenses/by/4.0/",
+      "title": "Creative Commons Attribution 4.0 International"
+    }
+  ],
+  "graph_context": [
+    "nodes",
+    "edges"
+  ],
+  "mapping": {
+    "source": {
+      "expression language": "XPath",
+      "labels": {
+        "name": "//*:exchange[*:outputGroup = '4' or *:outputGroup = '5']/@name",
+        "unit": "//*:exchange[*:outputGroup = '4' or *:outputGroup = '5']/@unit",
+        "context": [
+          "//*:exchange[*:outputGroup = '4' or *:outputGroup = '5']/@category",
+          "//*:exchange[*:outputGroup = '4' or *:outputGroup = '5']/@subCategory"
+        ]
+      }
+    },
+    "target": {
+      "expression language": "XPath",
+      "labels": {
+        "name": "//*:elementaryExchange/*:name/text()",
+        "unit": "//*:elementaryExchange/*:unitName/text()",
+        "uuid": "//*:elementaryExchange/@elementaryExchangeId",
+        "context": [
+          "//*:elementaryExchange/*:compartment/*:compartment/text()",
+          "//*:elementaryExchange/*:compartment/*:subcompartment/text()"
+        ]
+      }
+    }
+  },
+  "source_id": "ecoinvent-2.2-biosphere",
+  "target_id": "ecoinvent-3.0-biosphere",
+  "replace": [
+    {
+      "source": {
+        "context": [
+          "resource",
+          "in ground"
+        ]
+      },
+      "target": {
+        "context": [
+          "natural resource",
+          "in ground"
+        ]
+      }
+    },
+    {
+      "source": {
+        "context": [
+          "resource",
+          "in air"
+        ]
+      },
+      "target": {
+        "context": [
+          "natural resource",
+          "in air"
+        ]
+      }
+    },
+    {
+      "source": {
+        "context": [
+          "resource",
+          "in water"
+        ]
+      },
+      "target": {
+        "context": [
+          "natural resource",
+          "in water"
+        ]
+      }
+    },
+    {
+      "source": {
+        "context": [
+          "resource",
+          "land"
+        ]
+      },
+      "target": {
+        "context": [
+          "natural resource",
+          "land"
+        ]
+      }
+    },
+    {
+      "source": {
+        "context": [
+          "resource",
+          "biotic"
+        ]
+      },
+      "target": {
+        "context": [
+          "natural resource",
+          "biotic"
+        ]
+      }
+    },
+    {
+      "source": {
+        "context": [
+          "resource"
+        ]
+      },
+      "target": {
+        "context": [
+          "natural resource"
+        ]
+      }
+    },
+    {
+      "source": {
+        "context": [
+          "air",
+          "high population density"
+        ]
+      },
+      "target": {
+        "context": [
+          "air",
+          "urban air close to ground"
+        ]
+      }
+    },
+    {
+      "source": {
+        "context": [
+          "air",
+          "low population density"
+        ]
+      },
+      "target": {
+        "context": [
+          "air",
+          "non-urban air or from high stacks"
+        ]
+      }
+    },
+    {
+      "source": {
+        "context": [
+          "water",
+          "fossil-"
+        ]
+      },
+      "target": {
+        "context": [
+          "water",
+          "ground-"
+        ]
+      }
+    },
+    {
+      "source": {
+        "context": [
+          "water",
+          "lake"
+        ]
+      },
+      "target": {
+        "context": [
+          "water",
+          "surface water"
+        ]
+      }
+    },
+    {
+      "source": {
+        "context": [
+          "water",
+          "river"
+        ]
+      },
+      "target": {
+        "context": [
+          "water",
+          "surface water"
+        ]
+      }
+    },
+    {
+      "source": {
+        "context": [
+          "water",
+          "river, long-term"
+        ]
+      },
+      "target": {
+        "context": [
+          "water",
+          "surface water"
+        ]
+      }
+    }
+  ]
+}

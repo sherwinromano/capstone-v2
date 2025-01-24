@@ -1,0 +1,411 @@
+{
+  "name": "generic-brightway-units-normalization",
+  "description": "Standard units normalization used in most Brightway projects",
+  "contributors": [
+    {
+      "title": "Chris Mutel",
+      "path": "https://chris.mutel.org/",
+      "role": "author"
+    }
+  ],
+  "created": "2024-07-25T06:47:10.575370+00:00",
+  "version": "1.0.0",
+  "licenses": [
+    {
+      "name": "CC BY 4.0",
+      "path": "https://creativecommons.org/licenses/by/4.0/",
+      "title": "Creative Commons Attribution 4.0 International"
+    }
+  ],
+  "graph_context": [
+    "nodes",
+    "edges"
+  ],
+  "mapping": {
+    "source": {
+      "expression language": "JSONPath",
+      "labels": {
+        "unit": "Node.unit"
+      }
+    },
+    "target": {
+      "expression language": "JSONPath",
+      "labels": {
+        "unit": "Node.unit"
+      }
+    }
+  },
+  "source_id": "bw_interfaces_schemas-1",
+  "target_id": "bw_interfaces_schemas-1",
+  "homepage": "https://github.com/brightway-lca/bw_interface_schemas",
+  "replace": [
+    {
+      "source": {
+        "unit": "a"
+      },
+      "target": {
+        "unit": "year"
+      }
+    },
+    {
+      "source": {
+        "unit": "bq"
+      },
+      "target": {
+        "unit": "Becquerel"
+      }
+    },
+    {
+      "source": {
+        "unit": "g"
+      },
+      "target": {
+        "unit": "gram"
+      }
+    },
+    {
+      "source": {
+        "unit": "gj"
+      },
+      "target": {
+        "unit": "gigajoule"
+      }
+    },
+    {
+      "source": {
+        "unit": "h"
+      },
+      "target": {
+        "unit": "hour"
+      }
+    },
+    {
+      "source": {
+        "unit": "ha"
+      },
+      "target": {
+        "unit": "hectare"
+      }
+    },
+    {
+      "source": {
+        "unit": "hr"
+      },
+      "target": {
+        "unit": "hour"
+      }
+    },
+    {
+      "source": {
+        "unit": "item(s)"
+      },
+      "target": {
+        "unit": "unit"
+      }
+    },
+    {
+      "source": {
+        "unit": "kbq"
+      },
+      "target": {
+        "unit": "kilo Becquerel"
+      }
+    },
+    {
+      "source": {
+        "unit": "kg"
+      },
+      "target": {
+        "unit": "kilogram"
+      }
+    },
+    {
+      "source": {
+        "unit": "kgkm"
+      },
+      "target": {
+        "unit": "kilogram kilometer"
+      }
+    },
+    {
+      "source": {
+        "unit": "kg*day"
+      },
+      "target": {
+        "unit": "kilogram day"
+      }
+    },
+    {
+      "source": {
+        "unit": "km"
+      },
+      "target": {
+        "unit": "kilometer"
+      }
+    },
+    {
+      "source": {
+        "unit": "kj"
+      },
+      "target": {
+        "unit": "kilojoule"
+      }
+    },
+    {
+      "source": {
+        "unit": "kwh"
+      },
+      "target": {
+        "unit": "kilowatt hour"
+      }
+    },
+    {
+      "source": {
+        "unit": "l"
+      },
+      "target": {
+        "unit": "litre"
+      }
+    },
+    {
+      "source": {
+        "unit": "lu"
+      },
+      "target": {
+        "unit": "livestock unit"
+      }
+    },
+    {
+      "source": {
+        "unit": "m"
+      },
+      "target": {
+        "unit": "meter"
+      }
+    },
+    {
+      "source": {
+        "unit": "m*year"
+      },
+      "target": {
+        "unit": "meter-year"
+      }
+    },
+    {
+      "source": {
+        "unit": "m2"
+      },
+      "target": {
+        "unit": "square meter"
+      }
+    },
+    {
+      "source": {
+        "unit": "m2*year"
+      },
+      "target": {
+        "unit": "square meter-year"
+      }
+    },
+    {
+      "source": {
+        "unit": "m2a"
+      },
+      "target": {
+        "unit": "square meter-year"
+      }
+    },
+    {
+      "source": {
+        "unit": "m2*a"
+      },
+      "target": {
+        "unit": "square meter-year"
+      }
+    },
+    {
+      "source": {
+        "unit": "m2y"
+      },
+      "target": {
+        "unit": "square meter-year"
+      }
+    },
+    {
+      "source": {
+        "unit": "m3"
+      },
+      "target": {
+        "unit": "cubic meter"
+      }
+    },
+    {
+      "source": {
+        "unit": "m3*year"
+      },
+      "target": {
+        "unit": "cubic meter-year"
+      }
+    },
+    {
+      "source": {
+        "unit": "m3a"
+      },
+      "target": {
+        "unit": "cubic meter-year"
+      }
+    },
+    {
+      "source": {
+        "unit": "m3y"
+      },
+      "target": {
+        "unit": "cubic meter-year"
+      }
+    },
+    {
+      "source": {
+        "unit": "ma"
+      },
+      "target": {
+        "unit": "meter-year"
+      }
+    },
+    {
+      "source": {
+        "unit": "metric ton*km"
+      },
+      "target": {
+        "unit": "ton kilometer"
+      }
+    },
+    {
+      "source": {
+        "unit": "mj"
+      },
+      "target": {
+        "unit": "megajoule"
+      }
+    },
+    {
+      "source": {
+        "unit": "my"
+      },
+      "target": {
+        "unit": "meter-year"
+      }
+    },
+    {
+      "source": {
+        "unit": "nm3"
+      },
+      "target": {
+        "unit": "normal cubic meter"
+      }
+    },
+    {
+      "source": {
+        "unit": "sm3"
+      },
+      "target": {
+        "unit": "standard cubic meter"
+      }
+    },
+    {
+      "source": {
+        "unit": "p"
+      },
+      "target": {
+        "unit": "unit"
+      }
+    },
+    {
+      "source": {
+        "unit": "personkm"
+      },
+      "target": {
+        "unit": "person kilometer"
+      }
+    },
+    {
+      "source": {
+        "unit": "person*km"
+      },
+      "target": {
+        "unit": "person kilometer"
+      }
+    },
+    {
+      "source": {
+        "unit": "pkm"
+      },
+      "target": {
+        "unit": "person kilometer"
+      }
+    },
+    {
+      "source": {
+        "unit": "tonnes"
+      },
+      "target": {
+        "unit": "ton"
+      }
+    },
+    {
+      "source": {
+        "unit": "t"
+      },
+      "target": {
+        "unit": "ton"
+      }
+    },
+    {
+      "source": {
+        "unit": "tkm"
+      },
+      "target": {
+        "unit": "ton kilometer"
+      }
+    },
+    {
+      "source": {
+        "unit": "t*km"
+      },
+      "target": {
+        "unit": "ton kilometer"
+      }
+    },
+    {
+      "source": {
+        "unit": "vkm"
+      },
+      "target": {
+        "unit": "vehicle kilometer"
+      }
+    },
+    {
+      "source": {
+        "unit": "kg sw"
+      },
+      "target": {
+        "unit": "kilogram separative work unit"
+      }
+    },
+    {
+      "source": {
+        "unit": "km*year"
+      },
+      "target": {
+        "unit": "kilometer-year"
+      }
+    },
+    {
+      "source": {
+        "unit": "wh"
+      },
+      "target": {
+        "unit": "watt hour"
+      }
+    }
+  ]
+}

@@ -1,0 +1,1495 @@
+{
+  "name": "SimaPro-9-ecoinvent-3.8-biosphere",
+  "description": "Flowmapper 0.2 elementary flow correspondence from SimaPro-9 to ecoinvent-3.8-biosphere",
+  "contributors": [
+    {
+      "title": "Chris Mutel",
+      "path": "https://chris.mutel.org/",
+      "role": "author"
+    }
+  ],
+  "created": "2024-09-30T11:54:28.569551+00:00",
+  "version": "1.0.0",
+  "licenses": [
+    {
+      "name": "CC-BY-4.0",
+      "path": "https://creativecommons.org/licenses/by/4.0/legalcode",
+      "title": "Creative Commons Attribution 4.0 International"
+    }
+  ],
+  "graph_context": [
+    "edges"
+  ],
+  "mapping": {
+    "source": {
+      "expression language": "like JSONPath",
+      "labels": {
+        "identifier": "Process[*].\"Process identifier\".text",
+        "name": "Process[*].Products[*].text[0]",
+        "platform_id": "Process[*].\"Platform Identifier\"",
+        "unit": [
+          "[\"Emissions to air/\", Process[*].\"Emissions to air\".[2]]",
+          "[\"Emissions to soil/\", Process[*].\"Emissions to soil\".[2]]",
+          "[\"Emissions to water/\", Process[*].\"Emissions to water\".[2]]",
+          "[\"Resources/\", Process[*].\"Resources\".[2]]"
+        ],
+        "context": [
+          "[\"Emissions to air/\", Process[*].\"Emissions to air\".[1]]",
+          "[\"Emissions to soil/\", Process[*].\"Emissions to soil\".[1]]",
+          "[\"Emissions to water/\", Process[*].\"Emissions to water\".[1]]",
+          "[\"Resources/\", Process[*].\"Resources\".[1]]"
+        ]
+      }
+    },
+    "target": {
+      "expression language": "XPath",
+      "labels": {
+        "name": "//*:elementaryExchange/*:name/text()",
+        "CAS number": "//*:elementaryExchange/@casNumber",
+        "unit": "//*:elementaryExchange/*:unitName/text()",
+        "identifier": "//*:elementaryExchange/@elementaryExchangeId",
+        "context": [
+          "//*:elementaryExchange/*:compartment/*:compartment/text()",
+          "//*:elementaryExchange/*:compartment/*:subcompartment/text()"
+        ]
+      }
+    }
+  },
+  "source_id": "SimaPro-9",
+  "target_id": "ecoinvent-3.8-biosphere",
+  "update": [
+    {
+      "comment": "Identical names",
+      "source": {
+        "name": "2,4-D, dimethylamine salt",
+        "unit": "kg",
+        "context": [
+          "Emissions to water",
+          "groundwater"
+        ]
+      },
+      "target": {
+        "name": "2,4-D amines",
+        "unit": "kg",
+        "identifier": "49b29466-706e-42c3-ac8c-f89f9530cb60",
+        "context": [
+          "water",
+          "ground-"
+        ],
+        "CAS number": "2008-39-1"
+      },
+      "conversion_factor": 1.0
+    },
+    {
+      "comment": "Identical names",
+      "source": {
+        "name": "Aerosols, radioactive, unspecified",
+        "unit": "Bq",
+        "context": [
+          "Emissions to air",
+          ""
+        ]
+      },
+      "target": {
+        "name": "Aerosols, radioactive, unspecified",
+        "unit": "kBq",
+        "identifier": "cec0687d-7d44-4e80-ae2f-428c2664d66d",
+        "context": [
+          "air",
+          "unspecified"
+        ]
+      },
+      "conversion_factor": 0.001
+    },
+    {
+      "comment": "Identical names",
+      "source": {
+        "name": "Argon-40/kg",
+        "unit": "kg",
+        "context": [
+          "Emissions to air",
+          ""
+        ]
+      },
+      "target": {
+        "name": "Argon-40",
+        "unit": "kg",
+        "identifier": "38321e66-f6ab-4908-b26f-c17267559bc5",
+        "context": [
+          "air",
+          "unspecified"
+        ],
+        "CAS number": "7440-37-1"
+      },
+      "conversion_factor": 1.0
+    },
+    {
+      "comment": "Identical names",
+      "source": {
+        "name": "Argon-40/kg",
+        "unit": "kg",
+        "context": [
+          "Resources",
+          "in air"
+        ]
+      },
+      "target": {
+        "name": "Argon-40",
+        "unit": "kg",
+        "identifier": "8b46f615-69c9-4ca3-815e-a7bde116d202",
+        "context": [
+          "natural resource",
+          "in air"
+        ],
+        "CAS number": "7440-37-1"
+      },
+      "conversion_factor": 1.0
+    },
+    {
+      "comment": "Non-ionic state if no better match",
+      "source": {
+        "name": "Arsenic (V)",
+        "unit": "kg",
+        "context": [
+          "Emissions to air",
+          ""
+        ]
+      },
+      "target": {
+        "name": "Arsenic",
+        "unit": "kg",
+        "identifier": "dc6dbdaa-9f13-43a8-8af5-6603688c6ad0",
+        "context": [
+          "air",
+          "unspecified"
+        ],
+        "CAS number": "7440-38-2"
+      },
+      "conversion_factor": 1.0
+    },
+    {
+      "comment": "Non-ionic state if no better match",
+      "source": {
+        "name": "Arsenic (V)",
+        "unit": "kg",
+        "context": [
+          "Emissions to soil",
+          "industrial"
+        ]
+      },
+      "target": {
+        "name": "Arsenic",
+        "unit": "kg",
+        "identifier": "ebc4c2a3-c004-4053-8048-f41fdd9324c8",
+        "context": [
+          "soil",
+          "industrial"
+        ],
+        "CAS number": "7440-38-2"
+      },
+      "conversion_factor": 1.0
+    },
+    {
+      "comment": "Identical names",
+      "source": {
+        "name": "Barium-140",
+        "unit": "Bq",
+        "context": [
+          "Emissions to air",
+          ""
+        ]
+      },
+      "target": {
+        "name": "Barium-140",
+        "unit": "kBq",
+        "identifier": "634463b6-08b4-487a-b0af-4e19fbe8bca2",
+        "context": [
+          "air",
+          "unspecified"
+        ],
+        "CAS number": "14798-08-4"
+      },
+      "conversion_factor": 0.001
+    },
+    {
+      "comment": "Identical names",
+      "source": {
+        "name": "Benzene, chloro-",
+        "unit": "kg",
+        "context": [
+          "Emissions to water",
+          ""
+        ]
+      },
+      "target": {
+        "name": "Benzene, chloro-",
+        "unit": "kg",
+        "identifier": "7f886a09-50b2-49c1-8fdf-d330c90556a1",
+        "context": [
+          "water",
+          "unspecified"
+        ],
+        "CAS number": "108-90-7"
+      },
+      "conversion_factor": 1.0
+    },
+    {
+      "comment": "Identical names",
+      "source": {
+        "name": "Cadmium-109",
+        "unit": "Bq",
+        "context": [
+          "Emissions to water",
+          ""
+        ]
+      },
+      "target": {
+        "name": "Cadmium-109",
+        "unit": "kBq",
+        "identifier": "86ca2828-78b4-40f2-ad29-b80c4fd7a7d3",
+        "context": [
+          "water",
+          "unspecified"
+        ],
+        "CAS number": "14109-32-1"
+      },
+      "conversion_factor": 0.001
+    },
+    {
+      "comment": "Match emissions with suffix ion",
+      "source": {
+        "name": "Chromium, ion",
+        "unit": "kg",
+        "context": [
+          "Emissions to air",
+          ""
+        ]
+      },
+      "target": {
+        "name": "Chromium",
+        "unit": "kg",
+        "identifier": "e142b577-e934-4085-9a07-3983d4d92afb",
+        "context": [
+          "air",
+          "unspecified"
+        ],
+        "CAS number": "7440-47-3"
+      },
+      "conversion_factor": 1.0
+    },
+    {
+      "comment": "Match emissions with suffix ion",
+      "source": {
+        "name": "Chromium, ion",
+        "unit": "kg",
+        "context": [
+          "Emissions to air",
+          "high. pop."
+        ]
+      },
+      "target": {
+        "name": "Chromium",
+        "unit": "kg",
+        "identifier": "7705f0e1-5b14-44f4-b330-1245b5c7fc08",
+        "context": [
+          "air",
+          "urban air close to ground"
+        ],
+        "CAS number": "7440-47-3"
+      },
+      "conversion_factor": 1.0
+    },
+    {
+      "comment": "Match emissions with suffix ion",
+      "source": {
+        "name": "Chromium, ion",
+        "unit": "kg",
+        "context": [
+          "Emissions to air",
+          "low. pop."
+        ]
+      },
+      "target": {
+        "name": "Chromium",
+        "unit": "kg",
+        "identifier": "4d40d8e3-9bc7-4ab1-ac5c-4f4a76fda8e5",
+        "context": [
+          "air",
+          "non-urban air or from high stacks"
+        ],
+        "CAS number": "7440-47-3"
+      },
+      "conversion_factor": 1.0
+    },
+    {
+      "comment": "Match emissions with suffix ion",
+      "source": {
+        "name": "Chromium, ion",
+        "unit": "kg",
+        "context": [
+          "Emissions to air",
+          "low. pop., long-term"
+        ]
+      },
+      "target": {
+        "name": "Chromium",
+        "unit": "kg",
+        "identifier": "6b29d83a-c43c-484c-8e73-474a8a22d71e",
+        "context": [
+          "air",
+          "low population density, long-term"
+        ],
+        "CAS number": "7440-47-3"
+      },
+      "conversion_factor": 1.0
+    },
+    {
+      "comment": "Match emissions with suffix ion",
+      "source": {
+        "name": "Chromium, ion",
+        "unit": "kg",
+        "context": [
+          "Emissions to air",
+          "stratosphere + troposphere"
+        ]
+      },
+      "target": {
+        "name": "Chromium",
+        "unit": "kg",
+        "identifier": "2a5ed451-12a2-47db-b4dc-fa0bfbc01d79",
+        "context": [
+          "air",
+          "lower stratosphere + upper troposphere"
+        ],
+        "CAS number": "7440-47-3"
+      },
+      "conversion_factor": 1.0
+    },
+    {
+      "comment": "Match emissions with suffix ion",
+      "source": {
+        "name": "Chromium, ion",
+        "unit": "kg",
+        "context": [
+          "Emissions to soil",
+          ""
+        ]
+      },
+      "target": {
+        "name": "Chromium",
+        "unit": "kg",
+        "identifier": "e0336c9b-a0ff-4ae3-b8bb-ca1e46bbbc11",
+        "context": [
+          "soil",
+          "unspecified"
+        ],
+        "CAS number": "7440-47-3"
+      },
+      "conversion_factor": 1.0
+    },
+    {
+      "comment": "Match emissions with suffix ion",
+      "source": {
+        "name": "Chromium, ion",
+        "unit": "kg",
+        "context": [
+          "Emissions to soil",
+          "agricultural"
+        ]
+      },
+      "target": {
+        "name": "Chromium",
+        "unit": "kg",
+        "identifier": "e7881581-21b3-4f5c-bd63-6b0684b5e712",
+        "context": [
+          "soil",
+          "agricultural"
+        ],
+        "CAS number": "7440-47-3"
+      },
+      "conversion_factor": 1.0
+    },
+    {
+      "comment": "Match emissions with suffix ion",
+      "source": {
+        "name": "Chromium, ion",
+        "unit": "kg",
+        "context": [
+          "Emissions to soil",
+          "forestry"
+        ]
+      },
+      "target": {
+        "name": "Chromium",
+        "unit": "kg",
+        "identifier": "591de726-f2c7-43ba-8e22-15fd08acc8dc",
+        "context": [
+          "soil",
+          "forestry"
+        ],
+        "CAS number": "7440-47-3"
+      },
+      "conversion_factor": 1.0
+    },
+    {
+      "comment": "Match emissions with suffix ion",
+      "source": {
+        "name": "Chromium, ion",
+        "unit": "kg",
+        "context": [
+          "Emissions to soil",
+          "industrial"
+        ]
+      },
+      "target": {
+        "name": "Chromium",
+        "unit": "kg",
+        "identifier": "e65a9c58-21f1-48b6-b738-d05a8f10e5f3",
+        "context": [
+          "soil",
+          "industrial"
+        ],
+        "CAS number": "7440-47-3"
+      },
+      "conversion_factor": 1.0
+    },
+    {
+      "comment": "Identical names",
+      "source": {
+        "name": "Chromium, ion",
+        "unit": "kg",
+        "context": [
+          "Emissions to water",
+          ""
+        ]
+      },
+      "target": {
+        "name": "Chromium, ion",
+        "unit": "kg",
+        "identifier": "30f484ee-dec4-47ae-8e92-d00d4b93fe05",
+        "context": [
+          "water",
+          "unspecified"
+        ],
+        "CAS number": "16065-83-1"
+      },
+      "conversion_factor": 1.0
+    },
+    {
+      "comment": "Identical names",
+      "source": {
+        "name": "Chromium, ion",
+        "unit": "kg",
+        "context": [
+          "Emissions to water",
+          "groundwater"
+        ]
+      },
+      "target": {
+        "name": "Chromium, ion",
+        "unit": "kg",
+        "identifier": "1c87de06-e58f-4684-a54c-d29f1a251a87",
+        "context": [
+          "water",
+          "ground-"
+        ],
+        "CAS number": "16065-83-1"
+      },
+      "conversion_factor": 1.0
+    },
+    {
+      "comment": "Identical names",
+      "source": {
+        "name": "Chromium, ion",
+        "unit": "kg",
+        "context": [
+          "Emissions to water",
+          "ocean"
+        ]
+      },
+      "target": {
+        "name": "Chromium, ion",
+        "unit": "kg",
+        "identifier": "d98f0ec0-bf19-4c90-a457-a8593dec497f",
+        "context": [
+          "water",
+          "ocean"
+        ],
+        "CAS number": "16065-83-1"
+      },
+      "conversion_factor": 1.0
+    },
+    {
+      "comment": "Identical names",
+      "source": {
+        "name": "Chromium, ion",
+        "unit": "kg",
+        "context": [
+          "Emissions to water",
+          "river"
+        ]
+      },
+      "target": {
+        "name": "Chromium, ion",
+        "unit": "kg",
+        "identifier": "e34d3da4-a3d5-41be-84b5-458afe32c990",
+        "context": [
+          "water",
+          "surface water"
+        ],
+        "CAS number": "16065-83-1"
+      },
+      "conversion_factor": 1.0
+    },
+    {
+      "comment": "Identical names",
+      "source": {
+        "name": "Cobalt-57",
+        "unit": "Bq",
+        "context": [
+          "Emissions to air",
+          ""
+        ]
+      },
+      "target": {
+        "name": "Cobalt-57",
+        "unit": "kBq",
+        "identifier": "1d013cac-a0ec-4c02-936c-053afe24f47f",
+        "context": [
+          "air",
+          "unspecified"
+        ],
+        "CAS number": "13981-50-5"
+      },
+      "conversion_factor": 0.001
+    },
+    {
+      "comment": "Identical names",
+      "source": {
+        "name": "Copper, ion",
+        "unit": "kg",
+        "context": [
+          "Emissions to water",
+          "lake"
+        ]
+      },
+      "target": {
+        "name": "Copper, ion",
+        "unit": "kg",
+        "identifier": "6d9550e2-e670-44c1-bad8-c0c4975ffca7",
+        "context": [
+          "water",
+          "surface water"
+        ],
+        "CAS number": "17493-86-6"
+      },
+      "conversion_factor": 1.0
+    },
+    {
+      "comment": "Identical names",
+      "source": {
+        "name": "Curium-242",
+        "unit": "Bq",
+        "context": [
+          "Emissions to air",
+          ""
+        ]
+      },
+      "target": {
+        "name": "Curium-242",
+        "unit": "kBq",
+        "identifier": "9dc200b0-6faa-4518-9787-be7db7a9e29a",
+        "context": [
+          "air",
+          "unspecified"
+        ],
+        "CAS number": "15510-73-3"
+      },
+      "conversion_factor": 0.001
+    },
+    {
+      "comment": "Identical names",
+      "source": {
+        "name": "Curium-244",
+        "unit": "Bq",
+        "context": [
+          "Emissions to air",
+          ""
+        ]
+      },
+      "target": {
+        "name": "Curium-244",
+        "unit": "kBq",
+        "identifier": "8c64a7e7-0f81-410f-a0df-cbea124dd203",
+        "context": [
+          "air",
+          "unspecified"
+        ],
+        "CAS number": "13981-15-2"
+      },
+      "conversion_factor": 0.001
+    },
+    {
+      "comment": "Identical names",
+      "source": {
+        "name": "Ethane, 1,1,1-trichloro-, HCFC-140",
+        "unit": "kg",
+        "context": [
+          "Emissions to water",
+          ""
+        ]
+      },
+      "target": {
+        "name": "Ethane, 1,1,1-trichloro-, HCFC-140",
+        "unit": "kg",
+        "identifier": "c8e5538f-17a1-4f62-aa64-39a91adb5cd3",
+        "context": [
+          "water",
+          "unspecified"
+        ],
+        "CAS number": "71-55-6"
+      },
+      "conversion_factor": 1.0
+    },
+    {
+      "comment": "Identical names",
+      "source": {
+        "name": "Ethane, 1,1,1-trifluoro-, HFC-143a",
+        "unit": "kg",
+        "context": [
+          "Emissions to air",
+          ""
+        ]
+      },
+      "target": {
+        "name": "Ethane, 1,1,1-trifluoro-, HFC-143a",
+        "unit": "kg",
+        "identifier": "e86bfec2-1025-4fa2-90b1-81e35e621e91",
+        "context": [
+          "air",
+          "unspecified"
+        ],
+        "CAS number": "420-46-2"
+      },
+      "conversion_factor": 1.0
+    },
+    {
+      "comment": "Identical names",
+      "source": {
+        "name": "Fluorochloridone",
+        "unit": "kg",
+        "context": [
+          "Emissions to soil",
+          "agricultural"
+        ]
+      },
+      "target": {
+        "name": "Fluorochloridone",
+        "unit": "kg",
+        "identifier": "a0544534-e298-46a9-bbd2-949902ac1487",
+        "context": [
+          "soil",
+          "agricultural"
+        ],
+        "CAS number": "61213-25-0"
+      },
+      "conversion_factor": 1.0
+    },
+    {
+      "comment": "Resources with suffix in ground",
+      "source": {
+        "name": "Gangue, bauxite",
+        "unit": "kg",
+        "context": [
+          "Resources",
+          "in ground"
+        ]
+      },
+      "target": {
+        "name": "Gangue, bauxite, in ground",
+        "unit": "kg",
+        "identifier": "43b2649e-26f8-400d-bc0a-a0667e850915",
+        "context": [
+          "natural resource",
+          "in ground"
+        ]
+      },
+      "conversion_factor": 1.0
+    },
+    {
+      "comment": "Identical names",
+      "source": {
+        "name": "Haloxyfop- (R) Methylester",
+        "unit": "kg",
+        "context": [
+          "Emissions to soil",
+          "agricultural"
+        ]
+      },
+      "target": {
+        "name": "Haloxyfop- (R) Methylester",
+        "unit": "kg",
+        "identifier": "66a6dad0-e450-4206-88e1-f823a04f8b1d",
+        "context": [
+          "soil",
+          "agricultural"
+        ]
+      },
+      "conversion_factor": 1.0
+    },
+    {
+      "comment": "Identical names",
+      "source": {
+        "name": "Iodine-135",
+        "unit": "Bq",
+        "context": [
+          "Emissions to air",
+          ""
+        ]
+      },
+      "target": {
+        "name": "Iodine-135",
+        "unit": "kBq",
+        "identifier": "a18a3afb-9456-4b80-bafb-78be060c90dc",
+        "context": [
+          "air",
+          "unspecified"
+        ],
+        "CAS number": "14834-68-5"
+      },
+      "conversion_factor": 0.001
+    },
+    {
+      "comment": "Identical names",
+      "source": {
+        "name": "Iron-59",
+        "unit": "Bq",
+        "context": [
+          "Emissions to air",
+          ""
+        ]
+      },
+      "target": {
+        "name": "Iron-59",
+        "unit": "kBq",
+        "identifier": "b5bc86de-20f6-4791-8f67-e9ba7930f76c",
+        "context": [
+          "air",
+          "unspecified"
+        ],
+        "CAS number": "14596-12-4"
+      },
+      "conversion_factor": 0.001
+    },
+    {
+      "comment": "Resources with identical name but wrong subcontext",
+      "source": {
+        "name": "Kaolin ore",
+        "unit": "kg",
+        "context": [
+          "Resources",
+          ""
+        ]
+      },
+      "target": {
+        "name": "Kaolinite, in ground",
+        "unit": "kg",
+        "identifier": "81ff5c0b-c44f-534e-a55e-8fc017e33dd2",
+        "context": [
+          "natural resource",
+          "in ground"
+        ],
+        "CAS number": "1318-74-7"
+      },
+      "conversion_factor": 1.0
+    },
+    {
+      "comment": "Identical names",
+      "source": {
+        "name": "Kaolin ore",
+        "unit": "kg",
+        "context": [
+          "Resources",
+          "in ground"
+        ]
+      },
+      "target": {
+        "name": "Kaolinite, in ground",
+        "unit": "kg",
+        "identifier": "81ff5c0b-c44f-534e-a55e-8fc017e33dd2",
+        "context": [
+          "natural resource",
+          "in ground"
+        ],
+        "CAS number": "1318-74-7"
+      },
+      "conversion_factor": 1.0
+    },
+    {
+      "comment": "Identical names",
+      "source": {
+        "name": "Lanthanum",
+        "unit": "kg",
+        "context": [
+          "Emissions to air",
+          ""
+        ]
+      },
+      "target": {
+        "name": "Lanthanum",
+        "unit": "kg",
+        "identifier": "b6e43995-389d-4353-a5ad-6957ab1ae048",
+        "context": [
+          "air",
+          "unspecified"
+        ],
+        "CAS number": "7439-91-0"
+      },
+      "conversion_factor": 1.0
+    },
+    {
+      "comment": "Non-ionic state if no better match",
+      "source": {
+        "name": "Lead (II)",
+        "unit": "kg",
+        "context": [
+          "Emissions to water",
+          "lake"
+        ]
+      },
+      "target": {
+        "name": "Lead",
+        "unit": "kg",
+        "identifier": "b3ebdcc3-c588-4997-95d2-9785b26b34e1",
+        "context": [
+          "water",
+          "surface water"
+        ],
+        "CAS number": "7439-92-1"
+      },
+      "conversion_factor": 1.0
+    },
+    {
+      "comment": "Identical synonyms",
+      "source": {
+        "name": "N-(2,3-dichloro-4-hydroxyphenyl)-1-methylcyclohexane-1-carboxamide",
+        "unit": "kg",
+        "context": [
+          "Emissions to soil",
+          "agricultural"
+        ]
+      },
+      "target": {
+        "name": "Fenhexamid",
+        "unit": "kg",
+        "identifier": "e2cb70af-1995-5ac4-870f-c3c1cbfb820f",
+        "context": [
+          "soil",
+          "agricultural"
+        ],
+        "CAS number": "126833-17-8"
+      },
+      "conversion_factor": 1.0
+    },
+    {
+      "comment": "Identical names",
+      "source": {
+        "name": "Neptunium-237",
+        "unit": "Bq",
+        "context": [
+          "Emissions to air",
+          ""
+        ]
+      },
+      "target": {
+        "name": "Neptunium-237",
+        "unit": "kBq",
+        "identifier": "9fb84b6b-8396-4190-80f0-fc8cbc97b107",
+        "context": [
+          "air",
+          "unspecified"
+        ],
+        "CAS number": "13994-20-2"
+      },
+      "conversion_factor": 0.001
+    },
+    {
+      "comment": "Identical names",
+      "source": {
+        "name": "Neptunium-237",
+        "unit": "Bq",
+        "context": [
+          "Emissions to water",
+          ""
+        ]
+      },
+      "target": {
+        "name": "Neptunium-237",
+        "unit": "kBq",
+        "identifier": "2ec209eb-22f1-47ca-8d32-c11dc4a92d0d",
+        "context": [
+          "water",
+          "unspecified"
+        ],
+        "CAS number": "13994-20-2"
+      },
+      "conversion_factor": 0.001
+    },
+    {
+      "comment": "Identical names",
+      "source": {
+        "name": "Phthalate, dioctyl-",
+        "unit": "kg",
+        "context": [
+          "Emissions to water",
+          ""
+        ]
+      },
+      "target": {
+        "name": "Phthalate, dioctyl-",
+        "unit": "kg",
+        "identifier": "d86d9085-975a-4212-9553-8bde88eb3c9f",
+        "context": [
+          "water",
+          "unspecified"
+        ],
+        "CAS number": "117-84-0"
+      },
+      "conversion_factor": 1.0
+    },
+    {
+      "comment": "Identical names",
+      "source": {
+        "name": "Plutonium-241",
+        "unit": "Bq",
+        "context": [
+          "Emissions to air",
+          ""
+        ]
+      },
+      "target": {
+        "name": "Plutonium-241",
+        "unit": "kBq",
+        "identifier": "da5c6969-8f16-4d53-a424-d87ff6ab1470",
+        "context": [
+          "air",
+          "unspecified"
+        ],
+        "CAS number": "14119-32-5"
+      },
+      "conversion_factor": 0.001
+    },
+    {
+      "comment": "Identical names",
+      "source": {
+        "name": "Plutonium-241",
+        "unit": "Bq",
+        "context": [
+          "Emissions to water",
+          ""
+        ]
+      },
+      "target": {
+        "name": "Plutonium-241",
+        "unit": "kBq",
+        "identifier": "b9645eb8-07b6-420d-a0f8-939257a8e036",
+        "context": [
+          "water",
+          "unspecified"
+        ],
+        "CAS number": "14119-32-5"
+      },
+      "conversion_factor": 0.001
+    },
+    {
+      "comment": "Identical names",
+      "source": {
+        "name": "Promethium-147",
+        "unit": "Bq",
+        "context": [
+          "Emissions to air",
+          ""
+        ]
+      },
+      "target": {
+        "name": "Promethium-147",
+        "unit": "kBq",
+        "identifier": "1784e16f-e070-4e2e-b567-182f8f6b9cbd",
+        "context": [
+          "air",
+          "unspecified"
+        ],
+        "CAS number": "14380-75-7"
+      },
+      "conversion_factor": 0.001
+    },
+    {
+      "comment": "Identical names",
+      "source": {
+        "name": "Radioactive species, alpha emitters",
+        "unit": "Bq",
+        "context": [
+          "Emissions to water",
+          ""
+        ]
+      },
+      "target": {
+        "name": "Radioactive species, alpha emitters",
+        "unit": "kBq",
+        "identifier": "41608b3b-1057-4205-a0bc-0618e5af7e1b",
+        "context": [
+          "water",
+          "unspecified"
+        ]
+      },
+      "conversion_factor": 0.001
+    },
+    {
+      "comment": "Identical names",
+      "source": {
+        "name": "Ruthenium-103",
+        "unit": "Bq",
+        "context": [
+          "Emissions to water",
+          ""
+        ]
+      },
+      "target": {
+        "name": "Ruthenium-103",
+        "unit": "kBq",
+        "identifier": "958272cf-f09a-4941-9f99-199739645b93",
+        "context": [
+          "water",
+          "unspecified"
+        ],
+        "CAS number": "13968-53-1"
+      },
+      "conversion_factor": 0.001
+    },
+    {
+      "comment": "Identical names",
+      "source": {
+        "name": "Ruthenium-106",
+        "unit": "Bq",
+        "context": [
+          "Emissions to air",
+          ""
+        ]
+      },
+      "target": {
+        "name": "Ruthenium-106",
+        "unit": "kBq",
+        "identifier": "46a7d92e-523c-430c-a5ec-ee9e8a34c09c",
+        "context": [
+          "air",
+          "unspecified"
+        ],
+        "CAS number": "13967-48-1"
+      },
+      "conversion_factor": 0.001
+    },
+    {
+      "comment": "Identical names",
+      "source": {
+        "name": "Ruthenium-106",
+        "unit": "Bq",
+        "context": [
+          "Emissions to water",
+          ""
+        ]
+      },
+      "target": {
+        "name": "Ruthenium-106",
+        "unit": "kBq",
+        "identifier": "639a5c44-7241-4254-ad70-65cd45a9db25",
+        "context": [
+          "water",
+          "unspecified"
+        ],
+        "CAS number": "13967-48-1"
+      },
+      "conversion_factor": 0.001
+    },
+    {
+      "comment": "Resources with suffix in ground",
+      "source": {
+        "name": "Sand, quartz",
+        "unit": "kg",
+        "context": [
+          "Resources",
+          "in ground"
+        ]
+      },
+      "target": {
+        "name": "Sand, unspecified, in ground",
+        "unit": "kg",
+        "identifier": "423ef039-6057-4f63-94bd-e9410d024bd0",
+        "context": [
+          "natural resource",
+          "in ground"
+        ]
+      },
+      "conversion_factor": 1.0
+    },
+    {
+      "comment": "Identical names",
+      "source": {
+        "name": "Strontium-89",
+        "unit": "Bq",
+        "context": [
+          "Emissions to air",
+          ""
+        ]
+      },
+      "target": {
+        "name": "Strontium-89",
+        "unit": "kBq",
+        "identifier": "416ebc48-7199-43a0-bc57-f7f6c951fff0",
+        "context": [
+          "air",
+          "unspecified"
+        ],
+        "CAS number": "14158-27-1"
+      },
+      "conversion_factor": 0.001
+    },
+    {
+      "comment": "Identical names",
+      "source": {
+        "name": "Sulfur",
+        "unit": "kg",
+        "context": [
+          "Emissions to soil",
+          "forestry"
+        ]
+      },
+      "target": {
+        "name": "Sulfur",
+        "unit": "kg",
+        "identifier": "599e7856-605e-47eb-b780-ab039f2d4006",
+        "context": [
+          "soil",
+          "forestry"
+        ],
+        "CAS number": "7704-34-9"
+      },
+      "conversion_factor": 1.0
+    },
+    {
+      "comment": "Name matching with location code",
+      "location": "CN",
+      "source": {
+        "name": "Sulfur dioxide, CN",
+        "unit": "kg",
+        "context": [
+          "Emissions to air",
+          ""
+        ]
+      },
+      "target": {
+        "name": "Sulfur dioxide",
+        "unit": "kg",
+        "identifier": "fd7aa71c-508c-480d-81a6-8052aad92646",
+        "context": [
+          "air",
+          "unspecified"
+        ],
+        "CAS number": "7446-09-5"
+      },
+      "conversion_factor": 1.0
+    },
+    {
+      "comment": "Identical names",
+      "source": {
+        "name": "Technetium-99m",
+        "unit": "Bq",
+        "context": [
+          "Emissions to water",
+          ""
+        ]
+      },
+      "target": {
+        "name": "Technetium-99m",
+        "unit": "kBq",
+        "identifier": "b5eb4783-f470-4bf5-800f-7e12ada63c1d",
+        "context": [
+          "water",
+          "unspecified"
+        ],
+        "CAS number": "378784-45-3"
+      },
+      "conversion_factor": 0.001
+    },
+    {
+      "comment": "Identical names",
+      "source": {
+        "name": "Tellurium-123m",
+        "unit": "Bq",
+        "context": [
+          "Emissions to air",
+          ""
+        ]
+      },
+      "target": {
+        "name": "Tellurium-123m",
+        "unit": "kBq",
+        "identifier": "43efdef0-6157-4436-8a23-2f50ac3c6fc2",
+        "context": [
+          "air",
+          "unspecified"
+        ],
+        "CAS number": "378784-49-7"
+      },
+      "conversion_factor": 0.001
+    },
+    {
+      "comment": "Identical names",
+      "source": {
+        "name": "Tellurium-123m",
+        "unit": "Bq",
+        "context": [
+          "Emissions to water",
+          ""
+        ]
+      },
+      "target": {
+        "name": "Tellurium-123m",
+        "unit": "kBq",
+        "identifier": "e3de5903-aa75-4d7b-a804-2c75248b4c6d",
+        "context": [
+          "water",
+          "unspecified"
+        ],
+        "CAS number": "378784-49-7"
+      },
+      "conversion_factor": 0.001
+    },
+    {
+      "comment": "Identical names",
+      "source": {
+        "name": "Uranium alpha",
+        "unit": "Bq",
+        "context": [
+          "Emissions to air",
+          ""
+        ]
+      },
+      "target": {
+        "name": "Uranium alpha",
+        "unit": "kBq",
+        "identifier": "e8e0b8c1-ad10-4d32-8167-10dc8c67f59c",
+        "context": [
+          "air",
+          "unspecified"
+        ],
+        "CAS number": "7440-61-1"
+      },
+      "conversion_factor": 0.001
+    },
+    {
+      "comment": "Identical names",
+      "source": {
+        "name": "Uranium alpha",
+        "unit": "Bq",
+        "context": [
+          "Emissions to water",
+          ""
+        ]
+      },
+      "target": {
+        "name": "Uranium alpha",
+        "unit": "kBq",
+        "identifier": "1cb0b78b-6fd5-4193-8144-d47478920ced",
+        "context": [
+          "water",
+          "unspecified"
+        ],
+        "CAS number": "7440-61-1"
+      },
+      "conversion_factor": 0.001
+    },
+    {
+      "comment": "Name matching with location code",
+      "location": "FRCC",
+      "source": {
+        "name": "Water, cooling, unspecified natural origin, FRCC",
+        "unit": "m3",
+        "context": [
+          "Resources",
+          "in water"
+        ]
+      },
+      "target": {
+        "name": "Water, cooling, unspecified natural origin",
+        "unit": "m3",
+        "identifier": "fc1c42ce-a759-49fa-b987-f1ec5e503db1",
+        "context": [
+          "natural resource",
+          "in water"
+        ],
+        "CAS number": "7732-18-5"
+      },
+      "conversion_factor": 1.0
+    },
+    {
+      "comment": "Name matching with location code",
+      "location": "CR",
+      "source": {
+        "name": "Water, CR",
+        "unit": "m3",
+        "context": [
+          "Emissions to water",
+          ""
+        ]
+      },
+      "target": {
+        "name": "Water",
+        "unit": "m3",
+        "identifier": "2404b41a-2eed-4e9d-8ab6-783946fdf5d6",
+        "context": [
+          "water",
+          "unspecified"
+        ],
+        "CAS number": "7732-18-5"
+      },
+      "conversion_factor": 1.0
+    },
+    {
+      "comment": "Name matching with location code",
+      "location": "FRCC",
+      "source": {
+        "name": "Water, FRCC",
+        "unit": "m3",
+        "context": [
+          "Emissions to water",
+          ""
+        ]
+      },
+      "target": {
+        "name": "Water",
+        "unit": "m3",
+        "identifier": "2404b41a-2eed-4e9d-8ab6-783946fdf5d6",
+        "context": [
+          "water",
+          "unspecified"
+        ],
+        "CAS number": "7732-18-5"
+      },
+      "conversion_factor": 1.0
+    },
+    {
+      "comment": "Name matching with location code and parent context",
+      "location": "CR",
+      "source": {
+        "name": "Water, river, CR",
+        "unit": "m3",
+        "context": [
+          "Resources",
+          ""
+        ]
+      },
+      "target": {
+        "name": "Water, river",
+        "unit": "m3",
+        "identifier": "8c75e7ab-8ab8-41e4-b394-c166ff5b050d",
+        "context": [
+          "natural resource",
+          "in water"
+        ],
+        "CAS number": "7732-18-5"
+      },
+      "conversion_factor": 1.0
+    },
+    {
+      "comment": "Name matching with location code",
+      "location": "FRCC",
+      "source": {
+        "name": "Water, turbine use, unspecified natural origin, FRCC",
+        "unit": "m3",
+        "context": [
+          "Resources",
+          "in water"
+        ]
+      },
+      "target": {
+        "name": "Water, turbine use, unspecified natural origin",
+        "unit": "m3",
+        "identifier": "8c1494a5-4987-4715-aa2d-1908c495f4eb",
+        "context": [
+          "natural resource",
+          "in water"
+        ],
+        "CAS number": "7732-18-5"
+      },
+      "conversion_factor": 1.0
+    },
+    {
+      "comment": "Name matching with location code and parent context",
+      "location": "Europe without Switzerland",
+      "source": {
+        "name": "Water, unspecified natural origin, Europe without Switzerland",
+        "unit": "m3",
+        "context": [
+          "Resources",
+          ""
+        ]
+      },
+      "target": {
+        "name": "Water, unspecified natural origin",
+        "unit": "m3",
+        "identifier": "831f249e-53f2-49cf-a93c-7cee105f048e",
+        "context": [
+          "natural resource",
+          "in water"
+        ],
+        "CAS number": "7732-18-5"
+      },
+      "conversion_factor": 1.0
+    },
+    {
+      "comment": "Name matching with location code and parent context",
+      "location": "PK",
+      "source": {
+        "name": "Water, unspecified natural origin, PK",
+        "unit": "m3",
+        "context": [
+          "Resources",
+          ""
+        ]
+      },
+      "target": {
+        "name": "Water, unspecified natural origin",
+        "unit": "m3",
+        "identifier": "831f249e-53f2-49cf-a93c-7cee105f048e",
+        "context": [
+          "natural resource",
+          "in water"
+        ],
+        "CAS number": "7732-18-5"
+      },
+      "conversion_factor": 1.0
+    },
+    {
+      "comment": "Identical names",
+      "source": {
+        "name": "Yttrium-90",
+        "unit": "Bq",
+        "context": [
+          "Emissions to water",
+          ""
+        ]
+      },
+      "target": {
+        "name": "Yttrium-90",
+        "unit": "kBq",
+        "identifier": "973a9d4f-d754-4c6f-9da3-351c0981eeb3",
+        "context": [
+          "water",
+          "unspecified"
+        ],
+        "CAS number": "10098-91-6"
+      },
+      "conversion_factor": 0.001
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+[fsspec.specs]
+asynclocal = morefs.asyn_local:AsyncLocalFileSystem
+dictfs = morefs.dict:DictFS
+memfs = morefs.memory:MemFS
+overlayfs = morefs.overlay:OverlayFileSystem
