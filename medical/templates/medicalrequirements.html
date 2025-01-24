@@ -15,9 +15,9 @@
             <button class="bg-[#3b82f6] text-white text-[14px] py-2 px-4 w-[30%] h-full cursor-pointer" type="submit">Search</button>
         </form>
     {% endif %}
-    <div class="flex flex-col gap-2 h-full">
+    <div class="flex flex-col gap-2 h-fit max-h-full">
         <h3 class="font-medium xs:text-base md:text-[1.3rem] text-center">List of Requirements</h3>
-        <table class="w-full">
+        <table class="w-full table-auto border-separate border-spacing-0">
             <thead class="bg-[#e6e6e6] w-full">
                 <tr class="tr-header">
                     <th class="text-center p-2 xs:text-[14px] md:text-base">Requirement</th>
@@ -29,13 +29,13 @@
             <tbody>
                 <tr>
                     {% if med_requirements.chest_xray or med_requirements.cbc or med_requirements.drug_test or med_requirements.stool_examination %}
-                        <td>Chest X-Ray</td>
+                        <td class="text-center">Chest X-Ray</td>
                         {% if med_requirements.chest_xray.url %}
-                            <td>Submitted</td>
-                            <td><a href="{{ med_requirements.chest_xray.url }}">Chest X-Ray</a></td>
-                            <td><button class="preview-btn" onclick="previewFile('{{ med_requirements.chest_xray.url }}')">View</button></td>
+                            <td class="text-center">Submitted</td>
+                            <td class="text-center"><a href="{{ med_requirements.chest_xray.url }}">Chest X-Ray</a></td>
+                            <td class="text-center"><button class="preview-btn" onclick="previewFile('{{ med_requirements.chest_xray.url }}')">View</button></td>
                         {% else %}
-                            <td>Not Submitted</td>
+                            <td class="text-center">Not Submitted</td>
                             <td>-</td>
                             <td>-</td>
                         {% endif %}
@@ -43,13 +43,13 @@
                 </tr>
                 <tr>
                     {% if med_requirements.chest_xray or med_requirements.cbc or med_requirements.drug_test or med_requirements.stool_examination %}
-                        <td>Complete Blood Count</td>
+                        <td class="text-center">Complete Blood Count</td>
                         {% if med_requirements.cbc.url %}
-                            <td>Submitted</td>
-                            <td><a href="{{ med_requirements.cbc.url }}">Complete Blood Count</a></td>
-                            <td><button class="preview-btn" onclick="previewFile('{{ med_requirements.cbc.url }}')">View</button></td>
+                            <td class="text-center">Submitted</td>
+                            <td class="text-center"><a href="{{ med_requirements.cbc.url }}">Complete Blood Count</a></td>
+                            <td class="text-center"><button class="preview-btn" onclick="previewFile('{{ med_requirements.cbc.url }}')">View</button></td>
                         {% else %}
-                            <td>Not Submitted</td>
+                            <td class="text-center">Not Submitted</td>
                             <td>-</td>
                             <td>-</td>
                         {% endif %}
@@ -57,13 +57,13 @@
                 </tr>
                 <tr>
                     {% if med_requirements.chest_xray or med_requirements.cbc or med_requirements.drug_test or med_requirements.stool_examination %}
-                        <td>Drug Test</td>
+                        <td class="text-center">Drug Test</td>
                         {% if med_requirements.drug_test.url %}
-                            <td>Submitted</td>
-                            <td><a href="{{ med_requirements.drug_test.url }}">Drug Test</a></td>
-                            <td><button class="preview-btn" onclick="previewFile('{{ med_requirements.drug_test.url }}')">View</button></td>
+                            <td class="text-center">Submitted</td>
+                            <td class="text-center"><a href="{{ med_requirements.drug_test.url }}">Drug Test</a></td>
+                            <td class="text-center"><button class="preview-btn" onclick="previewFile('{{ med_requirements.drug_test.url }}')">View</button></td>
                         {% else %}
-                            <td>Not Submitted</td>
+                            <td class="text-center">Not Submitted</td>
                             <td>-</td>
                             <td>-</td>
                         {% endif %}
@@ -71,13 +71,13 @@
                 </tr>
                 <tr>
                     {% if med_requirements.chest_xray or med_requirements.cbc or med_requirements.drug_test or med_requirements.stool_examination %}
-                        <td>Stool Examination</td>
+                        <td class="text-center">Stool Examination</td>
                         {% if med_requirements.stool_examination.url %}
-                            <td>Submitted</td>
-                            <td><a href="{{ med_requirements.stool_examination.url }}">Stool Examination</a></td>
-                            <td><button class="preview-btn" onclick="previewFile('{{ med_requirements.stool_examination.url }}')">View</button></td>
+                            <td class="text-center">Submitted</td>
+                            <td class="text-center"><a href="{{ med_requirements.stool_examination.url }}">Stool Examination</a></td>
+                            <td class="text-center"><button class="preview-btn" onclick="previewFile('{{ med_requirements.stool_examination.url }}')">View</button></td>
                         {% else %}
-                            <td>Not Submitted</td>
+                            <td class="text-center">Not Submitted</td>
                             <td>-</td>
                             <td>-</td>
                         {% endif %}
@@ -85,10 +85,10 @@
                 </tr>
                 {% if med_requirements.pwd_card %}
                     <tr>
-                        <td>PWD Card</td>
-                        <td>Submitted</td>
-                        <td><a href="{{ med_requirements.pwd_card.url }}">PWD Card</a></td>
-                        <td><button class="preview-btn" onclick="previewFile('{{ med_requirements.pwd_card.url }}')">View</button></td>
+                        <td class="text-center">PWD Card</td>
+                        <td class="text-center">Submitted</td>
+                        <td class="text-center"><a href="{{ med_requirements.pwd_card.url }}">PWD Card</a></td>
+                        <td class="text-center"><button class="preview-btn" onclick="previewFile('{{ med_requirements.pwd_card.url }}')">View</button></td>
                     </tr>
                 {% endif %}
                 <!-- {% for requirement in medical_requirements %}

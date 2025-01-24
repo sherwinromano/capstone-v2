@@ -15,9 +15,9 @@
         {% endfor %}
     {% endif %}
     <h2 class="font-bold xs:text-[1.3rem] sm:text-[1.5rem] mb-4">Appointment Schedule</h2>
-    <div class="flex flex-col h-full">
+    <div class="flex flex-col h-fit max-h-full">
         <h3 class="font-medium xs:text-base sm:text-[1.3rem] mb-2">Scheduled Appointments</h3>
-        <table class="h-full w-full">
+        <table class="w-full table-auto border-separate border-spacing-0">
             <thead class="bg-[#e6e6e6] w-full">
                 <tr class="tr-header">
                     <th class="text-center p-2 xs:text-[14px] sm:text-base">Student ID</th>
@@ -36,12 +36,12 @@
                             {% csrf_token %}
                             <input type="hidden" name="student_id" value="{{ appointment.patient.student.student_id }}">
                             <input type="hidden" name="service_type" value="{{ appointment.service_type }}">
-                            <td>{{ appointment.patient.student.student_id }}</td>
-                            <td>{{ appointment.patient.student.lastname|title }}</td>
-                            <td>{{ appointment.patient.student.firstname|title }}</td>
-                            <td>{{ appointment.service_type }}</td>
-                            <td>{{ appointment.date_appointed }}</td>
-                            <td>
+                            <td class="text-center">{{ appointment.patient.student.student_id }}</td>
+                            <td class="text-center">{{ appointment.patient.student.lastname|title }}</td>
+                            <td class="text-center">{{ appointment.patient.student.firstname|title }}</td>
+                            <td class="text-center">{{ appointment.service_type }}</td>
+                            <td class="text-center">{{ appointment.date_appointed }}</td>
+                            <td class="text-center">
                                 <button type="submit" class="approve">Mark As Done</button>
                             </td>
                         </form>

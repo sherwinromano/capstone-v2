@@ -84,8 +84,8 @@
              </div>
             
     </form>
-    <div class="h-full w-full flex overflow-auto">
-        <table class="h-full w-full">
+    <div class="h-fit max-h-full w-full flex overflow-auto">
+        <table class="w-full table-auto border-separate border-spacing-0">
             <thead class="bg-[#e6e6e6] w-full">
                 <tr class="tr-header">
                     <th class="text-center p-2 xs:text-[14px] sm:text-base">No</th>  <!-- Table column headers -->
@@ -97,10 +97,10 @@
             <tbody>
                 {% for record in transaction_records %}
                     <tr>
-                        <td>{{ forloop.counter }}</td>  <!-- Displays the counter (record number) -->
-                        <td>{{ record.patient }}</td>  <!-- Displays the full name of the student -->
-                        <td>{{ record.transac_type }}</td>  <!-- Displays the type of transaction -->
-                        <td>{{ record.transac_date }}</td>  <!-- Displays the date of transaction -->
+                        <td class="text-center">{{ forloop.counter }}</td>  <!-- Displays the counter (record number) -->
+                        <td class="text-center">{{ record.patient }}</td>  <!-- Displays the full name of the student -->
+                        <td class="text-center">{{ record.transac_type }}</td>  <!-- Displays the type of transaction -->
+                        <td class="text-center">{{ record.transac_date }}</td>  <!-- Displays the date of transaction -->
                     </tr>
                 {% endfor %}
             </tbody>

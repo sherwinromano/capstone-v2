@@ -18,9 +18,9 @@
         {% csrf_token %}
         <h2 class="font-bold xs:text-[1.3rem] sm:text-[1.5rem] mb-4 self-start w-fit">Dental Services Request</h2>
        
-        <div class="request h-full">
+        <div class="request h-fit max-h-full">
             <h3 class="font-medium xs:text-base sm:text-[1.3rem] mb-2">Request</h3>
-            <table class="h-full w-full">
+            <table class="w-full table-auto border-separate border-spacing-0">
                 <thead class="bg-[#e6e6e6] w-full">
                     <tr class="tr-header">
                         <th class="text-center p-2 xs:text-[14px] sm:text-base">Student ID</th>
@@ -36,11 +36,11 @@
                         {% if not request.date_appointed %}
                         <tr class="tr-td">
                             <input type="hidden" id="request_id" name="request_id" value="{{ request.id }}">
-                            <td><a href="#">{{ request.patient.student.student_id }}</a></td>
-                            <td><a href="#">{{ request.patient.student.lastname|title }}</a></td>
-                            <td><a href="#">{{ request.patient.student.firstname|title }}</a></td>
-                            <td><a href="#">{{ request.service_type }}</a></td>
-                            <td><a href="#">{{ request.date_requested }}</a></td>
+                            <td class="text-center"><a href="#">{{ request.patient.student.student_id }}</a></td>
+                            <td class="text-center"><a href="#">{{ request.patient.student.lastname|title }}</a></td>
+                            <td class="text-center"><a href="#">{{ request.patient.student.firstname|title }}</a></td>
+                            <td class="text-center"><a href="#">{{ request.service_type }}</a></td>
+                            <td class="text-center"><a href="#">{{ request.date_requested }}</a></td>
                             <td>
                                 <button type="button" class="approve" onclick="openAppointmentForm()">Set Appointment</button>
                                 <button type="submit" class="reject" name="action" onclick="this.value = 'reject'; ">Reject</button>

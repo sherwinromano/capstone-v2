@@ -1,61 +1,68 @@
-{% extends 'mainv2.html' %} {% load static %} {% block content %}
-<div class="dashboard-wrapper">
-  <div class="stats-container">
-    <div class="stat-card">
-      <div class="stat-header">TOTAL STUDENTS</div>
+{% extends 'mainv2.html' %} 
+{% load static tailwind_tags %} 
+{% block title %}HealthHub Connect | Admin Dashboard{% endblock %} 
+{% block extra_css %}
+{% tailwind_css %}
+{% endblock %}
+{% block content %}
+<div class="rounded-[14px] bg-white xs:p-4 md:p-8 w-full h-full flex flex-col gap-4">
+  <div class="flex gap-4">
+    <div class="w-full flex flex-col gap-4 bg-violet-600 rounded-lg p-4">
+      <div class="flex items-center gap-2">
+          <i class="fas fa-users text-white"></i>
+          <h2 class="text-white font-bold">Total Students</h2>
+      </div>
       <div class="stat-content">
-        <div class="stat-number">{{ total_patients }}</div>
-        <div class="stat-icon">
-          <i class="fas fa-users"></i>
-        </div>
+        <p class="text-white text-2xl">{{ total_patients }}</p>
       </div>
     </div>
 
-    <div class="stat-card">
-      <div class="stat-header">EMERGENCY CASES</div>
+    <div class="w-full flex flex-col gap-4 bg-violet-600 rounded-lg p-4">
+      <div class="flex items-center gap-2">
+        <i class="fas fa-ambulance text-white"></i>
+        <h2 class="text-white font-bold">Emergency Cases</h2>
+    </div>
+     
       <div class="stat-content">
-        <div class="stat-number">{{ emergency_cases }}</div>
-        <div class="stat-icon">
-          <i class="fas fa-ambulance"></i>
-        </div>
+        <p class="text-white text-2xl">{{ emergency_cases }}</p>
+       
       </div>
     </div>
   </div>
 
-  <div class="dashboard-main">
-    <div class="requests-section">
-      <h2>Upcoming Requests</h2>
-      <div class="request-table-wrapper">
-        <table>
-          <thead>
+  <div class="h-full flex gap-4">
+    <div class="w-full flex flex-col">
+      <h2 class="font-bold text-center">Upcoming Requests</h2>
+      <div class="h-fit max-h-full">
+        <table class="w-full table-auto border-separate border-spacing-0">
+          <thead class="bg-[#e6e6e6] w-full">
             <tr>
-              <th>Student</th>
-              <th>Request Type</th>
-              <th>Date</th>
-              <th>Status</th>
+              <th class="text-center p-2 xs:text-[14px] sm:text-base">Student</th>
+              <th class="text-center p-2 xs:text-[14px] sm:text-base">Request Type</th>
+              <th class="text-center p-2 xs:text-[14px] sm:text-base">Date</th>
+              <th class="text-center p-2 xs:text-[14px] sm:text-base">Status</th>
             </tr>
           </thead>
           <tbody>
             {% if upcoming_requests %}
               {% for request in upcoming_requests %}
               <tr>
-                <td>{{ request.student }}</td>
-                <td>{{ request.request_type }}</td>
-                <td>{{ request.date }}</td>
-                <td><span class="status-badge">{{ request.status }}</span></td>
+                <td class="text-center">{{ request.student }}</td>
+                <td class="text-center">{{ request.request_type }}</td>
+                <td class="text-center">{{ request.date }}</td>
+                <td class="text-center"><span class="status-badge">{{ request.status }}</span></td>
               </tr>
               {% endfor %}
             {% else %}
               <tr>
-                <td colspan="4">No upcoming requests</td>
+                <td colspan="4" class="text-center pt-4">No upcoming requests</td>
               </tr>
             {% endif %}
           </tbody>
         </table>
       </div>
     </div>
-
-    <div class="calendar-section">
+    <div class="w-full">
       <div class="calendar-header">
         <button class="calendar-nav"><i class="fas fa-chevron-left"></i></button>
         <h3>January 2025</h3>
@@ -79,7 +86,7 @@
 </div>
 {% endblock %} {% block extra_js %}
 <script>
-  const events = {{ events|safe }};
+ /*  const events = {{ events|safe }}; */
 </script>
 <script src="{% static 'scripts/dashboard.js' %}"></script>
 {% endblock %}

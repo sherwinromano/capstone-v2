@@ -14,8 +14,8 @@
     <input class="xs:p-1 sm:p-2 w-full xs:text-[14px] sm:text-base h-full" type="text" name="student_id" placeholder="Enter ID to search" />
     <button class="bg-[#3b82f6] text-white text-[14px] p-2 w-[30%] h-full cursor-pointer" type="submit">Search</button>
   </form>
-  <div class="flex w-full h-full xs:overflow-auto md:overflow-hidden">
-    <table class="h-full w-full">
+  <div class="flex w-full h-fit max-h-full xs:overflow-auto md:overflow-hidden">
+    <table class="w-full table-auto border-separate border-spacing-0">
       <thead class="bg-[#e6e6e6] w-full">
         <tr class="tr-header">
           <th class="text-center p-2 xs:text-[14px] sm:text-base">Student ID</th>
@@ -29,37 +29,37 @@
       <tbody>
         {% for patient in patients %}
         <tr class="tr-td">
-          <td>
+          <td class="text-center">
             <a
               href="{% url 'medical:physical_exam' patient.student.student_id %}"
               >{{ patient.student.student_id }}</a
             >
           </td>
-          <td>
+          <td class="text-center">
             <a
               href="{% url 'medical:physical_exam' patient.student.student_id %}"
               >{{ patient.student.lastname|title }}</a
             >
           </td>
-          <td>
+          <td class="text-center">
             <a
               href="{% url 'medical:physical_exam' patient.student.student_id %}"
               >{{ patient.student.firstname|title }}</a
             >
           </td>
-          <td>
+          <td class="text-center">
             <a
               href="{% url 'medical:physical_exam' patient.student.student_id %}"
               >{{ patient.student.degree }}</a
             >
           </td>
-          <td>
+          <td class="text-center">
             <a
               href="{% url 'medical:physical_exam' patient.student.student_id %}"
               >{{ patient.student.year_level }}</a
             >
           </td>
-          <td>
+          <td class="text-center">
             <a
               href="{% url 'medical:physical_exam' patient.student.student_id %}"
               >{{ patient.student.sex }}</a
