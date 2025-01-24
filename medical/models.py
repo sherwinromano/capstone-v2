@@ -114,7 +114,7 @@ class MedicalClearance(models.Model):
 
 class RiskAssessment(models.Model):
     id = models.AutoField(primary_key=True)
-    clearance = models.OneToOneField(Patient, on_delete=models.CASCADE)
+    clearance = models.OneToOneField(MedicalClearance, on_delete=models.CASCADE)
     cardiovascular_disease = models.BooleanField(default=False)
     chronic_lung_disease = models.BooleanField(default=False)
     chronic_renal_disease = models.BooleanField(default=False)

@@ -187,6 +187,21 @@ def patient_form(request):
                 examination=physical_exam
             )
             
+            # Create or update RiskAssessment record
+            risk_assessment, created = medical_models.RiskAssessment.objects.update_or_create(
+                clearance=patient,
+                defaults={
+                    'cardiovascular_disease': 'cardiovascular_disease' in request.POST,
+                    'chronic_lung_disease': 'chronic_lung_disease' in request.POST,
+                    'chronic_renal_disease': 'chronic_renal_disease' in request.POST,
+                    'chronic_liver_disease': 'chronic_liver_disease' in request.POST,
+                    'cancer': 'cancer' in request.POST,
+                    'autoimmune_disease': 'autoimmune_disease' in request.POST,
+                    'pwd': 'pwd' in request.POST,
+                    'disability': request.POST.get('disability', '')
+                }
+            )
+            
             messages.success(request, 'Medical information submitted successfully!')
             return redirect('main:student_dashboard')
             
