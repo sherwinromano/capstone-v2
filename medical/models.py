@@ -113,8 +113,9 @@ class MedicalClearance(models.Model):
         return f"Medical clearance for {self.patient.student.firstname} {self.patient.student.lastname}"
 
 class RiskAssessment(models.Model):
+    medical_clearance = models.OneToOneField(MedicalClearance, on_delete=models.CASCADE, related_name="riskassessment", null=True, blank=True)
     id = models.AutoField(primary_key=True)
-    clearance = models.OneToOneField(MedicalClearance, on_delete=models.CASCADE)
+    clearance = models.OneToOneField(Patient, on_delete=models.CASCADE)
     cardiovascular_disease = models.BooleanField(default=False)
     chronic_lung_disease = models.BooleanField(default=False)
     chronic_renal_disease = models.BooleanField(default=False)
@@ -140,6 +141,7 @@ class RiskAssessment(models.Model):
     # pwd_id_card = models.FileField(upload_to=pwd_path, null=True, blank=True)
     
 class MedicalRequirement(models.Model):
+
     patient = models.OneToOneField(Patient, on_delete=models.CASCADE)
     #clearance = models.OneToOneField(MedicalClearance, on_delete=models.CASCADE)
     vaccination_type = models.CharField(max_length=50, null=True, blank=True)
