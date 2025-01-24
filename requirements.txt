@@ -157,3 +157,5 @@ wrapt==1.17.2
 wurst==0.4
 xlrd==2.0.1
 XlsxWriter==3.2.0
+django-browser-reload==1.12.1
+django-jazzmin==2.6.0
