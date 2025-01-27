@@ -334,5 +334,58 @@
         </div>
     </div>
     <script src="{% static 'scripts/patient_form.js' %}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+    document.querySelector('.patient-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        fetch(this.action, {
+            method: 'POST',
+            body: new FormData(this),
+            headers: {
+                'X-CSRFToken': document.querySelector('[name=csrfmiddlewaretoken]').value
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === 'success') {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Success!',
+                    text: data.message,
+                    showConfirmButton: false,
+                    timer: 1500
+                }).then(() => {
+                    window.location.href = data.redirect_url;
+                });
+            } else {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: data.message
+                });
+            }
+        })
+        .catch(error => {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Something went wrong! Please try again.'
+            });
+        });
+    });
+
+    // Add form validation alerts
+    document.querySelectorAll('input[required], select[required]').forEach(input => {
+        input.addEventListener('invalid', (e) => {
+            e.preventDefault();
+            Swal.fire({
+                icon: 'warning',
+                title: 'Required Field',
+                text: `Please fill in the ${input.previousElementSibling.textContent} field.`
+            });
+        });
+    });
+    </script>
 </body>
 </html> 

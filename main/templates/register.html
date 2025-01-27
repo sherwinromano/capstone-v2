@@ -252,7 +252,7 @@
               />
             </div>
             <div class="flex flex-col w-full">
-              <label for="password">Password</label>
+              <label for="password" class="label">Password</label>
               <input
                 class="w-full"
                 type="password"
@@ -281,5 +281,42 @@
         </div>
       </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+    document.querySelector('form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        fetch(this.action, {
+            method: 'POST',
+            body: new FormData(this),
+            headers: {
+                'X-CSRFToken': document.querySelector('[name=csrfmiddlewaretoken]').value
+            }
+        })
+        .then(response => {
+            if (response.ok) {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Registration Successful!',
+                    text: 'You can now login to your account.',
+                    showConfirmButton: false,
+                    timer: 1500
+                }).then(() => {
+                    window.location.href = "{% url 'main:login' %}";
+                });
+            } else {
+                throw new Error('Registration failed');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            Swal.fire({
+                icon: 'error',
+                title: 'Registration Failed',
+                text: 'Please check your information and try again.'
+            });
+        });
+    });
+    </script>
   </body>
 </html>
