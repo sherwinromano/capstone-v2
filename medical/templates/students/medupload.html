@@ -1,67 +1,20 @@
 {% extends 'mainv2.html' %}
-{% load static %}
-
-{% block title %}Upload Medical Requirements{% endblock %}
-
+{% load static tailwind_tags %}
+{% block title %}HealthHub Connect | Medical Requirements Upload{% endblock %}
 {% block extra_css %}
-<link rel="stylesheet" href="{% static 'styles/students/uploadrequirements.css' %}">
-<style>
-    .container {
-        max-width: 800px;
-        margin: 0 auto;
-        padding: 20px;
-        background-color: #fff;
-        border-radius: 10px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
-    .form-group {
-        margin-bottom: 15px;
-    }
-    .form-group label {
-        display: block;
-        margin-bottom: 5px;
-    }
-    .form-group input[type="text"],
-    .form-group input[type="file"] {
-        width: 100%;
-        padding: 8px;
-        box-sizing: border-box;
-    }
-    .action-button {
-        background-color: #007bff;
-        color: white;
-        padding: 10px 20px;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-    }
-    .action-button:hover {
-        background-color: #0056b3;
-    }
-    .uploaded-documents {
-        margin-top: 20px;
-        margin-bottom: 20px; /* Added space after uploaded documents */
-    }
-    .uploaded-documents p {
-        margin: 5px 0;
-    }
-</style>
+{% tailwind_css %}
 {% endblock %}
 
 {% block content %}
-<div class="container">
-    {% if messages %}
-        {% for message in messages %}
-            <p class="message {% if message.tags %}{{ message.tags }}{% endif %}">{{ message }}</p>
-        {% endfor %}
-    {% endif %}
-    <h2>Upload Medical Requirements</h2>
-    <form method="GET" class="upload-form">
-        <div class="form-group">
-            <label for="student_id">Student ID:</label>
-            <input type="text" id="student_id" name="student_id" value="{{ patient.student.student_id }}" required>
+<div class="bg-white xs:h-fit md:h-full xs:p-4 lg:p-8 flex flex-col gap-2 rounded-[18px] xs:w-full md:w-1/2">
+    
+    <h2 class="font-bold xs:text-[1.3rem] md:text-[1.5rem] lg:text-base text-black tracking-tight text-center">Upload Medical Requirements</h2>
+    <form method="GET" class="flex flex-col gap-2">
+        <label for="student_id">Student ID</label>
+        <div class="flex gap-2 w-full">
+            <input class="w-full rounded-md" type="text" id="student_id" name="student_id" value="{{ patient.student.student_id }}" required>
+            <button type="submit" class="bg-[#3b82f6] h-full text-white text-[14px] py-2 px-4 rounded-md w-[30%] cursor-pointer">Check</button>
         </div>
-        <button type="submit" class="action-button">Check</button>
     </form>
 
     {% if patient %}
@@ -78,7 +31,6 @@
             {% endif %}
         </div>
         {% endif %}
-
         <h3>{{ md|default:"Upload New" }}</h3>
         <form method="POST" enctype="multipart/form-data" class="upload-form">
             {% csrf_token %}
@@ -105,6 +57,11 @@
             </div>
             <button type="submit" class="action-button">{{ md|default:"Upload" }} Files</button>
         </form>
+    {% endif %}
+    {% if messages %}
+        {% for message in messages %}
+            <p class="{% if message.tags %}{{ message.tags }}{% endif %}">{{ message }}</p>
+        {% endfor %}
     {% endif %}
 </div>
 {% endblock %}

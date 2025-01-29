@@ -1,30 +1,57 @@
-{% load static %}
+{% load static tailwind_tags %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>HealthHub Connect | Patient Form</title>
-    <link rel="shortcut icon" href="{% static 'images/CTU_logo.png' %}" type="image/x-icon">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{% static 'styles/patient_form.css' %}">
-</head>
-<body>
-    <div class="container">
-        <div class="form-container">
-            <div class="header">
-                <img src="{% static 'images/CTU_logo.png' %}" alt="CTU Logo" class="logo">
-                <h1>Patient Information Form</h1>
-                <p>Please complete your medical information to proceed</p>
-            </div>
-
-            {% if messages %}
-            <div class="messages">
-                {% for message in messages %}
-                <div class="message {% if message.tags %}message-{{ message.tags }}{% endif %}">
-                    {{ message }}
+    <link
+      rel="shortcut icon"
+      href="{% static 'images/CTU_logo.png' %}"
+      type="image/x-icon"
+    />
+    {% tailwind_css %}
+    <link rel="stylesheet" href="{% static 'styles/base.css' %}" />
+  </head>
+  <body>
+    <div class="flex w-full h-fit bg-[#E5F2FF] p-8 justify-center">
+      <div
+        class="bg-white xs:w-full md:w-1/2 lg:w-2/3 xs:p-4 lg:p-8 flex flex-col gap-2 rounded-[18px]"
+      >
+        <div class="flex flex-col items-center self-center">
+          <img
+            src="{% static 'images/CTU_logo.png' %}"
+            alt="CTU Logo"
+            class="size-[7rem]"
+          />
+          <h1
+            class="text-[1.5rem] font-bold tracking-tight text-center xs:leading-[100%] lg:leading-normal xs:mt-4 lg:mt-0"
+          >
+            Patient Information Form
+          </h1>
+          <p
+            class="text-base tracking-tight text-center xs:mt-2 lg:mt-0 xs:leading-[100%] lg:leading-normal"
+          >
+            Please complete your medical information to proceed
+          </p>
+        </div>
+        <form method="POST" class="flex flex-col gap-4 h-full">
+          {% csrf_token %}
+          <div class="flex flex-col gap-2">
+            <h3 class="text-base tracking-tight font-bold">
+              Personal Information
+            </h3>
+            <div class="flex xs:flex-col md:flex-row gap-4">
+              <div class="w-full flex flex-col">
+                <div class="flex flex-col">
+                  <label for="birth_date">Birth Date</label>
+                  <input
+                    class="rounded-sm"
+                    type="date"
+                    id="birth_date"
+                    name="birth_date"
+                    required
+                  />
                 </div>
                 {% endfor %}
             </div>
@@ -38,12 +65,7 @@
                     <div class="form-row">
                         <div class="form-group">
                             <label for="birth_date">Birth Date</label>
-                            <input type="date" 
-                                   id="birth_date" 
-                                   name="birth_date" 
-                                   max="{{ max_date }}"
-                                   min="{{ min_date }}"
-                                   required>
+                            <input type="date" id="birth_date" name="birth_date" required>
                         </div>
                         <div class="form-group">
                             <label for="bloodtype">Blood Type</label>
@@ -64,27 +86,11 @@
                     <div class="form-row">
                         <div class="form-group">
                             <label for="height">Height (cm)</label>
-                            <input type="number" 
-                                   step="0.01" 
-                                   id="height" 
-                                   name="height" 
-                                   min="50" 
-                                   max="300"
-                                   oninput="this.value = this.value <= 0 ? '' : this.value"
-                                   placeholder="Enter height in centimeters"
-                                   required>
+                            <input type="number" step="0.01" id="height" name="height" required>
                         </div>
                         <div class="form-group">
                             <label for="weight">Weight (kg)</label>
-                            <input type="number" 
-                                   step="0.01" 
-                                   id="weight" 
-                                   name="weight" 
-                                   min="20" 
-                                   max="500"
-                                   oninput="this.value = this.value <= 0 ? '' : this.value"
-                                   placeholder="Enter weight in kilograms"
-                                   required>
+                            <input type="number" step="0.01" id="weight" name="weight" required>
                         </div>
                     </div>
                 </div>
@@ -327,14 +333,7 @@
                     <div class="form-row">
                         <div class="form-group">
                             <label for="country">Country</label>
-                            <input type="text" 
-                                   id="country" 
-                                   name="country" 
-                                   value="Philippines" 
-                                   readonly 
-                                   class="readonly-input"
-                                   style="background-color: #f0f0f0; cursor: not-allowed;"
-                                   required>
+                            <input type="text" id="country" name="country" value="Philippines" required>
                         </div>
                         <div class="form-group">
                             <label for="city">City</label>
