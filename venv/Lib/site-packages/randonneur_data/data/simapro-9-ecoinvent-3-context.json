@@ -1,0 +1,1471 @@
+{
+  "name": "simapro-9-ecoinvent-3-context",
+  "description": "Context mapping from SimaPro 9 to ecoinvent 3",
+  "contributors": [
+    {
+      "title": "Chris Mutel",
+      "path": "https://chris.mutel.org/",
+      "role": "author"
+    }
+  ],
+  "created": "2024-09-01T21:16:03.588440+00:00",
+  "version": "3.0.0",
+  "licenses": [
+    {
+      "name": "CC BY 4.0",
+      "path": "https://creativecommons.org/licenses/by/4.0/",
+      "title": "Creative Commons Attribution 4.0 International"
+    }
+  ],
+  "graph_context": [
+    "edges"
+  ],
+  "mapping": {
+    "source": {
+      "expression language": "like JSONPath",
+      "labels": {
+        "identifier": "Process[*].\"Process identifier\".text",
+        "name": "Process[*].Products[*].text[0]",
+        "platform_id": "Process[*].\"Platform Identifier\"",
+        "unit": [
+          "[\"Emissions to air/\", Process[*].\"Emissions to air\".[2]]",
+          "[\"Emissions to soil/\", Process[*].\"Emissions to soil\".[2]]",
+          "[\"Emissions to water/\", Process[*].\"Emissions to water\".[2]]",
+          "[\"Resources/\", Process[*].\"Resources\".[2]]"
+        ],
+        "context": [
+          "[\"Emissions to air/\", Process[*].\"Emissions to air\".[1]]",
+          "[\"Emissions to soil/\", Process[*].\"Emissions to soil\".[1]]",
+          "[\"Emissions to water/\", Process[*].\"Emissions to water\".[1]]",
+          "[\"Resources/\", Process[*].\"Resources\".[1]]"
+        ]
+      },
+      "as-tuple": [
+        "context"
+      ]
+    },
+    "target": {
+      "expression language": "XPath",
+      "labels": {
+        "name": "//*:elementaryExchange/*:name/text()",
+        "unit": "//*:elementaryExchange/*:unitName/text()",
+        "uuid": "//*:elementaryExchange/@elementaryExchangeId",
+        "formula": "//*:elementaryExchange/@formula",
+        "context": [
+          "//*:elementaryExchange/*:compartment/*:compartment/text()",
+          "//*:elementaryExchange/*:compartment/*:subcompartment/text()"
+        ]
+      },
+      "as-tuple": [
+        "context"
+      ]
+    }
+  },
+  "source_id": "SimaPro-9",
+  "target_id": "SimaPro-9-ecoinvent-3-context",
+  "replace": [
+    {
+      "source": {
+        "context": [
+          "Air",
+          "(unspecified)"
+        ]
+      },
+      "target": {
+        "context": [
+          "air",
+          "(unspecified)"
+        ]
+      }
+    },
+    {
+      "source": {
+        "context": [
+          "Emissions to air",
+          "(unspecified)"
+        ]
+      },
+      "target": {
+        "context": [
+          "air",
+          "(unspecified)"
+        ]
+      }
+    },
+    {
+      "source": {
+        "context": [
+          "Airborne emissions",
+          "(unspecified)"
+        ]
+      },
+      "target": {
+        "context": [
+          "air",
+          "(unspecified)"
+        ]
+      }
+    },
+    {
+      "source": {
+        "context": [
+          "Air",
+          "high. pop."
+        ]
+      },
+      "target": {
+        "context": [
+          "air",
+          "urban air close to ground"
+        ]
+      }
+    },
+    {
+      "source": {
+        "context": [
+          "Emissions to air",
+          "high. pop."
+        ]
+      },
+      "target": {
+        "context": [
+          "air",
+          "urban air close to ground"
+        ]
+      }
+    },
+    {
+      "source": {
+        "context": [
+          "Airborne emissions",
+          "high. pop."
+        ]
+      },
+      "target": {
+        "context": [
+          "air",
+          "urban air close to ground"
+        ]
+      }
+    },
+    {
+      "source": {
+        "context": [
+          "Air",
+          "indoor"
+        ]
+      },
+      "target": {
+        "context": [
+          "air",
+          "indoor"
+        ]
+      }
+    },
+    {
+      "source": {
+        "context": [
+          "Emissions to air",
+          "indoor"
+        ]
+      },
+      "target": {
+        "context": [
+          "air",
+          "indoor"
+        ]
+      }
+    },
+    {
+      "source": {
+        "context": [
+          "Airborne emissions",
+          "indoor"
+        ]
+      },
+      "target": {
+        "context": [
+          "air",
+          "indoor"
+        ]
+      }
+    },
+    {
+      "source": {
+        "context": [
+          "Air",
+          "low. pop."
+        ]
+      },
+      "target": {
+        "context": [
+          "air",
+          "non-urban air or from high stacks"
+        ]
+      }
+    },
+    {
+      "source": {
+        "context": [
+          "Emissions to air",
+          "low. pop."
+        ]
+      },
+      "target": {
+        "context": [
+          "air",
+          "non-urban air or from high stacks"
+        ]
+      }
+    },
+    {
+      "source": {
+        "context": [
+          "Airborne emissions",
+          "low. pop."
+        ]
+      },
+      "target": {
+        "context": [
+          "air",
+          "non-urban air or from high stacks"
+        ]
+      }
+    },
+    {
+      "source": {
+        "context": [
+          "Air",
+          "low. pop., long-term"
+        ]
+      },
+      "target": {
+        "context": [
+          "air",
+          "low population density, long-term"
+        ]
+      }
+    },
+    {
+      "source": {
+        "context": [
+          "Emissions to air",
+          "low. pop., long-term"
+        ]
+      },
+      "target": {
+        "context": [
+          "air",
+          "low population density, long-term"
+        ]
+      }
+    },
+    {
+      "source": {
+        "context": [
+          "Airborne emissions",
+          "low. pop., long-term"
+        ]
+      },
+      "target": {
+        "context": [
+          "air",
+          "low population density, long-term"
+        ]
+      }
+    },
+    {
+      "source": {
+        "context": [
+          "Air",
+          "stratosphere + troposphere"
+        ]
+      },
+      "target": {
+        "context": [
+          "air",
+          "lower stratosphere + upper troposphere"
+        ]
+      }
+    },
+    {
+      "source": {
+        "context": [
+          "Emissions to air",
+          "stratosphere + troposphere"
+        ]
+      },
+      "target": {
+        "context": [
+          "air",
+          "lower stratosphere + upper troposphere"
+        ]
+      }
+    },
+    {
+      "source": {
+        "context": [
+          "Airborne emissions",
+          "stratosphere + troposphere"
+        ]
+      },
+      "target": {
+        "context": [
+          "air",
+          "lower stratosphere + upper troposphere"
+        ]
+      }
+    },
+    {
+      "source": {
+        "context": [
+          "Emissions to water",
+          "(unspecified)"
+        ]
+      },
+      "target": {
+        "context": [
+          "water",
+          "(unspecified)"
+        ]
+      }
+    },
+    {
+      "source": {
+        "context": [
+          "Water",
+          "(unspecified)"
+        ]
+      },
+      "target": {
+        "context": [
+          "water",
+          "(unspecified)"
+        ]
+      }
+    },
+    {
+      "source": {
+        "context": [
+          "Waterborne emissions",
+          "(unspecified)"
+        ]
+      },
+      "target": {
+        "context": [
+          "water",
+          "(unspecified)"
+        ]
+      }
+    },
+    {
+      "source": {
+        "context": [
+          "Emissions to water",
+          "fossilwater"
+        ]
+      },
+      "target": {
+        "context": [
+          "water",
+          "ground-, long-term"
+        ]
+      }
+    },
+    {
+      "source": {
+        "context": [
+          "Water",
+          "fossilwater"
+        ]
+      },
+      "target": {
+        "context": [
+          "water",
+          "ground-, long-term"
+        ]
+      }
+    },
+    {
+      "source": {
+        "context": [
+          "Waterborne emissions",
+          "fossilwater"
+        ]
+      },
+      "target": {
+        "context": [
+          "water",
+          "ground-, long-term"
+        ]
+      }
+    },
+    {
+      "source": {
+        "context": [
+          "Emissions to water",
+          "groundwater"
+        ]
+      },
+      "target": {
+        "context": [
+          "water",
+          "ground-"
+        ]
+      }
+    },
+    {
+      "source": {
+        "context": [
+          "Water",
+          "groundwater"
+        ]
+      },
+      "target": {
+        "context": [
+          "water",
+          "ground-"
+        ]
+      }
+    },
+    {
+      "source": {
+        "context": [
+          "Waterborne emissions",
+          "groundwater"
+        ]
+      },
+      "target": {
+        "context": [
+          "water",
+          "ground-"
+        ]
+      }
+    },
+    {
+      "source": {
+        "context": [
+          "Emissions to water",
+          "groundwater, long-term"
+        ]
+      },
+      "target": {
+        "context": [
+          "water",
+          "ground-, long-term"
+        ]
+      }
+    },
+    {
+      "source": {
+        "context": [
+          "Water",
+          "groundwater, long-term"
+        ]
+      },
+      "target": {
+        "context": [
+          "water",
+          "ground-, long-term"
+        ]
+      }
+    },
+    {
+      "source": {
+        "context": [
+          "Waterborne emissions",
+          "groundwater, long-term"
+        ]
+      },
+      "target": {
+        "context": [
+          "water",
+          "ground-, long-term"
+        ]
+      }
+    },
+    {
+      "source": {
+        "context": [
+          "Emissions to water",
+          "lake"
+        ]
+      },
+      "target": {
+        "context": [
+          "water",
+          "surface water"
+        ]
+      }
+    },
+    {
+      "source": {
+        "context": [
+          "Water",
+          "lake"
+        ]
+      },
+      "target": {
+        "context": [
+          "water",
+          "surface water"
+        ]
+      }
+    },
+    {
+      "source": {
+        "context": [
+          "Waterborne emissions",
+          "lake"
+        ]
+      },
+      "target": {
+        "context": [
+          "water",
+          "surface water"
+        ]
+      }
+    },
+    {
+      "source": {
+        "context": [
+          "Emissions to water",
+          "ocean"
+        ]
+      },
+      "target": {
+        "context": [
+          "water",
+          "ocean"
+        ]
+      }
+    },
+    {
+      "source": {
+        "context": [
+          "Water",
+          "ocean"
+        ]
+      },
+      "target": {
+        "context": [
+          "water",
+          "ocean"
+        ]
+      }
+    },
+    {
+      "source": {
+        "context": [
+          "Waterborne emissions",
+          "ocean"
+        ]
+      },
+      "target": {
+        "context": [
+          "water",
+          "ocean"
+        ]
+      }
+    },
+    {
+      "source": {
+        "context": [
+          "Emissions to water",
+          "river"
+        ]
+      },
+      "target": {
+        "context": [
+          "water",
+          "surface water"
+        ]
+      }
+    },
+    {
+      "source": {
+        "context": [
+          "Water",
+          "river"
+        ]
+      },
+      "target": {
+        "context": [
+          "water",
+          "surface water"
+        ]
+      }
+    },
+    {
+      "source": {
+        "context": [
+          "Waterborne emissions",
+          "river"
+        ]
+      },
+      "target": {
+        "context": [
+          "water",
+          "surface water"
+        ]
+      }
+    },
+    {
+      "source": {
+        "context": [
+          "Emissions to water",
+          "river, long-term"
+        ]
+      },
+      "target": {
+        "context": [
+          "water",
+          "surface water"
+        ]
+      }
+    },
+    {
+      "source": {
+        "context": [
+          "Water",
+          "river, long-term"
+        ]
+      },
+      "target": {
+        "context": [
+          "water",
+          "surface water"
+        ]
+      }
+    },
+    {
+      "source": {
+        "context": [
+          "Waterborne emissions",
+          "river, long-term"
+        ]
+      },
+      "target": {
+        "context": [
+          "water",
+          "surface water"
+        ]
+      }
+    },
+    {
+      "source": {
+        "context": [
+          "Soil",
+          "(unspecified)"
+        ]
+      },
+      "target": {
+        "context": [
+          "soil",
+          "unspecified"
+        ]
+      }
+    },
+    {
+      "source": {
+        "context": [
+          "Emissions to soil",
+          "(unspecified)"
+        ]
+      },
+      "target": {
+        "context": [
+          "soil",
+          "unspecified"
+        ]
+      }
+    },
+    {
+      "source": {
+        "context": [
+          "Soil",
+          "agricultural"
+        ]
+      },
+      "target": {
+        "context": [
+          "soil",
+          "agricultural"
+        ]
+      }
+    },
+    {
+      "source": {
+        "context": [
+          "Emissions to soil",
+          "agricultural"
+        ]
+      },
+      "target": {
+        "context": [
+          "soil",
+          "agricultural"
+        ]
+      }
+    },
+    {
+      "source": {
+        "context": [
+          "Soil",
+          "forestry"
+        ]
+      },
+      "target": {
+        "context": [
+          "soil",
+          "forestry"
+        ]
+      }
+    },
+    {
+      "source": {
+        "context": [
+          "Emissions to soil",
+          "forestry"
+        ]
+      },
+      "target": {
+        "context": [
+          "soil",
+          "forestry"
+        ]
+      }
+    },
+    {
+      "source": {
+        "context": [
+          "Soil",
+          "industrial"
+        ]
+      },
+      "target": {
+        "context": [
+          "soil",
+          "industrial"
+        ]
+      }
+    },
+    {
+      "source": {
+        "context": [
+          "Emissions to soil",
+          "industrial"
+        ]
+      },
+      "target": {
+        "context": [
+          "soil",
+          "industrial"
+        ]
+      }
+    },
+    {
+      "source": {
+        "context": [
+          "Raw materials",
+          "(unspecified)"
+        ]
+      },
+      "target": {
+        "context": [
+          "natural resource",
+          "(unspecified)"
+        ]
+      }
+    },
+    {
+      "source": {
+        "context": [
+          "Resources",
+          "(unspecified)"
+        ]
+      },
+      "target": {
+        "context": [
+          "natural resource",
+          "(unspecified)"
+        ]
+      }
+    },
+    {
+      "source": {
+        "context": [
+          "Substances",
+          "(unspecified)"
+        ]
+      },
+      "target": {
+        "context": [
+          "natural resource",
+          "(unspecified)"
+        ]
+      }
+    },
+    {
+      "source": {
+        "context": [
+          "Raw materials",
+          "biotic"
+        ]
+      },
+      "target": {
+        "context": [
+          "natural resource",
+          "biotic"
+        ]
+      }
+    },
+    {
+      "source": {
+        "context": [
+          "Resources",
+          "biotic"
+        ]
+      },
+      "target": {
+        "context": [
+          "natural resource",
+          "biotic"
+        ]
+      }
+    },
+    {
+      "source": {
+        "context": [
+          "Substances",
+          "biotic"
+        ]
+      },
+      "target": {
+        "context": [
+          "natural resource",
+          "biotic"
+        ]
+      }
+    },
+    {
+      "source": {
+        "context": [
+          "Raw materials",
+          "in air"
+        ]
+      },
+      "target": {
+        "context": [
+          "natural resource",
+          "in air"
+        ]
+      }
+    },
+    {
+      "source": {
+        "context": [
+          "Resources",
+          "in air"
+        ]
+      },
+      "target": {
+        "context": [
+          "natural resource",
+          "in air"
+        ]
+      }
+    },
+    {
+      "source": {
+        "context": [
+          "Substances",
+          "in air"
+        ]
+      },
+      "target": {
+        "context": [
+          "natural resource",
+          "in air"
+        ]
+      }
+    },
+    {
+      "source": {
+        "context": [
+          "Raw materials",
+          "in ground"
+        ]
+      },
+      "target": {
+        "context": [
+          "natural resource",
+          "in ground"
+        ]
+      }
+    },
+    {
+      "source": {
+        "context": [
+          "Resources",
+          "in ground"
+        ]
+      },
+      "target": {
+        "context": [
+          "natural resource",
+          "in ground"
+        ]
+      }
+    },
+    {
+      "source": {
+        "context": [
+          "Substances",
+          "in ground"
+        ]
+      },
+      "target": {
+        "context": [
+          "natural resource",
+          "in ground"
+        ]
+      }
+    },
+    {
+      "source": {
+        "context": [
+          "Raw materials",
+          "in water"
+        ]
+      },
+      "target": {
+        "context": [
+          "natural resource",
+          "in water"
+        ]
+      }
+    },
+    {
+      "source": {
+        "context": [
+          "Resources",
+          "in water"
+        ]
+      },
+      "target": {
+        "context": [
+          "natural resource",
+          "in water"
+        ]
+      }
+    },
+    {
+      "source": {
+        "context": [
+          "Substances",
+          "in water"
+        ]
+      },
+      "target": {
+        "context": [
+          "natural resource",
+          "in water"
+        ]
+      }
+    },
+    {
+      "source": {
+        "context": [
+          "Raw materials",
+          "land"
+        ]
+      },
+      "target": {
+        "context": [
+          "natural resource",
+          "land"
+        ]
+      }
+    },
+    {
+      "source": {
+        "context": [
+          "Resources",
+          "land"
+        ]
+      },
+      "target": {
+        "context": [
+          "natural resource",
+          "land"
+        ]
+      }
+    },
+    {
+      "source": {
+        "context": [
+          "Substances",
+          "land"
+        ]
+      },
+      "target": {
+        "context": [
+          "natural resource",
+          "land"
+        ]
+      }
+    },
+    {
+      "source": {
+        "context": [
+          "Air",
+          "unspecified"
+        ]
+      },
+      "target": {
+        "context": [
+          "air",
+          "(unspecified)"
+        ]
+      }
+    },
+    {
+      "source": {
+        "context": [
+          "Air",
+          ""
+        ]
+      },
+      "target": {
+        "context": [
+          "air",
+          "(unspecified)"
+        ]
+      }
+    },
+    {
+      "source": {
+        "context": [
+          "Emissions to air",
+          "unspecified"
+        ]
+      },
+      "target": {
+        "context": [
+          "air",
+          "(unspecified)"
+        ]
+      }
+    },
+    {
+      "source": {
+        "context": [
+          "Emissions to air",
+          ""
+        ]
+      },
+      "target": {
+        "context": [
+          "air",
+          "(unspecified)"
+        ]
+      }
+    },
+    {
+      "source": {
+        "context": [
+          "Airborne emissions",
+          "unspecified"
+        ]
+      },
+      "target": {
+        "context": [
+          "air",
+          "(unspecified)"
+        ]
+      }
+    },
+    {
+      "source": {
+        "context": [
+          "Airborne emissions",
+          ""
+        ]
+      },
+      "target": {
+        "context": [
+          "air",
+          "(unspecified)"
+        ]
+      }
+    },
+    {
+      "source": {
+        "context": [
+          "Emissions to water",
+          "unspecified"
+        ]
+      },
+      "target": {
+        "context": [
+          "water",
+          "(unspecified)"
+        ]
+      }
+    },
+    {
+      "source": {
+        "context": [
+          "Emissions to water",
+          ""
+        ]
+      },
+      "target": {
+        "context": [
+          "water",
+          "(unspecified)"
+        ]
+      }
+    },
+    {
+      "source": {
+        "context": [
+          "Water",
+          "unspecified"
+        ]
+      },
+      "target": {
+        "context": [
+          "water",
+          "(unspecified)"
+        ]
+      }
+    },
+    {
+      "source": {
+        "context": [
+          "Water",
+          ""
+        ]
+      },
+      "target": {
+        "context": [
+          "water",
+          "(unspecified)"
+        ]
+      }
+    },
+    {
+      "source": {
+        "context": [
+          "Waterborne emissions",
+          "unspecified"
+        ]
+      },
+      "target": {
+        "context": [
+          "water",
+          "(unspecified)"
+        ]
+      }
+    },
+    {
+      "source": {
+        "context": [
+          "Waterborne emissions",
+          ""
+        ]
+      },
+      "target": {
+        "context": [
+          "water",
+          "(unspecified)"
+        ]
+      }
+    },
+    {
+      "source": {
+        "context": [
+          "Soil",
+          "unspecified"
+        ]
+      },
+      "target": {
+        "context": [
+          "soil",
+          "unspecified"
+        ]
+      }
+    },
+    {
+      "source": {
+        "context": [
+          "Soil",
+          ""
+        ]
+      },
+      "target": {
+        "context": [
+          "soil",
+          "unspecified"
+        ]
+      }
+    },
+    {
+      "source": {
+        "context": [
+          "Emissions to soil",
+          "unspecified"
+        ]
+      },
+      "target": {
+        "context": [
+          "soil",
+          "unspecified"
+        ]
+      }
+    },
+    {
+      "source": {
+        "context": [
+          "Emissions to soil",
+          ""
+        ]
+      },
+      "target": {
+        "context": [
+          "soil",
+          "unspecified"
+        ]
+      }
+    },
+    {
+      "source": {
+        "context": [
+          "Raw materials",
+          "unspecified"
+        ]
+      },
+      "target": {
+        "context": [
+          "natural resource",
+          "(unspecified)"
+        ]
+      }
+    },
+    {
+      "source": {
+        "context": [
+          "Raw materials",
+          ""
+        ]
+      },
+      "target": {
+        "context": [
+          "natural resource",
+          "(unspecified)"
+        ]
+      }
+    },
+    {
+      "source": {
+        "context": [
+          "Resources",
+          "unspecified"
+        ]
+      },
+      "target": {
+        "context": [
+          "natural resource",
+          "(unspecified)"
+        ]
+      }
+    },
+    {
+      "source": {
+        "context": [
+          "Resources",
+          ""
+        ]
+      },
+      "target": {
+        "context": [
+          "natural resource",
+          "(unspecified)"
+        ]
+      }
+    },
+    {
+      "source": {
+        "context": [
+          "Substances",
+          "unspecified"
+        ]
+      },
+      "target": {
+        "context": [
+          "natural resource",
+          "(unspecified)"
+        ]
+      }
+    },
+    {
+      "source": {
+        "context": [
+          "Substances",
+          ""
+        ]
+      },
+      "target": {
+        "context": [
+          "natural resource",
+          "(unspecified)"
+        ]
+      }
+    },
+    {
+      "source": {
+        "context": [
+          "Air"
+        ]
+      },
+      "target": {
+        "context": [
+          "air",
+          "(unspecified)"
+        ]
+      }
+    },
+    {
+      "source": {
+        "context": [
+          "Emissions to air"
+        ]
+      },
+      "target": {
+        "context": [
+          "air",
+          "(unspecified)"
+        ]
+      }
+    },
+    {
+      "source": {
+        "context": [
+          "Airborne emissions"
+        ]
+      },
+      "target": {
+        "context": [
+          "air",
+          "(unspecified)"
+        ]
+      }
+    },
+    {
+      "source": {
+        "context": [
+          "Emissions to water"
+        ]
+      },
+      "target": {
+        "context": [
+          "water",
+          "(unspecified)"
+        ]
+      }
+    },
+    {
+      "source": {
+        "context": [
+          "Water"
+        ]
+      },
+      "target": {
+        "context": [
+          "water",
+          "(unspecified)"
+        ]
+      }
+    },
+    {
+      "source": {
+        "context": [
+          "Waterborne emissions"
+        ]
+      },
+      "target": {
+        "context": [
+          "water",
+          "(unspecified)"
+        ]
+      }
+    },
+    {
+      "source": {
+        "context": [
+          "Soil"
+        ]
+      },
+      "target": {
+        "context": [
+          "soil",
+          "unspecified"
+        ]
+      }
+    },
+    {
+      "source": {
+        "context": [
+          "Emissions to soil"
+        ]
+      },
+      "target": {
+        "context": [
+          "soil",
+          "unspecified"
+        ]
+      }
+    },
+    {
+      "source": {
+        "context": [
+          "Raw materials"
+        ]
+      },
+      "target": {
+        "context": [
+          "natural resource",
+          "(unspecified)"
+        ]
+      }
+    },
+    {
+      "source": {
+        "context": [
+          "Resources"
+        ]
+      },
+      "target": {
+        "context": [
+          "natural resource",
+          "(unspecified)"
+        ]
+      }
+    },
+    {
+      "source": {
+        "context": [
+          "Substances"
+        ]
+      },
+      "target": {
+        "context": [
+          "natural resource",
+          "(unspecified)"
+        ]
+      }
+    }
+  ]
+}

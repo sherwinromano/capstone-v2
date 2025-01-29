@@ -203,3 +203,29 @@ table td, table th {
 .close-modal:hover {
     color: #000;
 }
+
+.save-remark-btn {
+    background-color: #22c55e;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 14px;
+    transition: background-color 0.2s;
+}
+
+.save-remark-btn:hover {
+    background-color: #16a34a;
+}
+
+.save-remarks-btn {
+    background-color: #3b82f6;
+    color: white;
+    padding: 8px 24px;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: background-color 0.2s;
+}
+
+.save-remarks-btn:hover {
+    background-color: #2563eb;
+}

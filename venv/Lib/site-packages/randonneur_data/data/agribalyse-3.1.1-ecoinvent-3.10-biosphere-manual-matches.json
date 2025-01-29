@@ -1,0 +1,1357 @@
+{
+  "name": "agribalyse-3.1.1-ecoinvent-3.10-biosphere-manual-matches",
+  "description": "Manual matches of Agribalyse 3.1.1 to recent ecoinvent flow list",
+  "contributors": [
+    {
+      "title": "Chris Mutel",
+      "path": "https://chris.mutel.org/",
+      "role": "author"
+    }
+  ],
+  "created": "2024-09-30T12:49:04.425817+00:00",
+  "version": "1.0",
+  "licenses": [
+    {
+      "name": "CC-BY-4.0",
+      "path": "https://creativecommons.org/licenses/by/4.0/legalcode",
+      "title": "Creative Commons Attribution 4.0 International"
+    }
+  ],
+  "graph_context": [
+    "edges"
+  ],
+  "mapping": {
+    "source": {
+      "expression language": "like JSONPath",
+      "labels": {
+        "identifier": "Process[*].\"Process identifier\".text",
+        "name": "Process[*].Products[*].text[0]",
+        "platform_id": "Process[*].\"Platform Identifier\"",
+        "unit": [
+          "[\"Emissions to air/\", Process[*].\"Emissions to air\".[2]]",
+          "[\"Emissions to soil/\", Process[*].\"Emissions to soil\".[2]]",
+          "[\"Emissions to water/\", Process[*].\"Emissions to water\".[2]]",
+          "[\"Resources/\", Process[*].\"Resources\".[2]]"
+        ],
+        "context": [
+          "[\"Emissions to air/\", Process[*].\"Emissions to air\".[1]]",
+          "[\"Emissions to soil/\", Process[*].\"Emissions to soil\".[1]]",
+          "[\"Emissions to water/\", Process[*].\"Emissions to water\".[1]]",
+          "[\"Resources/\", Process[*].\"Resources\".[1]]"
+        ]
+      }
+    },
+    "target": {
+      "expression language": "XPath",
+      "labels": {
+        "name": "//*:elementaryExchange/*:name/text()",
+        "unit": "//*:elementaryExchange/*:unitName/text()",
+        "uuid": "//*:elementaryExchange/@elementaryExchangeId",
+        "formula": "//*:elementaryExchange/@formula",
+        "context": [
+          "//*:elementaryExchange/*:compartment/*:compartment/text()",
+          "//*:elementaryExchange/*:compartment/*:subcompartment/text()"
+        ]
+      }
+    }
+  },
+  "source_id": "agribalyse-3.1.1-biosphere",
+  "target_id": "ecoinvent-3.10-biosphere",
+  "replace": [
+    {
+      "source": {
+        "name": "1,2-Dichloropropane & 1,3-dichloropropene"
+      },
+      "target": {
+        "name": "1,3-Dichloropropene"
+      },
+      "comment": "manual match"
+    },
+    {
+      "source": {
+        "context": [
+          "Emissions to soil",
+          ""
+        ],
+        "name": "2,4-D"
+      },
+      "target": {
+        "context": [
+          "soil",
+          "agricultural"
+        ]
+      },
+      "comment": "manual match"
+    },
+    {
+      "source": {
+        "name": "2-Butene"
+      },
+      "target": {
+        "name": "Butene"
+      },
+      "comment": "manual match"
+    },
+    {
+      "source": {
+        "name": "5-methyl Chrysene"
+      },
+      "target": {
+        "name": "Chrysene"
+      },
+      "comment": "manual match"
+    },
+    {
+      "source": {
+        "name": "AOX, Adsorbable Organic Halogen"
+      },
+      "target": {
+        "name": "AOX, Adsorbable Organic Halides"
+      },
+      "comment": "manual match"
+    },
+    {
+      "source": {
+        "context": [
+          "Emissions to soil",
+          ""
+        ],
+        "name": "Acephate"
+      },
+      "target": {
+        "context": [
+          "soil",
+          "agricultural"
+        ]
+      },
+      "comment": "manual match"
+    },
+    {
+      "source": {
+        "name": "Acetamiprid"
+      },
+      "target": {
+        "context": [
+          "soil",
+          "agricultural"
+        ]
+      },
+      "comment": "manual match"
+    },
+    {
+      "source": {
+        "context": [
+          "Emissions to air",
+          ""
+        ],
+        "name": "Alkenes, C7"
+      },
+      "target": {
+        "name": "Heptane"
+      },
+      "comment": "manual match"
+    },
+    {
+      "source": {
+        "context": [
+          "Emissions to soil",
+          ""
+        ],
+        "name": "Alpha-cypermethrin"
+      },
+      "target": {
+        "context": [
+          "soil",
+          "agricultural"
+        ]
+      },
+      "comment": "manual match"
+    },
+    {
+      "source": {
+        "context": [
+          "Emissions to water",
+          ""
+        ],
+        "name": "Ammonia, as N"
+      },
+      "target": {
+        "name": "Ammonium"
+      },
+      "comment": "manual match"
+    },
+    {
+      "source": {
+        "context": [
+          "Emissions to air",
+          ""
+        ],
+        "name": "Ammonium, ion"
+      },
+      "target": {
+        "name": "Ammonia"
+      },
+      "comment": "manual match"
+    },
+    {
+      "source": {
+        "context": [
+          "Emissions to water",
+          "groundwater"
+        ],
+        "name": "Arsenic"
+      },
+      "target": {
+        "name": "Arsenic ion"
+      },
+      "comment": "manual match"
+    },
+    {
+      "source": {
+        "context": [
+          "Emissions to water",
+          "ocean"
+        ],
+        "name": "Arsenic (V)"
+      },
+      "target": {
+        "name": "Arsenic ion"
+      },
+      "comment": "manual match"
+    },
+    {
+      "source": {
+        "context": [
+          "Emissions to water",
+          "river"
+        ],
+        "name": "Arsenic (V)"
+      },
+      "target": {
+        "name": "Arsenic ion"
+      },
+      "comment": "manual match"
+    },
+    {
+      "source": {
+        "context": [
+          "Emissions to soil",
+          ""
+        ],
+        "name": "Atrazine"
+      },
+      "target": {
+        "context": [
+          "soil",
+          "agricultural"
+        ]
+      },
+      "comment": "manual match"
+    },
+    {
+      "source": {
+        "context": [
+          "Emissions to soil",
+          ""
+        ],
+        "name": "Azoxystrobin"
+      },
+      "target": {
+        "context": [
+          "soil",
+          "agricultural"
+        ]
+      },
+      "comment": "manual match"
+    },
+    {
+      "source": {
+        "name": "BOD5 (Biological Oxygen Demand), CN"
+      },
+      "target": {
+        "name": "BOD5, Biological Oxygen Demand"
+      },
+      "comment": "manual match"
+    },
+    {
+      "source": {
+        "context": [
+          "Emissions to air",
+          ""
+        ],
+        "name": "BTEX (Benzene, Toluene, Ethylbenzene, and Xylene), unspecified ratio"
+      },
+      "target": {
+        "name": "Benzene"
+      },
+      "comment": "manual match"
+    },
+    {
+      "source": {
+        "context": [
+          "Resources",
+          ""
+        ],
+        "name": "Bauxite"
+      },
+      "target": {
+        "name": ""
+      },
+      "comment": "manual match"
+    },
+    {
+      "source": {
+        "context": [
+          "Resources",
+          "in ground"
+        ],
+        "name": "Bauxite"
+      },
+      "target": {
+        "name": "Aluminium"
+      },
+      "comment": "manual match",
+      "conversion_factor": 0.2
+    },
+    {
+      "source": {
+        "context": [
+          "Emissions to soil",
+          ""
+        ],
+        "name": "Beta-cyfluthrin"
+      },
+      "target": {
+        "context": [
+          "soil",
+          "agricultural"
+        ]
+      },
+      "comment": "manual match"
+    },
+    {
+      "source": {
+        "context": [
+          "Emissions to soil",
+          ""
+        ],
+        "name": "Bifenthrin"
+      },
+      "target": {
+        "context": [
+          "soil",
+          "agricultural"
+        ]
+      },
+      "comment": "manual match"
+    },
+    {
+      "source": {
+        "context": [
+          "Resources",
+          ""
+        ],
+        "name": "Borax"
+      },
+      "target": {
+        "context": [
+          "natural resource",
+          "in ground"
+        ]
+      },
+      "comment": "manual match"
+    },
+    {
+      "source": {
+        "context": [
+          "Emissions to water",
+          "lake"
+        ],
+        "name": "Cadmium (II)"
+      },
+      "target": {
+        "name": "Cadmium II"
+      },
+      "comment": "manual match"
+    },
+    {
+      "source": {
+        "name": "Cesium-134"
+      },
+      "target": {
+        "name": "Caesium-134"
+      },
+      "comment": "manual match"
+    },
+    {
+      "source": {
+        "name": "Cesium-137"
+      },
+      "target": {
+        "name": "Caesium-137"
+      },
+      "comment": "manual match"
+    },
+    {
+      "source": {
+        "context": [
+          "Emissions to water",
+          ""
+        ],
+        "name": "Chromium compounds"
+      },
+      "target": {
+        "name": ""
+      },
+      "comment": "manual match"
+    },
+    {
+      "source": {
+        "context": [
+          "Resources",
+          ""
+        ],
+        "name": "Chrysotile"
+      },
+      "target": {
+        "context": ["natural resource", "in ground"]
+      },
+      "comment": "manual match"
+    },
+    {
+      "source": {
+        "context": [
+          "Resources",
+          "in ground"
+        ],
+        "name": "Coal, 18 MJ per kg"
+      },
+      "target": {
+        "name": "Coal, hard"
+      },
+      "comment": "manual match"
+    },
+    {
+      "source": {
+        "context": [
+          "Resources",
+          "in ground"
+        ],
+        "name": "Coal, 26.4 MJ per kg"
+      },
+      "target": {
+        "name": "Coal, hard"
+      },
+      "comment": "manual match"
+    },
+    {
+      "source": {
+        "context": [
+          "Resources",
+          "in ground"
+        ],
+        "name": "Coal, 29.3 MJ per kg"
+      },
+      "target": {
+        "name": "Coal, hard"
+      },
+      "comment": "manual match"
+    },
+    {
+      "source": {
+        "context": [
+          "Resources",
+          "in ground"
+        ],
+        "name": "Coal, brown, 10 MJ per kg"
+      },
+      "target": {
+        "name": "Coal, brown"
+      },
+      "comment": "manual match"
+    },
+    {
+      "source": {
+        "context": [
+          "Resources",
+          ""
+        ],
+        "name": "Coal, hard"
+      },
+      "target": {
+        "context": ["natural resource", "in ground"]
+      },
+      "comment": "manual match"
+    },
+    {
+      "source": {
+        "context": [
+          "Resources",
+          "in ground"
+        ],
+        "name": "Copper ore"
+      },
+      "target": {
+        "name": "Copper"
+      },
+      "comment": "manual match"
+    },
+    {
+      "source": {
+        "context": [
+          "Emissions to soil",
+          ""
+        ],
+        "name": "Cypermethrin"
+      },
+      "target": {
+        "context": [
+          "soil",
+          "agricultural"
+        ]
+      },
+      "comment": "manual match"
+    },
+    {
+      "source": {
+        "context": [
+          "Emissions to soil",
+          ""
+        ],
+        "name": "Cyproconazole"
+      },
+      "target": {
+        "context": [
+          "soil",
+          "agricultural"
+        ]
+      },
+      "comment": "manual match"
+    },
+    {
+      "source": {
+        "context": [
+          "Emissions to soil",
+          ""
+        ],
+        "name": "Thiram"
+      },
+      "target": {
+        "context": ["soil", "agricultural"]
+      },
+      "comment": "manual match"
+    },
+    {
+      "source": {
+        "context": [
+          "Emissions to air",
+          ""
+        ],
+        "name": "Tin (IV) oxide"
+      },
+      "target": {
+        "name": "Tin ion"
+      },
+      "comment": "manual match"
+    },
+    {
+      "source": {
+        "context": [
+          "Resources",
+          ""
+        ],
+        "name": "Titanium oxide"
+      },
+      "target": {
+        "name": "Titanium",
+        "context": ["natural resource", "in ground"]
+      },
+      "comment": "manual match"
+    },
+    {
+      "source": {
+        "context": [
+          "Emissions to air",
+          "low. pop."
+        ],
+        "name": "Triallate"
+      },
+      "target": {
+        "context": ["air", "low population density, long-term"]
+      },
+      "comment": "manual match"
+    },
+    {
+      "source": {
+        "context": [
+          "Emissions to soil",
+          "forestry"
+        ],
+        "name": "Triallate"
+      },
+      "target": {
+        "context": ["soil", "agricultural"]
+      },
+      "comment": "manual match"
+    },
+    {
+      "source": {
+        "context": [
+          "Emissions to water",
+          ""
+        ],
+        "name": "Tributyltin oxide"
+      },
+      "target": {
+        "name": "Tributyltin compounds"
+      },
+      "comment": "manual match"
+    },
+    {
+      "source": {
+        "context": [
+          "Emissions to soil",
+          ""
+        ],
+        "name": "Trifluralin"
+      },
+      "target": {
+        "context": ["soil", "agricultural"]
+      },
+      "comment": "manual match"
+    },
+    {
+      "source": {
+        "context": [
+          "Resources",
+          ""
+        ],
+        "name": "Uranium"
+      },
+      "target": {
+        "context": ["natural resource", "in ground"]
+      },
+      "comment": "manual match"
+    },
+    {
+      "source": {
+        "context": [
+          "Resources",
+          "in ground"
+        ],
+        "name": "Uranium ore, 1.11 GJ per kg"
+      },
+      "target": {
+        "name": "Uranium"
+      },
+      "comment": "manual match"
+    },
+    {
+      "source": {
+        "context": [
+          "Resources",
+          "in ground"
+        ],
+        "name": "Uranium oxide, 332 GJ per kg, in ore"
+      },
+      "target": {
+        "name": "Uranium"
+      },
+      "comment": "manual match"
+    },
+    {
+      "source": {
+        "context": [
+          "Resources",
+          "in ground"
+        ],
+        "name": "Uranium, 2291 GJ per kg"
+      },
+      "target": {
+        "name": "Uranium"
+      },
+      "comment": "manual match"
+    },
+    {
+      "source": {
+        "context": [
+          "Resources",
+          "in ground"
+        ],
+        "name": "Uranium, 451 GJ per kg"
+      },
+      "target": {
+        "name": "Uranium"
+      },
+      "comment": "manual match"
+    },
+    {
+      "source": {
+        "context": [
+          "Resources",
+          "in ground"
+        ],
+        "name": "Uranium, 560 GJ per kg"
+      },
+      "target": {
+        "name": "Uranium"
+      },
+      "comment": "manual match"
+    },
+    {
+      "source": {
+        "context": [
+          "Emissions to water",
+          ""
+        ],
+        "name": "VOC, volatile organic compounds as C"
+      },
+      "target": {
+        "name": "VOC, volatile organic compounds"
+      },
+      "comment": "manual match"
+    },
+    {
+      "source": {
+        "context": [
+          "Emissions to air",
+          "low. pop."
+        ],
+        "name": "VOC, volatile organic compounds, unspecified origin"
+      },
+      "target": {
+        "name": "VOC, volatile organic compounds"
+      },
+      "comment": "manual match"
+    },
+    {
+      "source": {
+        "context": [
+          "Emissions to air",
+          ""
+        ],
+        "name": "Water (evapotranspiration)"
+      },
+      "target": {
+        "name": "Water"
+      },
+      "comment": "manual match"
+    },
+    {
+      "source": {
+        "context": [
+          "Emissions to air",
+          "low. pop."
+        ],
+        "name": "Water (evapotranspiration)"
+      },
+      "target": {
+        "name": "Water"
+      },
+      "comment": "manual match"
+    },
+    {
+      "source": {
+        "context": [
+          "Emissions to water",
+          "river"
+        ],
+        "name": "Water (river water from technosphere, turbined)"
+      },
+      "target": {
+        "name": "Water"
+      },
+      "comment": "manual match"
+    },
+    {
+      "source": {
+        "context": [
+          "Resources",
+          "in water"
+        ],
+        "name": "Water, barrage"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin",
+        "context": ["natural resource", "in water"]
+      },
+      "comment": "manual match"
+    },
+    {
+      "source": {
+        "context": [
+          "Resources",
+          ""
+        ],
+        "name": "Water, cooling, salt, ocean"
+      },
+      "target": {
+        "name": "Water, salt, ocean",
+        "context": ["natural resource", "in water"]
+      },
+      "comment": "manual match"
+    },
+    {
+      "source": {
+        "context": [
+          "Resources",
+          "in water"
+        ],
+        "name": "Water, cooling, salt, ocean"
+      },
+      "target": {
+        "name": "Water, salt, ocean",
+        "context": ["natural resource", "in water"]
+      },
+      "comment": "manual match"
+    },
+    {
+      "source": {
+        "context": [
+          "Resources",
+          "land"
+        ],
+        "name": "Water, cooling, salt, ocean"
+      },
+      "target": {
+        "name": "Water, salt, ocean",
+        "context": ["natural resource", "in water"]
+      },
+      "comment": "manual match"
+    },
+    {
+      "source": {
+        "context": [
+          "Resources",
+          ""
+        ],
+        "name": "Water, cooling, surface"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin",
+        "context": ["natural resource", "in water"]
+      },
+      "comment": "manual match"
+    },
+    {
+      "source": {
+        "context": [
+          "Resources",
+          "in water"
+        ],
+        "name": "Water, cooling, unspecified natural origin, CO"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin",
+        "context": ["natural resource", "in water"]
+      },
+      "comment": "manual match"
+    },
+    {
+      "source": {
+        "context": [
+          "Resources",
+          ""
+        ],
+        "name": "Water, cooling, unspecified natural origin/kg"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin",
+        "context": ["natural resource", "in water"],
+        "unit": "m3"
+      },
+      "conversion_factor": 0.001,
+      "comment": "manual match"
+    },
+    {
+      "source": {
+        "context": [
+          "Resources",
+          "in water"
+        ],
+        "name": "Water, cooling, unspecified natural origin/kg"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin",
+        "context": ["natural resource", "in water"],
+        "unit": "m3"
+      },
+      "comment": "manual match",
+      "conversion_factor": 0.001
+    },
+    {
+      "source": {
+        "context": [
+          "Resources",
+          "in ground"
+        ],
+        "name": "Water, cooling, well"
+      },
+      "target": {
+        "name": "Water, well, in ground",
+        "context": ["natural resource", "in water"]
+      },
+      "comment": "manual match"
+    },
+    {
+      "source": {
+        "context": [
+          "Resources",
+          "in water"
+        ],
+        "name": "Water, fossil"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin",
+        "context": ["natural resource", "fossil well"]
+      },
+      "comment": "manual match"
+    },
+    {
+      "source": {
+        "context": [
+          "Resources",
+          "in water"
+        ],
+        "name": "Water, fresh"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin",
+        "context": ["natural resource", "in water"]
+      },
+      "comment": "manual match"
+    },
+    {
+      "source": {
+        "context": [
+          "Resources",
+          ""
+        ],
+        "name": "Water, fresh"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin",
+        "context": ["natural resource", "in water"]
+      },
+      "comment": "manual match"
+    },
+    {
+      "source": {
+        "context": [
+          "Resources",
+          ""
+        ],
+        "name": "Water, groundwater consumption"
+      },
+      "target": {
+        "name": "Water, well, in ground",
+        "context": ["natural resource", "in water"]
+      },
+      "comment": "manual match"
+    },
+    {
+      "source": {
+        "context": [
+          "Resources",
+          "in water"
+        ],
+        "name": "Water, process, unspecified natural origin/m3"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      },
+      "comment": "manual match"
+    },
+    {
+      "source": {
+        "context": [
+          "Resources",
+          "in water"
+        ],
+        "name": "Water, rain"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin",
+        "context": ["natural resource", "in water"]
+      },
+      "comment": "manual match"
+    },
+    {
+      "source": {
+        "context": [
+          "Emissions to water",
+          "groundwater"
+        ],
+        "name": "Water, rain"
+      },
+      "target": {
+        "name": "Water"
+      },
+      "comment": "manual match"
+    },
+    {
+      "source": {
+        "context": [
+          "Emissions to water",
+          "river"
+        ],
+        "name": "Water, rain"
+      },
+      "target": {
+        "name": "Water"
+      },
+      "comment": "manual match"
+    },
+    {
+      "source": {
+        "context": [
+          "Resources",
+          ""
+        ],
+        "name": "Water, rain"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin",
+        "context": ["natural resource", "in water"]
+      },
+      "comment": "manual match"
+    },
+    {
+      "source": {
+        "context": [
+          "Resources",
+          ""
+        ],
+        "name": "Water, surface water consumption"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin",
+        "context": ["natural resource", "in water"]
+      },
+      "comment": "manual match"
+    },
+    {
+      "source": {
+        "context": [
+          "Resources",
+          "in water"
+        ],
+        "name": "Water, unspecified natural origin/kg"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin",
+        "unit": "m3"
+      },
+      "conversion_factor": 0.001,
+      "comment": "manual match"
+    },
+    {
+      "source": {
+        "context": [
+          "Resources",
+          ""
+        ],
+        "name": "Water, unspecified natural origin/kg"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin",
+        "unit": "m3",
+        "context": ["natural resource", "in water"]
+      },
+      "comment": "manual match",
+      "conversion_factor": 0.001
+    },
+    {
+      "source": {
+        "context": [
+          "Resources",
+          ""
+        ],
+        "name": "Water, well, BE"
+      },
+      "target": {
+        "name": "Water, well, in ground",
+        "context": ["natural resource", "in water"]
+      },
+      "comment": "manual match"
+    },
+    {
+      "source": {
+        "context": [
+          "Resources",
+          ""
+        ],
+        "name": "Water, well, BR"
+      },
+      "target": {
+        "name": "Water, well, in ground",
+        "context": ["natural resource", "in water"]
+      },
+      "comment": "manual match"
+    },
+    {
+      "source": {
+        "context": [
+          "Resources",
+          "in ground"
+        ],
+        "name": "Water, well, CL"
+      },
+      "target": {
+        "name": "Water, well, in ground",
+        "context": ["natural resource", "in water"]
+      },
+      "comment": "manual match"
+    },
+    {
+      "source": {
+        "context": [
+          "Resources",
+          ""
+        ],
+        "name": "Water, well, CN"
+      },
+      "target": {
+        "name": "Water, well, in ground",
+        "context": ["natural resource", "in water"]
+      },
+      "comment": "manual match"
+    },
+    {
+      "source": {
+        "context": [
+          "Resources",
+          ""
+        ],
+        "name": "Water, well, CO"
+      },
+      "target": {
+        "name": "Water, well, in ground",
+        "context": ["natural resource", "in water"]
+      },
+      "comment": "manual match"
+    },
+    {
+      "source": {
+        "context": [
+          "Resources",
+          ""
+        ],
+        "name": "Water, well, CR"
+      },
+      "target": {
+        "name": "Water, well, in ground",
+        "context": ["natural resource", "in water"]
+      },
+      "comment": "manual match"
+    },
+    {
+      "source": {
+        "context": [
+          "Resources",
+          "in ground"
+        ],
+        "name": "Water, well, ES"
+      },
+      "target": {
+        "name": "Water, well, in ground",
+        "context": ["natural resource", "in water"]
+      },
+      "comment": "manual match"
+    },
+    {
+      "source": {
+        "context": [
+          "Resources",
+          ""
+        ],
+        "name": "Water, well, FR"
+      },
+      "target": {
+        "name": "Water, well, in ground",
+        "context": ["natural resource", "in water"]
+      },
+      "comment": "manual match"
+    },
+    {
+      "source": {
+        "context": [
+          "Resources",
+          "in ground"
+        ],
+        "name": "Water, well, FR"
+      },
+      "target": {
+        "name": "Water, well, in ground",
+        "context": ["natural resource", "in water"]
+      },
+      "comment": "manual match"
+    },
+    {
+      "source": {
+        "context": [
+          "Resources",
+          ""
+        ],
+        "name": "Water, well, ID"
+      },
+      "target": {
+        "name": "Water, well, in ground",
+        "context": ["natural resource", "in water"]
+      },
+      "comment": "manual match"
+    },
+    {
+      "source": {
+        "context": [
+          "Resources",
+          "in ground"
+        ],
+        "name": "Water, well, IL"
+      },
+      "target": {
+        "name": "Water, well, in ground",
+        "context": ["natural resource", "in water"]
+      },
+      "comment": "manual match"
+    },
+    {
+      "source": {
+        "context": [
+          "Resources",
+          "in ground"
+        ],
+        "name": "Water, well, IT"
+      },
+      "target": {
+        "name": "Water, well, in ground",
+        "context": ["natural resource", "in water"]
+      },
+      "comment": "manual match"
+    },
+    {
+      "source": {
+        "context": [
+          "Resources",
+          ""
+        ],
+        "name": "Water, well, IT"
+      },
+      "target": {
+        "name": "Water, well, in ground",
+        "context": ["natural resource", "in water"]
+      },
+      "comment": "manual match"
+    },
+    {
+      "source": {
+        "context": [
+          "Resources",
+          ""
+        ],
+        "name": "Water, well, KR"
+      },
+      "target": {
+        "name": "Water, well, in ground",
+        "context": ["natural resource", "in water"]
+      },
+      "comment": "manual match"
+    },
+    {
+      "source": {
+        "context": [
+          "Resources",
+          "in ground"
+        ],
+        "name": "Water, well, MX"
+      },
+      "target": {
+        "name": "Water, well, in ground",
+        "context": ["natural resource", "in water"]
+      },
+      "comment": "manual match"
+    },
+    {
+      "source": {
+        "context": [
+          "Resources",
+          "in ground"
+        ],
+        "name": "Water, well, PE"
+      },
+      "target": {
+        "name": "Water, well, in ground",
+        "context": ["natural resource", "in water"]
+      },
+      "comment": "manual match"
+    },
+    {
+      "source": {
+        "context": [
+          "Resources",
+          "in ground"
+        ],
+        "name": "Water, well, RER"
+      },
+      "target": {
+        "name": "Water, well, in ground",
+        "context": ["natural resource", "in water"]
+      },
+      "comment": "manual match"
+    },
+    {
+      "source": {
+        "context": [
+          "Resources",
+          ""
+        ],
+        "name": "Water, well, RER"
+      },
+      "target": {
+        "name": "Water, well, in ground",
+        "context": ["natural resource", "in water"]
+      },
+      "comment": "manual match"
+    },
+    {
+      "source": {
+        "context": [
+          "Resources",
+          ""
+        ],
+        "name": "Water, well, US"
+      },
+      "target": {
+        "name": "Water, well, in ground",
+        "context": ["natural resource", "in water"]
+      },
+      "comment": "manual match"
+    },
+    {
+      "source": {
+        "context": [
+          "Emissions to water",
+          "lake"
+        ],
+        "name": "Zinc (II)"
+      },
+      "target": {
+        "name": "Zinc II"
+      },
+      "comment": "manual match"
+    },
+    {
+      "source": {
+        "context": [
+          "Resources",
+          "in ground"
+        ],
+        "name": "Zinc ore"
+      },
+      "target": {
+        "name": "Zinc"
+      },
+      "comment": "manual match"
+    }
+  ]
+}

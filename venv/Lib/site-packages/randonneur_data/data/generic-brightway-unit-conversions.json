@@ -1,0 +1,925 @@
+{
+  "name": "generic-brightway-unit-conversions",
+  "description": "Standard unit conversions used in most Brightway projects",
+  "contributors": [
+    {
+      "title": "Chris Mutel",
+      "path": "https://chris.mutel.org/",
+      "role": "author"
+    }
+  ],
+  "created": "2024-07-25T06:47:27.662777+00:00",
+  "version": "1.0.0",
+  "licenses": [
+    {
+      "name": "CC BY 4.0",
+      "path": "https://creativecommons.org/licenses/by/4.0/",
+      "title": "Creative Commons Attribution 4.0 International"
+    }
+  ],
+  "graph_context": [
+    "nodes",
+    "edges"
+  ],
+  "mapping": {
+    "source": {
+      "expression language": "JSONPath",
+      "labels": {
+        "unit": "Node.unit"
+      }
+    },
+    "target": {
+      "expression language": "JSONPath",
+      "labels": {
+        "unit": "Node.unit"
+      }
+    }
+  },
+  "source_id": "bw_interfaces_schemas-1",
+  "target_id": "bw_interfaces_schemas-1",
+  "homepage": "https://github.com/brightway-lca/bw_interface_schemas",
+  "replace": [
+    {
+      "source": {
+        "unit": "PJ"
+      },
+      "target": {
+        "unit": "megajoule",
+        "allocation": 1000000000.0
+      }
+    },
+    {
+      "source": {
+        "unit": "J"
+      },
+      "target": {
+        "unit": "megajoule",
+        "allocation": 1e-06
+      }
+    },
+    {
+      "source": {
+        "unit": "Nm3 Europe"
+      },
+      "target": {
+        "unit": "megajoule",
+        "allocation": 37.5
+      }
+    },
+    {
+      "source": {
+        "unit": "Bt"
+      },
+      "target": {
+        "unit": "megajoule",
+        "allocation": 0.001055696
+      }
+    },
+    {
+      "source": {
+        "unit": "kilojoule"
+      },
+      "target": {
+        "unit": "megajoule",
+        "allocation": 0.001
+      }
+    },
+    {
+      "source": {
+        "unit": "kg-NL"
+      },
+      "target": {
+        "unit": "megajoule",
+        "allocation": 42.4
+      }
+    },
+    {
+      "source": {
+        "unit": "Nm3-Russia"
+      },
+      "target": {
+        "unit": "megajoule",
+        "allocation": 36.4
+      }
+    },
+    {
+      "source": {
+        "unit": "Nm3-DZ"
+      },
+      "target": {
+        "unit": "megajoule",
+        "allocation": 38.5
+      }
+    },
+    {
+      "source": {
+        "unit": "Nm3-GB"
+      },
+      "target": {
+        "unit": "megajoule",
+        "allocation": 37.0
+      }
+    },
+    {
+      "source": {
+        "unit": "Nm3 - NG"
+      },
+      "target": {
+        "unit": "megajoule",
+        "allocation": 38.5
+      }
+    },
+    {
+      "source": {
+        "unit": "Nm3- Italy"
+      },
+      "target": {
+        "unit": "megajoule",
+        "allocation": 33.85
+      }
+    },
+    {
+      "source": {
+        "unit": "Nm3 F-v6"
+      },
+      "target": {
+        "unit": "megajoule",
+        "allocation": 36.894
+      }
+    },
+    {
+      "source": {
+        "unit": "kg-DZ"
+      },
+      "target": {
+        "unit": "megajoule",
+        "allocation": 49.7
+      }
+    },
+    {
+      "source": {
+        "unit": "kWp"
+      },
+      "target": {
+        "unit": "megajoule",
+        "allocation": 3.6
+      }
+    },
+    {
+      "source": {
+        "unit": "kg-DE"
+      },
+      "target": {
+        "unit": "megajoule",
+        "allocation": 45.9
+      }
+    },
+    {
+      "source": {
+        "unit": "gigajoule"
+      },
+      "target": {
+        "unit": "megajoule",
+        "allocation": 1000.0
+      }
+    },
+    {
+      "source": {
+        "unit": "kcal"
+      },
+      "target": {
+        "unit": "megajoule",
+        "allocation": 0.0041855
+      }
+    },
+    {
+      "source": {
+        "unit": "kg-RU"
+      },
+      "target": {
+        "unit": "megajoule",
+        "allocation": 49.3
+      }
+    },
+    {
+      "source": {
+        "unit": "kg-NO"
+      },
+      "target": {
+        "unit": "megajoule",
+        "allocation": 56.6
+      }
+    },
+    {
+      "source": {
+        "unit": "TJ"
+      },
+      "target": {
+        "unit": "megajoule",
+        "allocation": 1000000.0
+      }
+    },
+    {
+      "source": {
+        "unit": "Nm3-DE"
+      },
+      "target": {
+        "unit": "megajoule",
+        "allocation": 35.0
+      }
+    },
+    {
+      "source": {
+        "unit": "Nm3 FR"
+      },
+      "target": {
+        "unit": "megajoule",
+        "allocation": 37.09
+      }
+    },
+    {
+      "source": {
+        "unit": "Nm3 - EG"
+      },
+      "target": {
+        "unit": "megajoule",
+        "allocation": 38.5
+      }
+    },
+    {
+      "source": {
+        "unit": "Nm3-NL"
+      },
+      "target": {
+        "unit": "megajoule",
+        "allocation": 34.9
+      }
+    },
+    {
+      "source": {
+        "unit": "kg-GB"
+      },
+      "target": {
+        "unit": "megajoule",
+        "allocation": 47.0
+      }
+    },
+    {
+      "source": {
+        "unit": "NM3-Norway"
+      },
+      "target": {
+        "unit": "megajoule",
+        "allocation": 40.8
+      }
+    },
+    {
+      "source": {
+        "unit": "cal"
+      },
+      "target": {
+        "unit": "megajoule",
+        "allocation": 4.19e-06
+      }
+    },
+    {
+      "source": {
+        "unit": "MWh"
+      },
+      "target": {
+        "unit": "kilowatt hour",
+        "allocation": 1000.0
+      }
+    },
+    {
+      "source": {
+        "unit": "TWh"
+      },
+      "target": {
+        "unit": "kilowatt hour",
+        "allocation": 1000000000.0
+      }
+    },
+    {
+      "source": {
+        "unit": "watt hour"
+      },
+      "target": {
+        "unit": "kilowatt hour",
+        "allocation": 0.001
+      }
+    },
+    {
+      "source": {
+        "unit": "GWh"
+      },
+      "target": {
+        "unit": "kilowatt hour",
+        "allocation": 1000000.0
+      }
+    },
+    {
+      "source": {
+        "unit": "gram"
+      },
+      "target": {
+        "unit": "kilogram",
+        "allocation": 0.001
+      }
+    },
+    {
+      "source": {
+        "unit": "t"
+      },
+      "target": {
+        "unit": "kilogram",
+        "allocation": 1000.0
+      }
+    },
+    {
+      "source": {
+        "unit": "tMS"
+      },
+      "target": {
+        "unit": "kilogram",
+        "allocation": 1000.0
+      }
+    },
+    {
+      "source": {
+        "unit": "lb"
+      },
+      "target": {
+        "unit": "kilogram",
+        "allocation": 0.4535924
+      }
+    },
+    {
+      "source": {
+        "unit": "T"
+      },
+      "target": {
+        "unit": "kilogram",
+        "allocation": 1000.0
+      }
+    },
+    {
+      "source": {
+        "unit": "tn.sh"
+      },
+      "target": {
+        "unit": "kilogram",
+        "allocation": 907.1848
+      }
+    },
+    {
+      "source": {
+        "unit": "tMB"
+      },
+      "target": {
+        "unit": "kilogram",
+        "allocation": 1000.0
+      }
+    },
+    {
+      "source": {
+        "unit": "pg"
+      },
+      "target": {
+        "unit": "kilogram",
+        "allocation": 1e-15
+      }
+    },
+    {
+      "source": {
+        "unit": "mg"
+      },
+      "target": {
+        "unit": "kilogram",
+        "allocation": 1e-06
+      }
+    },
+    {
+      "source": {
+        "unit": "kton"
+      },
+      "target": {
+        "unit": "kilogram",
+        "allocation": 1000000.0
+      }
+    },
+    {
+      "source": {
+        "unit": "oz"
+      },
+      "target": {
+        "unit": "kilogram",
+        "allocation": 0.02834952
+      }
+    },
+    {
+      "source": {
+        "unit": "?g"
+      },
+      "target": {
+        "unit": "kilogram",
+        "allocation": 1e-09
+      }
+    },
+    {
+      "source": {
+        "unit": "μg"
+      },
+      "target": {
+        "unit": "kilogram",
+        "allocation": 1e-09
+      }
+    },
+    {
+      "source": {
+        "unit": "tn.lg"
+      },
+      "target": {
+        "unit": "kilogram",
+        "allocation": 1016.047
+      }
+    },
+    {
+      "source": {
+        "unit": "tOM"
+      },
+      "target": {
+        "unit": "kilogram",
+        "allocation": 1000.0
+      }
+    },
+    {
+      "source": {
+        "unit": "Mtn"
+      },
+      "target": {
+        "unit": "kilogram",
+        "allocation": 1000000000.0
+      }
+    },
+    {
+      "source": {
+        "unit": "ton"
+      },
+      "target": {
+        "unit": "kilogram",
+        "allocation": 1000.0
+      }
+    },
+    {
+      "source": {
+        "unit": "ng"
+      },
+      "target": {
+        "unit": "kilogram",
+        "allocation": 1e-12
+      }
+    },
+    {
+      "source": {
+        "unit": "yard"
+      },
+      "target": {
+        "unit": "meter",
+        "allocation": 0.9144
+      }
+    },
+    {
+      "source": {
+        "unit": "inch"
+      },
+      "target": {
+        "unit": "meter",
+        "allocation": 0.0254
+      }
+    },
+    {
+      "source": {
+        "unit": "mm"
+      },
+      "target": {
+        "unit": "meter",
+        "allocation": 0.001
+      }
+    },
+    {
+      "source": {
+        "unit": "dm"
+      },
+      "target": {
+        "unit": "meter",
+        "allocation": 0.1
+      }
+    },
+    {
+      "source": {
+        "unit": "Nautic mil"
+      },
+      "target": {
+        "unit": "meter",
+        "allocation": 1547.896
+      }
+    },
+    {
+      "source": {
+        "unit": "mile"
+      },
+      "target": {
+        "unit": "meter",
+        "allocation": 1609.35
+      }
+    },
+    {
+      "source": {
+        "unit": "cm"
+      },
+      "target": {
+        "unit": "meter",
+        "allocation": 0.01
+      }
+    },
+    {
+      "source": {
+        "unit": "ft"
+      },
+      "target": {
+        "unit": "meter",
+        "allocation": 0.3048
+      }
+    },
+    {
+      "source": {
+        "unit": "?m"
+      },
+      "target": {
+        "unit": "meter",
+        "allocation": 1e-06
+      }
+    },
+    {
+      "source": {
+        "unit": "μm"
+      },
+      "target": {
+        "unit": "meter",
+        "allocation": 1e-06
+      }
+    },
+    {
+      "source": {
+        "unit": "miy"
+      },
+      "target": {
+        "unit": "meter-year",
+        "allocation": 1609.35
+      }
+    },
+    {
+      "source": {
+        "unit": "kmy"
+      },
+      "target": {
+        "unit": "meter-year",
+        "allocation": 1000.0
+      }
+    },
+    {
+      "source": {
+        "unit": "dm3"
+      },
+      "target": {
+        "unit": "cubic meter",
+        "allocation": 0.001
+      }
+    },
+    {
+      "source": {
+        "unit": "cu.in"
+      },
+      "target": {
+        "unit": "cubic meter",
+        "allocation": 1.638706e-05
+      }
+    },
+    {
+      "source": {
+        "unit": "cuft"
+      },
+      "target": {
+        "unit": "cubic meter",
+        "allocation": 0.02831685
+      }
+    },
+    {
+      "source": {
+        "unit": "mm3"
+      },
+      "target": {
+        "unit": "cubic meter",
+        "allocation": 1e-09
+      }
+    },
+    {
+      "source": {
+        "unit": "gal*"
+      },
+      "target": {
+        "unit": "cubic meter",
+        "allocation": 0.003785412
+      }
+    },
+    {
+      "source": {
+        "unit": "cu.yd"
+      },
+      "target": {
+        "unit": "cubic meter",
+        "allocation": 0.7645549
+      }
+    },
+    {
+      "source": {
+        "unit": "cm3"
+      },
+      "target": {
+        "unit": "cubic meter",
+        "allocation": 1e-06
+      }
+    },
+    {
+      "source": {
+        "unit": "l*day"
+      },
+      "target": {
+        "unit": "cubic meter-year",
+        "allocation": 2.7397e-06
+      }
+    },
+    {
+      "source": {
+        "unit": "cm3y"
+      },
+      "target": {
+        "unit": "cubic meter-year",
+        "allocation": 1e-06
+      }
+    },
+    {
+      "source": {
+        "unit": "m3day"
+      },
+      "target": {
+        "unit": "cubic meter-year",
+        "allocation": 0.0027397
+      }
+    },
+    {
+      "source": {
+        "unit": "sq.mi"
+      },
+      "target": {
+        "unit": "square meter",
+        "allocation": 2589988.0
+      }
+    },
+    {
+      "source": {
+        "unit": "sq.ft"
+      },
+      "target": {
+        "unit": "square meter",
+        "allocation": 0.09290304
+      }
+    },
+    {
+      "source": {
+        "unit": "sq.in"
+      },
+      "target": {
+        "unit": "square meter",
+        "allocation": 0.00064516
+      }
+    },
+    {
+      "source": {
+        "unit": "sq.yd"
+      },
+      "target": {
+        "unit": "square meter",
+        "allocation": 0.8361273
+      }
+    },
+    {
+      "source": {
+        "unit": "cm2"
+      },
+      "target": {
+        "unit": "square meter",
+        "allocation": 0.0001
+      }
+    },
+    {
+      "source": {
+        "unit": "km2"
+      },
+      "target": {
+        "unit": "square meter",
+        "allocation": 1000000.0
+      }
+    },
+    {
+      "source": {
+        "unit": "dm2"
+      },
+      "target": {
+        "unit": "square meter",
+        "allocation": 0.01
+      }
+    },
+    {
+      "source": {
+        "unit": "acre"
+      },
+      "target": {
+        "unit": "square meter",
+        "allocation": 4046.856
+      }
+    },
+    {
+      "source": {
+        "unit": "mm2"
+      },
+      "target": {
+        "unit": "square meter",
+        "allocation": 1e-06
+      }
+    },
+    {
+      "source": {
+        "unit": "mm2a"
+      },
+      "target": {
+        "unit": "square meter-year",
+        "allocation": 1e-06
+      }
+    },
+    {
+      "source": {
+        "unit": "ha a"
+      },
+      "target": {
+        "unit": "square meter-year",
+        "allocation": 10000.0
+      }
+    },
+    {
+      "source": {
+        "unit": "cm2a"
+      },
+      "target": {
+        "unit": "square meter-year",
+        "allocation": 0.0001
+      }
+    },
+    {
+      "source": {
+        "unit": "km2a"
+      },
+      "target": {
+        "unit": "square meter-year",
+        "allocation": 1000000.0
+      }
+    },
+    {
+      "source": {
+        "unit": "nBq"
+      },
+      "target": {
+        "unit": "kilo Becquerel",
+        "allocation": 1e-12
+      }
+    },
+    {
+      "source": {
+        "unit": "Becquerel"
+      },
+      "target": {
+        "unit": "kilo Becquerel",
+        "allocation": 0.001
+      }
+    },
+    {
+      "source": {
+        "unit": "MBq"
+      },
+      "target": {
+        "unit": "kilo Becquerel",
+        "allocation": 1000.0
+      }
+    },
+    {
+      "source": {
+        "unit": "?Bq"
+      },
+      "target": {
+        "unit": "kilo Becquerel",
+        "allocation": 1e-09
+      }
+    },
+    {
+      "source": {
+        "unit": "μBq"
+      },
+      "target": {
+        "unit": "kilo Becquerel",
+        "allocation": 1e-09
+      }
+    },
+    {
+      "source": {
+        "unit": "mBq"
+      },
+      "target": {
+        "unit": "kilo Becquerel",
+        "allocation": 1e-06
+      }
+    },
+    {
+      "source": {
+        "unit": "s"
+      },
+      "target": {
+        "unit": "hour",
+        "allocation": 3600.0
+      }
+    },
+    {
+      "source": {
+        "unit": "day"
+      },
+      "target": {
+        "unit": "hour",
+        "allocation": 0.041666666666666664
+      }
+    },
+    {
+      "source": {
+        "unit": "year"
+      },
+      "target": {
+        "unit": "hour",
+        "allocation": 0.00011407958876589842
+      }
+    },
+    {
+      "source": {
+        "unit": "min"
+      },
+      "target": {
+        "unit": "hour",
+        "allocation": 60.0
+      }
+    },
+    {
+      "source": {
+        "unit": "pmi"
+      },
+      "target": {
+        "unit": "person kilometer",
+        "allocation": 1.60935
+      }
+    },
+    {
+      "source": {
+        "unit": "kilogram kilometer"
+      },
+      "target": {
+        "unit": "ton kilometer",
+        "allocation": 0.001
+      }
+    },
+    {
+      "source": {
+        "unit": "tmi*"
+      },
+      "target": {
+        "unit": "ton kilometer",
+        "allocation": 1.45997
+      }
+    },
+    {
+      "source": {
+        "unit": "ktkm"
+      },
+      "target": {
+        "unit": "ton kilometer",
+        "allocation": 1000.0
+      }
+    }
+  ]
+}

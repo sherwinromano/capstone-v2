@@ -1,0 +1,58 @@
+Metadata-Version: 2.1
+Name: bw2parameters
+Version: 1.1.0
+Summary: Contains all the python boilerplate you need to create a Brightway ecosystem package.
+Home-page: https://github.com/brightway-lca/brightway2-parameters
+Author: Chris Mutel
+Author-email: <cmutel@gmail.com>
+Maintainer: Chris Mutel
+Maintainer-email: <cmutel@gmail.com>
+License: BSD-3-Clause
+Project-URL: source, https://github.com/brightway-lca/brightway2-parameters
+Project-URL: homepage, https://github.com/brightway-lca/brightway2-parameters
+Project-URL: tracker, https://github.com/brightway-lca/brightway2-parameters/issues
+Keywords: "brightway","development"
+Platform: any
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown; charset=UTF-8
+License-File: LICENSE
+Requires-Dist: asteval
+Requires-Dist: astunparse
+Requires-Dist: numpy
+Requires-Dist: stats-arrays
+Requires-Dist: pint
+Provides-Extra: dev
+Requires-Dist: pre-commit ; extra == 'dev'
+Requires-Dist: pylint ; extra == 'dev'
+Provides-Extra: docs
+Requires-Dist: sphinx ; extra == 'docs'
+Requires-Dist: myst-parser ; extra == 'docs'
+Requires-Dist: furo ; extra == 'docs'
+Provides-Extra: testing
+Requires-Dist: setuptools ; extra == 'testing'
+Requires-Dist: pytest ; extra == 'testing'
+Requires-Dist: pytest-cov ; extra == 'testing'
+
+# Brightway2 parameters
+
+Library for storing, validating, and calculating with parameters. Designed to work with the [Brightway2 life cycle assessment framework](https://brightwaylca.org), but is generic enough to work in other use cases.
+
+    In [1]: from bw2parameters import ParameterSet
+
+    In [2]: parameters = {
+       ...:        'Deep_Thought': {'amount': 42},
+       ...:        'East_River_Creature': {'formula': '2 * Deep_Thought + 16'},
+       ...:        'Elders_of_Krikkit': {'formula': 'sqrt(East_River_Creature)'},
+       ...: }
+
+    In [3]: ParameterSet(parameters).evaluate()
+    Out[3]: {'Deep_Thought': 42, 'East_River_Creature': 100, 'Elders_of_Krikkit': 10.0}
+
+Compatible with Python 2.7 and 3.3+. 100% test coverage. [Source code on Github](https://github.com/brightway-lca/brightway2-parameters), documentation on [Read the Docs](https://brightway2-parameters.readthedocs.io/).

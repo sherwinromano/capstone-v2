@@ -113,6 +113,7 @@ class MedicalClearance(models.Model):
         return f"Medical clearance for {self.patient.student.firstname} {self.patient.student.lastname}"
 
 class RiskAssessment(models.Model):
+    medical_clearance = models.OneToOneField(MedicalClearance, on_delete=models.CASCADE, related_name="riskassessment", null=True, blank=True)
     id = models.AutoField(primary_key=True)
     clearance = models.OneToOneField(Patient, on_delete=models.CASCADE)
     cardiovascular_disease = models.BooleanField(default=False)
@@ -140,6 +141,7 @@ class RiskAssessment(models.Model):
     # pwd_id_card = models.FileField(upload_to=pwd_path, null=True, blank=True)
     
 class MedicalRequirement(models.Model):
+
     patient = models.OneToOneField(Patient, on_delete=models.CASCADE)
     #clearance = models.OneToOneField(MedicalClearance, on_delete=models.CASCADE)
     vaccination_type = models.CharField(max_length=50, null=True, blank=True)
@@ -267,19 +269,19 @@ class TransactionRecord(models.Model):
     #     return f"{self.student.firstname} {self.student.lastname}"
     
 class MentalHealthRecord(models.Model):
+    STATUS_CHOICES = [
+        ('pending', 'Pending'),
+        ('approved', 'Approved'),
+        ('rejected', 'Rejected'),
+    ]
+    
     patient = models.ForeignKey(Patient, on_delete=models.CASCADE)
-    date_submitted = models.DateTimeField(auto_now_add=True)
     prescription = models.FileField(upload_to='mental_health/prescriptions/')
     certification = models.FileField(upload_to='mental_health/certifications/')
-    status = models.CharField(max_length=20, choices=[
-        ('pending', 'Pending Review'),
-        ('approved', 'Approved'),
-        ('rejected', 'Rejected')
-    ], default='pending')
+    date_submitted = models.DateTimeField(auto_now_add=True)
+    status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='pending')
     notes = models.TextField(blank=True)
-    reviewed_by = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
-    reviewed_at = models.DateTimeField(null=True, blank=True)
 
     def __str__(self):
-        return f"Mental Health Record - {self.patient.student.firstname} {self.patient.student.lastname}"
+        return f"Mental Health Record - {self.patient.student.student_id}"
     

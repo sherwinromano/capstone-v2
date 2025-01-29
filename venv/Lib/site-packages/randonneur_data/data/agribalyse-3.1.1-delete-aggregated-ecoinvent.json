@@ -1,0 +1,8890 @@
+{
+  "name": "agribalyse-3.1.1-delete-aggregated-ecoinvent",
+  "description": "Delete ecoinvent activities from Agribalyse 3.1.1 given as aggregated processes",
+  "contributors": [
+    {
+      "title": "Chris Mutel",
+      "path": "https://chris.mutel.org/",
+      "role": "author"
+    }
+  ],
+  "created": "2024-09-11T21:46:04.938335+00:00",
+  "version": "1.0.0",
+  "licenses": [
+    {
+      "name": "CC-BY-4.0",
+      "path": "https://creativecommons.org/licenses/by/4.0/legalcode",
+      "title": "Creative Commons Attribution 4.0 International"
+    }
+  ],
+  "graph_context": [
+    "nodes"
+  ],
+  "mapping": {
+    "source": {
+      "expression language": "like JSONPath",
+      "labels": {
+        "identifier": "Process[*].\"Process identifier\".text",
+        "name": "Process[*].Products[*].text[0]",
+        "platform_id": "Process[*].\"Platform Identifier\"",
+        "unit": [
+          "[\"Emissions to air/\", Process[*].\"Emissions to air\".[2]]",
+          "[\"Emissions to soil/\", Process[*].\"Emissions to soil\".[2]]",
+          "[\"Emissions to water/\", Process[*].\"Emissions to water\".[2]]",
+          "[\"Resources/\", Process[*].\"Resources\".[2]]"
+        ],
+        "context": [
+          "[\"Emissions to air/\", Process[*].\"Emissions to air\".[1]]",
+          "[\"Emissions to soil/\", Process[*].\"Emissions to soil\".[1]]",
+          "[\"Emissions to water/\", Process[*].\"Emissions to water\".[1]]",
+          "[\"Resources/\", Process[*].\"Resources\".[1]]"
+        ]
+      }
+    },
+    "target": {
+      "expression language": "like JSONPath",
+      "labels": {
+        "identifier": "Process[*].\"Process identifier\".text",
+        "name": "Process[*].Products[*].text[0]",
+        "platform_id": "Process[*].\"Platform Identifier\"",
+        "unit": [
+          "[\"Emissions to air/\", Process[*].\"Emissions to air\".[2]]",
+          "[\"Emissions to soil/\", Process[*].\"Emissions to soil\".[2]]",
+          "[\"Emissions to water/\", Process[*].\"Emissions to water\".[2]]",
+          "[\"Resources/\", Process[*].\"Resources\".[2]]"
+        ],
+        "context": [
+          "[\"Emissions to air/\", Process[*].\"Emissions to air\".[1]]",
+          "[\"Emissions to soil/\", Process[*].\"Emissions to soil\".[1]]",
+          "[\"Emissions to water/\", Process[*].\"Emissions to water\".[1]]",
+          "[\"Resources/\", Process[*].\"Resources\".[1]]"
+        ]
+      }
+    }
+  },
+  "source_id": "agribalyse-3.1.1",
+  "target_id": "agribalyse-3.1.1",
+  "homepage": "https://www.data.gouv.fr/fr/datasets/agribalyse-3-1-1-synthese/",
+  "delete": [
+    {
+      "source": {
+        "name": "treatment of hard coal ash, residual material landfill PL"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, medium voltage OM"
+      }
+    },
+    {
+      "source": {
+        "name": "transport, helicopter, LTO cycle GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for wood chips, dry, measured as dry mass RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for power sawing, without catalytic converter GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "heat production, light fuel oil, at industrial furnace 1MW RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for irrigation TN"
+      }
+    },
+    {
+      "source": {
+        "name": "electricity production, photovoltaic, 3kWp slanted-roof installation, multi-Si,"
+      }
+    },
+    {
+      "source": {
+        "name": "market for waste polyethylene BE"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic nitrogen fertiliser, as N MY"
+      }
+    },
+    {
+      "source": {
+        "name": "market for sawnwood, board, softwood, raw, dried (u=20%) GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for copper, cathode GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "ethanol production from whey CH"
+      }
+    },
+    {
+      "source": {
+        "name": "market for formic acid RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for sulfur GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic potassium fertiliser, as K2O CI"
+      }
+    },
+    {
+      "source": {
+        "name": "market for passenger car, diesel GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic nitrogen fertiliser, as N RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for nitrogen, liquid RER"
+      }
+    },
+    {
+      "source": {
+        "name": "primary zinc production from concentrate RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "transport, freight train, diesel Europe without Switzerland"
+      }
+    },
+    {
+      "source": {
+        "name": "bitumen seal production RER"
+      }
+    },
+    {
+      "source": {
+        "name": "treatment of non-sulfidic overburden, off-site GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for land use change, annual crop UA"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, medium voltage KH"
+      }
+    },
+    {
+      "source": {
+        "name": "market for lead GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market group for irrigation GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for waste concrete CH"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, low voltage EC"
+      }
+    },
+    {
+      "source": {
+        "name": "market for dithiocarbamate-compound GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for tap water CH"
+      }
+    },
+    {
+      "source": {
+        "name": "market for irrigation ZA"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic nitrogen fertiliser, as N LU"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic potassium fertiliser, as K2O CY"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, medium voltage TT"
+      }
+    },
+    {
+      "source": {
+        "name": "market for folpet GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for battery, Li-ion, rechargeable, prismatic GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic potassium fertiliser, as K2O PH"
+      }
+    },
+    {
+      "source": {
+        "name": "treatment of waste concrete, not reinforced, collection for final disposal CH"
+      }
+    },
+    {
+      "source": {
+        "name": "market for compressed air, 600 kPa gauge RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, low voltage GA"
+      }
+    },
+    {
+      "source": {
+        "name": "market group for electricity, low voltage RNA"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, medium voltage BE"
+      }
+    },
+    {
+      "source": {
+        "name": "market for sawnwood, softwood, dried (u=20%), planed RER"
+      }
+    },
+    {
+      "source": {
+        "name": "heat production, natural gas, at boiler fan burner low-NOx non-modulating <100kW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for tap water ZA"
+      }
+    },
+    {
+      "source": {
+        "name": "market for solvent, organic GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "liquid manure spreading, by vacuum tanker CA-QC"
+      }
+    },
+    {
+      "source": {
+        "name": "market for sawlog and veneer log, azobe, debarked, measured as solid wood RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic nitrogen fertiliser, as N CI"
+      }
+    },
+    {
+      "source": {
+        "name": "market for sulfuric acid RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for alfalfa-grass silage GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "coconut production, dehusked PH"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic phosphorus fertiliser, as P2O5 KE"
+      }
+    },
+    {
+      "source": {
+        "name": "phenolic resin production RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, medium voltage KR"
+      }
+    },
+    {
+      "source": {
+        "name": "treatment of waste glass, inert material landfill CH"
+      }
+    },
+    {
+      "source": {
+        "name": "market for wheat grain, feed GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for waste wood, untreated ME"
+      }
+    },
+    {
+      "source": {
+        "name": "conveyor belt production RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for boric acid, anhydrous, powder GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market group for electricity, medium voltage RLA"
+      }
+    },
+    {
+      "source": {
+        "name": "nitric acid production, product in 50% solution state RER w/o RU"
+      }
+    },
+    {
+      "source": {
+        "name": "market for p-dichlorobenzene RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "electronics production, for control units RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for waste polyethylene BG"
+      }
+    },
+    {
+      "source": {
+        "name": "treatment of municipal solid waste, sanitary landfill RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, low voltage DZ"
+      }
+    },
+    {
+      "source": {
+        "name": "furnace production, logs, average storage area, 100kW RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for waste glass ES"
+      }
+    },
+    {
+      "source": {
+        "name": "market for used fluorescent lamp GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market group for electricity, low voltage ENTSO-E"
+      }
+    },
+    {
+      "source": {
+        "name": "aluminium ingot, primary, to aluminium, wrought alloy market GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for metolachlor GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for textile, knit cotton GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for combine harvesting GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic phosphorus fertiliser, as P2O5 MX"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, medium voltage JP"
+      }
+    },
+    {
+      "source": {
+        "name": "treatment of waste graphical paper, municipal incineration CH"
+      }
+    },
+    {
+      "source": {
+        "name": "market for heat, district or industrial, natural gas CH"
+      }
+    },
+    {
+      "source": {
+        "name": "synthetic rubber production RER"
+      }
+    },
+    {
+      "source": {
+        "name": "heat production, natural gas, at industrial furnace low-NOx >100kW Europe withou"
+      }
+    },
+    {
+      "source": {
+        "name": "market for aluminium, wrought alloy GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, low voltage CI"
+      }
+    },
+    {
+      "source": {
+        "name": "market for benzoic-compound GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for drying of feed grain GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic phosphorus fertiliser, as P2O5 IS"
+      }
+    },
+    {
+      "source": {
+        "name": "sowing CH"
+      }
+    },
+    {
+      "source": {
+        "name": "treatment of waste polystyrene, unsanitary landfill, wet infiltration class (500"
+      }
+    },
+    {
+      "source": {
+        "name": "agricultural machinery production, unspecified RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for urea ammonium nitrate mix RNA"
+      }
+    },
+    {
+      "source": {
+        "name": "market for portafer GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for lime, hydrated, packed RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, medium voltage ES"
+      }
+    },
+    {
+      "source": {
+        "name": "market for bale loading GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, medium voltage UY"
+      }
+    },
+    {
+      "source": {
+        "name": "fodder loading, by self-loading trailer CH"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic phosphorus fertiliser, as P2O5 AT"
+      }
+    },
+    {
+      "source": {
+        "name": "market for pyrethroid-compound GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, low voltage NE"
+      }
+    },
+    {
+      "source": {
+        "name": "market for transport, freight, inland waterways, barge RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for wood chipping, chipper, mobile, diesel, at forest road GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "excavation, skid-steer loader RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, medium voltage MM"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic phosphorus fertiliser, as P2O5 GR"
+      }
+    },
+    {
+      "source": {
+        "name": "market for water, completely softened US"
+      }
+    },
+    {
+      "source": {
+        "name": "pyrethroid-compound production RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, low voltage IE"
+      }
+    },
+    {
+      "source": {
+        "name": "tomato seedling production, in unheated greenhouse, for planting IT"
+      }
+    },
+    {
+      "source": {
+        "name": "market group for electricity, low voltage US"
+      }
+    },
+    {
+      "source": {
+        "name": "market for gravel, round RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "zinc coating, coils RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for phosphate rock, beneficiated RER"
+      }
+    },
+    {
+      "source": {
+        "name": "nutrient supply from ammonium sulfate RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic phosphorus fertiliser, as P2O5 LT"
+      }
+    },
+    {
+      "source": {
+        "name": "manganese(III) oxide production CN"
+      }
+    },
+    {
+      "source": {
+        "name": "foaming agent production GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic phosphorus fertiliser, as P2O5 ZA"
+      }
+    },
+    {
+      "source": {
+        "name": "market for waste polyethylene ZA"
+      }
+    },
+    {
+      "source": {
+        "name": "sowing CA-QC"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, medium voltage GE"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, low voltage BO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for swath, by rotary windrower GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "boric oxide production GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "heat production, hardwood chips from forest, at furnace 50kW CH"
+      }
+    },
+    {
+      "source": {
+        "name": "chemical factory construction, organics RER"
+      }
+    },
+    {
+      "source": {
+        "name": "residual material landfill construction CH"
+      }
+    },
+    {
+      "source": {
+        "name": "market for land use change, perennial crop LK"
+      }
+    },
+    {
+      "source": {
+        "name": "market for hydrogen sulfide RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for water, deionised Europe without Switzerland"
+      }
+    },
+    {
+      "source": {
+        "name": "market for lorry, 16 metric ton RER"
+      }
+    },
+    {
+      "source": {
+        "name": "transport, freight, lorry with refrigeration machine, 7.5-16 ton, EURO5, R134a r"
+      }
+    },
+    {
+      "source": {
+        "name": "heavy fuel oil, burned in refinery furnace Europe without Switzerland"
+      }
+    },
+    {
+      "source": {
+        "name": "market for maize silage RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for used refrigerant R134a GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "ash, from combustion of bagasse from sugarcane, Recycled Content cut-off GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for solid manure loading and spreading, by hydraulic loader and spreader"
+      }
+    },
+    {
+      "source": {
+        "name": "market for chlorine, gaseous RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic phosphorus fertiliser, as P2O5 NZ"
+      }
+    },
+    {
+      "source": {
+        "name": "market for phthalimide-compound GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, low voltage TG"
+      }
+    },
+    {
+      "source": {
+        "name": "market for petrol, unleaded, burned in machinery GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for pendimethalin GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "transport, freight, lorry 7.5-16 metric ton, EURO5 RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic phosphorus fertiliser, as P2O5 TR"
+      }
+    },
+    {
+      "source": {
+        "name": "market for waste polyurethane foam RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for chemical factory, organics GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for transport, freight, lorry 16-32 metric ton, EURO6 RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for cast iron GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for heat, central or small-scale, natural gas CH"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic phosphorus fertiliser, as P2O5 BE"
+      }
+    },
+    {
+      "source": {
+        "name": "market for textile, woven cotton GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for tap water CA-QC"
+      }
+    },
+    {
+      "source": {
+        "name": "market for naphtha PE"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, low voltage CM"
+      }
+    },
+    {
+      "source": {
+        "name": "treatment of waste plastic, mixture, sanitary landfill CH"
+      }
+    },
+    {
+      "source": {
+        "name": "market group for electricity, medium voltage Canada without Quebec"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, medium voltage GR"
+      }
+    },
+    {
+      "source": {
+        "name": "market for aluminium scrap, new RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic potassium fertiliser, as K2O CA"
+      }
+    },
+    {
+      "source": {
+        "name": "treatment of municipal solid waste, incineration FR"
+      }
+    },
+    {
+      "source": {
+        "name": "market for heat, district or industrial, natural gas RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for waste polyethylene CO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for borax, anhydrous, powder GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for heat, central or small-scale, other than natural gas RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for furnace, wood chips, average storage area, 50kW GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "shed construction, large, wood, non-insulated, fire-unprotected CH"
+      }
+    },
+    {
+      "source": {
+        "name": "market for transport, freight, sea, container ship GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "thermoforming, with calendering RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, medium voltage CW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for land use change, annual crop AU"
+      }
+    },
+    {
+      "source": {
+        "name": "market for metal working, average for metal product manufacturing GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "sheet rolling, steel RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for transport, freight, lorry 16-32 metric ton, EURO5 RER"
+      }
+    },
+    {
+      "source": {
+        "name": "glued laminated timber production, average glue mix RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "hydrogen cyanide production RER"
+      }
+    },
+    {
+      "source": {
+        "name": "electricity voltage transformation from medium to low voltage RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "heat production, natural gas, at boiler condensing modulating <100kW RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "harvesting, by complete harvester, beets CH"
+      }
+    },
+    {
+      "source": {
+        "name": "market group for municipal solid waste Europe without Switzerland"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, low voltage PY"
+      }
+    },
+    {
+      "source": {
+        "name": "market for nylon 6-6 RER"
+      }
+    },
+    {
+      "source": {
+        "name": "calcium carbonate production, precipitated RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, medium voltage FI"
+      }
+    },
+    {
+      "source": {
+        "name": "market for transport, freight train CH"
+      }
+    },
+    {
+      "source": {
+        "name": "market for irrigation MA"
+      }
+    },
+    {
+      "source": {
+        "name": "calendering, rigid sheets RER"
+      }
+    },
+    {
+      "source": {
+        "name": "transport, freight, inland waterways, barge RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic nitrogen fertiliser, as N BR"
+      }
+    },
+    {
+      "source": {
+        "name": "tillage, rotary cultivator CH"
+      }
+    },
+    {
+      "source": {
+        "name": "market for waste polyethylene IT"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic nitrogen fertiliser, as N IS"
+      }
+    },
+    {
+      "source": {
+        "name": "market for tillage, cultivating, chiselling GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for waste paint Europe without Switzerland"
+      }
+    },
+    {
+      "source": {
+        "name": "market for sulfur hexafluoride, liquid RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for gypsum, mineral RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, medium voltage SE"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, low voltage FR"
+      }
+    },
+    {
+      "source": {
+        "name": "[sulfonyl]urea-compound production RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for wood chips, dry, measured as dry mass RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic potassium fertiliser, as K2O KE"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic potassium fertiliser, as K2O XK"
+      }
+    },
+    {
+      "source": {
+        "name": "market for oil mill GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for tillage, rotary cultivator GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market group for electricity, low voltage RAS"
+      }
+    },
+    {
+      "source": {
+        "name": "market for waste polyethylene HU"
+      }
+    },
+    {
+      "source": {
+        "name": "market for wastewater from potato starch production GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for transport, freight, lorry 16-32 metric ton, EURO4 RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic nitrogen fertiliser, as N RS"
+      }
+    },
+    {
+      "source": {
+        "name": "market for air compressor, screw-type compressor, 4kW GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for pulpwood, softwood, measured as solid wood under bark Europe without"
+      }
+    },
+    {
+      "source": {
+        "name": "market for sodium hydroxide, without water, in 50% solution state GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "heat and power co-generation unit construction, 6400kW thermal, building CH"
+      }
+    },
+    {
+      "source": {
+        "name": "steel production, electric, chromium steel 18/8 RER"
+      }
+    },
+    {
+      "source": {
+        "name": "alfalfa/grass silage production ZA"
+      }
+    },
+    {
+      "source": {
+        "name": "market for coconut husk GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for municipal waste collection service by 21 metric ton lorry GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, low voltage GH"
+      }
+    },
+    {
+      "source": {
+        "name": "nutrient supply from single superphosphate RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "hay production CA-QC"
+      }
+    },
+    {
+      "source": {
+        "name": "market for triple superphosphate RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "calcium nitrate production RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for nickel smelter slag GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "paper production, woodcontaining, lightweight coated RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for pesticide, unspecified GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for waste polyethylene EE"
+      }
+    },
+    {
+      "source": {
+        "name": "market for petrol, unleaded RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, low voltage TT"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, low voltage RO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, low voltage VE"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic nitrogen fertiliser, as N IE"
+      }
+    },
+    {
+      "source": {
+        "name": "swath, by rotary windrower Canada without Quebec"
+      }
+    },
+    {
+      "source": {
+        "name": "market for waste plaster-cardboard sandwich GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic phosphorus fertiliser, as P2O5 CO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic phosphorus fertiliser, as P2O5 ES"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, medium voltage SG"
+      }
+    },
+    {
+      "source": {
+        "name": "market for establishing orchard GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "anaerobic digestion plant construction, agriculture, with methane recovery RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for wood ash mixture, pure Europe without Switzerland"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, medium voltage CH"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, medium voltage MY"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, low voltage NZ"
+      }
+    },
+    {
+      "source": {
+        "name": "market for irrigation CA-QC"
+      }
+    },
+    {
+      "source": {
+        "name": "agricultural trailer production RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for municipal solid waste RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "building construction, hall CH"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, medium voltage SN"
+      }
+    },
+    {
+      "source": {
+        "name": "market for transport, freight, lorry 16-32 metric ton, EURO3 RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "polystyrene production, expandable RER"
+      }
+    },
+    {
+      "source": {
+        "name": "milk production, from cow CA-QC"
+      }
+    },
+    {
+      "source": {
+        "name": "market for water, decarbonised BR"
+      }
+    },
+    {
+      "source": {
+        "name": "market for sunflower seed, for sowing GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "heat production, heavy fuel oil, at industrial furnace 1MW CH"
+      }
+    },
+    {
+      "source": {
+        "name": "market for vinasse, from fermentation of sugar beet GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for gas boiler GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "transmission network construction, long-distance UCTE"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, medium voltage NI"
+      }
+    },
+    {
+      "source": {
+        "name": "heat and power co-generation unit construction, 6400kW thermal, components for e"
+      }
+    },
+    {
+      "source": {
+        "name": "market for building, hall GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for ammonia, anhydrous, liquid UN-SEASIA"
+      }
+    },
+    {
+      "source": {
+        "name": "market for phenol RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, medium voltage TR"
+      }
+    },
+    {
+      "source": {
+        "name": "market for metal working, average for aluminium product manufacturing GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for sheet rolling, copper GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market group for electricity, medium voltage ENTSO-E"
+      }
+    },
+    {
+      "source": {
+        "name": "market for waste polyethylene MK"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic potassium fertiliser, as K2O DK"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic phosphorus fertiliser, as P2O5 DK"
+      }
+    },
+    {
+      "source": {
+        "name": "treatment of municipal solid waste, unsanitary landfill, wet infiltration class"
+      }
+    },
+    {
+      "source": {
+        "name": "market for acetaldehyde GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "treatment of waste paperboard, sanitary landfill CH"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic potassium fertiliser, as K2O CN"
+      }
+    },
+    {
+      "source": {
+        "name": "market for lead in car shredder residue CH"
+      }
+    },
+    {
+      "source": {
+        "name": "market for phosphate rock, beneficiated US"
+      }
+    },
+    {
+      "source": {
+        "name": "fish freezing, small fish RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "application of plant protection product, by field sprayer CA-QC"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic potassium fertiliser, as K2O NZ"
+      }
+    },
+    {
+      "source": {
+        "name": "oil boiler production, 100kW CH"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, medium voltage VN"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic potassium fertiliser, as K2O HR"
+      }
+    },
+    {
+      "source": {
+        "name": "market for harvesting, by complete harvester, beets GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for land use change, perennial crop US"
+      }
+    },
+    {
+      "source": {
+        "name": "market for pyridine-compound GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for furnace, pellets, 25kW GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for zinc monosulfate RER"
+      }
+    },
+    {
+      "source": {
+        "name": "transport, freight, lorry 3.5-7.5 metric ton, EURO3 RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for reinforcing steel GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for protein feed, 100% crude GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic phosphorus fertiliser, as P2O5 CY"
+      }
+    },
+    {
+      "source": {
+        "name": "market for single superphosphate RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic nitrogen fertiliser, as N NL"
+      }
+    },
+    {
+      "source": {
+        "name": "market for irrigation CH"
+      }
+    },
+    {
+      "source": {
+        "name": "market for transport, freight, lorry 7.5-16 metric ton, EURO3 RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, medium voltage DK"
+      }
+    },
+    {
+      "source": {
+        "name": "municipal waste incineration facility construction CH"
+      }
+    },
+    {
+      "source": {
+        "name": "copper oxide production RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic nitrogen fertiliser, as N US"
+      }
+    },
+    {
+      "source": {
+        "name": "air separation, cryogenic RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic nitrogen fertiliser, as N KE"
+      }
+    },
+    {
+      "source": {
+        "name": "market for waste polyethylene GR"
+      }
+    },
+    {
+      "source": {
+        "name": "market for waste wood, untreated RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for glazing, double, U<1.1 W/m2K GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, medium voltage KZ"
+      }
+    },
+    {
+      "source": {
+        "name": "market for operation, housing system, cattle, tied, per animal unit GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic nitrogen fertiliser, as N PL"
+      }
+    },
+    {
+      "source": {
+        "name": "market for spray-drying of milk GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for waste wood, untreated AL"
+      }
+    },
+    {
+      "source": {
+        "name": "stone wool production, packed CH"
+      }
+    },
+    {
+      "source": {
+        "name": "wood chips production, softwood, at sawmill RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for carbon dioxide, liquid RER"
+      }
+    },
+    {
+      "source": {
+        "name": "ethylene vinyl acetate copolymer production RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, low voltage GT"
+      }
+    },
+    {
+      "source": {
+        "name": "market group for electricity, medium voltage Europe without Switzerland"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, medium voltage HN"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, low voltage IL"
+      }
+    },
+    {
+      "source": {
+        "name": "esterification of soybean oil BR"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic nitrogen fertiliser, as N AL"
+      }
+    },
+    {
+      "source": {
+        "name": "market for land use change, perennial crop BE"
+      }
+    },
+    {
+      "source": {
+        "name": "treatment of waste polyethylene, municipal incineration CH"
+      }
+    },
+    {
+      "source": {
+        "name": "market for mowing, by motor mower GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for copper in car shredder residue RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic potassium fertiliser, as K2O VN"
+      }
+    },
+    {
+      "source": {
+        "name": "market for waste polyethylene XK"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, low voltage SS"
+      }
+    },
+    {
+      "source": {
+        "name": "market group for waste wood, untreated RER"
+      }
+    },
+    {
+      "source": {
+        "name": "molecular sieve separation of naphtha RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, medium voltage AT"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic nitrogen fertiliser, as N UA"
+      }
+    },
+    {
+      "source": {
+        "name": "market for waste wood, untreated HR"
+      }
+    },
+    {
+      "source": {
+        "name": "fertilising, by broadcaster CH"
+      }
+    },
+    {
+      "source": {
+        "name": "heat production, natural gas, at boiler condensing modulating >100kW RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for diesel Europe without Switzerland"
+      }
+    },
+    {
+      "source": {
+        "name": "recultivation, limestone mine CH"
+      }
+    },
+    {
+      "source": {
+        "name": "polyurethane production, rigid foam RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, low voltage AU"
+      }
+    },
+    {
+      "source": {
+        "name": "market for waste mineral oil CH"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, low voltage BJ"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic nitrogen fertiliser, as N PT"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, medium voltage CA-QC"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, low voltage GB"
+      }
+    },
+    {
+      "source": {
+        "name": "fibreboard production, hard RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for limestone, crushed, washed RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for transport, freight, inland waterways, barge with reefer, freezing GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "steel production, converter, low-alloyed RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic phosphorus fertiliser, as P2O5 RS"
+      }
+    },
+    {
+      "source": {
+        "name": "market for oil boiler, 100kW GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for heavy fuel oil, burned in refinery furnace GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "metal working, average for chromium steel product manufacturing RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for potassium sulfate RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for biomethane, low pressure CH"
+      }
+    },
+    {
+      "source": {
+        "name": "market for blow moulding GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "heat production, light fuel oil, at boiler 100kW condensing, non-modulating CH"
+      }
+    },
+    {
+      "source": {
+        "name": "market for transport, freight, aircraft, unspecified GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "treatment of wastewater, average, capacity 5E9l/year CH"
+      }
+    },
+    {
+      "source": {
+        "name": "market for strawberry GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for land use change, perennial crop ID"
+      }
+    },
+    {
+      "source": {
+        "name": "tillage, cultivating, chiselling Canada without Quebec"
+      }
+    },
+    {
+      "source": {
+        "name": "market for steam, in chemical industry RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for steel, chromium steel 18/8 GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "glued laminated timber production, average glue mix Europe without Switzerland"
+      }
+    },
+    {
+      "source": {
+        "name": "market for waste wood, untreated PT"
+      }
+    },
+    {
+      "source": {
+        "name": "market for tractor, 4-wheel, agricultural GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "magnesium sulfate production RER"
+      }
+    },
+    {
+      "source": {
+        "name": "zinc monosulfate production RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, medium voltage PK"
+      }
+    },
+    {
+      "source": {
+        "name": "market for vinasse, from fermentation of sugarcane GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "steam production, in chemical industry RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for yarn, jute GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "expanded perlite production RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for maize grain, feed RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "combine harvesting CA-QC"
+      }
+    },
+    {
+      "source": {
+        "name": "market for heat, district or industrial, natural gas Europe without Switzerland"
+      }
+    },
+    {
+      "source": {
+        "name": "molybdenum production RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for transport, freight, lorry 3.5-7.5 metric ton, EURO5 RER"
+      }
+    },
+    {
+      "source": {
+        "name": "1,1-difluoroethane production, HFC-152a RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for polyethylene, low density, granulate GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic potassium fertiliser, as K2O GR"
+      }
+    },
+    {
+      "source": {
+        "name": "market for EDTA, ethylenediaminetetraacetic acid GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for steel, low-alloyed GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "fertilising, by broadcaster CA-QC"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic nitrogen fertiliser, as N FR"
+      }
+    },
+    {
+      "source": {
+        "name": "polyethylene terephthalate production, granulate, bottle grade CA-QC"
+      }
+    },
+    {
+      "source": {
+        "name": "sulfuric acid production RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for heat and power co-generation unit, 6400kW thermal, common components"
+      }
+    },
+    {
+      "source": {
+        "name": "market for ammonia, anhydrous, liquid SAS"
+      }
+    },
+    {
+      "source": {
+        "name": "transport, freight train FR"
+      }
+    },
+    {
+      "source": {
+        "name": "market for diesel, burned in building machine GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, medium voltage HT"
+      }
+    },
+    {
+      "source": {
+        "name": "tillage, rolling Canada without Quebec"
+      }
+    },
+    {
+      "source": {
+        "name": "EUR-flat pallet production RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic potassium fertiliser, as K2O MY"
+      }
+    },
+    {
+      "source": {
+        "name": "tillage, rotary cultivator Canada without Quebec"
+      }
+    },
+    {
+      "source": {
+        "name": "sawing and planing, azobe, air dried RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for green manure, organic, until March GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, medium voltage LT"
+      }
+    },
+    {
+      "source": {
+        "name": "heat production, natural gas, at boiler condensing modulating >100kW Europe with"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic potassium fertiliser, as K2O IN"
+      }
+    },
+    {
+      "source": {
+        "name": "market for waste wood, untreated FI"
+      }
+    },
+    {
+      "source": {
+        "name": "market for bipyridylium-compound GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "nutrient supply from potassium sulfate RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic phosphorus fertiliser, as P2O5 AR"
+      }
+    },
+    {
+      "source": {
+        "name": "market for chlorothalonil GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "treatment of waste aluminium, sanitary landfill RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market group for inorganic phosphorus fertiliser, as P2O5 RER"
+      }
+    },
+    {
+      "source": {
+        "name": "gas motor production, 206kW RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for carrot seed, for sowing GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for waste polyethylene SK"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, medium voltage IE"
+      }
+    },
+    {
+      "source": {
+        "name": "market for single superphosphate RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for diphenylether-compound GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "packaging film production, low density polyethylene RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for tillage, ploughing GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, low voltage CZ"
+      }
+    },
+    {
+      "source": {
+        "name": "market for nickel, class 1 GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for manual dismantling of used electric passenger car GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for diesel, burned in agricultural machinery GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for waste wood, untreated NL"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic phosphorus fertiliser, as P2O5 AU"
+      }
+    },
+    {
+      "source": {
+        "name": "heat production, wood chips from industry, at furnace 300kW RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "glucose production GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, low voltage DK"
+      }
+    },
+    {
+      "source": {
+        "name": "market for ammonia, anhydrous, liquid RNA"
+      }
+    },
+    {
+      "source": {
+        "name": "combine harvesting BR"
+      }
+    },
+    {
+      "source": {
+        "name": "market for waste mineral wool Europe without Switzerland"
+      }
+    },
+    {
+      "source": {
+        "name": "heat production, at hard coal industrial furnace 1-10MW Europe without Switzerla"
+      }
+    },
+    {
+      "source": {
+        "name": "market for seal, natural rubber based GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, medium voltage SI"
+      }
+    },
+    {
+      "source": {
+        "name": "market for acetic acid, without water, in 98% solution state GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "heat production, lignite briquette, at stove 5-15kW Europe without Switzerland"
+      }
+    },
+    {
+      "source": {
+        "name": "market for tap water RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, low voltage SV"
+      }
+    },
+    {
+      "source": {
+        "name": "electric motor production, vehicle RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for water, decarbonised CH"
+      }
+    },
+    {
+      "source": {
+        "name": "market for greenhouse, glass walls and roof GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for tap water CO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for transport, freight, lorry >32 metric ton, EURO3 BR"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic phosphorus fertiliser, as P2O5 NO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for limestone residue CH"
+      }
+    },
+    {
+      "source": {
+        "name": "market for miscanthus, chopped GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, medium voltage KP"
+      }
+    },
+    {
+      "source": {
+        "name": "market for waste wood, untreated RS"
+      }
+    },
+    {
+      "source": {
+        "name": "heat production, softwood chips from forest, at furnace 50kW CH"
+      }
+    },
+    {
+      "source": {
+        "name": "market for vegetable oil, refined GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market group for heat, district or industrial, other than natural gas RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for waste polyethylene FR"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic phosphorus fertiliser, as P2O5 RU"
+      }
+    },
+    {
+      "source": {
+        "name": "heat production, hardwood chips from forest, at furnace 1000kW RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic nitrogen fertiliser, as N LT"
+      }
+    },
+    {
+      "source": {
+        "name": "market for waste wood, untreated CZ"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic phosphorus fertiliser, as P2O5 SI"
+      }
+    },
+    {
+      "source": {
+        "name": "treatment of biowaste, industrial composting RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for cobalt GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "perlite quarry operation DE"
+      }
+    },
+    {
+      "source": {
+        "name": "transport, tractor and trailer, agricultural CH"
+      }
+    },
+    {
+      "source": {
+        "name": "impact extrusion of aluminium, deformation stroke RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for hard coal RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for waste polyethylene HR"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic potassium fertiliser, as K2O UA"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, low voltage ER"
+      }
+    },
+    {
+      "source": {
+        "name": "electricity production, hydro, pumped storage RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "sulfate pulp production, from softwood, unbleached RER"
+      }
+    },
+    {
+      "source": {
+        "name": "debarking, softwood, in forest RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for fosetyl-Al GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for land use change, perennial crop MY"
+      }
+    },
+    {
+      "source": {
+        "name": "market for mine infrastructure, phosphate rock GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for water pump, 22kW GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic potassium fertiliser, as K2O LU"
+      }
+    },
+    {
+      "source": {
+        "name": "milk evaporation CA-QC"
+      }
+    },
+    {
+      "source": {
+        "name": "market for wheat seed, for sowing GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market group for electricity, low voltage CA"
+      }
+    },
+    {
+      "source": {
+        "name": "market for sulfite RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "treatment of waste polystyrene isolation, flame-retardant, collection for final"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, medium voltage AZ"
+      }
+    },
+    {
+      "source": {
+        "name": "market for diazole-compound GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for water, decarbonised CN"
+      }
+    },
+    {
+      "source": {
+        "name": "market for land use change, annual crop CN"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic phosphorus fertiliser, as P2O5 CL"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic nitrogen fertiliser, as N IT"
+      }
+    },
+    {
+      "source": {
+        "name": "market for tillage, rolling GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "treatment of waste reinforced concrete, collection for final disposal CH"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic nitrogen fertiliser, as N GR"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, medium voltage TM"
+      }
+    },
+    {
+      "source": {
+        "name": "market for maize grain, feed, Swiss integrated production CH"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, medium voltage AU"
+      }
+    },
+    {
+      "source": {
+        "name": "market for waste polyethylene LV"
+      }
+    },
+    {
+      "source": {
+        "name": "market for manure, solid, cattle GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for sodium hydrogen sulfite GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for tilapia feed, 24-28% protein GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "bale loading CH"
+      }
+    },
+    {
+      "source": {
+        "name": "clear-cutting, primary forest to arable land, perennial crop MY"
+      }
+    },
+    {
+      "source": {
+        "name": "market for agricultural machinery, tillage GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for isoproturon GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, medium voltage MRO, US only"
+      }
+    },
+    {
+      "source": {
+        "name": "market for transport, freight, sea, container ship with reefer, cooling GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for packaging glass, white GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic potassium fertiliser, as K2O PL"
+      }
+    },
+    {
+      "source": {
+        "name": "market for waste wood, untreated SI"
+      }
+    },
+    {
+      "source": {
+        "name": "market for stone meal GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for wheat bran RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, medium voltage WECC, US only"
+      }
+    },
+    {
+      "source": {
+        "name": "treatment of municipal solid waste, sanitary landfill CH"
+      }
+    },
+    {
+      "source": {
+        "name": "market for quicklime, milled, packed RER"
+      }
+    },
+    {
+      "source": {
+        "name": "chemical production, organic GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for heat, district or industrial, natural gas CA-QC"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, medium voltage TRE"
+      }
+    },
+    {
+      "source": {
+        "name": "market for polyvinylchloride, emulsion polymerised GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market group for electricity, medium voltage CA"
+      }
+    },
+    {
+      "source": {
+        "name": "treatment of scrap steel, municipal incineration CH"
+      }
+    },
+    {
+      "source": {
+        "name": "market for hydrochloric acid, without water, in 30% solution state RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, medium voltage KG"
+      }
+    },
+    {
+      "source": {
+        "name": "benzimidazole-compound production RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic nitrogen fertiliser, as N MK"
+      }
+    },
+    {
+      "source": {
+        "name": "tillage, rolling CA-QC"
+      }
+    },
+    {
+      "source": {
+        "name": "heat and power co-generation, wood chips, 6667 kW, state-of-the-art 2014 RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for chemical factory GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "cyclic N-compound production RER"
+      }
+    },
+    {
+      "source": {
+        "name": "purification of wet-process phosphoric acid to industrial grade, product in 85%"
+      }
+    },
+    {
+      "source": {
+        "name": "sanitary landfill facility construction CH"
+      }
+    },
+    {
+      "source": {
+        "name": "market for hydrogen peroxide, without water, in 50% solution state RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "polyvinylchloride production, bulk polymerisation RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for steel, low-alloyed, hot rolled GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic nitrogen fertiliser, as N TR"
+      }
+    },
+    {
+      "source": {
+        "name": "market for waste wood, untreated SE"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic phosphorus fertiliser, as P2O5 CZ"
+      }
+    },
+    {
+      "source": {
+        "name": "electricity production, wind, 1-3MW turbine, onshore RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for transport, freight, lorry 16-32 metric ton, EURO4 RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic potassium fertiliser, as K2O AL"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, medium voltage CL"
+      }
+    },
+    {
+      "source": {
+        "name": "market for chlorotoluron GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, medium voltage RFC"
+      }
+    },
+    {
+      "source": {
+        "name": "market for triple superphosphate RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for waste wood, untreated ES"
+      }
+    },
+    {
+      "source": {
+        "name": "treatment of waste polyvinylchloride, sanitary landfill RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for land use change, perennial crop HN"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, medium voltage JO"
+      }
+    },
+    {
+      "source": {
+        "name": "manure, solid, cattle, Recycled Content cut-off GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for transport, freight, lorry with reefer, cooling GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for liquid manure storage and processing facility GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for process-specific burdens, municipal waste incineration Europe without"
+      }
+    },
+    {
+      "source": {
+        "name": "market for sugar, from sugar beet GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "copper sulfate production GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for maize seed, for sowing GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "heat production, heavy fuel oil, at industrial furnace 1MW RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "nutrient supply from monoammonium phosphate RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "steel production, chromium steel 18/8, hot rolled RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for building, hall, steel construction GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for nitric acid, without water, in 50% solution state UN-SEASIA"
+      }
+    },
+    {
+      "source": {
+        "name": "transport, freight, sea, container ship GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for glyphosate GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "polyethylene terephthalate production, granulate, bottle grade RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for peat moss GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic phosphorus fertiliser, as P2O5 PH"
+      }
+    },
+    {
+      "source": {
+        "name": "market for heat, central or small-scale, natural gas Europe without Switzerland"
+      }
+    },
+    {
+      "source": {
+        "name": "polycarbonate production RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market group for land use change, perennial crop BR"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic potassium fertiliser, as K2O FI"
+      }
+    },
+    {
+      "source": {
+        "name": "market for sawnwood, softwood, raw, dried (u=20%) RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for municipal solid waste CY"
+      }
+    },
+    {
+      "source": {
+        "name": "market group for electricity, medium voltage RME"
+      }
+    },
+    {
+      "source": {
+        "name": "market for sodium sulfate, anhydrite RER"
+      }
+    },
+    {
+      "source": {
+        "name": "milk spray-drying CA-QC"
+      }
+    },
+    {
+      "source": {
+        "name": "market for packaging film, low density polyethylene GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "electricity production, photovoltaic, 570kWp open ground installation, multi-Si"
+      }
+    },
+    {
+      "source": {
+        "name": "treatment of municipal solid waste, incineration RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "treatment of waste polyethylene, sanitary landfill CH"
+      }
+    },
+    {
+      "source": {
+        "name": "extrusion, plastic film CA-QC"
+      }
+    },
+    {
+      "source": {
+        "name": "market for chlorine, liquid RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for transport, freight, lorry 16-32 metric ton, EURO6 RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for transport, freight, lorry, unspecified RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic phosphorus fertiliser, as P2O5 SE"
+      }
+    },
+    {
+      "source": {
+        "name": "market for grass seed, Swiss integrated production, at farm GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for lubricating oil RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, low voltage ET"
+      }
+    },
+    {
+      "source": {
+        "name": "market for polyethylene terephthalate, granulate, amorphous GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "citric acid production RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for metamitron GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "chlor-alkali electrolysis, membrane cell RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for rape meal GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "limestone and gypsum application, by spreader BR"
+      }
+    },
+    {
+      "source": {
+        "name": "market for maize silage BR"
+      }
+    },
+    {
+      "source": {
+        "name": "aluminium production, primary, ingot RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, medium voltage EC"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic phosphorus fertiliser, as P2O5 LU"
+      }
+    },
+    {
+      "source": {
+        "name": "market for irrigation CO"
+      }
+    },
+    {
+      "source": {
+        "name": "protein pea production DE"
+      }
+    },
+    {
+      "source": {
+        "name": "market for water, completely softened RER"
+      }
+    },
+    {
+      "source": {
+        "name": "drying of protein pea CA-SK"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic potassium fertiliser, as K2O TR"
+      }
+    },
+    {
+      "source": {
+        "name": "market for harvesting, by complete harvester, ground crops GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market group for light fuel oil RER"
+      }
+    },
+    {
+      "source": {
+        "name": "treatment of biowaste by anaerobic digestion CH"
+      }
+    },
+    {
+      "source": {
+        "name": "rosin size production, for paper production RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic nitrogen fertiliser, as N CH"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, medium voltage ID"
+      }
+    },
+    {
+      "source": {
+        "name": "treatment of scrap aluminium, municipal incineration Europe without Switzerland"
+      }
+    },
+    {
+      "source": {
+        "name": "market for sulfuric acid RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for wheat grain RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic potassium fertiliser, as K2O BG"
+      }
+    },
+    {
+      "source": {
+        "name": "market for hard coal CN"
+      }
+    },
+    {
+      "source": {
+        "name": "market for carboxymethyl cellulose, powder GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic phosphorus fertiliser, as P2O5 FI"
+      }
+    },
+    {
+      "source": {
+        "name": "boric acid production, anhydrous, powder RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for calcium ammonium nitrate RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for irrigation IN"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic nitrogen fertiliser, as N TH"
+      }
+    },
+    {
+      "source": {
+        "name": "market for clay brick GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for tap water Europe without Switzerland"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, medium voltage KE"
+      }
+    },
+    {
+      "source": {
+        "name": "market for drying of bread grain, seed and legumes GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for ammonia, anhydrous, liquid RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "acrylic varnish production, product in 87.5% solution state RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic phosphorus fertiliser, as P2O5 PL"
+      }
+    },
+    {
+      "source": {
+        "name": "liquefied petroleum gas production, petroleum refinery operation Europe without"
+      }
+    },
+    {
+      "source": {
+        "name": "market for application of plant protection product, by field sprayer GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "water production, completely softened RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for vegetable oil refinery GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for waste wood, untreated IN"
+      }
+    },
+    {
+      "source": {
+        "name": "treatment of waste polyethylene terephthalate, sanitary landfill CH"
+      }
+    },
+    {
+      "source": {
+        "name": "treatment of waste fibreboard, collection for final disposal CH"
+      }
+    },
+    {
+      "source": {
+        "name": "steam production, in chemical industry RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "carton board box production service, with offset printing RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, medium voltage ASCC"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic potassium fertiliser, as K2O NO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for waste polyethylene AT"
+      }
+    },
+    {
+      "source": {
+        "name": "ethylvinylacetate production, foil RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for land use change, perennial crop IN"
+      }
+    },
+    {
+      "source": {
+        "name": "heat production, natural gas, at boiler atmospheric non-modulating <100kW RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic nitrogen fertiliser, as N EC"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic phosphorus fertiliser, as P2O5 AL"
+      }
+    },
+    {
+      "source": {
+        "name": "market for polydimethylsiloxane GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, medium voltage RU"
+      }
+    },
+    {
+      "source": {
+        "name": "market for transport, freight, lorry >32 metric ton, EURO5 RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for transport, freight, lorry, unspecified BR"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, low voltage RS"
+      }
+    },
+    {
+      "source": {
+        "name": "industrial furnace production, 1MW, oil CH"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, low voltage CA-QC"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic nitrogen fertiliser, as N ID"
+      }
+    },
+    {
+      "source": {
+        "name": "market for diesel RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "heat production, wood chips from industry, at furnace 300kW CH"
+      }
+    },
+    {
+      "source": {
+        "name": "building construction, hall, steel construction CH"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic nitrogen fertiliser, as N CA"
+      }
+    },
+    {
+      "source": {
+        "name": "market for transport, freight train CN"
+      }
+    },
+    {
+      "source": {
+        "name": "corrugated board box production RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic potassium fertiliser, as K2O CH"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic nitrogen fertiliser, as N XK"
+      }
+    },
+    {
+      "source": {
+        "name": "market for lime, packed CH"
+      }
+    },
+    {
+      "source": {
+        "name": "electricity production, natural gas, 10MW RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for purse seiner, steel GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "tillage, cultivating, chiselling CA-QC"
+      }
+    },
+    {
+      "source": {
+        "name": "market for poultry manure, fresh GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for scrap tin sheet CH"
+      }
+    },
+    {
+      "source": {
+        "name": "market for waste plastic, mixture RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for formic acid RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for transport, freight train RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for phosphoric acid factory, fertiliser grade GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for water, decarbonised GB"
+      }
+    },
+    {
+      "source": {
+        "name": "tetrafluoroethylene production RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, medium voltage LB"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, low voltage CR"
+      }
+    },
+    {
+      "source": {
+        "name": "lubricating oil production RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for phosphate rock, beneficiated RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "polystyrene foam slab production RER"
+      }
+    },
+    {
+      "source": {
+        "name": "heat, from municipal waste incineration to generic market for heat district or i"
+      }
+    },
+    {
+      "source": {
+        "name": "market for benzo[thia]diazole-compound GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market group for electricity, low voltage CN"
+      }
+    },
+    {
+      "source": {
+        "name": "market for titanium dioxide RER"
+      }
+    },
+    {
+      "source": {
+        "name": "reinforcing steel production Europe without Austria"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, medium voltage GB"
+      }
+    },
+    {
+      "source": {
+        "name": "market for pump, 40W GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "pesticide production, unspecified RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for waste polyethylene AL"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, medium voltage AR"
+      }
+    },
+    {
+      "source": {
+        "name": "oat production CA-QC"
+      }
+    },
+    {
+      "source": {
+        "name": "tillage, cultivating, chiselling CH"
+      }
+    },
+    {
+      "source": {
+        "name": "market for synthetic rubber GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic potassium fertiliser, as K2O EC"
+      }
+    },
+    {
+      "source": {
+        "name": "market group for waste polystyrene Europe without Switzerland"
+      }
+    },
+    {
+      "source": {
+        "name": "market for water, decarbonised ES"
+      }
+    },
+    {
+      "source": {
+        "name": "diesel, burned in building machine GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic nitrogen fertiliser, as N SI"
+      }
+    },
+    {
+      "source": {
+        "name": "industrial machine production, heavy, unspecified RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic phosphorus fertiliser, as P2O5 EE"
+      }
+    },
+    {
+      "source": {
+        "name": "market for petrol, low-sulfur Europe without Switzerland"
+      }
+    },
+    {
+      "source": {
+        "name": "market for building, multi-storey GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "transport, freight, lorry >32 metric ton, EURO4 RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic potassium fertiliser, as K2O CZ"
+      }
+    },
+    {
+      "source": {
+        "name": "market for waste polyethylene CZ"
+      }
+    },
+    {
+      "source": {
+        "name": "market for fodder loading, by self-loading trailer GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for irrigation ES"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, low voltage NL"
+      }
+    },
+    {
+      "source": {
+        "name": "market for polystyrene, expandable GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "operation, housing system, cattle, tied CA-QC"
+      }
+    },
+    {
+      "source": {
+        "name": "treatment of municipal solid waste, incineration CH"
+      }
+    },
+    {
+      "source": {
+        "name": "market for transport, freight train ZA"
+      }
+    },
+    {
+      "source": {
+        "name": "market for phenoxy-compound GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for mancozeb GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for waste wood, untreated BR"
+      }
+    },
+    {
+      "source": {
+        "name": "market for aluminium sulfate, powder RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for cleft timber, measured as dry mass Europe without Switzerland"
+      }
+    },
+    {
+      "source": {
+        "name": "steel production, low-alloyed, hot rolled RER"
+      }
+    },
+    {
+      "source": {
+        "name": "transport, freight, lorry 16-32 metric ton, EURO4 RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for waste polyethylene IN"
+      }
+    },
+    {
+      "source": {
+        "name": "nutrient supply from monoammonium phosphate RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for packaging, for fertilisers GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, medium voltage PT"
+      }
+    },
+    {
+      "source": {
+        "name": "market for triazine-compound, unspecified GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for waste wood, untreated IS"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic potassium fertiliser, as K2O ZA"
+      }
+    },
+    {
+      "source": {
+        "name": "market for alkylbenzene sulfonate, linear, petrochemical GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for municipal solid waste IN"
+      }
+    },
+    {
+      "source": {
+        "name": "market for waste polyethylene PT"
+      }
+    },
+    {
+      "source": {
+        "name": "furnace production, wood chips, softwood storage area, 300kW CH"
+      }
+    },
+    {
+      "source": {
+        "name": "tillage, harrowing, by offset disc harrow CA"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, medium voltage HICC"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic potassium fertiliser, as K2O LK"
+      }
+    },
+    {
+      "source": {
+        "name": "pyridazine-compound production RER"
+      }
+    },
+    {
+      "source": {
+        "name": "lubricating oil production RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "steam production, as energy carrier, in chemical industry RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market group for electricity, medium voltage CN"
+      }
+    },
+    {
+      "source": {
+        "name": "drying of feed grain CH"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic potassium fertiliser, as K2O BD"
+      }
+    },
+    {
+      "source": {
+        "name": "market group for heat, district or industrial, natural gas RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic phosphorus fertiliser, as P2O5 PT"
+      }
+    },
+    {
+      "source": {
+        "name": "market for urea CN"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic phosphorus fertiliser, as P2O5 CR"
+      }
+    },
+    {
+      "source": {
+        "name": "green manure growing, Swiss integrated production, until February CH"
+      }
+    },
+    {
+      "source": {
+        "name": "furnace production, logs, average storage area, 100kW CH"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic phosphorus fertiliser, as P2O5 HR"
+      }
+    },
+    {
+      "source": {
+        "name": "market for waste polyethylene DE"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic potassium fertiliser, as K2O LT"
+      }
+    },
+    {
+      "source": {
+        "name": "maize silage production CA-QC"
+      }
+    },
+    {
+      "source": {
+        "name": "nutrient supply from phosphate rock, beneficiated RER"
+      }
+    },
+    {
+      "source": {
+        "name": "fodder yeast to generic market for protein feed GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "green manure growing, Swiss integrated production, until January CH"
+      }
+    },
+    {
+      "source": {
+        "name": "market group for diesel RER"
+      }
+    },
+    {
+      "source": {
+        "name": "unreinforced concrete production, with cement CEM II/A CH"
+      }
+    },
+    {
+      "source": {
+        "name": "market for sunflower silage GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for tillage, harrowing, by rotary harrow GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic phosphorus fertiliser, as P2O5 MK"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic potassium fertiliser, as K2O CL"
+      }
+    },
+    {
+      "source": {
+        "name": "alfalfa/grass silage production CA-QC"
+      }
+    },
+    {
+      "source": {
+        "name": "latex production RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for waste wood, untreated FR"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, low voltage RU"
+      }
+    },
+    {
+      "source": {
+        "name": "transport, freight, sea, container ship with reefer, cooling GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for waste wood, untreated CH"
+      }
+    },
+    {
+      "source": {
+        "name": "treatment of waste paperboard, municipal incineration with fly ash extraction CH"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic phosphorus fertiliser, as P2O5 LK"
+      }
+    },
+    {
+      "source": {
+        "name": "market for waste wood, untreated GR"
+      }
+    },
+    {
+      "source": {
+        "name": "market for chromium oxide, flakes GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market group for electricity, low voltage GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for biowaste CH"
+      }
+    },
+    {
+      "source": {
+        "name": "market for transport, freight, aircraft with reefer, cooling GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "beet sugar production CH"
+      }
+    },
+    {
+      "source": {
+        "name": "market for transport, freight, lorry 3.5-7.5 metric ton, EURO6 RER"
+      }
+    },
+    {
+      "source": {
+        "name": "transport, freight train, electricity RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "treatment of biowaste, municipal incineration GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for oat grain GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for polyurethane, flexible foam RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for sugar refinery GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "swath, by rotary windrower CA-QC"
+      }
+    },
+    {
+      "source": {
+        "name": "operation, housing system, cattle, loose CA-QC"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic potassium fertiliser, as K2O DE"
+      }
+    },
+    {
+      "source": {
+        "name": "market for diazine-compound GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic nitrogen fertiliser, as N MX"
+      }
+    },
+    {
+      "source": {
+        "name": "nutrient supply from potassium chloride RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for urea RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for waste wood, untreated BE"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, medium voltage NO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for wood pellet, measured as dry mass RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "rye production RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, medium voltage TJ"
+      }
+    },
+    {
+      "source": {
+        "name": "market for irrigation FR"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, medium voltage GH"
+      }
+    },
+    {
+      "source": {
+        "name": "market group for waste plastic, mixture Europe without Switzerland"
+      }
+    },
+    {
+      "source": {
+        "name": "tillage, subsoiling, by subsoiler plow BR"
+      }
+    },
+    {
+      "source": {
+        "name": "fertilising, by broadcaster Canada without Quebec"
+      }
+    },
+    {
+      "source": {
+        "name": "market for land use change, annual crop NZ"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, low voltage FI"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic phosphorus fertiliser, as P2O5 MY"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic nitrogen fertiliser, as N AR"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, medium voltage NPCC, US only"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic phosphorus fertiliser, as P2O5 TH"
+      }
+    },
+    {
+      "source": {
+        "name": "market for naphtha RER"
+      }
+    },
+    {
+      "source": {
+        "name": "treatment of lead in car shredder residue, municipal incineration RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for petrol, two-stroke blend GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "transport, tractor and trailer, agricultural RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market group for electricity, medium voltage IN"
+      }
+    },
+    {
+      "source": {
+        "name": "iron (III) chloride production, product in 40% solution state RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, medium voltage CZ"
+      }
+    },
+    {
+      "source": {
+        "name": "market for urea RER"
+      }
+    },
+    {
+      "source": {
+        "name": "treatment of waste aluminium, sanitary landfill CH"
+      }
+    },
+    {
+      "source": {
+        "name": "extrusion, plastic pipes RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "treatment of waste polypropylene, unsanitary landfill, wet infiltration class (5"
+      }
+    },
+    {
+      "source": {
+        "name": "market for transport, freight train US"
+      }
+    },
+    {
+      "source": {
+        "name": "anaerobic digestion plant construction, for sewage sludge RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, low voltage AO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, medium voltage PA"
+      }
+    },
+    {
+      "source": {
+        "name": "market for gravel/sand quarry infrastructure GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic nitrogen fertiliser, as N LV"
+      }
+    },
+    {
+      "source": {
+        "name": "market for transmission network, electricity, high voltage GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "nutrient supply from single superphosphate RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic potassium fertiliser, as K2O RU"
+      }
+    },
+    {
+      "source": {
+        "name": "market for concrete, normal RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for aluminium alloy, AlLi GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, medium voltage BN"
+      }
+    },
+    {
+      "source": {
+        "name": "nutrient supply from urea CN"
+      }
+    },
+    {
+      "source": {
+        "name": "nylon 6-6 production RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, low voltage AT"
+      }
+    },
+    {
+      "source": {
+        "name": "market for manganese sulfate GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, low voltage SD"
+      }
+    },
+    {
+      "source": {
+        "name": "heat production, natural gas, at boiler condensing modulating <100kW Europe with"
+      }
+    },
+    {
+      "source": {
+        "name": "chromium steel pipe production GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "hydrogen peroxide production, product in 50% solution state RER"
+      }
+    },
+    {
+      "source": {
+        "name": "section bar extrusion, aluminium RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic phosphorus fertiliser, as P2O5 IE"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic potassium fertiliser, as K2O ES"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, low voltage IT"
+      }
+    },
+    {
+      "source": {
+        "name": "treatment of scrap aluminium, municipal incineration CH"
+      }
+    },
+    {
+      "source": {
+        "name": "market for water, decarbonised US"
+      }
+    },
+    {
+      "source": {
+        "name": "market for natural gas, high pressure FR"
+      }
+    },
+    {
+      "source": {
+        "name": "market for water, decarbonised DE"
+      }
+    },
+    {
+      "source": {
+        "name": "heat production, natural gas, at boiler modulating <100kW Europe without Switzer"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic nitrogen fertiliser, as N BG"
+      }
+    },
+    {
+      "source": {
+        "name": "combine harvesting CH"
+      }
+    },
+    {
+      "source": {
+        "name": "market group for electricity, low voltage RLA"
+      }
+    },
+    {
+      "source": {
+        "name": "dried roughage store construction, cold-air dried, conventional RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for land use change, annual crop BR-MS"
+      }
+    },
+    {
+      "source": {
+        "name": "heat production, light fuel oil, at boiler 10kW, non-modulating CH"
+      }
+    },
+    {
+      "source": {
+        "name": "market for methanol GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for naphtha BR"
+      }
+    },
+    {
+      "source": {
+        "name": "market for soybean, organic GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "kraft paper production RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for conveyor belt GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "treatment of waste paperboard, inert material landfill CH"
+      }
+    },
+    {
+      "source": {
+        "name": "market for [sulfonyl]urea-compound GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for 2,4-dichlorophenol GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for straw RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for acetamide-anillide-compound, unspecified GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for nitric acid, without water, in 50% solution state RU"
+      }
+    },
+    {
+      "source": {
+        "name": "market for propylene RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for selenium GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic phosphorus fertiliser, as P2O5 PE"
+      }
+    },
+    {
+      "source": {
+        "name": "flat glass production, uncoated RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for extrusion, plastic film GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for heat and power co-generation unit, 6400kW thermal, components for ele"
+      }
+    },
+    {
+      "source": {
+        "name": "heat production, wood pellet, at furnace 300kW, state-of-the-art 2014 CH"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic potassium fertiliser, as K2O SI"
+      }
+    },
+    {
+      "source": {
+        "name": "solid manure loading and spreading, by hydraulic loader and spreader CA-QC"
+      }
+    },
+    {
+      "source": {
+        "name": "market for waste reinforcement steel CH"
+      }
+    },
+    {
+      "source": {
+        "name": "market for land use change, perennial crop KE"
+      }
+    },
+    {
+      "source": {
+        "name": "treatment of waste polyurethane foam, collection for final disposal CH"
+      }
+    },
+    {
+      "source": {
+        "name": "transport, freight, lorry with reefer, cooling GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for transport, freight, sea, bulk carrier for dry goods GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market group for heat, district or industrial, natural gas GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "transport, freight, sea, tanker for liquid goods other than petroleum and liquef"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, medium voltage HU"
+      }
+    },
+    {
+      "source": {
+        "name": "market for waste wood, untreated CO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for haying, by rotary tedder GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "electricity, from municipal waste incineration to generic market for electricity"
+      }
+    },
+    {
+      "source": {
+        "name": "nutrient supply from diammonium phosphate RER"
+      }
+    },
+    {
+      "source": {
+        "name": "transport, helicopter GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for coke GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for transport, freight, lorry 16-32 metric ton, EURO3 BR"
+      }
+    },
+    {
+      "source": {
+        "name": "market for waste wood, untreated PE"
+      }
+    },
+    {
+      "source": {
+        "name": "market for waste polyethylene PE"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, low voltage NG"
+      }
+    },
+    {
+      "source": {
+        "name": "steel production, converter, unalloyed RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for aluminium, cast alloy GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for waste wood, untreated LV"
+      }
+    },
+    {
+      "source": {
+        "name": "application of plant protection product, by field sprayer Canada without Quebec"
+      }
+    },
+    {
+      "source": {
+        "name": "treatment of waste polyethylene terephthalate, municipal incineration with fly a"
+      }
+    },
+    {
+      "source": {
+        "name": "market for process-specific burdens, sanitary landfill CH"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic potassium fertiliser, as K2O RO"
+      }
+    },
+    {
+      "source": {
+        "name": "chromium oxide production, flakes RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for chopping, maize GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, medium voltage UA"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inert waste, for final disposal RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, low voltage ZA"
+      }
+    },
+    {
+      "source": {
+        "name": "market for waste wood, untreated MT"
+      }
+    },
+    {
+      "source": {
+        "name": "market for clover seed, Swiss integrated production, for sowing GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for waste rubber, unspecified Europe without Switzerland"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic nitrogen fertiliser, as N ES"
+      }
+    },
+    {
+      "source": {
+        "name": "impact extrusion of steel, cold, deformation stroke RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for ammonium nitrate RNA"
+      }
+    },
+    {
+      "source": {
+        "name": "market for gypsum, mineral RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, low voltage NI"
+      }
+    },
+    {
+      "source": {
+        "name": "market group for electricity, low voltage IN"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic potassium fertiliser, as K2O IL"
+      }
+    },
+    {
+      "source": {
+        "name": "chimney production CH"
+      }
+    },
+    {
+      "source": {
+        "name": "market for whey GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "treatment of waste polyethylene/polypropylene product, collection for final disp"
+      }
+    },
+    {
+      "source": {
+        "name": "market for barley seed, for sowing GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for waste wood, untreated XK"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic potassium fertiliser, as K2O BE"
+      }
+    },
+    {
+      "source": {
+        "name": "fertilising, by broadcaster BR"
+      }
+    },
+    {
+      "source": {
+        "name": "treatment of waste cement, hydrated, residual material landfill CH"
+      }
+    },
+    {
+      "source": {
+        "name": "market for waste wood, untreated BA"
+      }
+    },
+    {
+      "source": {
+        "name": "fish canning, small fish RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market group for heat, central or small-scale, natural gas GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for diesel CH"
+      }
+    },
+    {
+      "source": {
+        "name": "tallow, unrefined, Recycled Content cut-off GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for land use change, perennial crop ZA"
+      }
+    },
+    {
+      "source": {
+        "name": "tillage, harrowing, by spring tine harrow CH"
+      }
+    },
+    {
+      "source": {
+        "name": "electricity production, photovoltaic, 3kWp slanted-roof installation, single-Si,"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, low voltage TN"
+      }
+    },
+    {
+      "source": {
+        "name": "market for urea RNA"
+      }
+    },
+    {
+      "source": {
+        "name": "treatment of used industrial electronic device, mechanical treatment GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for nitric acid, without water, in 50% solution state RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for wood preservative, creosote RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for transport, freight train IN"
+      }
+    },
+    {
+      "source": {
+        "name": "market for irrigation CN"
+      }
+    },
+    {
+      "source": {
+        "name": "market for natural gas, low pressure RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for waste polyethylene DK"
+      }
+    },
+    {
+      "source": {
+        "name": "market for sodium hypochlorite, without water, in 15% solution state RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "tractor production, 4-wheel, agricultural RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for mercury GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for waste polyethylene NO"
+      }
+    },
+    {
+      "source": {
+        "name": "wastewater treatment facility construction, capacity 5E9l/year CH"
+      }
+    },
+    {
+      "source": {
+        "name": "zinc coating, pieces RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, medium voltage SERC"
+      }
+    },
+    {
+      "source": {
+        "name": "fava bean, feed production, Swiss integrated production CH"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic nitrogen fertiliser, as N DE"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, medium voltage CR"
+      }
+    },
+    {
+      "source": {
+        "name": "containerboard production, linerboard, kraftliner RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for heat, central or small-scale, natural gas RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "sowing Canada without Quebec"
+      }
+    },
+    {
+      "source": {
+        "name": "market for water, ultrapure RER"
+      }
+    },
+    {
+      "source": {
+        "name": "agricultural machinery production, tillage RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, low voltage CG"
+      }
+    },
+    {
+      "source": {
+        "name": "market for hoeing GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "mulching CH"
+      }
+    },
+    {
+      "source": {
+        "name": "green manure growing, Swiss integrated production, until March CH"
+      }
+    },
+    {
+      "source": {
+        "name": "market for waste wood, untreated GB"
+      }
+    },
+    {
+      "source": {
+        "name": "market for nitric acid, without water, in 50% solution state RER w/o RU"
+      }
+    },
+    {
+      "source": {
+        "name": "transport, freight train, diesel US"
+      }
+    },
+    {
+      "source": {
+        "name": "steel production, low-alloyed, hot rolled RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for hazardous waste, for incineration RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "treatment of electronics scrap from control units RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, medium voltage IR"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic nitrogen fertiliser, as N AU"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, medium voltage PL"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic potassium fertiliser, as K2O BA"
+      }
+    },
+    {
+      "source": {
+        "name": "market for urea ammonium nitrate mix RER"
+      }
+    },
+    {
+      "source": {
+        "name": "nutrient supply from potassium nitrate RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for housing system, cattle, loose, per animal unit GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for naphtha ZA"
+      }
+    },
+    {
+      "source": {
+        "name": "market for waste building wood, chrome preserved CH"
+      }
+    },
+    {
+      "source": {
+        "name": "treatment of waste polyethylene, unsanitary landfill, wet infiltration class (50"
+      }
+    },
+    {
+      "source": {
+        "name": "market for transport, freight, train with reefer, freezing GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for sodium chloride, powder GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "manure, liquid, cattle, Recycled Content cut-off GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for isopropanol RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for waste polyethylene LT"
+      }
+    },
+    {
+      "source": {
+        "name": "market for tap water BR"
+      }
+    },
+    {
+      "source": {
+        "name": "tillage, rotary cultivator CA-QC"
+      }
+    },
+    {
+      "source": {
+        "name": "market for fishmeal, 63-65% protein GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "heat production, propane, at industrial furnace >100kW RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "brass production CH"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, low voltage AR"
+      }
+    },
+    {
+      "source": {
+        "name": "market for polyvinylchloride, suspension polymerised GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for wastewater, average CH"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic nitrogen fertiliser, as N FI"
+      }
+    },
+    {
+      "source": {
+        "name": "heat production, natural gas, at industrial furnace >100kW Europe without Switze"
+      }
+    },
+    {
+      "source": {
+        "name": "market group for electricity, medium voltage BR"
+      }
+    },
+    {
+      "source": {
+        "name": "ethylene vinyl acetate copolymer production RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for tower silo, plastic GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "treatment of scrap steel, inert material landfill Europe without Switzerland"
+      }
+    },
+    {
+      "source": {
+        "name": "treatment of limestone residue, inert material landfill CH"
+      }
+    },
+    {
+      "source": {
+        "name": "market for ammonia, anhydrous, liquid UN-OCEANIA"
+      }
+    },
+    {
+      "source": {
+        "name": "market for formaldehyde RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for heat, district or industrial, other than natural gas RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "coconut oil production, crude PH"
+      }
+    },
+    {
+      "source": {
+        "name": "market for horticultural fleece GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "silica sand production DE"
+      }
+    },
+    {
+      "source": {
+        "name": "market for glued laminated timber, average glue mix Europe without Switzerland"
+      }
+    },
+    {
+      "source": {
+        "name": "market for polyvinylchloride, bulk polymerised GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for operation, housing system, cattle, loose, per animal unit GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for transport, passenger car RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for land use change, perennial crop IT"
+      }
+    },
+    {
+      "source": {
+        "name": "market for boric oxide GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for wheat bran ZA"
+      }
+    },
+    {
+      "source": {
+        "name": "market for polyacrylamide GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "cadmium production, primary RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "soybean production CA-QC"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, low voltage PL"
+      }
+    },
+    {
+      "source": {
+        "name": "antimony production RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "extrusion, plastic pipes RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for soybean seed, organic, for sowing GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, medium voltage AM"
+      }
+    },
+    {
+      "source": {
+        "name": "market for water, deionised CH"
+      }
+    },
+    {
+      "source": {
+        "name": "market for salt GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for chlorodifluoromethane RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "quicklime production, milled, loose CH"
+      }
+    },
+    {
+      "source": {
+        "name": "market for ammonium sulfate RER"
+      }
+    },
+    {
+      "source": {
+        "name": "ceramic tile production CH"
+      }
+    },
+    {
+      "source": {
+        "name": "treatment of waste mineral oil, hazardous waste incineration CH"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, low voltage PR"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electronics scrap GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, medium voltage PE"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic potassium fertiliser, as K2O SE"
+      }
+    },
+    {
+      "source": {
+        "name": "market for injection moulding GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for nitric acid, without water, in 50% solution state CN"
+      }
+    },
+    {
+      "source": {
+        "name": "market for tillage, harrowing, by spring tine harrow GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "polyethylene production, linear low density, granulate RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, low voltage CU"
+      }
+    },
+    {
+      "source": {
+        "name": "market for ammonia, anhydrous, liquid RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for sodium phosphate RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for stone wool GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for polyethylene, high density, granulate GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic nitrogen fertiliser, as N IN"
+      }
+    },
+    {
+      "source": {
+        "name": "market for water, decarbonised CA"
+      }
+    },
+    {
+      "source": {
+        "name": "shed construction RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, medium voltage IL"
+      }
+    },
+    {
+      "source": {
+        "name": "application of plant protection product, by field sprayer ZA"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, low voltage MU"
+      }
+    },
+    {
+      "source": {
+        "name": "market for polypropylene, granulate GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic phosphorus fertiliser, as P2O5 RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "solid manure loading and spreading, by hydraulic loader and spreader CH"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, low voltage JM"
+      }
+    },
+    {
+      "source": {
+        "name": "market for recultivation, limestone mine GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "alkyd paint production, white, solvent-based, product in 60% solution state RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for copper in car shredder residue CH"
+      }
+    },
+    {
+      "source": {
+        "name": "nutrient supply from potassium chloride RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "purse seiner maintenance, steel RLA"
+      }
+    },
+    {
+      "source": {
+        "name": "market for limestone, crushed, washed CH"
+      }
+    },
+    {
+      "source": {
+        "name": "market for blasting GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "municipal waste collection service by 21 metric ton lorry CH"
+      }
+    },
+    {
+      "source": {
+        "name": "wheat grain, feed production CA-QC"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, low voltage DE"
+      }
+    },
+    {
+      "source": {
+        "name": "market group for heat, central or small-scale, other than natural gas GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic potassium fertiliser, as K2O LV"
+      }
+    },
+    {
+      "source": {
+        "name": "market for corrugated board box RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for metal working, average for steel product manufacturing GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "polyester resin production, unsaturated RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market group for electricity, low voltage BR"
+      }
+    },
+    {
+      "source": {
+        "name": "heat production, wood pellet, at furnace 25kW RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "application of plant protection product, by field sprayer CH"
+      }
+    },
+    {
+      "source": {
+        "name": "wheat production, Swiss integrated production, intensive CH"
+      }
+    },
+    {
+      "source": {
+        "name": "market for phosphate rock, beneficiated MA"
+      }
+    },
+    {
+      "source": {
+        "name": "heat production, light fuel oil, at boiler 100kW, non-modulating CH"
+      }
+    },
+    {
+      "source": {
+        "name": "treatment of waste plastic, mixture, municipal incineration CH"
+      }
+    },
+    {
+      "source": {
+        "name": "market for lime RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic phosphorus fertiliser, as P2O5 DE"
+      }
+    },
+    {
+      "source": {
+        "name": "market for waste wood, untreated DK"
+      }
+    },
+    {
+      "source": {
+        "name": "market for waste polyethylene/polypropylene product RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for wastewater from maize starch production GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "nutrient supply from triple superphosphate RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for glass tube, borosilicate GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "treatment of waste cement in concrete and mortar, collection for final disposal"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic nitrogen fertiliser, as N NO"
+      }
+    },
+    {
+      "source": {
+        "name": "planing, board, softwood, u=20% CH"
+      }
+    },
+    {
+      "source": {
+        "name": "market group for waste polyethylene Europe without Switzerland"
+      }
+    },
+    {
+      "source": {
+        "name": "treatment of waste polypropylene, municipal incineration with fly ash extraction"
+      }
+    },
+    {
+      "source": {
+        "name": "market for irrigation DE"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, medium voltage PH"
+      }
+    },
+    {
+      "source": {
+        "name": "market for phosphoric acid, industrial grade, without water, in 85% solution sta"
+      }
+    },
+    {
+      "source": {
+        "name": "market for 2,4-dichlorotoluene GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, medium voltage MN"
+      }
+    },
+    {
+      "source": {
+        "name": "drying of protein pea CA-MB"
+      }
+    },
+    {
+      "source": {
+        "name": "market for wastewater, from residence RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for sulfur dioxide, liquid RER"
+      }
+    },
+    {
+      "source": {
+        "name": "tillage, ploughing CH"
+      }
+    },
+    {
+      "source": {
+        "name": "hardwood forestry, oak, sustainable forest management RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for ammonium nitrate CN"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, medium voltage NL"
+      }
+    },
+    {
+      "source": {
+        "name": "market for aclonifen GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for potassium hydroxide GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for ethoxylated alcohol (AE>20) GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for refrigerant R134a GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, medium voltage CU"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic potassium fertiliser, as K2O SK"
+      }
+    },
+    {
+      "source": {
+        "name": "sodium chloride production, powder RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market group for electricity, low voltage RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, low voltage ES"
+      }
+    },
+    {
+      "source": {
+        "name": "electricity production, hard coal RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for aluminium, primary, ingot RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic potassium fertiliser, as K2O PT"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic nitrogen fertiliser, as N IL"
+      }
+    },
+    {
+      "source": {
+        "name": "market for copper oxide GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "drying of feed grain CA-QC"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, low voltage CH"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic phosphorus fertiliser, as P2O5 BG"
+      }
+    },
+    {
+      "source": {
+        "name": "market for waste wood, untreated IT"
+      }
+    },
+    {
+      "source": {
+        "name": "market for irrigation US"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, medium voltage RO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic potassium fertiliser, as K2O AU"
+      }
+    },
+    {
+      "source": {
+        "name": "market for waste mineral oil Europe without Switzerland"
+      }
+    },
+    {
+      "source": {
+        "name": "market for waste polyethylene LU"
+      }
+    },
+    {
+      "source": {
+        "name": "market for greenhouse, plastic walls and roof GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "tillage, harrowing, by rotary harrow CA"
+      }
+    },
+    {
+      "source": {
+        "name": "market for sodium silicate, spray powder, 80% RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, medium voltage CY"
+      }
+    },
+    {
+      "source": {
+        "name": "treatment of waste plastic, mixture, sanitary landfill RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for sodium bicarbonate GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic potassium fertiliser, as K2O RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for ethanol, without water, in 99.7% solution state, from ethylene RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, medium voltage UZ"
+      }
+    },
+    {
+      "source": {
+        "name": "market for nitric acid, without water, in 50% solution state SAS"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic nitrogen fertiliser, as N SE"
+      }
+    },
+    {
+      "source": {
+        "name": "dithiocarbamate-compound production RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, medium voltage SK"
+      }
+    },
+    {
+      "source": {
+        "name": "heat production, light fuel oil, at boiler 100kW, non-modulating Europe without"
+      }
+    },
+    {
+      "source": {
+        "name": "market for magnesium oxide GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, medium voltage MK"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic phosphorus fertiliser, as P2O5 EC"
+      }
+    },
+    {
+      "source": {
+        "name": "nutrient supply from ammonium nitrate RER"
+      }
+    },
+    {
+      "source": {
+        "name": "tillage, currying, by weeder CH"
+      }
+    },
+    {
+      "source": {
+        "name": "market for waste polyethylene PL"
+      }
+    },
+    {
+      "source": {
+        "name": "market for waste polyethylene GB"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, medium voltage FR"
+      }
+    },
+    {
+      "source": {
+        "name": "market group for electricity, low voltage Europe without Switzerland"
+      }
+    },
+    {
+      "source": {
+        "name": "market group for cement, unspecified GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "fodder loading, by self-loading trailer RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market group for electricity, medium voltage US"
+      }
+    },
+    {
+      "source": {
+        "name": "market for tillage, currying, by weeder GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "transport, freight, light commercial vehicle CH"
+      }
+    },
+    {
+      "source": {
+        "name": "market for purse seiner maintenance, steel GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, low voltage BE"
+      }
+    },
+    {
+      "source": {
+        "name": "market for water, decarbonised RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for plastic tunnel GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "textile production, jute, weaving IN"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, medium voltage YE"
+      }
+    },
+    {
+      "source": {
+        "name": "metal working, average for steel product manufacturing RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "wood chips production, hardwood, at sawmill RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "citric acid production CN"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic potassium fertiliser, as K2O CR"
+      }
+    },
+    {
+      "source": {
+        "name": "market for chlorine dioxide RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for rape oil, crude CH"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic potassium fertiliser, as K2O RS"
+      }
+    },
+    {
+      "source": {
+        "name": "market for sowing GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for potassium chloride RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "treatment of biowaste by anaerobic digestion RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for heat, district or industrial, other than natural gas CA-QC"
+      }
+    },
+    {
+      "source": {
+        "name": "treatment of waste polyvinylchloride, municipal incineration with fly ash extrac"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, low voltage BW"
+      }
+    },
+    {
+      "source": {
+        "name": "electricity production, oil RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for heat, district or industrial, other than natural gas CH"
+      }
+    },
+    {
+      "source": {
+        "name": "market for harvesting, forestry harvester GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "rape seed production, organic CH"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic phosphorus fertiliser, as P2O5 CA"
+      }
+    },
+    {
+      "source": {
+        "name": "sheet rolling, copper RER"
+      }
+    },
+    {
+      "source": {
+        "name": "sodium silicate production, furnace liquor, product in 37% solution state RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for shed GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "treatment of used vegetable cooking oil, purification FR"
+      }
+    },
+    {
+      "source": {
+        "name": "oil mill construction CH"
+      }
+    },
+    {
+      "source": {
+        "name": "treatment of wood ash mixture, pure, sanitary landfill CH"
+      }
+    },
+    {
+      "source": {
+        "name": "market for urea ammonium nitrate mix CN"
+      }
+    },
+    {
+      "source": {
+        "name": "market for oxygen, liquid RER"
+      }
+    },
+    {
+      "source": {
+        "name": "nutrient supply from diammonium phosphate RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for planting GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "treatment of steel in car shredder residue, municipal incineration CH"
+      }
+    },
+    {
+      "source": {
+        "name": "plywood production RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for polyurethane, rigid foam RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for manure, liquid, cattle GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "electricity production, wind, <1MW turbine, onshore RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "metal working, average for aluminium product manufacturing RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for transport, freight, lorry, unspecified ZA"
+      }
+    },
+    {
+      "source": {
+        "name": "market for pentane GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic potassium fertiliser, as K2O TH"
+      }
+    },
+    {
+      "source": {
+        "name": "market group for diesel, low-sulfur GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for waste polyethylene SE"
+      }
+    },
+    {
+      "source": {
+        "name": "nutrient supply from ammonium nitrate phosphate RER"
+      }
+    },
+    {
+      "source": {
+        "name": "Distiller's Dried Grains with Solubles to generic market for protein feed GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "polydimethylsiloxane production GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for fish oil, from anchovy GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, medium voltage PY"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic phosphorus fertiliser, as P2O5 US"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic nitrogen fertiliser, as N HU"
+      }
+    },
+    {
+      "source": {
+        "name": "market for sand RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, medium voltage SY"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, medium voltage SV"
+      }
+    },
+    {
+      "source": {
+        "name": "market for cyclic N-compound GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for sawnwood, beam, hardwood, dried (u=10%), planed RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for lubricating oil RER"
+      }
+    },
+    {
+      "source": {
+        "name": "treatment of waste polyvinylchloride, unsanitary landfill, wet infiltration clas"
+      }
+    },
+    {
+      "source": {
+        "name": "market for waste polypropylene RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for paraffin GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "industrial furnace production, natural gas RER"
+      }
+    },
+    {
+      "source": {
+        "name": "treatment of scrap steel, inert material landfill RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for waste wood, untreated DE"
+      }
+    },
+    {
+      "source": {
+        "name": "market for transport, freight, lorry >32 metric ton, EURO4 RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for potassium sulfate RER"
+      }
+    },
+    {
+      "source": {
+        "name": "primary lead production from concentrate GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for linseed seed, for sowing GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, low voltage CL"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, low voltage ZM"
+      }
+    },
+    {
+      "source": {
+        "name": "packaging production for liquid fertiliser or pesticide, per kilogram of packed"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, medium voltage LU"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic nitrogen fertiliser, as N CZ"
+      }
+    },
+    {
+      "source": {
+        "name": "market for liquid storage tank, chemicals, organics GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "treatment of wastewater, average, capacity 1.1E10l/year CH"
+      }
+    },
+    {
+      "source": {
+        "name": "market for straw RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for ammonia, anhydrous, liquid CN"
+      }
+    },
+    {
+      "source": {
+        "name": "market for concrete, normal CH"
+      }
+    },
+    {
+      "source": {
+        "name": "market for nitric acid, without water, in 50% solution state RLA"
+      }
+    },
+    {
+      "source": {
+        "name": "application of plant protection product, by field sprayer BR"
+      }
+    },
+    {
+      "source": {
+        "name": "polypropylene production, granulate RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for cork, raw PT"
+      }
+    },
+    {
+      "source": {
+        "name": "market for zinc in car shredder residue RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "heat production, natural gas, at boiler modulating >100kW RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "tomato seedling production, in unheated greenhouse, for planting ES"
+      }
+    },
+    {
+      "source": {
+        "name": "market for antifouling paint emissions GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for heat, district or industrial, other than natural gas Europe without S"
+      }
+    },
+    {
+      "source": {
+        "name": "market for furnace, logs, 30kW GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for wheat grain ZA"
+      }
+    },
+    {
+      "source": {
+        "name": "sawlog and veneer log, azobe, debarked, measured as solid wood, import from CM R"
+      }
+    },
+    {
+      "source": {
+        "name": "heat and power co-generation, biogas, gas engine FR"
+      }
+    },
+    {
+      "source": {
+        "name": "market for agricultural trailer GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for waste polyethylene SI"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, low voltage LY"
+      }
+    },
+    {
+      "source": {
+        "name": "transport, freight, lorry 16-32 metric ton, EURO4 RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic phosphorus fertiliser, as P2O5 XK"
+      }
+    },
+    {
+      "source": {
+        "name": "market for land use change, annual crop HU"
+      }
+    },
+    {
+      "source": {
+        "name": "market for irrigation BR"
+      }
+    },
+    {
+      "source": {
+        "name": "market for transport, freight, lorry 3.5-7.5 metric ton, EURO4 RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for calcium ammonium nitrate RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic nitrogen fertiliser, as N VN"
+      }
+    },
+    {
+      "source": {
+        "name": "market for waste polyethylene RS"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic nitrogen fertiliser, as N GB"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, low voltage ZW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for hazardous waste, for incineration Europe without Switzerland"
+      }
+    },
+    {
+      "source": {
+        "name": "water production, decarbonised RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "heat production, natural gas, at boiler modulating >100kW Europe without Switzer"
+      }
+    },
+    {
+      "source": {
+        "name": "market for water, decarbonised FR"
+      }
+    },
+    {
+      "source": {
+        "name": "market for natural gas, high pressure RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "treatment of waste zeolite, inert material landfill RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "glass wool mat production RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market group for tap water GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic potassium fertiliser, as K2O PE"
+      }
+    },
+    {
+      "source": {
+        "name": "heat production, lignite briquette, at stove 5-15kW RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for manure, liquid, swine GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "chlorine production, liquid RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic phosphorus fertiliser, as P2O5 VN"
+      }
+    },
+    {
+      "source": {
+        "name": "market for propylene glycol, liquid RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for soybean meal RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for ammonia, anhydrous, liquid RLA"
+      }
+    },
+    {
+      "source": {
+        "name": "market for hot water tank factory GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for tin plated chromium steel sheet, 2 mm GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for polystyrene, general purpose GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for waste polyethylene RO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, low voltage PE"
+      }
+    },
+    {
+      "source": {
+        "name": "market for heavy fuel oil RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "zinc monosulfate production RER"
+      }
+    },
+    {
+      "source": {
+        "name": "green manure growing, organic, until March CH"
+      }
+    },
+    {
+      "source": {
+        "name": "liquid manure tank trailer production RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for dimethenamide GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic potassium fertiliser, as K2O IE"
+      }
+    },
+    {
+      "source": {
+        "name": "market for water, decarbonised RU"
+      }
+    },
+    {
+      "source": {
+        "name": "treatment of wood ash mixture, pure, municipal incineration CH"
+      }
+    },
+    {
+      "source": {
+        "name": "drying of maize grain BR"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic nitrogen fertiliser, as N AT"
+      }
+    },
+    {
+      "source": {
+        "name": "treatment of municipal solid waste, municipal incineration with fly ash extracti"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, low voltage RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for trellis system, wooden poles, soft wood, tar impregnated GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic phosphorus fertiliser, as P2O5 NL"
+      }
+    },
+    {
+      "source": {
+        "name": "packaging production for solid fertiliser or pesticide, per kilogram of packed p"
+      }
+    },
+    {
+      "source": {
+        "name": "heat production, at coal coke industrial furnace 1-10MW RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for industrial machine, heavy, unspecified RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for pyridazine-compound GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "treatment of waste wood, untreated, municipal incineration CH"
+      }
+    },
+    {
+      "source": {
+        "name": "market for bark chips, wet, measured as dry mass Europe without Switzerland"
+      }
+    },
+    {
+      "source": {
+        "name": "market for carton board box production, with offset printing GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic potassium fertiliser, as K2O ID"
+      }
+    },
+    {
+      "source": {
+        "name": "market group for heat, central or small-scale, other than natural gas RER"
+      }
+    },
+    {
+      "source": {
+        "name": "propane, burned in building machine GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for waste polyethylene FI"
+      }
+    },
+    {
+      "source": {
+        "name": "glass fibre reinforced plastic production, polyamide, injection moulded RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic potassium fertiliser, as K2O AT"
+      }
+    },
+    {
+      "source": {
+        "name": "silica sand production RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, medium voltage MX"
+      }
+    },
+    {
+      "source": {
+        "name": "water production, deionised Europe without Switzerland"
+      }
+    },
+    {
+      "source": {
+        "name": "market for waste wood, untreated CY"
+      }
+    },
+    {
+      "source": {
+        "name": "market for land use change, annual crop BR-MT"
+      }
+    },
+    {
+      "source": {
+        "name": "barley grain, feed production, organic CH"
+      }
+    },
+    {
+      "source": {
+        "name": "planting with starter fertiliser, by no till planter BR"
+      }
+    },
+    {
+      "source": {
+        "name": "market for waste polyethylene CY"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, medium voltage CO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for heat, from steam, in chemical industry RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for transport, freight, sea, container ship with reefer, freezing GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for transport, passenger car, medium size, diesel, EURO 4 GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic phosphorus fertiliser, as P2O5 FR"
+      }
+    },
+    {
+      "source": {
+        "name": "market for napropamide GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "baling CH"
+      }
+    },
+    {
+      "source": {
+        "name": "market for anhydrite rock CH"
+      }
+    },
+    {
+      "source": {
+        "name": "barley grain, feed production CA-QC"
+      }
+    },
+    {
+      "source": {
+        "name": "market for iron (III) chloride, without water, in 40% solution state GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for concrete, normal IN"
+      }
+    },
+    {
+      "source": {
+        "name": "market for waste wood, untreated SK"
+      }
+    },
+    {
+      "source": {
+        "name": "electricity production, hydro, run-of-river RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "polyester resin production, unsaturated RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "oil storage production, 3000l CH"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic nitrogen fertiliser, as N CR"
+      }
+    },
+    {
+      "source": {
+        "name": "building construction, multi-storey RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for waste concrete Europe without Switzerland"
+      }
+    },
+    {
+      "source": {
+        "name": "treatment of waste paperboard, municipal incineration CH"
+      }
+    },
+    {
+      "source": {
+        "name": "aluminium alloy production, AlMg3 RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for propylene glycol, liquid RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for sawnwood, beam, hardwood, raw, dried (u=10%) Europe without Switzerla"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic nitrogen fertiliser, as N CO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, low voltage TZ"
+      }
+    },
+    {
+      "source": {
+        "name": "market for manganese concentrate GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for zinc coat, pieces GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for waste wood, untreated LT"
+      }
+    },
+    {
+      "source": {
+        "name": "market for particleboard, uncoated RER"
+      }
+    },
+    {
+      "source": {
+        "name": "dried roughage store construction, non ventilated RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for water, decarbonised ZA"
+      }
+    },
+    {
+      "source": {
+        "name": "zeolite production, powder RER"
+      }
+    },
+    {
+      "source": {
+        "name": "tillage, rotary cultivator ZA"
+      }
+    },
+    {
+      "source": {
+        "name": "market for hay GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "wire drawing, copper RER"
+      }
+    },
+    {
+      "source": {
+        "name": "kaolin production RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for distribution network, electricity, low voltage GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market group for diesel GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market group for natural gas, high pressure Europe without Switzerland"
+      }
+    },
+    {
+      "source": {
+        "name": "treatment of biowaste, industrial composting CH"
+      }
+    },
+    {
+      "source": {
+        "name": "chemical production, inorganic GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market group for electricity, low voltage RAF"
+      }
+    },
+    {
+      "source": {
+        "name": "iron sulfate production RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market group for electricity, medium voltage RNA"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, medium voltage HK"
+      }
+    },
+    {
+      "source": {
+        "name": "cast iron production RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic phosphorus fertiliser, as P2O5 IT"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic potassium fertiliser, as K2O IS"
+      }
+    },
+    {
+      "source": {
+        "name": "market for transport, freight, inland waterways, barge RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "coconut husk, Recycled Content cut-off GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "treatment of wastewater, average, capacity 1E9l/year CH"
+      }
+    },
+    {
+      "source": {
+        "name": "market for ammonium nitrate RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, low voltage SN"
+      }
+    },
+    {
+      "source": {
+        "name": "paraffin production RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for polycarbonate GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic nitrogen fertiliser, as N CN"
+      }
+    },
+    {
+      "source": {
+        "name": "market for potato starch GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market group for electricity, medium voltage GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, medium voltage TH"
+      }
+    },
+    {
+      "source": {
+        "name": "market for sulfur dioxide, liquid RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market group for electricity, medium voltage RAF"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, low voltage MZ"
+      }
+    },
+    {
+      "source": {
+        "name": "market for concrete, normal RNA"
+      }
+    },
+    {
+      "source": {
+        "name": "glass fibre reinforced plastic production, polyester resin, hand lay-up RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for urea ammonium nitrate mix RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for limestone residue RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "heat production, softwood chips from forest, at furnace 50kW RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for benzimidazole-compound GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "sugarcane processing, traditional annexed plant RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for transport, freight, inland waterways, barge with reefer, cooling GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for dolomite RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "lime production, milled, packed CH"
+      }
+    },
+    {
+      "source": {
+        "name": "market for zinc coat, coils GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for tomato seedling, for planting GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for land use change, annual crop BR-RS"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic potassium fertiliser, as K2O BR"
+      }
+    },
+    {
+      "source": {
+        "name": "market for kerosene Europe without Switzerland"
+      }
+    },
+    {
+      "source": {
+        "name": "market for land use change, perennial crop CO"
+      }
+    },
+    {
+      "source": {
+        "name": "gypsum plasterboard production CH"
+      }
+    },
+    {
+      "source": {
+        "name": "heat and power co-generation unit construction, 200kW electrical, diesel SCR, co"
+      }
+    },
+    {
+      "source": {
+        "name": "market for shed, large, wood, non-insulated, fire-unprotected GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "treatment of wastewater, average, capacity 1E9l/year Europe without Switzerland"
+      }
+    },
+    {
+      "source": {
+        "name": "weaving of synthetic fibre, for industrial use GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "fertilising, by broadcaster ZA"
+      }
+    },
+    {
+      "source": {
+        "name": "market for gravel, crushed RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, low voltage ID"
+      }
+    },
+    {
+      "source": {
+        "name": "market for flat glass, uncoated RER"
+      }
+    },
+    {
+      "source": {
+        "name": "treatment of wastewater, from residence, capacity 1.1E10l/year CH"
+      }
+    },
+    {
+      "source": {
+        "name": "market for waste polyvinylchloride product Europe without Switzerland"
+      }
+    },
+    {
+      "source": {
+        "name": "injection moulding RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for bentonite GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market group for transport, freight, inland waterways, barge GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for transport, freight, lorry with refrigeration machine, cooling GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "hardwood forestry, oak, sustainable forest management DE"
+      }
+    },
+    {
+      "source": {
+        "name": "treatment of used cable GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "shavings, softwood, measured as dry mass to generic market for residual wood, dr"
+      }
+    },
+    {
+      "source": {
+        "name": "market for ethanol fermentation plant GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for ethylene vinyl acetate copolymer RER"
+      }
+    },
+    {
+      "source": {
+        "name": "polyvinylchloride production, suspension polymerisation RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for waste wood, untreated MK"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic phosphorus fertiliser, as P2O5 UA"
+      }
+    },
+    {
+      "source": {
+        "name": "market for magnesium sulfate GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "polyethylene terephthalate production, granulate, amorphous RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for tap water PE"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, medium voltage TW"
+      }
+    },
+    {
+      "source": {
+        "name": "zinc oxide production RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for hydrochloric acid, without water, in 30% solution state RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for decarbonising waste CH"
+      }
+    },
+    {
+      "source": {
+        "name": "market for transport, tractor and trailer, agricultural RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "soda production, solvay process RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for waste mineral oil RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "transport, freight, inland waterways, barge with reefer, cooling GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for lime RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for process-specific burdens, residual material landfill Europe without S"
+      }
+    },
+    {
+      "source": {
+        "name": "land use change, perennial crop ES"
+      }
+    },
+    {
+      "source": {
+        "name": "market for nitric acid, without water, in 50% solution state RAF"
+      }
+    },
+    {
+      "source": {
+        "name": "polyethylene production, low density, granulate RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for concrete block RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "treatment of waste wood, untreated, sanitary landfill CH"
+      }
+    },
+    {
+      "source": {
+        "name": "market for transport, freight, lorry >32 metric ton, EURO3 RER"
+      }
+    },
+    {
+      "source": {
+        "name": "silicone product production RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for transport, freight train Europe without Switzerland"
+      }
+    },
+    {
+      "source": {
+        "name": "paper production, woodfree, coated, at integrated mill RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic potassium fertiliser, as K2O GB"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, low voltage HN"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, low voltage MA"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic potassium fertiliser, as K2O NL"
+      }
+    },
+    {
+      "source": {
+        "name": "market for waste polyethylene MT"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic phosphorus fertiliser, as P2O5 CN"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, medium voltage VE"
+      }
+    },
+    {
+      "source": {
+        "name": "market for metaldehyde GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for waste polyethylene ES"
+      }
+    },
+    {
+      "source": {
+        "name": "market for waste wood, untreated AT"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, low voltage CD"
+      }
+    },
+    {
+      "source": {
+        "name": "market for land use change, annual crop BR-PR"
+      }
+    },
+    {
+      "source": {
+        "name": "market for light fuel oil CH"
+      }
+    },
+    {
+      "source": {
+        "name": "market for EUR-flat pallet RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for waste wood, untreated IE"
+      }
+    },
+    {
+      "source": {
+        "name": "market for waste polyethylene BR"
+      }
+    },
+    {
+      "source": {
+        "name": "market for waste polyethylene ME"
+      }
+    },
+    {
+      "source": {
+        "name": "market for transport, tractor and trailer, agricultural CH"
+      }
+    },
+    {
+      "source": {
+        "name": "treatment of waste reinforcement steel, sorting plant CH"
+      }
+    },
+    {
+      "source": {
+        "name": "lime production, milled, loose CH"
+      }
+    },
+    {
+      "source": {
+        "name": "market for irrigation PH"
+      }
+    },
+    {
+      "source": {
+        "name": "liquid manure spreading, by vacuum tanker CH"
+      }
+    },
+    {
+      "source": {
+        "name": "market for nitric acid, without water, in 50% solution state UN-OCEANIA"
+      }
+    },
+    {
+      "source": {
+        "name": "market for land use change, annual crop US"
+      }
+    },
+    {
+      "source": {
+        "name": "market for soda ash, light, crystalline, heptahydrate GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for waste wood, untreated LU"
+      }
+    },
+    {
+      "source": {
+        "name": "maize grain, feed production CA-QC"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, medium voltage GT"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic phosphorus fertiliser, as P2O5 CH"
+      }
+    },
+    {
+      "source": {
+        "name": "heat production, wood chips from industry, at furnace 5000kW RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic potassium fertiliser, as K2O CO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, medium voltage DO"
+      }
+    },
+    {
+      "source": {
+        "name": "market group for tap water RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for waste wood, untreated EE"
+      }
+    },
+    {
+      "source": {
+        "name": "treatment of waste polyethylene, sanitary landfill RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "clay pit operation CH"
+      }
+    },
+    {
+      "source": {
+        "name": "battery production, Li-ion, rechargeable, prismatic GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, low voltage UA"
+      }
+    },
+    {
+      "source": {
+        "name": "market for potassium carbonate GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "transport, freight, lorry 7.5-16 metric ton, EURO3 RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for activated bentonite GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for maize grain, feed ZA"
+      }
+    },
+    {
+      "source": {
+        "name": "market for fibre cement roof slate GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, low voltage CW"
+      }
+    },
+    {
+      "source": {
+        "name": "treatment of wastewater from maize starch production, capacity 1.1E10l/year RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "harvester production RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "transport, freight, lorry >32 metric ton, EURO3 RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for transport, freight, train with reefer, cooling GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market group for transport, freight, lorry, unspecified GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for hazardous waste, for incineration CH"
+      }
+    },
+    {
+      "source": {
+        "name": "market for molybdenum GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, medium voltage BO"
+      }
+    },
+    {
+      "source": {
+        "name": "extrusion of plastic sheets and thermoforming, inline FR"
+      }
+    },
+    {
+      "source": {
+        "name": "sowing ZA"
+      }
+    },
+    {
+      "source": {
+        "name": "market for chlorodifluoromethane RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic nitrogen fertiliser, as N EE"
+      }
+    },
+    {
+      "source": {
+        "name": "market for waste polystyrene ES"
+      }
+    },
+    {
+      "source": {
+        "name": "market for zinc GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for organophosphorus-compound, unspecified GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic nitrogen fertiliser, as N CY"
+      }
+    },
+    {
+      "source": {
+        "name": "market for sheet rolling, steel GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic phosphorus fertiliser, as P2O5 ID"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, medium voltage DE"
+      }
+    },
+    {
+      "source": {
+        "name": "activated bentonite production DE"
+      }
+    },
+    {
+      "source": {
+        "name": "market for paper, woodcontaining, lightweight coated RER"
+      }
+    },
+    {
+      "source": {
+        "name": "carbon dioxide production, liquid RER"
+      }
+    },
+    {
+      "source": {
+        "name": "extrusion, plastic film RER"
+      }
+    },
+    {
+      "source": {
+        "name": "drying of protein pea CA-AB"
+      }
+    },
+    {
+      "source": {
+        "name": "market for wastewater from vegetable oil refinery GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, medium voltage RS"
+      }
+    },
+    {
+      "source": {
+        "name": "excavation, hydraulic digger RER"
+      }
+    },
+    {
+      "source": {
+        "name": "fish residues, Recycled Content cut-off GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for tap water IN"
+      }
+    },
+    {
+      "source": {
+        "name": "market for waste bulk iron, excluding reinforcement Europe without Switzerland"
+      }
+    },
+    {
+      "source": {
+        "name": "market for barley grain, feed GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic phosphorus fertiliser, as P2O5 BA"
+      }
+    },
+    {
+      "source": {
+        "name": "transport, freight train, electricity Europe without Switzerland"
+      }
+    },
+    {
+      "source": {
+        "name": "market for steel, chromium steel 18/8, hot rolled GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for wastewater, average Europe without Switzerland"
+      }
+    },
+    {
+      "source": {
+        "name": "market for solid bleached and unbleached board carton RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for transport, freight, lorry 16-32 metric ton, EURO3 RER"
+      }
+    },
+    {
+      "source": {
+        "name": "treatment of waste graphical paper, sanitary landfill CH"
+      }
+    },
+    {
+      "source": {
+        "name": "market for metal working, average for chromium steel product manufacturing GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "treatment of scrap steel, inert material landfill CH"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, medium voltage BH"
+      }
+    },
+    {
+      "source": {
+        "name": "heat production, hardwood chips from forest, at furnace 300kW, state-of-the-art"
+      }
+    },
+    {
+      "source": {
+        "name": "market for steel, unalloyed GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "transport, freight, lorry 16-32 metric ton, EURO5 RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for wood ash mixture, pure CH"
+      }
+    },
+    {
+      "source": {
+        "name": "market for maize starch GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, medium voltage QA"
+      }
+    },
+    {
+      "source": {
+        "name": "fibre cement roof slate production CH"
+      }
+    },
+    {
+      "source": {
+        "name": "packaging glass production, white CH"
+      }
+    },
+    {
+      "source": {
+        "name": "market for polyurethane, rigid foam RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for transport, freight, lorry, unspecified RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, medium voltage NZ"
+      }
+    },
+    {
+      "source": {
+        "name": "treatment of waste expanded polystyrene, municipal incineration with fly ash ext"
+      }
+    },
+    {
+      "source": {
+        "name": "magnesium oxide production RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for sawnwood, lath, hardwood, dried (u=20%), planed RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "electricity production, natural gas, conventional power plant RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, low voltage KE"
+      }
+    },
+    {
+      "source": {
+        "name": "market for acrylic binder, without water, in 34% solution state RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for chemical, organic GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "treatment of waste gypsum, inert material landfill Europe without Switzerland"
+      }
+    },
+    {
+      "source": {
+        "name": "concrete production, for civil engineering, with cement CEM II/B CH"
+      }
+    },
+    {
+      "source": {
+        "name": "drying of feed grain RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for concrete, normal ZA"
+      }
+    },
+    {
+      "source": {
+        "name": "market for ammonium sulfate RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "treatment of waste polypropylene, sanitary landfill RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "treatment of waste polyethylene, municipal incineration with fly ash extraction"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic potassium fertiliser, as K2O FR"
+      }
+    },
+    {
+      "source": {
+        "name": "market for irrigation MY"
+      }
+    },
+    {
+      "source": {
+        "name": "lime production, algae FR"
+      }
+    },
+    {
+      "source": {
+        "name": "market for waste polyethylene BA"
+      }
+    },
+    {
+      "source": {
+        "name": "nutrient supply from thomas meal GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "dairy construction GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, medium voltage JM"
+      }
+    },
+    {
+      "source": {
+        "name": "nutrient supply from ammonium sulfate RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for nitric acid, without water, in 50% solution state RNA"
+      }
+    },
+    {
+      "source": {
+        "name": "market for process-specific burdens, slag landfill Europe without Switzerland"
+      }
+    },
+    {
+      "source": {
+        "name": "market for transmission network, electricity, medium voltage GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for waste wood, untreated ZA"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, medium voltage IT"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic nitrogen fertiliser, as N RO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for carbon dioxide, liquid RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "concrete block production DE"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic phosphorus fertiliser, as P2O5 IN"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic potassium fertiliser, as K2O EE"
+      }
+    },
+    {
+      "source": {
+        "name": "market for polyethylene terephthalate, granulate, bottle grade GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for expanded perlite GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for operation, reefer, freezing GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for water, decarbonised IN"
+      }
+    },
+    {
+      "source": {
+        "name": "transport, freight, lorry 16-32 metric ton, EURO5 RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "heat and power co-generation, natural gas, conventional power plant, 100MW elect"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, low voltage HT"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, low voltage SE"
+      }
+    },
+    {
+      "source": {
+        "name": "market for hexane GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic phosphorus fertiliser, as P2O5 RO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for light fuel oil RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electronics scrap from control units GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for waste wood, untreated HU"
+      }
+    },
+    {
+      "source": {
+        "name": "market for lime, hydrated, packed RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic nitrogen fertiliser, as N DK"
+      }
+    },
+    {
+      "source": {
+        "name": "chemical factory construction, organics RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for waste wood, untreated RO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for land use change, annual crop IN"
+      }
+    },
+    {
+      "source": {
+        "name": "market for grass seed, Swiss integrated production, for sowing CH"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic nitrogen fertiliser, as N ZA"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic potassium fertiliser, as K2O AR"
+      }
+    },
+    {
+      "source": {
+        "name": "steel production, converter, low-alloyed RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for cleft timber, measured as dry mass RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for energy feed, gross RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "combine harvesting ZA"
+      }
+    },
+    {
+      "source": {
+        "name": "market for cleft timber, measured as dry mass BR"
+      }
+    },
+    {
+      "source": {
+        "name": "market for [thio]carbamate-compound GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for water, deionised RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for quicklime, milled, loose RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for captan GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for kraft paper RER"
+      }
+    },
+    {
+      "source": {
+        "name": "sewer grid construction, 5E9l/year, 110 km CH"
+      }
+    },
+    {
+      "source": {
+        "name": "market for land use change, annual crop CA"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic nitrogen fertiliser, as N CL"
+      }
+    },
+    {
+      "source": {
+        "name": "treatment of waste brick, collection for final disposal CH"
+      }
+    },
+    {
+      "source": {
+        "name": "market for trichloromethane RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market group for municipal solid waste RER"
+      }
+    },
+    {
+      "source": {
+        "name": "slag landfill construction CH"
+      }
+    },
+    {
+      "source": {
+        "name": "market for green manure, organic, until February RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for transport, freight, lorry with refrigeration machine, freezing GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic nitrogen fertiliser, as N BE"
+      }
+    },
+    {
+      "source": {
+        "name": "combine harvesting Canada without Quebec"
+      }
+    },
+    {
+      "source": {
+        "name": "market for potassium chloride RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic phosphorus fertiliser, as P2O5 HU"
+      }
+    },
+    {
+      "source": {
+        "name": "market group for transport, freight train RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for irrigation RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for ethoxylated alcohol (AE11) GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for limestone, crushed, for mill RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "electricity, high voltage, production mix FR"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic phosphorus fertiliser, as P2O5 CI"
+      }
+    },
+    {
+      "source": {
+        "name": "treatment of wood ash mixture, pure, landfarming CH"
+      }
+    },
+    {
+      "source": {
+        "name": "market for land use change, annual crop NL"
+      }
+    },
+    {
+      "source": {
+        "name": "market for transport, passenger car, large size, petrol, EURO 4 GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic phosphorus fertiliser, as P2O5 GB"
+      }
+    },
+    {
+      "source": {
+        "name": "softwood forestry, mixed species, sustainable forest management CH"
+      }
+    },
+    {
+      "source": {
+        "name": "market for biowaste RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for poultry manure, dried GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for sugar, from sugarcane GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "drawing of pipe, steel RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for paper, woodfree, coated RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for heat, central or small-scale, other than natural gas Europe without S"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, low voltage PT"
+      }
+    },
+    {
+      "source": {
+        "name": "market for naphtha IN"
+      }
+    },
+    {
+      "source": {
+        "name": "market group for electricity, medium voltage RAS"
+      }
+    },
+    {
+      "source": {
+        "name": "market for waste wood, untreated BG"
+      }
+    },
+    {
+      "source": {
+        "name": "market for liquid manure spreading, by vacuum tanker GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic nitrogen fertiliser, as N RU"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, medium voltage HR"
+      }
+    },
+    {
+      "source": {
+        "name": "market for land use change, perennial crop ES"
+      }
+    },
+    {
+      "source": {
+        "name": "market for wastewater, from residence CH"
+      }
+    },
+    {
+      "source": {
+        "name": "market for light fuel oil Europe without Switzerland"
+      }
+    },
+    {
+      "source": {
+        "name": "market for limestone quarry infrastructure GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, low voltage NA"
+      }
+    },
+    {
+      "source": {
+        "name": "market for transport, freight, lorry 7.5-16 metric ton, EURO6 RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market group for waste wood, untreated Europe without Switzerland"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic phosphorus fertiliser, as P2O5 BR"
+      }
+    },
+    {
+      "source": {
+        "name": "market for atrazine GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for naphtha CO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for municipal solid waste CA-QC"
+      }
+    },
+    {
+      "source": {
+        "name": "zinc oxide production RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic potassium fertiliser, as K2O MX"
+      }
+    },
+    {
+      "source": {
+        "name": "nutrient supply from ammonium nitrate phosphate RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for soap GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "application of plant protection product, by field sprayer RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for zinc monosulfate RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for glucose GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for fish canning plant GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "treatment of waste glass sheet, collection for final disposal CH"
+      }
+    },
+    {
+      "source": {
+        "name": "market for heavy fuel oil Europe without Switzerland"
+      }
+    },
+    {
+      "source": {
+        "name": "market for ethoxylated alcohol (AE7) RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market group for waste polyvinylchloride Europe without Switzerland"
+      }
+    },
+    {
+      "source": {
+        "name": "treatment of wastewater from potato starch production, capacity 1.1E10l/year CH"
+      }
+    },
+    {
+      "source": {
+        "name": "market for polystyrene foam slab GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for transport, freight, lorry with refrigeration machine, 7.5-16 ton, EUR"
+      }
+    },
+    {
+      "source": {
+        "name": "market for polyethylene, linear low density, granulate GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic nitrogen fertiliser, as N PH"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic potassium fertiliser, as K2O MK"
+      }
+    },
+    {
+      "source": {
+        "name": "market for iron sulfate RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for iron(III) chloride, without water, in 14% iron solution state GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "magnesium oxide production RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for agricultural machinery, unspecified GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for waste polyethylene NL"
+      }
+    },
+    {
+      "source": {
+        "name": "market for used Li-ion battery GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for land use change, annual crop BR-GO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for tillage, hoeing and earthing-up, potatoes GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "tillage, ploughing ZA"
+      }
+    },
+    {
+      "source": {
+        "name": "market for process-specific burdens, slag landfill CH"
+      }
+    },
+    {
+      "source": {
+        "name": "market for pea seed, for sowing GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic nitrogen fertiliser, as N BD"
+      }
+    },
+    {
+      "source": {
+        "name": "market for extrusion, plastic pipes GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "nylon 6-6 production RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for planting tree GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for baling GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, low voltage DO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for waste polyethylene CH"
+      }
+    },
+    {
+      "source": {
+        "name": "market for mulching GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, medium voltage BD"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, medium voltage NP"
+      }
+    },
+    {
+      "source": {
+        "name": "market for mowing, by rotary mower GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for activated carbon, granular GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for zinc oxide GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for transport, passenger car, large size, petrol, EURO 3 GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for land use change, annual crop AR"
+      }
+    },
+    {
+      "source": {
+        "name": "treatment of waste polyvinylchloride product, collection for final disposal CH"
+      }
+    },
+    {
+      "source": {
+        "name": "market for soybean, feed GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic nitrogen fertiliser, as N BA"
+      }
+    },
+    {
+      "source": {
+        "name": "market for cement, Portland Europe without Switzerland"
+      }
+    },
+    {
+      "source": {
+        "name": "market for waste polyethylene IE"
+      }
+    },
+    {
+      "source": {
+        "name": "thermoforming, with calendering RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "heat and power co-generation, biogas, gas engine CH"
+      }
+    },
+    {
+      "source": {
+        "name": "clay brick production RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic nitrogen fertiliser, as N LK"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, medium voltage BA"
+      }
+    },
+    {
+      "source": {
+        "name": "market for chlorine, liquid RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "heat production, light fuel oil, at boiler 10kW condensing, non-modulating CH"
+      }
+    },
+    {
+      "source": {
+        "name": "market group for heat, central or small-scale, natural gas RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for powertrain, for electric passenger car GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic nitrogen fertiliser, as N HR"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, medium voltage MA"
+      }
+    },
+    {
+      "source": {
+        "name": "market for glass fibre reinforced plastic, polyester resin, hand lay-up GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for land use change, perennial crop MG"
+      }
+    },
+    {
+      "source": {
+        "name": "heat production, light fuel oil, at industrial furnace 1MW Europe without Switze"
+      }
+    },
+    {
+      "source": {
+        "name": "market group for electricity, medium voltage RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic nitrogen fertiliser, as N SK"
+      }
+    },
+    {
+      "source": {
+        "name": "transport, passenger car, EURO 5 RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, medium voltage LK"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic phosphorus fertiliser, as P2O5 LV"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic phosphorus fertiliser, as P2O5 BD"
+      }
+    },
+    {
+      "source": {
+        "name": "stretch blow moulding RER"
+      }
+    },
+    {
+      "source": {
+        "name": "tillage, ploughing CA-QC"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic phosphorus fertiliser, as P2O5 IL"
+      }
+    },
+    {
+      "source": {
+        "name": "market for plywood RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "heat production, at hard coal industrial furnace 1-10MW RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "blow moulding RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for molybdenum trioxide GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic nitrogen fertiliser, as N NZ"
+      }
+    },
+    {
+      "source": {
+        "name": "market for copper sulfate GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic nitrogen fertiliser, as N PE"
+      }
+    },
+    {
+      "source": {
+        "name": "transport, freight, lorry 16-32 metric ton, EURO3 RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic potassium fertiliser, as K2O HU"
+      }
+    },
+    {
+      "source": {
+        "name": "packaging glass production, white RER w/o CH+DE"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic potassium fertiliser, as K2O IT"
+      }
+    },
+    {
+      "source": {
+        "name": "market for natural gas, high pressure RU"
+      }
+    },
+    {
+      "source": {
+        "name": "market for nitrile-compound GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "cover plaster production, mineral CH"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, low voltage UY"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic phosphorus fertiliser, as P2O5 SK"
+      }
+    },
+    {
+      "source": {
+        "name": "market for waste wood, untreated NO"
+      }
+    },
+    {
+      "source": {
+        "name": "polyethylene production, high density, granulate RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for fertilising, by broadcaster GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, low voltage EG"
+      }
+    },
+    {
+      "source": {
+        "name": "market for municipal solid waste FR"
+      }
+    },
+    {
+      "source": {
+        "name": "soybean production RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "soybean, feed production CA-QC"
+      }
+    },
+    {
+      "source": {
+        "name": "aluminium production, primary, ingot CN"
+      }
+    },
+    {
+      "source": {
+        "name": "market for waste wood, untreated PL"
+      }
+    },
+    {
+      "source": {
+        "name": "market for fibre cement facing tile GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "polymer foaming RER"
+      }
+    },
+    {
+      "source": {
+        "name": "tillage, harrowing, by rotary harrow CH"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, low voltage PA"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, medium voltage BG"
+      }
+    },
+    {
+      "source": {
+        "name": "market for waste polyethylene IS"
+      }
+    },
+    {
+      "source": {
+        "name": "market for wastewater, average RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for wood ash mixture, pure RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "heat and power co-generation, biogas, gas engine RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "heat production, heavy fuel oil, at industrial furnace 1MW Europe without Switze"
+      }
+    },
+    {
+      "source": {
+        "name": "market group for transport, freight, light commercial vehicle GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "heat production, light fuel oil, at industrial furnace 1MW CH"
+      }
+    },
+    {
+      "source": {
+        "name": "heat and power co-generation unit construction, 6400kW thermal, common component"
+      }
+    },
+    {
+      "source": {
+        "name": "weed control, by brush cutter, pasture BR"
+      }
+    },
+    {
+      "source": {
+        "name": "market for dinitroaniline-compound GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for hydrogen peroxide, without water, in 50% solution state RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for heat and power co-generation unit, 6400kW thermal, building GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for transport, passenger car, medium size, petrol, EURO 4 GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "transport, freight, light commercial vehicle Europe without Switzerland"
+      }
+    },
+    {
+      "source": {
+        "name": "drying of bread grain, seed and legumes CH"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, medium voltage IN-Western grid"
+      }
+    },
+    {
+      "source": {
+        "name": "section bar rolling, steel RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for ammonia, anhydrous, liquid RAF"
+      }
+    },
+    {
+      "source": {
+        "name": "market for evaporation of milk GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market group for inorganic nitrogen fertiliser, as N RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, medium voltage PR"
+      }
+    },
+    {
+      "source": {
+        "name": "market for dolomite RER"
+      }
+    },
+    {
+      "source": {
+        "name": "heat production, natural gas, at industrial furnace >100kW RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for manganese(III) oxide GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for thermoforming, with calendering GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "peat production NORDEL"
+      }
+    },
+    {
+      "source": {
+        "name": "refrigerant R134a production RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for electricity, low voltage MX"
+      }
+    },
+    {
+      "source": {
+        "name": "market for land use change, annual crop RU"
+      }
+    },
+    {
+      "source": {
+        "name": "market for oat seed, for sowing GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market group for inorganic potassium fertiliser, as K2O RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for lime, packed RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for naphtha RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for transport, freight, aircraft, long haul GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "polystyrene production, general purpose RER"
+      }
+    },
+    {
+      "source": {
+        "name": "tillage, harrowing, by offset leveling disc harrow BR"
+      }
+    },
+    {
+      "source": {
+        "name": "market for ethylenediamine RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for irrigation PE"
+      }
+    },
+    {
+      "source": {
+        "name": "market for inorganic potassium fertiliser, as K2O US"
+      }
+    },
+    {
+      "source": {
+        "name": "market for packaging, for pesticides GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market group for electricity, low voltage RME"
+      }
+    },
+    {
+      "source": {
+        "name": "market group for transport, freight train GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "mowing, by rotary mower CH"
+      }
+    },
+    {
+      "source": {
+        "name": "market for diesel, burned in fishing vessel GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for chemical, inorganic GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "hoeing CH"
+      }
+    },
+    {
+      "source": {
+        "name": "market for sodium hypochlorite, without water, in 15% solution state RER"
+      }
+    },
+    {
+      "source": {
+        "name": "market for compost GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for ammonium nitrate RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "market for transport, passenger car RER"
+      }
+    },
+    {
+      "source": {
+        "name": "metal working, average for steel product manufacturing RER"
+      }
+    },
+    {
+      "source": {
+        "name": "bronze production RoW"
+      }
+    },
+    {
+      "source": {
+        "name": "cable production, unspecified GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for fruit tree seedling, for planting GLO"
+      }
+    },
+    {
+      "source": {
+        "name": "market for steam, in chemical industry RER"
+      }
+    },
+    {
+      "source": {
+        "name": "electricity production, deep geothermal RoW"
+      }
+    }
+  ]
+}

@@ -1,0 +1,4702 @@
+{
+  "name": "SimaPro-9-ecoinvent-3.8-biosphere-manual-matches",
+  "description": "Manual matches of SimaPro or older ecoinvent flows to recent ecoinvent flow list",
+  "contributors": [
+    {
+      "title": "Chris Mutel",
+      "path": "https://chris.mutel.org/",
+      "role": "author"
+    }
+  ],
+  "created": "2024-09-05T09:14:28.839404+00:00",
+  "version": "2.0",
+  "licenses": [
+    {
+      "name": "CC-BY-4.0",
+      "path": "https://creativecommons.org/licenses/by/4.0/legalcode",
+      "title": "Creative Commons Attribution 4.0 International"
+    }
+  ],
+  "graph_context": [
+    "edges"
+  ],
+  "mapping": {
+    "source": {
+      "expression language": "like JSONPath",
+      "labels": {
+        "identifier": "Process[*].\"Process identifier\".text",
+        "name": "Process[*].Products[*].text[0]",
+        "platform_id": "Process[*].\"Platform Identifier\"",
+        "unit": [
+          "[\"Emissions to air/\", Process[*].\"Emissions to air\".[2]]",
+          "[\"Emissions to soil/\", Process[*].\"Emissions to soil\".[2]]",
+          "[\"Emissions to water/\", Process[*].\"Emissions to water\".[2]]",
+          "[\"Resources/\", Process[*].\"Resources\".[2]]"
+        ],
+        "context": [
+          "[\"Emissions to air/\", Process[*].\"Emissions to air\".[1]]",
+          "[\"Emissions to soil/\", Process[*].\"Emissions to soil\".[1]]",
+          "[\"Emissions to water/\", Process[*].\"Emissions to water\".[1]]",
+          "[\"Resources/\", Process[*].\"Resources\".[1]]"
+        ]
+      }
+    },
+    "target": {
+      "expression language": "XPath",
+      "labels": {
+        "name": "//*:elementaryExchange/*:name/text()",
+        "unit": "//*:elementaryExchange/*:unitName/text()",
+        "uuid": "//*:elementaryExchange/@elementaryExchangeId",
+        "formula": "//*:elementaryExchange/@formula",
+        "context": [
+          "//*:elementaryExchange/*:compartment/*:compartment/text()",
+          "//*:elementaryExchange/*:compartment/*:subcompartment/text()"
+        ]
+      }
+    }
+  },
+  "source_id": "SimaPro-9",
+  "target_id": "ecoinvent-3.8-biosphere",
+  "replace": [
+    {
+      "source": {
+        "name": "Transport, freight, lorry with refrigeration machine, 7.5-16 ton, EURO5, carbon dioxide, liquid refrigerant, freezing {GLO}| market for transport, freight, lorry with refrigeration machine, 7.5-16 ton, EURO5, carbon dioxide, liquid refri(...)_16 | Cut-off"
+      },
+      "target": {
+        "name": "Transport, freight, lorry with refrigeration machine, 7.5-16 ton, EURO5, carbon dioxide, liquid refrigerant, freezing {GLO}| transport, freight, lorry with refrigeration machine, 7.5-16 ton, EURO5, carbon dioxide, liquid refrigerant, freezing | Cut-off"
+      }
+    },
+    {
+      "source": {
+        "name": "Transport, freight, lorry with refrigeration machine, 7.5-16 ton, EURO5, carbon dioxide, liquid refrigerant, cooling {GLO}| market for transport, freight, lorry with refrigeration machine, 7.5-16 ton, EURO5, carbon dioxide, liquid refrig(...)_8 | Cut-off"
+      },
+      "target": {
+        "name": "Transport, freight, lorry with refrigeration machine, 7.5-16 ton, EURO5, carbon dioxide, liquid refrigerant, cooling {GLO}| transport, freight, lorry with refrigeration machine, 7.5-16 ton, EURO5, carbon dioxide, liquid refrigerant, cooling | Cut-off"
+      }
+    },
+    {
+      "source": {
+        "name": "Occupation, agriculture"
+      },
+      "target": {
+        "name": "Occupation, annual crop"
+      }
+    },
+    {
+      "source": {
+        "name": "Occupation, dump site, benthos"
+      },
+      "target": {
+        "name": "Occupation, seabed, drilling and mining"
+      }
+    },
+    {
+      "source": {
+        "name": "Occupation, forest, intensive, normal"
+      },
+      "target": {
+        "name": "Occupation, forest, intensive"
+      }
+    },
+    {
+      "source": {
+        "name": "Occupation, forest, intensive, short-cycle"
+      },
+      "target": {
+        "name": "Occupation, forest, intensive"
+      }
+    },
+    {
+      "source": {
+        "name": "Occupation, forest, used"
+      },
+      "target": {
+        "name": "Occupation, forest, intensive"
+      }
+    },
+    {
+      "source": {
+        "name": "Occupation, grassland/pasture/meadow"
+      },
+      "target": {
+        "name": "Occupation, pasture, man made"
+      }
+    },
+    {
+      "source": {
+        "name": "Occupation, industrial area, benthos"
+      },
+      "target": {
+        "name": "Occupation, industrial area"
+      }
+    },
+    {
+      "source": {
+        "name": "Occupation, industrial area, built up"
+      },
+      "target": {
+        "name": "Occupation, industrial area"
+      }
+    },
+    {
+      "source": {
+        "name": "Occupation, industrial area, vegetation"
+      },
+      "target": {
+        "name": "Occupation, industrial area"
+      }
+    },
+    {
+      "source": {
+        "name": "Occupation, permanent crop, fruit, intensive"
+      },
+      "target": {
+        "name": "Occupation, permanent crop, irrigated, intensive"
+      }
+    },
+    {
+      "source": {
+        "name": "Occupation, sea and ocean"
+      },
+      "target": {
+        "name": "Occupation, seabed, unspecified"
+      }
+    },
+    {
+      "source": {
+        "name": "Occupation, traffic area"
+      },
+      "target": {
+        "name": "Occupation, traffic area, road network"
+      }
+    },
+    {
+      "source": {
+        "name": "Occupation, traffic area, road embankment"
+      },
+      "target": {
+        "name": "Occupation, traffic area, rail/road embankment"
+      }
+    },
+    {
+      "source": {
+        "name": "Occupation, unspecified, used"
+      },
+      "target": {
+        "name": "Occupation, unspecified"
+      }
+    },
+    {
+      "source": {
+        "name": "Occupation, water bodies, artificial"
+      },
+      "target": {
+        "name": "Occupation, lake, artificial"
+      }
+    },
+    {
+      "source": {
+        "name": "Occupation, lakes, artificial"
+      },
+      "target": {
+        "name": "Occupation, lake, artificial"
+      }
+    },
+    {
+      "source": {
+        "name": "Occupation, rivers, artificial"
+      },
+      "target": {
+        "name": "Occupation, river, artificial"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, to lakes, artificial"
+      },
+      "target": {
+        "name": "Transformation, to lake, artificial"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, to rivers, artificial"
+      },
+      "target": {
+        "name": "Transformation, to river, artificial"
+      }
+    },
+    {
+      "source": {
+        "name": "Occupation, water courses, artificial"
+      },
+      "target": {
+        "name": "Occupation, river, artificial"
+      }
+    },
+    {
+      "source": {
+        "name": "Occupation, wetland"
+      },
+      "target": {
+        "name": "Occupation, inland waterbody, unspecified"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, from agriculture"
+      },
+      "target": {
+        "name": "Transformation, from annual crop"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, from annual crop, non-irrigated, fallow"
+      },
+      "target": {
+        "name": "Transformation, from pasture, man made"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, from forest, intensive, clear-cutting"
+      },
+      "target": {
+        "name": "Transformation, from forest, intensive"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, from forest, used"
+      },
+      "target": {
+        "name": "Transformation, from forest, intensive"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, from grassland"
+      },
+      "target": {
+        "name": "Transformation, from grassland, natural (non-use)"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, from grassland/pasture/meadow"
+      },
+      "target": {
+        "name": "Transformation, from pasture, man made"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, from industrial area, benthos"
+      },
+      "target": {
+        "name": "Transformation, from industrial area"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, from industrial area, built up"
+      },
+      "target": {
+        "name": "Transformation, from industrial area"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, from industrial area, vegetation"
+      },
+      "target": {
+        "name": "Transformation, from industrial area"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, from permanent crop, fruit"
+      },
+      "target": {
+        "name": "Transformation, from permanent crop, irrigated"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, from tropical rain forest"
+      },
+      "target": {
+        "name": "Transformation, from forest, primary (non-use)"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, from unspecified, used"
+      },
+      "target": {
+        "name": "Transformation, from unspecified"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, to agriculture"
+      },
+      "target": {
+        "name": "Transformation, to annual crop"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, to annual crop, fallow"
+      },
+      "target": {
+        "name": "Transformation, to arable land, unspecified use"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, to annual crop, non-irrigated, fallow"
+      },
+      "target": {
+        "name": "Transformation, to annual crop, non-irrigated, extensive"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, to dump site, benthos"
+      },
+      "target": {
+        "name": "Transformation, to seabed, drilling and mining"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, to forest, intensive, clear-cutting"
+      },
+      "target": {
+        "name": "Transformation, to forest, intensive"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, to forest, intensive, normal"
+      },
+      "target": {
+        "name": "Transformation, to forest, intensive"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, to forest, intensive, short-cycle"
+      },
+      "target": {
+        "name": "Transformation, to forest, intensive"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, to forest, used"
+      },
+      "target": {
+        "name": "Transformation, to forest, intensive"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, to grassland/pasture/meadow"
+      },
+      "target": {
+        "name": "Transformation, to pasture, man made"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, to industrial area, benthos"
+      },
+      "target": {
+        "name": "Transformation, to industrial area"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, to industrial area, built up"
+      },
+      "target": {
+        "name": "Transformation, to industrial area"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, to industrial area, vegetation"
+      },
+      "target": {
+        "name": "Transformation, to industrial area"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, to permanent crop, fruit, intensive"
+      },
+      "target": {
+        "name": "Transformation, to permanent crop, irrigated, intensive"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, to sea and ocean"
+      },
+      "target": {
+        "name": "Transformation, to seabed, unspecified"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, to traffic area, road embankment"
+      },
+      "target": {
+        "name": "Transformation, to traffic area, rail/road embankment"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, to unspecified, used"
+      },
+      "target": {
+        "name": "Transformation, to unspecified"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, to water bodies, artificial"
+      },
+      "target": {
+        "name": "Transformation, to lake, artificial"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, to water courses, artificial"
+      },
+      "target": {
+        "name": "Transformation, to river, artificial"
+      }
+    },
+    {
+      "source": {
+        "name": "Particulates, < 10 um"
+      },
+      "target": {
+        "name": "Particulates, > 2.5 um, and < 10um"
+      }
+    },
+    {
+      "source": {
+        "name": "Particulates, < 10 um (mobile)"
+      },
+      "target": {
+        "name": "Particulates, > 2.5 um, and < 10um"
+      }
+    },
+    {
+      "source": {
+        "name": "Particulates, < 10 um (stationary)"
+      },
+      "target": {
+        "name": "Particulates, > 2.5 um, and < 10um"
+      }
+    },
+    {
+      "source": {
+        "name": "Particulates, > 10 um (process)"
+      },
+      "target": {
+        "name": "Particulates, > 2.5 um, and < 10um"
+      }
+    },
+    {
+      "source": {
+        "name": "Particulates, SPM"
+      },
+      "target": {
+        "name": "Particulates, > 2.5 um, and < 10um"
+      }
+    },
+    {
+      "source": {
+        "name": "Particulates, diesel soot"
+      },
+      "target": {
+        "name": "Particulates, > 2.5 um, and < 10um"
+      }
+    },
+    {
+      "source": {
+        "name": "Particulates, unspecified"
+      },
+      "target": {
+        "name": "Particulates, > 2.5 um, and < 10um"
+      }
+    },
+    {
+      "source": {
+        "name": "Water/m3"
+      },
+      "target": {
+        "name": "Water"
+      }
+    },
+    {
+      "source": {
+        "name": "Sulfur monoxide"
+      },
+      "target": {
+        "name": "Sulfur oxides"
+      }
+    },
+    {
+      "source": {
+        "name": "Nitrogen, atmospheric"
+      },
+      "target": {
+        "name": "Nitrogen"
+      }
+    },
+    {
+      "source": {
+        "name": "Phenols, unspecified"
+      },
+      "target": {
+        "name": "Phenol"
+      }
+    },
+    {
+      "source": {
+        "name": "AOX (Adsorbable Organic Halogens)"
+      },
+      "target": {
+        "name": "AOX, Adsorbable Organic Halogen as Cl"
+      }
+    },
+    {
+      "source": {
+        "name": "AOX, Adsorbable Organic Halogen"
+      },
+      "target": {
+        "name": "AOX, Adsorbable Organic Halogen as Cl"
+      }
+    },
+    {
+      "source": {
+        "name": "Alkane (unspecified)"
+      },
+      "target": {
+        "name": "Hydrocarbons, aliphatic, alkanes, unspecified"
+      }
+    },
+    {
+      "source": {
+        "name": "Antimony, ion"
+      },
+      "target": {
+        "name": "Antimony"
+      }
+    },
+    {
+      "source": {
+        "name": "Formetanate"
+      },
+      "target": {
+        "name": "Formetanate hydrochloride"
+      }
+    },
+    {
+      "source": {
+        "name": "BOD5 (Biological Oxygen Demand)"
+      },
+      "target": {
+        "name": "BOD5, Biological Oxygen Demand"
+      }
+    },
+    {
+      "source": {
+        "name": "COD (Chemical Oxygen Demand)"
+      },
+      "target": {
+        "name": "COD, Chemical Oxygen Demand"
+      }
+    },
+    {
+      "source": {
+        "name": "Haloxyfop"
+      },
+      "target": {
+        "name": "haloxyfop-ethoxyethyl"
+      }
+    },
+    {
+      "source": {
+        "name": "Bauxite"
+      },
+      "target": {
+        "name": "Gangue, bauxite, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "Copper ore"
+      },
+      "target": {
+        "name": "Copper, Cu 0.2%, in mixed ore, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "Copper, Cu 0.38%, Au 9.7E-4%, Ag 9.7E-4%, Zn 0.63%, Pb 0.014%, in ore"
+      },
+      "target": {
+        "name": "Copper, Cu 0.38%, in mixed ore, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "Coal, 18 MJ per kg"
+      },
+      "target": {
+        "name": "Coal, hard, unspecified, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "Coal, brown, 10 MJ per kg"
+      },
+      "target": {
+        "name": "Coal, brown, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "Coal, brown, 8 MJ per kg"
+      },
+      "target": {
+        "name": "Coal, brown, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "Coal, hard"
+      },
+      "target": {
+        "name": "Coal, hard, unspecified, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "Crude oil"
+      },
+      "target": {
+        "name": "Oil, crude, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "Energy, from biomass"
+      },
+      "target": {
+        "name": "Energy, gross calorific value, in biomass"
+      }
+    },
+    {
+      "source": {
+        "name": "Energy, from coal"
+      },
+      "target": {
+        "name": "Energy, gross calorific value, in biomass"
+      }
+    },
+    {
+      "source": {
+        "name": "Gas, mine, off-gas, process, coal mining/kg"
+      },
+      "target": {
+        "name": "Gas, mine, off-gas, process, coal mining"
+      }
+    },
+    {
+      "source": {
+        "name": "Arsenic (V)"
+      },
+      "target": {
+        "name": "Arsenic"
+      }
+    },
+    {
+      "source": {
+        "name": "Barium (II)"
+      },
+      "target": {
+        "name": "Barium"
+      }
+    },
+    {
+      "source": {
+        "name": "Beryllium (II)"
+      },
+      "target": {
+        "name": "Beryllium"
+      }
+    },
+    {
+      "source": {
+        "name": "Cadmium (II)"
+      },
+      "target": {
+        "name": "Cadmium"
+      }
+    },
+    {
+      "source": {
+        "name": "Calcium"
+      },
+      "target": {
+        "name": "Calcium, ion"
+      }
+    },
+    {
+      "source": {
+        "name": "Chromium (III)"
+      },
+      "target": {
+        "name": "Chromium III"
+      }
+    },
+    {
+      "source": {
+        "name": "Chromium (VI)"
+      },
+      "target": {
+        "name": "Chromium VI"
+      }
+    },
+    {
+      "source": {
+        "name": "Chromium, ion"
+      },
+      "target": {
+        "name": "Chromium"
+      }
+    },
+    {
+      "source": {
+        "name": "Copper, ion"
+      },
+      "target": {
+        "name": "Copper"
+      }
+    },
+    {
+      "source": {
+        "name": "Lead (II)"
+      },
+      "target": {
+        "name": "Lead"
+      }
+    },
+    {
+      "source": {
+        "name": "Mercury (II)"
+      },
+      "target": {
+        "name": "Mercury"
+      }
+    },
+    {
+      "source": {
+        "name": "Manganese (II)"
+      },
+      "target": {
+        "name": "Manganese"
+      }
+    },
+    {
+      "source": {
+        "name": "Molybdenum (VI)"
+      },
+      "target": {
+        "name": "Molybdenum"
+      }
+    },
+    {
+      "source": {
+        "name": "Nickel (II)"
+      },
+      "target": {
+        "name": "Nickel"
+      }
+    },
+    {
+      "source": {
+        "name": "Oils, biogenic"
+      },
+      "target": {
+        "name": "Oils, non-fossil"
+      }
+    },
+    {
+      "source": {
+        "name": "Plutonium"
+      },
+      "target": {
+        "name": "Plutonium-238"
+      }
+    },
+    {
+      "source": {
+        "name": "Potassium (I)"
+      },
+      "target": {
+        "name": "Potassium"
+      }
+    },
+    {
+      "source": {
+        "name": "Ruthenium"
+      },
+      "target": {
+        "name": "Ruthenium-103"
+      }
+    },
+    {
+      "source": {
+        "name": "Silver (I)"
+      },
+      "target": {
+        "name": "Silver"
+      }
+    },
+    {
+      "source": {
+        "name": "Thallium (I)"
+      },
+      "target": {
+        "name": "Thallium"
+      }
+    },
+    {
+      "source": {
+        "name": "Zinc (II)"
+      },
+      "target": {
+        "name": "Zinc"
+      }
+    },
+    {
+      "source": {
+        "name": "Aluminum"
+      },
+      "target": {
+        "name": "Aluminium"
+      }
+    },
+    {
+      "source": {
+        "name": "Carbon dioxide, biogenic"
+      },
+      "target": {
+        "name": "Carbon dioxide, non-fossil"
+      }
+    },
+    {
+      "source": {
+        "name": "Carbon dioxide, land transformation"
+      },
+      "target": {
+        "name": "Carbon dioxide, from soil or biomass stock"
+      }
+    },
+    {
+      "source": {
+        "name": "Carbon monoxide, biogenic"
+      },
+      "target": {
+        "name": "Carbon monoxide, non-fossil"
+      }
+    },
+    {
+      "source": {
+        "name": "Methane, biogenic"
+      },
+      "target": {
+        "name": "Methane, non-fossil"
+      }
+    },
+    {
+      "source": {
+        "name": "Sodium tetrahydroborate"
+      },
+      "target": {
+        "name": "Sodium tetrahydridoborate"
+      }
+    },
+    {
+      "source": {
+        "name": "Sulphur trioxide"
+      },
+      "target": {
+        "name": "Sulfur trioxide"
+      }
+    },
+    {
+      "source": {
+        "name": "Bromine, 0.0023% in water"
+      },
+      "target": {
+        "name": "Bromine, 0.23% in water"
+      }
+    },
+    {
+      "source": {
+        "name": "Carbon, in organic matter, in soil"
+      },
+      "target": {
+        "name": "Carbon, organic, in soil or biomass stock"
+      }
+    },
+    {
+      "source": {
+        "name": "Copper, Cu 0.38%, Au 9.7E-4%, Ag 9.7E-4%, Zn 0.63%, Pb 0.014%, in ore, in ground"
+      },
+      "target": {
+        "name": "Copper, Cu 0.38%, in mixed ore, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "Gold, Au 9.7E-4%, Ag 9.7E-4%, Zn 0.63%, Cu 0.38%, Pb 0.014%, in ore, in ground"
+      },
+      "target": {
+        "name": "Gold, Au 9.7E-4%, in mixed ore, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "Lead, Pb 0.014%, Au 9.7E-4%, Ag 9.7E-4%, Zn 0.63%, Cu 0.38%, in ore, in ground"
+      },
+      "target": {
+        "name": "Lead, Pb 0.014%, in mixed ore, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "Occupation, arable"
+      },
+      "target": {
+        "name": "Occupation, arable land, unspecified use"
+      }
+    },
+    {
+      "source": {
+        "name": "Occupation, arable, non-irrigated"
+      },
+      "target": {
+        "name": "Occupation, annual crop, non-irrigated"
+      }
+    },
+    {
+      "source": {
+        "name": "Occupation, arable, non-irrigated, diverse-intensive"
+      },
+      "target": {
+        "name": "Occupation, annual crop, non-irrigated, extensive"
+      }
+    },
+    {
+      "source": {
+        "name": "Occupation, arable, non-irrigated, fallow"
+      },
+      "target": {
+        "name": "Occupation, cropland fallow (non-use)"
+      }
+    },
+    {
+      "source": {
+        "name": "Occupation, arable, non-irrigated, monotone-intensive"
+      },
+      "target": {
+        "name": "Occupation, annual crop, non-irrigated, intensive"
+      }
+    },
+    {
+      "source": {
+        "name": "Occupation, forest"
+      },
+      "target": {
+        "name": "Occupation, forest, unspecified"
+      }
+    },
+    {
+      "source": {
+        "name": "Occupation, forest, intensive, clear-cutting"
+      },
+      "target": {
+        "name": "Occupation, forest, intensive"
+      }
+    },
+    {
+      "source": {
+        "name": "Occupation, pasture and meadow"
+      },
+      "target": {
+        "name": "Occupation, pasture, man made"
+      }
+    },
+    {
+      "source": {
+        "name": "Occupation, pasture and meadow, extensive"
+      },
+      "target": {
+        "name": "Occupation, pasture, man made, extensive"
+      }
+    },
+    {
+      "source": {
+        "name": "Occupation, pasture and meadow, intensive"
+      },
+      "target": {
+        "name": "Occupation, pasture, man made, intensive"
+      }
+    },
+    {
+      "source": {
+        "name": "Occupation, permanent crop, fruit"
+      },
+      "target": {
+        "name": "Occupation, permanent crop, irrigated"
+      }
+    },
+    {
+      "source": {
+        "name": "Occupation, permanent crop, fruit, extensive"
+      },
+      "target": {
+        "name": "Occupation, permanent crop, irrigated, extensive"
+      }
+    },
+    {
+      "source": {
+        "name": "Occupation, permanent crop, vine"
+      },
+      "target": {
+        "name": "Occupation, permanent crop, non-irrigated"
+      }
+    },
+    {
+      "source": {
+        "name": "Occupation, permanent crop, vine, extensive"
+      },
+      "target": {
+        "name": "Occupation, permanent crop, non-irrigated, extensive"
+      }
+    },
+    {
+      "source": {
+        "name": "Occupation, permanent crop, vine, intensive"
+      },
+      "target": {
+        "name": "Occupation, permanent crop, non-irrigated, intensive"
+      }
+    },
+    {
+      "source": {
+        "name": "Occupation, traffic area, rail embankment"
+      },
+      "target": {
+        "name": "Occupation, traffic area, rail/road embankment"
+      }
+    },
+    {
+      "source": {
+        "name": "Occupation, tropical rain forest"
+      },
+      "target": {
+        "name": "Occupation, forest, primary (non-use)"
+      }
+    },
+    {
+      "source": {
+        "name": "Occupation, unknown"
+      },
+      "target": {
+        "name": "Occupation, unspecified"
+      }
+    },
+    {
+      "source": {
+        "name": "Silver, Ag 9.7E-4%, Au 9.7E-4%, Zn 0.63%, Cu 0.38%, Pb 0.014%, in ore, in ground"
+      },
+      "target": {
+        "name": "Silver, Ag 9.7E-4%, in mixed ore, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, from arable"
+      },
+      "target": {
+        "name": "Transformation, from arable land, unspecified use"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, from arable, non-irrigated"
+      },
+      "target": {
+        "name": "Transformation, from annual crop, non-irrigated"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, from arable, non-irrigated, diverse-intensive"
+      },
+      "target": {
+        "name": "Transformation, from annual crop, non-irrigated, extensive"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, from arable, non-irrigated, fallow"
+      },
+      "target": {
+        "name": "Transformation, from cropland fallow (non-use)"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, from arable, non-irrigated, monotone-intensive"
+      },
+      "target": {
+        "name": "Transformation, from annual crop, non-irrigated, intensive"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, from dump site, benthos"
+      },
+      "target": {
+        "name": "Transformation, from seabed, drilling and mining"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, from forest"
+      },
+      "target": {
+        "name": "Transformation, from forest, unspecified"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, from forest, intensive, normal"
+      },
+      "target": {
+        "name": "Transformation, from forest, intensive"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, from forest, intensive, short-cycle"
+      },
+      "target": {
+        "name": "Transformation, from forest, intensive"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, from pasture and meadow"
+      },
+      "target": {
+        "name": "Transformation, from pasture, man made"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, from pasture and meadow, extensive"
+      },
+      "target": {
+        "name": "Transformation, from pasture, man made, extensive"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, from pasture and meadow, intensive"
+      },
+      "target": {
+        "name": "Transformation, from pasture, man made, intensive"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, from permanent crop, fruit, extensive"
+      },
+      "target": {
+        "name": "Transformation, from permanent crop, irrigated, extensive"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, from permanent crop, fruit, intensive"
+      },
+      "target": {
+        "name": "Transformation, from permanent crop, irrigated, intensive"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, from permanent crop, vine"
+      },
+      "target": {
+        "name": "Transformation, from permanent crop, non-irrigated"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, from permanent crop, vine, extensive"
+      },
+      "target": {
+        "name": "Transformation, from permanent crop, non-irrigated, extensive"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, from permanent crop, vine, intensive"
+      },
+      "target": {
+        "name": "Transformation, from permanent crop, non-irrigated, intensive"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, from sea and ocean"
+      },
+      "target": {
+        "name": "Transformation, from seabed, unspecified"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, from traffic area, rail embankment"
+      },
+      "target": {
+        "name": "Transformation, from traffic area, rail/road embankment"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, from traffic area, road embankment"
+      },
+      "target": {
+        "name": "Transformation, from traffic area, rail/road embankment"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, from unknown"
+      },
+      "target": {
+        "name": "Transformation, from unspecified"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, from water bodies, artificial"
+      },
+      "target": {
+        "name": "Transformation, from lake, artificial"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, from water courses, artificial"
+      },
+      "target": {
+        "name": "Transformation, from river, artificial"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, to arable"
+      },
+      "target": {
+        "name": "Transformation, to arable land, unspecified use"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, to arable, non-irrigated"
+      },
+      "target": {
+        "name": "Transformation, to annual crop, non-irrigated"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, to arable, non-irrigated, diverse-intensive"
+      },
+      "target": {
+        "name": "Transformation, to annual crop, non-irrigated, extensive"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, to arable, non-irrigated, fallow"
+      },
+      "target": {
+        "name": "Transformation, to cropland fallow (non-use)"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, to arable, non-irrigated, monotone-intensive"
+      },
+      "target": {
+        "name": "Transformation, to annual crop, non-irrigated, intensive"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, to forest"
+      },
+      "target": {
+        "name": "Transformation, to forest, unspecified"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, to pasture and meadow"
+      },
+      "target": {
+        "name": "Transformation, to pasture, man made"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, to pasture and meadow, extensive"
+      },
+      "target": {
+        "name": "Transformation, to pasture, man made, extensive"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, to pasture and meadow, intensive"
+      },
+      "target": {
+        "name": "Transformation, to pasture, man made, intensive"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, to permanent crop, fruit"
+      },
+      "target": {
+        "name": "Transformation, to permanent crop, irrigated"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, to permanent crop, fruit, extensive"
+      },
+      "target": {
+        "name": "Transformation, to permanent crop, irrigated, extensive"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, to permanent crop, vine"
+      },
+      "target": {
+        "name": "Transformation, to permanent crop, non-irrigated"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, to permanent crop, vine, extensive"
+      },
+      "target": {
+        "name": "Transformation, to permanent crop, non-irrigated, extensive"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, to permanent crop, vine, intensive"
+      },
+      "target": {
+        "name": "Transformation, to permanent crop, non-irrigated, intensive"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, to traffic area, rail embankment"
+      },
+      "target": {
+        "name": "Transformation, to traffic area, rail/road embankment"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, to tropical rain forest"
+      },
+      "target": {
+        "name": "Transformation, to forest, primary (non-use)"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, to unknown"
+      },
+      "target": {
+        "name": "Transformation, to unspecified"
+      }
+    },
+    {
+      "source": {
+        "name": "Zinc, Zn 0.63%, Au 9.7E-4%, Ag 9.7E-4%, Cu 0.38%, Pb 0.014%, in ore, in ground"
+      },
+      "target": {
+        "name": "Zinc, Zn 0.63%, in mixed ore, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "1-Butanol"
+      },
+      "target": {
+        "name": "Butanol"
+      }
+    },
+    {
+      "source": {
+        "name": "1-Propanol"
+      },
+      "target": {
+        "name": "Propanol"
+      }
+    },
+    {
+      "source": {
+        "name": "Benzene, dichloro-"
+      },
+      "target": {
+        "name": "Benzene, dichloro"
+      }
+    },
+    {
+      "source": {
+        "name": "2-Butene, 2-methyl-"
+      },
+      "target": {
+        "name": "2-Methyl-2-butene"
+      }
+    },
+    {
+      "source": {
+        "name": "Benzene, 1,2-dichloro-"
+      },
+      "target": {
+        "name": "o-Dichlorobenzene"
+      }
+    },
+    {
+      "source": {
+        "name": "Benzene, 1-methyl-2-nitro-"
+      },
+      "target": {
+        "name": "o-Nitrotoluene"
+      }
+    },
+    {
+      "source": {
+        "name": "x \"Wat"
+      },
+      "target": {
+        "name": "Benz(a)anthracene"
+      }
+    },
+    {
+      "source": {
+        "name": "Benzo(g,h,i)perylene"
+      },
+      "target": {
+        "name": "Benzo(ghi)perylene"
+      }
+    },
+    {
+      "source": {
+        "name": "Carbamic acid, butyl-, 3-iodo-2-propynyl ester"
+      },
+      "target": {
+        "name": "Butylcarbamate, iodopropynyl"
+      }
+    },
+    {
+      "source": {
+        "name": "Carbon"
+      },
+      "target": {
+        "name": "Elemental carbon"
+      }
+    },
+    {
+      "source": {
+        "name": "Carbon monoxide, land transformation"
+      },
+      "target": {
+        "name": "Carbon monoxide, from soil or biomass stock"
+      }
+    },
+    {
+      "source": {
+        "name": "Dioxin, 2,3,7,8 Tetrachlorodibenzo-p-"
+      },
+      "target": {
+        "name": "Dioxins, measured as 2,3,7,8-tetrachlorodibenzo-p-dioxin"
+      }
+    },
+    {
+      "source": {
+        "name": "Ethane, chloro-"
+      },
+      "target": {
+        "name": "Monochloroethane"
+      }
+    },
+    {
+      "source": {
+        "name": "Ethanol, 2-ethoxy-"
+      },
+      "target": {
+        "name": "Ethylene glycol monoethyl ether"
+      }
+    },
+    {
+      "source": {
+        "name": "Methane, land transformation"
+      },
+      "target": {
+        "name": "Methane, from soil or biomass stock"
+      }
+    },
+    {
+      "source": {
+        "name": "Methane, tetrachloro-, CFC-10"
+      },
+      "target": {
+        "name": "Methane, tetrachloro-, R-10"
+      }
+    },
+    {
+      "source": {
+        "name": "Methane, tetrafluoro-, CFC-14"
+      },
+      "target": {
+        "name": "Methane, tetrafluoro-, R-14"
+      }
+    },
+    {
+      "source": {
+        "name": "Methylamine"
+      },
+      "target": {
+        "name": "Methyl amine"
+      }
+    },
+    {
+      "source": {
+        "name": "Nitric oxide"
+      },
+      "target": {
+        "name": "Nitrogen monoxide"
+      }
+    },
+    {
+      "source": {
+        "name": "Parathion, methyl"
+      },
+      "target": {
+        "name": "Methyl parathion"
+      }
+    },
+    {
+      "source": {
+        "name": "Pentane, 2,2,4-trimethyl-"
+      },
+      "target": {
+        "name": "2,2,4-Trimethyl pentane"
+      }
+    },
+    {
+      "source": {
+        "name": "Pentane, 2-methyl-"
+      },
+      "target": {
+        "name": "2-Methyl pentane"
+      }
+    },
+    {
+      "source": {
+        "name": "Phenol, 2,4-dichloro-"
+      },
+      "target": {
+        "name": "Phenol, 2,4-dichloro"
+      }
+    },
+    {
+      "source": {
+        "name": "Pyraclostrobin (prop)"
+      },
+      "target": {
+        "name": "Pyraclostrobin"
+      }
+    },
+    {
+      "source": {
+        "name": "Quizalofop ethyl ester"
+      },
+      "target": {
+        "name": "Quizalofop-ethyl"
+      }
+    },
+    {
+      "source": {
+        "name": "Toluene, 2-chloro-"
+      },
+      "target": {
+        "name": "Toluene, 2-chloro"
+      }
+    },
+    {
+      "source": {
+        "name": "2-Methyl-4-chlorophenoxyacetic acid"
+      },
+      "target": {
+        "name": "MCPA"
+      }
+    },
+    {
+      "source": {
+        "name": "Benzene, pentachloronitro-"
+      },
+      "target": {
+        "name": "Quintozene"
+      }
+    },
+    {
+      "source": {
+        "name": "Chlortoluron"
+      },
+      "target": {
+        "name": "Chlorotoluron"
+      }
+    },
+    {
+      "source": {
+        "name": "Dipropylthiocarbamic acid S-ethyl ester"
+      },
+      "target": {
+        "name": "EPTC"
+      }
+    },
+    {
+      "source": {
+        "name": "Dithianone"
+      },
+      "target": {
+        "name": "Dithianon"
+      }
+    },
+    {
+      "source": {
+        "name": "Iprodione"
+      },
+      "target": {
+        "name": "Iprodion"
+      }
+    },
+    {
+      "source": {
+        "name": "Metam-sodium dihydrate"
+      },
+      "target": {
+        "name": "Metam-sodium"
+      }
+    },
+    {
+      "source": {
+        "name": "Monosodium acid methanearsonate"
+      },
+      "target": {
+        "name": "MSMA"
+      }
+    },
+    {
+      "source": {
+        "name": "Oxydemeton methyl"
+      },
+      "target": {
+        "name": "Oxydemeton-methyl"
+      }
+    },
+    {
+      "source": {
+        "name": "Thiazole, 2-(thiocyanatemethylthio)benzo-"
+      },
+      "target": {
+        "name": "TCMTB"
+      }
+    },
+    {
+      "source": {
+        "name": "Triallate"
+      },
+      "target": {
+        "name": "Tri-allate"
+      }
+    },
+    {
+      "source": {
+        "name": "Acrylate"
+      },
+      "target": {
+        "name": "Acrylate, ion"
+      }
+    },
+    {
+      "source": {
+        "name": "Ammonium"
+      },
+      "target": {
+        "name": "Ammonium, ion"
+      }
+    },
+    {
+      "source": {
+        "name": "Arsenic"
+      },
+      "target": {
+        "name": "Arsenic, ion"
+      }
+    },
+    {
+      "source": {
+        "name": "Benzo(a)anthracene"
+      },
+      "target": {
+        "name": "Benz(a)anthracene"
+      }
+    },
+    {
+      "source": {
+        "name": "Cadmium"
+      },
+      "target": {
+        "name": "Cadmium, 0.30% in sulfide, Cd 0.18%, Pb, Zn, Ag, In, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "Chromium"
+      },
+      "target": {
+        "name": "Chromium, 25.5% in chromite, 11.6% in crude ore, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "Copper"
+      },
+      "target": {
+        "name": "Copper, ion"
+      }
+    },
+    {
+      "source": {
+        "name": "Formic acid, thallium(1+) salt"
+      },
+      "target": {
+        "name": "Formate"
+      }
+    },
+    {
+      "source": {
+        "name": "Hydrogen chloride"
+      },
+      "target": {
+        "name": "Hydrochloric acid"
+      }
+    },
+    {
+      "source": {
+        "name": "Iron"
+      },
+      "target": {
+        "name": "Iron, 46% in ore, 25% in crude ore, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "Lithium"
+      },
+      "target": {
+        "name": "Lithium, 0.15% in brine, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "Naphthalene"
+      },
+      "target": {
+        "name": "Naphtalene"
+      }
+    },
+    {
+      "source": {
+        "name": "Nickel"
+      },
+      "target": {
+        "name": "Nickel, ion"
+      }
+    },
+    {
+      "source": {
+        "name": "Perchlorate"
+      },
+      "target": {
+        "name": "Perchlorate, ion"
+      }
+    },
+    {
+      "source": {
+        "name": "Potassium"
+      },
+      "target": {
+        "name": "Potassium, ion"
+      }
+    },
+    {
+      "source": {
+        "name": "Silver"
+      },
+      "target": {
+        "name": "Silver, ion"
+      }
+    },
+    {
+      "source": {
+        "name": "Sodium"
+      },
+      "target": {
+        "name": "Sodium, ion"
+      }
+    },
+    {
+      "source": {
+        "name": "Thiocyanate"
+      },
+      "target": {
+        "name": "Thiocyanate, ion"
+      }
+    },
+    {
+      "source": {
+        "name": "Tin"
+      },
+      "target": {
+        "name": "Tin, 79% in cassiterite, 0.1% in crude ore, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "Titanium"
+      },
+      "target": {
+        "name": "Titanium, ion"
+      }
+    },
+    {
+      "source": {
+        "name": "Vanadium"
+      },
+      "target": {
+        "name": "Vanadium, ion"
+      }
+    },
+    {
+      "source": {
+        "name": "Zinc"
+      },
+      "target": {
+        "name": "Zinc, 9.0% in sulfide, Zn 5.3%, Pb, Ag, Cd, In, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "Sulphur"
+      },
+      "target": {
+        "name": "Sulfur"
+      }
+    },
+    {
+      "source": {
+        "name": "Aluminium"
+      },
+      "target": {
+        "name": "Aluminium, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "Anhydrite"
+      },
+      "target": {
+        "name": "Anhydrite, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "Argon"
+      },
+      "target": {
+        "name": "Argon-40"
+      }
+    },
+    {
+      "source": {
+        "name": "Barite"
+      },
+      "target": {
+        "name": "Barite, 15% in crude ore, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "Basalt"
+      },
+      "target": {
+        "name": "Basalt, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "Borax"
+      },
+      "target": {
+        "name": "Borax, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "Bromine"
+      },
+      "target": {
+        "name": "Bromine, 0.23% in water"
+      }
+    },
+    {
+      "source": {
+        "name": "Calcite"
+      },
+      "target": {
+        "name": "Calcite, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "Cerium"
+      },
+      "target": {
+        "name": "Cerium, 24% in bastnasite, 2.4% in crude ore, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "Chrysotile"
+      },
+      "target": {
+        "name": "Chrysotile, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "Cinnabar"
+      },
+      "target": {
+        "name": "Cinnabar, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "Clay, bentonite"
+      },
+      "target": {
+        "name": "Clay, bentonite, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "Clay, unspecified"
+      },
+      "target": {
+        "name": "Clay, unspecified, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "Coal, brown"
+      },
+      "target": {
+        "name": "Coal, brown, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "Cobalt"
+      },
+      "target": {
+        "name": "Cobalt, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "Colemanite"
+      },
+      "target": {
+        "name": "Colemanite, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "Copper, 0.52% in sulfide, Cu 0.27% and Mo 8.2E-3% in crude ore"
+      },
+      "target": {
+        "name": "Copper, 0.52% in sulfide, Cu 0.27% and Mo 8.2E-3% in crude ore, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "Copper, 0.59% in sulfide, Cu 0.22% and Mo 8.2E-3% in crude ore"
+      },
+      "target": {
+        "name": "Copper, 0.59% in sulfide, Cu 0.22% and Mo 8.2E-3% in crude ore, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "Copper, 0.97% in sulfide, Cu 0.36% and Mo 4.1E-2% in crude ore"
+      },
+      "target": {
+        "name": "Copper, 0.97% in sulfide, Cu 0.36% and Mo 4.1E-2% in crude ore, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "Copper, 0.99% in sulfide, Cu 0.36% and Mo 8.2E-3% in crude ore"
+      },
+      "target": {
+        "name": "Copper, 0.99% in sulfide, Cu 0.36% and Mo 8.2E-3% in crude ore, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "Copper, 1.13% in sulfide, Cu 0.76% and Ni 0.76% in crude ore"
+      },
+      "target": {
+        "name": "Copper, 1.13% in sulfide, Cu 0.76% and Ni 0.76% in crude ore, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "Copper, 1.18% in sulfide, Cu 0.39% and Mo 8.2E-3% in crude ore"
+      },
+      "target": {
+        "name": "Copper, 1.18% in sulfide, Cu 0.39% and Mo 8.2E-3% in crude ore, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "Copper, 1.42% in sulfide, Cu 0.81% and Mo 8.2E-3% in crude ore"
+      },
+      "target": {
+        "name": "Copper, 1.42% in sulfide, Cu 0.81% and Mo 8.2E-3% in crude ore, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "Copper, 2.19% in sulfide, Cu 1.83% and Mo 8.2E-3% in crude ore"
+      },
+      "target": {
+        "name": "Copper, 2.19% in sulfide, Cu 1.83% and Mo 8.2E-3% in crude ore, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "Diatomite"
+      },
+      "target": {
+        "name": "Diatomite, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "Dolomite"
+      },
+      "target": {
+        "name": "Dolomite, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "Europium"
+      },
+      "target": {
+        "name": "Europium, 0.06% in bastnasite, 0.006% in crude ore, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "Feldspar"
+      },
+      "target": {
+        "name": "Feldspar, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "Fluorine"
+      },
+      "target": {
+        "name": "Fluorine, 4.5% in apatite, 1% in crude ore, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "Fluorine, 4.5% in apatite, 3% in crude ore"
+      },
+      "target": {
+        "name": "Fluorine, 4.5% in apatite, 3% in crude ore, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "Fluorspar"
+      },
+      "target": {
+        "name": "Fluorspar, 92%, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "Gadolinium"
+      },
+      "target": {
+        "name": "Gadolinium, 0.15% in bastnasite, 0.015% in crude ore, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "Gallium"
+      },
+      "target": {
+        "name": "Gallium, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "Gas, mine, off-gas, process, coal mining/m3"
+      },
+      "target": {
+        "name": "Gas, mine, off-gas, process, coal mining"
+      }
+    },
+    {
+      "source": {
+        "name": "Gas, natural/m3"
+      },
+      "target": {
+        "name": "Gas, natural, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "Gold"
+      },
+      "target": {
+        "name": "Gold, Au 1.4E-4%, in ore, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "Gold, Au 1.1E-4%, Ag 4.2E-3%, in ore"
+      },
+      "target": {
+        "name": "Gold, Au 1.1E-4%, Ag 4.2E-3%, in ore, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "Gold, Au 1.3E-4%, Ag 4.6E-5%, in ore"
+      },
+      "target": {
+        "name": "Gold, Au 1.3E-4%, Ag 4.6E-5%, in ore, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "Gold, Au 2.1E-4%, Ag 2.1E-4%, in ore"
+      },
+      "target": {
+        "name": "Gold, Au 2.1E-4%, Ag 2.1E-4%, in ore, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "Gold, Au 4.3E-4%, in ore"
+      },
+      "target": {
+        "name": "Gold, Au 4.3E-4%, in ore, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "Gold, Au 4.9E-5%, in ore"
+      },
+      "target": {
+        "name": "Gold, Au 4.9E-5%, in ore, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "Gold, Au 6.7E-4%, in ore"
+      },
+      "target": {
+        "name": "Gold, Au 6.7E-4%, in ore, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "Gold, Au 7.1E-4%, in ore"
+      },
+      "target": {
+        "name": "Gold, Au 7.1E-4%, in ore, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "Gold, Au 9.7E-4%, Ag 9.7E-4%, Zn 0.63%, Cu 0.38%, Pb 0.014%, in ore"
+      },
+      "target": {
+        "name": "Gold, Au 9.7E-4%, in mixed ore, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "Granite"
+      },
+      "target": {
+        "name": "Granite, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "Gravel"
+      },
+      "target": {
+        "name": "Gravel, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "Gypsum"
+      },
+      "target": {
+        "name": "Gypsum, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "Indium"
+      },
+      "target": {
+        "name": "Indium, 0.005% in sulfide, In 0.003%, Pb, Zn, Ag, Cd, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "Iodine"
+      },
+      "target": {
+        "name": "Iodine, 0.03% in water"
+      }
+    },
+    {
+      "source": {
+        "name": "Kaolinite"
+      },
+      "target": {
+        "name": "Kaolinite, 24% in crude ore, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "Kieserite"
+      },
+      "target": {
+        "name": "Kieserite, 25% in crude ore, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "Krypton"
+      },
+      "target": {
+        "name": "Krypton, in air"
+      }
+    },
+    {
+      "source": {
+        "name": "Lanthanum"
+      },
+      "target": {
+        "name": "Lanthanum, 7.2% in bastnasite, 0.72% in crude ore, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "Lead"
+      },
+      "target": {
+        "name": "Lead, 5.0% in sulfide, Pb 3.0%, Zn, Ag, Cd, In, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "Lead, Pb 0.014%, Au 9.7E-4%, Ag 9.7E-4%, Zn 0.63%, Cu 0.38%, in ore"
+      },
+      "target": {
+        "name": "Lead, Pb 0.014%, in mixed ore, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "Magnesite"
+      },
+      "target": {
+        "name": "Magnesite, 60% in crude ore, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "Magnesium"
+      },
+      "target": {
+        "name": "Magnesium, 0.13% in water"
+      }
+    },
+    {
+      "source": {
+        "name": "Manganese"
+      },
+      "target": {
+        "name": "Manganese, 35.7% in sedimentary deposit, 14.2% in crude ore, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "Metamorphous rock, graphite containing"
+      },
+      "target": {
+        "name": "Metamorphous rock, graphite containing, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "Molybdenum"
+      },
+      "target": {
+        "name": "Molybdenum, 0.11% in sulfide, Mo 4.1E-2% and Cu 0.36% in crude ore, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "Molybdenum, 0.010% in sulfide, Mo 8.2E-3% and Cu 1.83% in crude ore"
+      },
+      "target": {
+        "name": "Molybdenum, 0.010% in sulfide, Mo 8.2E-3% and Cu 1.83% in crude ore, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "Molybdenum, 0.014% in sulfide, Mo 8.2E-3% and Cu 0.81% in crude ore"
+      },
+      "target": {
+        "name": "Molybdenum, 0.014% in sulfide, Mo 8.2E-3% and Cu 0.81% in crude ore, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "Molybdenum, 0.016% in sulfide, Mo 8.2E-3% and Cu 0.27% in crude ore"
+      },
+      "target": {
+        "name": "Molybdenum, 0.016% in sulfide, Mo 8.2E-3% and Cu 0.27% in crude ore, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "Molybdenum, 0.022% in sulfide, Mo 8.2E-3% and Cu 0.22% in crude ore"
+      },
+      "target": {
+        "name": "Molybdenum, 0.022% in sulfide, Mo 8.2E-3% and Cu 0.22% in crude ore, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "Molybdenum, 0.022% in sulfide, Mo 8.2E-3% and Cu 0.36% in crude ore"
+      },
+      "target": {
+        "name": "Molybdenum, 0.022% in sulfide, Mo 8.2E-3% and Cu 0.36% in crude ore, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "Molybdenum, 0.025% in sulfide, Mo 8.2E-3% and Cu 0.39% in crude ore"
+      },
+      "target": {
+        "name": "Molybdenum, 0.025% in sulfide, Mo 8.2E-3% and Cu 0.39% in crude ore, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "Neodymium"
+      },
+      "target": {
+        "name": "Neodymium, 4% in bastnasite, 0.4% in crude ore, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "Nickel, 1.13% in sulfide, Ni 0.76% and Cu 0.76% in crude ore"
+      },
+      "target": {
+        "name": "Nickel, 1.13% in sulfide, Ni 0.76% and Cu 0.76% in crude ore, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "Nickel, 1.98% in silicates, 1.04% in crude ore"
+      },
+      "target": {
+        "name": "Nickel, 1.98% in silicates, 1.04% in crude ore, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "Nickel, Ni 2.3E+0%, Pt 2.5E-4%, Pd 7.3E-4%, Rh 2.0E-5%, Cu 3.2E+0% in ore"
+      },
+      "target": {
+        "name": "Ni, Ni 2.3E+0%, Pt 2.5E-4%, Pd 7.3E-4%, Rh 2.0E-5%, Cu 3.2E+0% in ore, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "Nickel, Ni 3.7E-2%, Pt 4.8E-4%, Pd 2.0E-4%, Rh 2.4E-5%, Cu 5.2E-2% in ore"
+      },
+      "target": {
+        "name": "Ni, Ni 3.7E-2%, Pt 4.8E-4%, Pd 2.0E-4%, Rh 2.4E-5%, Cu 5.2E-2% in ore, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "Occupation, arable, greenhouse"
+      },
+      "target": {
+        "name": "Occupation, annual crop, greenhouse"
+      }
+    },
+    {
+      "source": {
+        "name": "Occupation, arable, irrigated"
+      },
+      "target": {
+        "name": "Occupation, annual crop, irrigated"
+      }
+    },
+    {
+      "source": {
+        "name": "Occupation, arable, irrigated, intensive"
+      },
+      "target": {
+        "name": "Occupation, permanent crop, irrigated, intensive"
+      }
+    },
+    {
+      "source": {
+        "name": "Occupation, arable, non-irrigated, extensive"
+      },
+      "target": {
+        "name": "Occupation, annual crop, non-irrigated, extensive"
+      }
+    },
+    {
+      "source": {
+        "name": "Occupation, arable, non-irrigated, intensive"
+      },
+      "target": {
+        "name": "Occupation, permanent crop, non-irrigated, intensive"
+      }
+    },
+    {
+      "source": {
+        "name": "Occupation, grassland, not used"
+      },
+      "target": {
+        "name": "Occupation, grassland, natural (non-use)"
+      }
+    },
+    {
+      "source": {
+        "name": "Occupation, urban/industrial fallow"
+      },
+      "target": {
+        "name": "Occupation, urban/industrial fallow (non-use)"
+      }
+    },
+    {
+      "source": {
+        "name": "Oil, crude"
+      },
+      "target": {
+        "name": "Oil, crude, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "Olivine"
+      },
+      "target": {
+        "name": "Olivine, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "Palladium, Pd 2.0E-4%, Pt 4.8E-4%, Rh 2.4E-5%, Ni 3.7E-2%, Cu 5.2E-2% in ore"
+      },
+      "target": {
+        "name": "Pd, Pd 2.0E-4%, Pt 4.8E-4%, Rh 2.4E-5%, Ni 3.7E-2%, Cu 5.2E-2% in ore, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "Palladium, Pd 7.3E-4%, Pt 2.5E-4%, Rh 2.0E-5%, Ni 2.3E+0%, Cu 3.2E+0% in ore"
+      },
+      "target": {
+        "name": "Pd, Pd 7.3E-4%, Pt 2.5E-4%, Rh 2.0E-5%, Ni 2.3E+0%, Cu 3.2E+0% in ore, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "Peat"
+      },
+      "target": {
+        "name": "Peat, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "Perlite"
+      },
+      "target": {
+        "name": "Perlite, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "Phosphorus"
+      },
+      "target": {
+        "name": "Phosphorus, 18% in apatite, 12% in crude ore, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "Phosphorus, 18% in apatite, 4% in crude ore"
+      },
+      "target": {
+        "name": "Phosphorus, 18% in apatite, 4% in crude ore, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "Platinum, Pt 2.5E-4%, Pd 7.3E-4%, Rh 2.0E-5%, Ni 2.3E+0%, Cu 3.2E+0% in ore"
+      },
+      "target": {
+        "name": "Pt, Pt 2.5E-4%, Pd 7.3E-4%, Rh 2.0E-5%, Ni 2.3E+0%, Cu 3.2E+0% in ore, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "Platinum, Pt 4.8E-4%, Pd 2.0E-4%, Rh 2.4E-5%, Ni 3.7E-2%, Cu 5.2E-2% in ore"
+      },
+      "target": {
+        "name": "Pt, Pt 4.8E-4%, Pd 2.0E-4%, Rh 2.4E-5%, Ni 3.7E-2%, Cu 5.2E-2% in ore, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "Potassium chloride"
+      },
+      "target": {
+        "name": "Sylvite, 25 % in sylvinite, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "Praseodymium"
+      },
+      "target": {
+        "name": "Praseodymium, 0.42% in bastnasite, 0.042% in crude ore, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "Pumice"
+      },
+      "target": {
+        "name": "Pumice, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "Pyrite"
+      },
+      "target": {
+        "name": "Pyrite, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "Rhenium"
+      },
+      "target": {
+        "name": "Rhenium, in crude ore, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "Rhodium, Rh 2.0E-5%, Pt 2.5E-4%, Pd 7.3E-4%, Ni 2.3E+0%, Cu 3.2E+0% in ore"
+      },
+      "target": {
+        "name": "Rh, Rh 2.0E-5%, Pt 2.5E-4%, Pd 7.3E-4%, Ni 2.3E+0%, Cu 3.2E+0% in ore, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "Rhodium, Rh 2.4E-5%, Pt 4.8E-4%, Pd 2.0E-4%, Ni 3.7E-2%, Cu 5.2E-2% in ore"
+      },
+      "target": {
+        "name": "Rh, Rh 2.4E-5%, Pt 4.8E-4%, Pd 2.0E-4%, Ni 3.7E-2%, Cu 5.2E-2% in ore, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "Samarium"
+      },
+      "target": {
+        "name": "Samarium, 0.3% in bastnasite, 0.03% in crude ore, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "Sand"
+      },
+      "target": {
+        "name": "Sand, unspecified, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "Shale"
+      },
+      "target": {
+        "name": "Shale, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "Silver, 0.007% in sulfide, Ag 0.004%, Pb, Zn, Cd, In"
+      },
+      "target": {
+        "name": "Silver, 0.007% in sulfide, Ag 0.004%, Pb, Zn, Cd, In, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "Silver, 3.2ppm in sulfide, Ag 1.2ppm, Cu and Te, in crude ore"
+      },
+      "target": {
+        "name": "Silver, 3.2ppm in sulfide, Ag 1.2ppm, Cu and Te, in crude ore, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "Silver, Ag 2.1E-4%, Au 2.1E-4%, in ore"
+      },
+      "target": {
+        "name": "Silver, Ag 2.1E-4%, Au 2.1E-4%, in ore, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "Silver, Ag 4.2E-3%, Au 1.1E-4%, in ore"
+      },
+      "target": {
+        "name": "Silver, Ag 4.2E-3%, Au 1.1E-4%, in ore, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "Silver, Ag 4.6E-5%, Au 1.3E-4%, in ore"
+      },
+      "target": {
+        "name": "Silver, Ag 4.6E-5%, Au 1.3E-4%, in ore, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "Silver, Ag 9.7E-4%, Au 9.7E-4%, Zn 0.63%, Cu 0.38%, Pb 0.014%, in ore"
+      },
+      "target": {
+        "name": "Silver, Ag 9.7E-4%, in mixed ore, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "Sodium chloride"
+      },
+      "target": {
+        "name": "Sodium chloride, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "Sodium nitrate"
+      },
+      "target": {
+        "name": "Sodium nitrate, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "Sodium sulfate"
+      },
+      "target": {
+        "name": "Sodium sulphate, various forms, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "Spodumene"
+      },
+      "target": {
+        "name": "Spodumene, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "Stibnite"
+      },
+      "target": {
+        "name": "Stibnite, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "Sulfur"
+      },
+      "target": {
+        "name": "Sulfur, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "Talc"
+      },
+      "target": {
+        "name": "Talc, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "Tantalum"
+      },
+      "target": {
+        "name": "Tantalum, 81.9% in tantalite, 1.6E-4% in crude ore, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "Tellurium"
+      },
+      "target": {
+        "name": "Tellurium, 0.5ppm in sulfide, Te 0.2ppm, Cu and Ag, in crude ore, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "TiO2, 54% in ilmenite, 18% in crude ore"
+      },
+      "target": {
+        "name": "TiO2, 54% in ilmenite, 18% in crude ore, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "TiO2, 54% in ilmenite, 2.6% in crude ore"
+      },
+      "target": {
+        "name": "TiO2, 54% in ilmenite, 2.6% in crude ore, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "TiO2, 95% in rutile, 0.40% in crude ore"
+      },
+      "target": {
+        "name": "TiO2, 95% in rutile, 0.40% in crude ore, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, from arable, greenhouse"
+      },
+      "target": {
+        "name": "Transformation, from annual crop, greenhouse"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, from arable, irrigated, intensive"
+      },
+      "target": {
+        "name": "Transformation, from annual crop, irrigated, intensive"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, from arable, non-irrigated, extensive"
+      },
+      "target": {
+        "name": "Transformation, from annual crop, non-irrigated, extensive"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, from arable, non-irrigated, intensive"
+      },
+      "target": {
+        "name": "Transformation, from annual crop, non-irrigated, intensive"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, from forest, primary"
+      },
+      "target": {
+        "name": "Transformation, from forest, primary (non-use)"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, from grassland, not used"
+      },
+      "target": {
+        "name": "Transformation, from grassland, natural (non-use)"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, from permanent crops, irrigated, intensive"
+      },
+      "target": {
+        "name": "Transformation, from permanent crop, irrigated, intensive"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, from permanent crops, non-irrigated, intensive"
+      },
+      "target": {
+        "name": "Transformation, from permanent crop, non-irrigated, intensive"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, to arable, fallow"
+      },
+      "target": {
+        "name": "Transformation, to cropland fallow (non-use)"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, to arable, greenhouse"
+      },
+      "target": {
+        "name": "Transformation, to annual crop, greenhouse"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, to arable, irrigated, extensive"
+      },
+      "target": {
+        "name": "Transformation, to annual crop, irrigated, extensive"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, to arable, irrigated, intensive"
+      },
+      "target": {
+        "name": "Transformation, to annual crop, irrigated, intensive"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, to arable, non-irrigated, extensive"
+      },
+      "target": {
+        "name": "Transformation, to annual crop, non-irrigated, extensive"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, to arable, non-irrigated, intensive"
+      },
+      "target": {
+        "name": "Transformation, to annual crop, non-irrigated, intensive"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, to permanent crops, irrigated, intensive"
+      },
+      "target": {
+        "name": "Transformation, to permanent crop, irrigated, intensive"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, to permanent crops, non-irrigated"
+      },
+      "target": {
+        "name": "Transformation, to permanent crop, non-irrigated"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, to permanent crops, non-irrigated, intensive"
+      },
+      "target": {
+        "name": "Transformation, to permanent crop, non-irrigated, intensive"
+      }
+    },
+    {
+      "source": {
+        "name": "Ulexite"
+      },
+      "target": {
+        "name": "Ulexite, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "Uranium"
+      },
+      "target": {
+        "name": "Uranium, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "Vermiculite"
+      },
+      "target": {
+        "name": "Vermiculite, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, AT"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, AU"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, BA"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, BE"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, BG"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, BR"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, CA"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, CH"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, CL"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, CN"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, cooling, unspecified natural origin/m3"
+      },
+      "target": {
+        "name": "Water, cooling, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, CZ"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, DE"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, DK"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, ES"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, Europe without Switzerland"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, FI"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, FR"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, GB"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, GLO"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, GR"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, HR"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, HU"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, ID"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, IE"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, IN"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, IR"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, IT"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, JP"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, KR"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, LU"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, MA"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, MX"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, MY"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, NL"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, NO"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, NORDEL"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, PE"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, PG"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, PH"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, PL"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, PT"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, RAF"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, RAS"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, RER"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, RLA"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, RME"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, RNA"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, RO"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, RoW"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, RS"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, RU"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, SE"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, SI"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, SK"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, TH"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, TR"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, TW"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, TZ"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, UA"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, UCTE"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, UCTE without Germany"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, US"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, WEU"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, ZA"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water_3.1_m3"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Wood, unspecified, standing/m3"
+      },
+      "target": {
+        "name": "Wood, unspecified, standing"
+      }
+    },
+    {
+      "source": {
+        "name": "Xenon"
+      },
+      "target": {
+        "name": "Xenon, in air"
+      }
+    },
+    {
+      "source": {
+        "name": "Zinc, Zn 0.63%, Au 9.7E-4%, Ag 9.7E-4%, Cu 0.38%, Pb 0.014%, in ore"
+      },
+      "target": {
+        "name": "Zinc, Zn 0.63%, in mixed ore, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "Zirconium"
+      },
+      "target": {
+        "name": "Zirconium, 50% in zircon, 0.39% in crude ore, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, unspecified natural origin, BA"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, unspecified natural origin, HR"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, unspecified natural origin, PG"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, lake, AT"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, lake, BE"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, lake, BG"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, lake, CA"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, lake, CH"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, lake, CN"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, lake, CZ"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, lake, DE"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, lake, DK"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, lake, ES"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, lake, Europe without Switzerland"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, lake, FI"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, lake, FR"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, lake, GB"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, lake, GLO"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, lake, HU"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, lake, IT"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, lake, JP"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, lake, KR"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, lake, LU"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, lake, NL"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, lake, NO"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, lake, PL"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, lake, PT"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, lake, RER"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, lake, RNA"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, lake, RoW"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, lake, RU"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, lake, SE"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, lake, SK"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, lake, TR"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, lake, TW"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, lake, US"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, river, AT"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, river, AU"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, river, BE"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, river, BG"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, river, BR"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, river, CA"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, river, CH"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, river, CN"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, river, CZ"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, river, DE"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, river, DK"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, river, ES"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, river, Europe without Switzerland"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, river, FI"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, river, FR"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, river, GB"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, river, GLO"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, river, HU"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, river, IN"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, river, IT"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, river, JP"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, river, KR"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, river, LU"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, river, MY"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, river, NL"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, river, NO"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, river, PE"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, river, PH"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, river, PL"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, river, PT"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, river, RAS"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, river, RER"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, river, RLA"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, river, RNA"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, river, RoW"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, river, RU"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, river, SE"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, river, SK"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, river, TR"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, river, TW"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, river, TZ"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, river, US"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, river, WEU"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, river, ZA"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, unspecified natural origin, Europe without Switzerland"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, unspecified natural origin, GLO"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, unspecified natural origin, NORDEL"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, unspecified natural origin, RAF"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, unspecified natural origin, RER"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, unspecified natural origin, RNA"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, unspecified natural origin, RoW"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, unspecified natural origin, TW"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, unspecified natural origin, WEU"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, well, in ground, AT"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, well, in ground, AU"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, well, in ground, BE"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, well, in ground, BG"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, well, in ground, BR"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, well, in ground, CA"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, well, in ground, CH"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, well, in ground, CN"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, well, in ground, CZ"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, well, in ground, DE"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, well, in ground, DK"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, well, in ground, ES"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, well, in ground, Europe without Switzerland"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, well, in ground, FI"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, well, in ground, FR"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, well, in ground, GB"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, well, in ground, GLO"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, well, in ground, HU"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, well, in ground, ID"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, well, in ground, IN"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, well, in ground, IT"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, well, in ground, JP"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, well, in ground, KR"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, well, in ground, LU"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, well, in ground, MA"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, well, in ground, MY"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, well, in ground, NL"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, well, in ground, NO"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, well, in ground, NORDEL"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, well, in ground, PE"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, well, in ground, PG"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, well, in ground, PH"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, well, in ground, PL"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, well, in ground, PT"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, well, in ground, RER"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, well, in ground, RLA"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, well, in ground, RNA"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, well, in ground, RoW"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, well, in ground, RU"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, well, in ground, SE"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, well, in ground, SK"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, well, in ground, TR"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, well, in ground, TW"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, well, in ground, US"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, well, in ground, WEU"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Water, well, in ground, ZA"
+      },
+      "target": {
+        "name": "Water, unspecified natural origin"
+      }
+    },
+    {
+      "source": {
+        "name": "Copper, Cu 3.2E+0%, Pt 2.5E-4%, Pd 7.3E-4%, Rh 2.0E-5%, Ni 2.3E+0% in ore"
+      },
+      "target": {
+        "name": "Cu, Cu 3.2E+0%, Pt 2.5E-4%, Pd 7.3E-4%, Rh 2.0E-5%, Ni 2.3E+0% in ore, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "Copper, Cu 5.2E-2%, Pt 4.8E-4%, Pd 2.0E-4%, Rh 2.4E-5%, Ni 3.7E-2% in ore"
+      },
+      "target": {
+        "name": "Cu, Cu 5.2E-2%, Pt 4.8E-4%, Pd 2.0E-4%, Rh 2.4E-5%, Ni 3.7E-2% in ore, in ground"
+      }
+    },
+    {
+      "source": {
+        "name": "Transformation, to urban/industrial fallow"
+      },
+      "target": {
+        "name": "Transformation, to urban/industrial fallow (non-use)"
+      }
+    }
+  ]
+}

@@ -18,6 +18,7 @@ from django.core.mail import send_mail
 from django.conf import settings
 from django.urls import reverse
 from medical import models as medical_models
+from django.http import JsonResponse
 
 def is_admin(user):
     return user.is_staff
@@ -27,10 +28,8 @@ def login_view(request):
         username = request.POST.get('email')
         password = request.POST.get('password')
 
-        # Try to authenticate with username
         user = authenticate(request, username=username, password=password)
         
-        # If authentication fails, try with email
         if user is None:
             try:
                 user_obj = User.objects.get(email=username)
@@ -41,31 +40,17 @@ def login_view(request):
         if user is not None:
             login(request, user)
             
-            # If user is admin/staff, redirect directly to main
-            if user.is_staff or user.is_superuser:
-                return redirect('main:main')
-                
-            # For regular users, check student record
-            try:
-                student = Student.objects.get(student_id=user.username)
-            except Student.DoesNotExist:
-                messages.error(request, 'Student profile not found.')
-                return redirect('main:login')
-
-            # Check medical student profile
-            try:
-                medical_student = medical_models.Student.objects.get(student_id=student.student_id)
-                try:
-                    patient = medical_models.Patient.objects.get(student=medical_student)
-                    return redirect('main:main')
-                except medical_models.Patient.DoesNotExist:
-                    return redirect('main:patient_form')
-            except medical_models.Student.DoesNotExist:
-                messages.error(request, 'Medical profile not found.')
-                return redirect('main:patient_form')
+            redirect_url = 'main:main' if user.is_staff or user.is_superuser else 'main:patient_form'
+            
+            return JsonResponse({
+                'status': 'success',
+                'redirect_url': reverse(redirect_url)
+            })
         else:
-            messages.error(request, 'Invalid ID number/Email or password')
-            return redirect('main:login')
+            return JsonResponse({
+                'status': 'error',
+                'message': 'Invalid ID number/Email or password'
+            })
 
     return render(request, 'login.html')
 
@@ -185,6 +170,21 @@ def patient_form(request):
                 parent_guardian=request.POST.get('parent_guardian'),
                 parent_guardian_contact_number=request.POST.get('parent_guardian_contact'),
                 examination=physical_exam
+            )
+            
+            # Create or update RiskAssessment record
+            risk_assessment, created = medical_models.RiskAssessment.objects.update_or_create(
+                clearance=patient,
+                defaults={
+                    'cardiovascular_disease': 'cardiovascular_disease' in request.POST,
+                    'chronic_lung_disease': 'chronic_lung_disease' in request.POST,
+                    'chronic_renal_disease': 'chronic_renal_disease' in request.POST,
+                    'chronic_liver_disease': 'chronic_liver_disease' in request.POST,
+                    'cancer': 'cancer' in request.POST,
+                    'autoimmune_disease': 'autoimmune_disease' in request.POST,
+                    'pwd': 'pwd' in request.POST,
+                    'disability': request.POST.get('disability', '')
+                }
             )
             
             messages.success(request, 'Medical information submitted successfully!')

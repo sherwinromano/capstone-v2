@@ -1,0 +1,135 @@
+{% extends 'mainv2.html' %}
+{% load static tailwind_tags %}
+{% block title %}HealthHub Connect | Mental Health Services{% endblock %}
+{% block extra_css %}
+{% tailwind_css %}
+{% endblock %}
+
+{% block content %}
+<div class="xs:p-4 lg:p-8 bg-white rounded-[18px] flex flex-col gap-4 {% if user.is_superuser or user.is_staff %} w-full {% else %}xs:w-full md:w-1/2 h-[80%] {% endif %}">
+    <h2 class="font-bold xs:text-[1.3rem] md:text-[1.5rem] text-black tracking-tight py-4 text-center">Mental Health Services</h2>
+    {% if user.is_superuser or user.is_staff %}
+        <form method="POST" class="flex gap-4">
+            {% csrf_token %}
+            <input type="text" name="student_id" placeholder="Search by Student ID" class="w-full p-2 border rounded-md">
+            <button type="submit" class="bg-[#3b82f6] text-white py-2 px-8 rounded-md hover:bg-[#2563eb] transition-colors">
+                Search
+            </button>
+        </form>
+    {% endif %}
+    <div class="flex flex-col gap-2 h-fit max-h-full">
+        <h3 class="font-medium xs:text-base md:text-[1.3rem] text-center">List of Requirements</h3>
+        <div class="overflow-x-auto">
+            <table class="w-full table-auto border-separate border-spacing-0">
+                <thead class="bg-[#e6e6e6]">
+                    <tr>
+                        <th class="text-center p-2 xs:text-[14px] sm:text-base">Remarks</th>
+                        <th class="text-center p-2 xs:text-[14px] sm:text-base">Requirement</th>
+                        <th class="text-center p-2 xs:text-[14px] sm:text-base">Status</th>
+                        <th class="text-center p-2 xs:text-[14px] sm:text-base">File</th>
+                        <th class="text-center p-2 xs:text-[14px] sm:text-base">Preview</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% if records %}
+                        {% for record in records %}
+                            <tr class="tr-td">
+                                <td class="text-center">
+                                    <form method="POST" class="flex gap-2">
+                                        {% csrf_token %}
+                                        <input type="text" name="notes" value="{{ record.notes|default:'' }}" class="w-full p-2 border rounded">
+                                        <button type="submit" name="save_remark" value="notes" class="bg-blue-500 text-white px-3 py-1 rounded">Save</button>
+                                    </form>
+                                </td>
+                                <td class="text-center">{{ record.patient.student.get_full_name }}</td>
+                                <td class="text-center">
+                                    <span class="px-2 py-1 rounded-full text-sm 
+                                        {% if record.status == 'pending' %}bg-yellow-100 text-yellow-800
+                                        {% elif record.status == 'approved' %}bg-green-100 text-green-800
+                                        {% else %}bg-red-100 text-red-800{% endif %}">
+                                        {{ record.status|title }}
+                                    </span>
+                                </td>
+                                <td class="text-center">
+                                    <a href="{{ record.prescription.url }}" class="text-blue-600 hover:underline">Prescription</a><br>
+                                    <a href="{{ record.certification.url }}" class="text-blue-600 hover:underline">Certification</a>
+                                </td>
+                                <td class="text-center">
+                                    <button class="preview-btn" onclick="previewFile('{{ record.prescription.url }}')">View Prescription</button><br>
+                                    <button class="preview-btn" onclick="previewFile('{{ record.certification.url }}')">View Certification</button>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    {% else %}
+                        <tr>
+                            <td colspan="5" class="text-center p-4">No records found</td>
+                        </tr>
+                    {% endif %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    {% if messages %}
+    <div class="message-container">
+        {% for message in messages %}
+        <p class="text-[14px] {% if message.tags %}{{ message.tags }}{% endif %}">{{ message }}</p>
+        {% endfor %}
+    </div>
+    {% endif %}
+</div>
+
+<!-- File Preview Modal -->
+<div id="previewModal" class="modal hidden fixed inset-0 bg-black bg-opacity-50 z-50">
+    <div class="modal-content bg-white p-4 rounded-lg max-w-4xl mx-auto mt-20">
+        <div class="flex justify-between items-center mb-4">
+            <h3 class="text-lg font-bold">File Preview</h3>
+            <button onclick="closePreviewModal()" class="text-gray-500 hover:text-gray-700">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+        </div>
+        <div id="previewContent" class="max-h-[70vh] overflow-auto">
+            <!-- Preview content will be inserted here -->
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+function previewFile(url) {
+    const modal = document.getElementById('previewModal');
+    const previewContent = document.getElementById('previewContent');
+    
+    // Clear previous content
+    previewContent.innerHTML = '';
+    
+    // Check file type
+    if (url.match(/\.(jpg|jpeg|png|gif)$/i)) {
+        // Image file
+        const img = document.createElement('img');
+        img.src = url;
+        img.className = 'max-w-full';
+        previewContent.appendChild(img);
+    } else if (url.match(/\.pdf$/i)) {
+        // PDF file
+        const embed = document.createElement('embed');
+        embed.src = url;
+        embed.type = 'application/pdf';
+        embed.style.width = '100%';
+        embed.style.height = '70vh';
+        previewContent.appendChild(embed);
+    } else {
+        previewContent.innerHTML = '<p class="text-center">Preview not available for this file type.</p>';
+    }
+    
+    modal.classList.remove('hidden');
+}
+
+function closePreviewModal() {
+    const modal = document.getElementById('previewModal');
+    modal.classList.add('hidden');
+}
+</script>
+{% endblock %}
