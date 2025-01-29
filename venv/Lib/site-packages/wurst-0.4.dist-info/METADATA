@@ -1,0 +1,76 @@
+Metadata-Version: 2.1
+Name: wurst
+Version: 0.4
+Summary: Wurst is a python package for linking and modifying industrial ecology models
+Home-page: https://github.com/polca/wurst
+Author: Chris Mutel
+Author-email: cmutel@gmail.com
+License: BSD 3-clause
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: POSIX
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Topic :: Scientific/Engineering :: Information Analysis
+Classifier: Topic :: Scientific/Engineering :: Mathematics
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: appdirs
+Requires-Dist: constructive-geometries >=0.9.4
+Requires-Dist: docopt
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: python-json-logger
+Requires-Dist: toolz
+Requires-Dist: tqdm
+Requires-Dist: wrapt
+
+# Wurst
+
+[![PyPi Version](https://img.shields.io/pypi/v/wurst.svg)](https://pypi.org/project/wurst/) [![Conda Version](https://img.shields.io/conda/vn/conda-forge/wurst.svg)](https://anaconda.org/conda-forge/wurst) [![Build Status](https://travis-ci.org/IndEcol/wurst.svg?branch=master)](https://travis-ci.org/IndEcol/wurst) [![Coverage Status](https://coveralls.io/repos/github/IndEcol/wurst/badge.svg?branch=master)](https://coveralls.io/github/IndEcol/wurst?branch=master) [![Docs](https://readthedocs.org/projects/wurst/badge/?version=latest)](https://wurst.readthedocs.io/)
+
+Show how the sausage is made!
+
+Wurst is a python package for linking and modifying industrial ecology models, with a focus on sparse matrices in life cycle assessment. It provides the following:
+
+* Helper functions to filter activities and exchanges
+* Helper functions to link exchanges
+* Transformation functions to change markets, change input efficiencies, and change emissions
+* Data IO with [Brightway2](https://brightwaylca.org/)
+* Logging framework and a log browser
+
+See also the separate [wurst examples](https://github.com/IndEcol/wurst-examples) repository.
+
+## Installation
+
+Download and install [miniconda](https://conda.io/miniconda.html), create and activate a [new environment](https://conda.io/docs/user-guide/tasks/manage-environments.html), and then install::
+
+    conda install -c conda-forge brightway2 jupyter wurst
+
+## License
+
+BSD 2-clause license. Contributions are welcome!
+
+## Authors
+
+* Chris Mutel
+* Brian Cox
+
+## TODO
+
+* Review BW2 IO code to make sure all needed fields are present in newly-created and modified databases
+* Parameterized exchanges (e.g. electricity sector)
+* Check logging on all transformation functions
+* Log browser web app

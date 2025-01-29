@@ -1,0 +1,96 @@
+Metadata-Version: 2.2
+Name: sparse
+Version: 0.15.5
+Summary: Sparse n-dimensional arrays for the PyData ecosystem
+Maintainer-email: Hameer Abbasi <hameerabbasi@yahoo.com>
+License: BSD 3-Clause License
+        
+        Copyright (c) 2018, Sparse developers
+        All rights reserved.
+        
+        Redistribution and use in source and binary forms, with or without
+        modification, are permitted provided that the following conditions are met:
+        
+        * Redistributions of source code must retain the above copyright notice, this
+          list of conditions and the following disclaimer.
+        
+        * Redistributions in binary form must reproduce the above copyright notice,
+          this list of conditions and the following disclaimer in the documentation
+          and/or other materials provided with the distribution.
+        
+        * Neither the name of the copyright holder nor the names of its
+          contributors may be used to endorse or promote products derived from
+          this software without specific prior written permission.
+        
+        THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+        AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+        IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+        DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+        FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+        DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+        SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+        CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+        OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+        OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+        
+Project-URL: Documentation, https://sparse.pydata.org/
+Project-URL: Source, https://github.com/pydata/sparse/
+Project-URL: Repository, https://github.com/pydata/sparse.git
+Project-URL: Issue Tracker, https://github.com/pydata/sparse/issues
+Project-URL: Discussions, https://github.com/pydata/sparse/discussions
+Keywords: sparse,numpy,scipy,dask
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Operating System :: OS Independent
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Requires-Python: >=3.8
+Description-Content-Type: text/x-rst
+License-File: LICENSE
+Requires-Dist: numpy>=1.17
+Requires-Dist: scipy>=0.19
+Requires-Dist: numba>=0.49
+Provides-Extra: docs
+Requires-Dist: sphinx; extra == "docs"
+Requires-Dist: sphinx_rtd_theme; extra == "docs"
+Provides-Extra: tests
+Requires-Dist: dask[array]; extra == "tests"
+Requires-Dist: pytest>=3.5; extra == "tests"
+Requires-Dist: pytest-cov; extra == "tests"
+Requires-Dist: pre-commit; extra == "tests"
+Provides-Extra: tox
+Requires-Dist: sparse[tests]; extra == "tox"
+Requires-Dist: tox; extra == "tox"
+Provides-Extra: all
+Requires-Dist: sparse[docs,tox]; extra == "all"
+Requires-Dist: matrepr; extra == "all"
+
+Sparse Multidimensional Arrays
+==============================
+
+|Build Status| |Docs Status| |Coverage|
+
+This library provides multi-dimensional sparse arrays.
+
+* `Documentation <http://sparse.pydata.org/>`_
+* `Contributing <https://github.com/pydata/sparse/blob/main/docs/contributing.rst>`_
+* `Bug Reports/Feature Requests <https://github.com/pydata/sparse/issues>`_
+
+.. |Build Status| image:: https://github.com/pydata/sparse/actions/workflows/ci.yml/badge.svg
+   :target: https://github.com/pydata/sparse/actions/workflows/ci.yml
+   :alt: Build status
+
+.. |Docs Status| image:: https://readthedocs.org/projects/sparse-nd/badge/?version=latest
+   :target: http://sparse.pydata.org/en/latest/?badge=latest
+   :alt: Documentation Status
+
+.. |Coverage| image:: https://codecov.io/gh/pydata/sparse/branch/main/graph/badge.svg
+   :target: https://codecov.io/gh/pydata/sparse
+   :alt: Coverage Report
