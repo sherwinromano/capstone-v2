@@ -1419,3 +1419,46 @@ def mental_health_submit(request):
             return redirect('main:patient_form')
             
     return render(request, 'mental_health_submit.html')
+
+@login_required
+def dashboard_view(request):
+    try:
+        # Get student by student_id (username)
+        student = Student.objects.get(student_id=request.user.username)
+        
+        try:
+            # Get the medical student instance
+            medical_student = medical_models.Student.objects.get(student_id=student.student_id)
+            patient = medical_models.Patient.objects.filter(student=medical_student).first()
+            
+            if patient:
+                context = {
+                    'student': student,
+                    'patient': patient,
+                    'medical_history': medical_models.MedicalHistory.objects.filter(examination=patient.examination).first(),
+                    'family_history': medical_models.FamilyMedicalHistory.objects.filter(examination=patient.examination).first(),
+                    'risk_assessment': medical_models.RiskAssessment.objects.filter(clearance=patient).first(),
+                    'physical_exam': patient.examination,
+                }
+                print("Context:", context)  # Add this debug line
+            else:
+                context = {
+                    'student': student,
+                    'patient': None
+                }
+                messages.info(request, 'Please complete your medical profile.')
+                return redirect('main:patient_form')
+                
+        except medical_models.Student.DoesNotExist:
+            context = {
+                'student': student,
+                'patient': None
+            }
+            messages.error(request, 'Medical profile not found.')
+            return redirect('main:patient_form')
+            
+    except Student.DoesNotExist:
+        messages.error(request, 'Student profile not found.')
+        return redirect('main:login')
+
+    return render(request, 'student_dashboard.html', context)

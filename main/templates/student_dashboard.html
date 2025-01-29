@@ -1,71 +1,148 @@
 {% extends 'mainv2.html' %}
+{% load static %}
 
 {% block content %}
-<div class="container-fluid mt-4">
-    {% if patient %}
-        <div class="row">
-            <div class="col-md-4">
-                <div class="card">
-                    <div class="card-header">
-                        <h5 class="mb-0">Personal Information</h5>
-                    </div>
-                    <div class="card-body">
-                        <p><strong>Age:</strong> {{ patient.age }}</p>
-                        <p><strong>Blood Type:</strong> {{ patient.bloodtype }}</p>
-                        <p><strong>Height:</strong> {{ patient.height }} cm</p>
-                        <p><strong>Weight:</strong> {{ patient.weight }} kg</p>
-                    </div>
-                </div>
+<div class="min-h-screen bg-[#E5F2FF] p-8">
+    <div class="max-w-4xl mx-auto">
+        <!-- Header Bar -->
+        <div class="bg-[#E9967A] text-white p-3 rounded-t-lg">
+            <h1 class="text-xl font-bold text-center">Student Profile</h1>
+        </div>
+
+        <!-- Profile Section -->
+        <div class="bg-[#FFE4E1] p-4 flex items-center gap-6">
+            <div class="w-20 h-20 rounded-full overflow-hidden bg-gray-200">
+                <svg class="w-full h-full text-gray-600" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                </svg>
             </div>
-            <div class="col-md-4">
-                <div class="card">
-                    <div class="card-header">
-                        <h5 class="mb-0">Medical History</h5>
-                    </div>
-                    <div class="card-body">
-                        {% if medical_history %}
-                            <ul class="list-unstyled">
-                                {% if medical_history.tuberculosis %}<li>✓ Tuberculosis</li>{% endif %}
-                                {% if medical_history.hypertension %}<li>✓ Hypertension</li>{% endif %}
-                                {% if medical_history.heart_disease %}<li>✓ Heart Disease</li>{% endif %}
-                                {% if medical_history.asthma %}<li>✓ Asthma</li>{% endif %}
-                            </ul>
-                        {% else %}
-                            <p>No medical history recorded.</p>
-                        {% endif %}
-                    </div>
-                </div>
+            <div>
+                <h2 class="text-xl font-bold">{{ patient.student.firstname }} {{ patient.student.lastname }}</h2>
+                <p class="text-gray-700">{{ patient.student.degree }}</p>
             </div>
-            <div class="col-md-4">
-                <div class="card">
-                    <div class="card-header">
-                        <h5 class="mb-0">Risk Assessment</h5>
-                    </div>
-                    <div class="card-body">
-                        {% if risk_assessment %}
-                            <ul class="list-unstyled">
-                                {% if risk_assessment.cardiovascular_disease %}
-                                    <li>✓ Cardiovascular Disease</li>
-                                {% endif %}
-                                {% if risk_assessment.chronic_lung_disease %}
-                                    <li>✓ Chronic Lung Disease</li>
-                                {% endif %}
-                                {% if risk_assessment.pwd %}
-                                    <li>✓ PWD: {{ risk_assessment.disability }}</li>
-                                {% endif %}
-                            </ul>
-                        {% else %}
-                            <p>No risk assessment recorded.</p>
-                        {% endif %}
-                    </div>
+        </div>
+
+        <!-- General Information -->
+        <div class="mt-2">
+            <div class="bg-[#E9967A] text-white p-2">
+                <h3 class="font-bold">General Information</h3>
+            </div>
+            <div class="bg-[#FFE4E1] grid grid-cols-3 gap-4 p-4">
+                <div>
+                    <p class="font-bold">Student ID</p>
+                    <p>{{ patient.student.student_id }}</p>
+                </div>
+                <div>
+                    <p class="font-bold">Year Level</p>
+                    <p>{{ patient.student.year_level }}</p>
+                </div>
+                <div>
+                    <p class="font-bold">Civil Status</p>
+                    <p>{{ patient.civil_status }}</p>
                 </div>
             </div>
         </div>
-    {% else %}
-        <div class="alert alert-warning">
-            No medical records found. Please complete your medical form.
-            <a href="{% url 'main:patient_form' %}" class="btn btn-primary ml-3">Complete Medical Form</a>
+
+        <!-- Personal Details -->
+        <div class="mt-2">
+            <div class="bg-[#DEB887] text-white p-2">
+                <h3 class="font-bold">Personal Details</h3>
+            </div>
+            <div class="bg-[#FFE4E1]">
+                <table class="w-full">
+                    <tbody>
+                        <tr class="border-b border-gray-200">
+                            <td class="p-3 font-bold w-1/3">Age</td>
+                            <td class="p-3">{{ patient.age }}</td>
+                        </tr>
+                        <tr class="border-b border-gray-200">
+                            <td class="p-3 font-bold">Birth Date</td>
+                            <td class="p-3">{{ patient.birth_date }}</td>
+                        </tr>
+                        <tr class="border-b border-gray-200">
+                            <td class="p-3 font-bold">Blood Type</td>
+                            <td class="p-3">{{ patient.bloodtype }}</td>
+                        </tr>
+                        <tr class="border-b border-gray-200">
+                            <td class="p-3 font-bold">Height</td>
+                            <td class="p-3">{{ patient.height }} cm</td>
+                        </tr>
+                        <tr class="border-b border-gray-200">
+                            <td class="p-3 font-bold">Weight</td>
+                            <td class="p-3">{{ patient.weight }} kg</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
-    {% endif %}
+
+        <!-- Medical Information -->
+        <div class="mt-2">
+            <div class="bg-[#DEB887] text-white p-2">
+                <h3 class="font-bold">Medical Information</h3>
+            </div>
+            <div class="bg-[#FFE4E1]">
+                <table class="w-full">
+                    <tbody>
+                        <tr class="border-b border-gray-200">
+                            <td class="p-3 font-bold w-1/3">Allergies</td>
+                            <td class="p-3">{{ patient.allergies|default:"None" }}</td>
+                        </tr>
+                        <tr class="border-b border-gray-200">
+                            <td class="p-3 font-bold">Medications</td>
+                            <td class="p-3">{{ patient.medications|default:"None" }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Contact Information -->
+        <div class="mt-2">
+            <div class="bg-[#DEB887] text-white p-2">
+                <h3 class="font-bold">Contact Information</h3>
+            </div>
+            <div class="bg-[#FFE4E1]">
+                <table class="w-full">
+                    <tbody>
+                        <tr class="border-b border-gray-200">
+                            <td class="p-3 font-bold w-1/3">Email</td>
+                            <td class="p-3">{{ patient.student.email }}</td>
+                        </tr>
+                        <tr class="border-b border-gray-200">
+                            <td class="p-3 font-bold">Contact Number</td>
+                            <td class="p-3">{{ patient.student.contact_number }}</td>
+                        </tr>
+                        <tr class="border-b border-gray-200">
+                            <td class="p-3 font-bold">Emergency Contact</td>
+                            <td class="p-3">{{ patient.parent_guardian }}</td>
+                        </tr>
+                        <tr class="border-b border-gray-200">
+                            <td class="p-3 font-bold">Emergency Number</td>
+                            <td class="p-3">{{ patient.parent_guardian_contact_number }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 </div>
+
+<style>
+    tr:last-child {
+        border-bottom: none;
+    }
+    
+    .bg-[#E9967A] {
+        background-color: #E9967A;
+    }
+    
+    .bg-[#FFE4E1] {
+        background-color: #FFE4E1;
+    }
+    
+    .bg-[#DEB887] {
+        background-color: #DEB887;
+    }
+</style>
 {% endblock %}

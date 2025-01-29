@@ -110,8 +110,8 @@
                             </div>
                         </div>
                         <div class="form-group other-allergies" style="display: none;">
-                            <label for="other_allergies">Specify Other Allergies</label>
-                            <input type="text" id="other_allergies" name="other_allergies" placeholder="Enter other allergies, separate with commas">
+                            <label for="other_allergies">Specify Allergies</label>
+                            <input type="text" id="other_allergies" name="other_allergies" placeholder="Enter specific allergies, separate with commas">
                         </div>
                     </div>
 
@@ -120,8 +120,8 @@
                         <label>Medical History (select all that apply)</label>
                         <div class="checkbox-group">
                             <div class="checkbox-item">
-                                <input type="checkbox" id="history_none" name="medical_history" value="None">
-                                <label for="history_none">No Medical History</label>
+                                <input type="checkbox" id="no_medical_history" name="medical_history" value="No Medical History">
+                                <label for="no_medical_history">No Medical History</label>
                             </div>
                             <div class="checkbox-item">
                                 <input type="checkbox" id="tuberculosis" name="medical_history" value="tuberculosis">
@@ -175,10 +175,20 @@
                                 <input type="checkbox" id="jaundice" name="medical_history" value="jaundice">
                                 <label for="jaundice">Jaundice</label>
                             </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="other_conditions" name="medical_history" value="Other Medical Conditions">
+                                <label for="other_conditions">Other Medical Conditions</label>
+                            </div>
                         </div>
-                        <div class="form-group other-medical-history" style="display: none;">
-                            <label for="other_medical">Other Medical Conditions</label>
-                            <input type="text" id="other_medical" name="other_medical" placeholder="Specify other medical conditions">
+
+                        <!-- Specification field for Other Medical Conditions -->
+                        <div class="form-group" id="other_conditions_input" style="display: none;">
+                            <label for="other_medical">Please specify other medical conditions</label>
+                            <input type="text" 
+                                   id="other_medical" 
+                                   name="other_medical" 
+                                   class="form-control" 
+                                   placeholder="Specify other medical conditions">
                         </div>
                     </div>
 
@@ -187,8 +197,8 @@
                         <label>Family Medical History (select all that apply)</label>
                         <div class="checkbox-group">
                             <div class="checkbox-item">
-                                <input type="checkbox" id="family_none" name="family_history" value="None">
-                                <label for="family_none">No Family History</label>
+                                <input type="checkbox" id="no_family_history" name="family_history" value="No Family History">
+                                <label for="no_family_history">No Family History</label>
                             </div>
                             <div class="checkbox-item">
                                 <input type="checkbox" id="family_hypertension" name="family_history" value="hypertension">
@@ -222,10 +232,20 @@
                                 <input type="checkbox" id="family_mental" name="family_history" value="mental_disorder">
                                 <label for="family_mental">Mental Disorder</label>
                             </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="other_family_conditions" name="family_history" value="Other Medical Conditions">
+                                <label for="other_family_conditions">Other Medical Conditions</label>
+                            </div>
                         </div>
-                        <div class="form-group other-family-history" style="display: none;">
-                            <label for="other_family_medical">Other Family Medical Conditions</label>
-                            <input type="text" id="other_family_medical" name="other_family_medical" placeholder="Specify other family medical conditions">
+
+                        <!-- Specification field for Other Family Medical Conditions -->
+                        <div class="form-group" id="other_family_conditions_input" style="display: none;">
+                            <label for="other_family_medical">Please specify other family medical conditions</label>
+                            <input type="text" 
+                                   id="other_family_medical" 
+                                   name="other_family_medical" 
+                                   class="form-control" 
+                                   placeholder="Specify other family medical conditions">
                         </div>
                     </div>
 
@@ -234,8 +254,8 @@
                         <label>Risk Assessment (select all that apply)</label>
                         <div class="checkbox-group">
                             <div class="checkbox-item">
-                                <input type="checkbox" id="risk_none" name="risk_assessment" value="None">
-                                <label for="risk_none">No Risk Factors</label>
+                                <input type="checkbox" id="no_risk" name="risk_assessment" value="No Risk">
+                                <label for="no_risk">No Risk</label>
                             </div>
                             <div class="checkbox-item">
                                 <input type="checkbox" id="age_above_60" name="risk_assessment" value="age_above_60">
@@ -266,13 +286,19 @@
                                 <label for="autoimmune">Autoimmune Disease</label>
                             </div>
                             <div class="checkbox-item">
-                                <input type="checkbox" id="pwd" name="risk_assessment" value="pwd">
-                                <label for="pwd">Person with Disability (PWD)</label>
+                                <input type="checkbox" id="pwd" name="risk_assessment" value="Person with disability">
+                                <label for="pwd">Person with disability</label>
                             </div>
                         </div>
-                        <div class="form-group pwd-details" style="display: none;">
-                            <label for="disability">Specify Disability</label>
-                            <input type="text" id="disability" name="disability" placeholder="Enter type of disability">
+
+                        <!-- Specification field for PWD -->
+                        <div class="form-group" id="pwd_specification_input" style="display: none;">
+                            <label for="pwd_specification">Please specify disability</label>
+                            <input type="text" 
+                                   id="pwd_specification" 
+                                   name="pwd_specification" 
+                                   class="form-control" 
+                                   placeholder="Specify type of disability">
                         </div>
                     </div>
                 </div>
@@ -438,6 +464,36 @@
                 text: `Please fill in the ${input.previousElementSibling.textContent} field.`
             });
         });
+    });
+
+    // Personal Medical History
+    document.getElementById('other_conditions').addEventListener('change', function() {
+        const otherInput = document.getElementById('other_conditions_input');
+        otherInput.style.display = this.checked ? 'block' : 'none';
+        
+        if (!this.checked) {
+            document.getElementById('other_medical').value = '';
+        }
+    });
+
+    // Family Medical History
+    document.getElementById('other_family_conditions').addEventListener('change', function() {
+        const otherInput = document.getElementById('other_family_conditions_input');
+        otherInput.style.display = this.checked ? 'block' : 'none';
+        
+        if (!this.checked) {
+            document.getElementById('other_family_medical').value = '';
+        }
+    });
+
+    // Risk Assessment - PWD
+    document.getElementById('pwd').addEventListener('change', function() {
+        const pwdInput = document.getElementById('pwd_specification_input');
+        pwdInput.style.display = this.checked ? 'block' : 'none';
+        
+        if (!this.checked) {
+            document.getElementById('pwd_specification').value = '';
+        }
     });
     </script>
 </body>

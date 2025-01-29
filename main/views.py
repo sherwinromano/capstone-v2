@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required, user_passes_test
 from django.contrib import messages
 from django.contrib.auth.models import User
@@ -364,3 +364,7 @@ def mental_health_review(request, record_id):
         return redirect('main:mental_health')
         
     return render(request, 'admin/mental_health_review.html', {'record': record})
+
+def logout_view(request):
+    logout(request)
+    return redirect('main:login')
