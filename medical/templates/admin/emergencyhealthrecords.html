@@ -21,10 +21,10 @@
             <tbody>
                 {% for record in emrgncy_record %}
                     <tr class="tr-td">
-                        <td>{{ record.patient.student.student_id }}</td>
-                        <td>{{ record.name }}</td>
-                        <td>{{ record.reason }}</td>
-                        <td>{{ record.date_assisted }}</td>
+                        <td class="text-center">{{ record.patient.student.student_id }}</td>
+                        <td class="text-center">{{ record.name }}</td>
+                        <td class="text-center">{{ record.reason }}</td>
+                        <td class="text-center">{{ record.date_assisted }}</td>
                     </tr>
                 {% endfor %}
             </tbody>

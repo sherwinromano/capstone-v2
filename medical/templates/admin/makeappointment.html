@@ -40,11 +40,11 @@
             <tbody>
                 {% for request in service_request %}
                     <tr class="tr-td">
-                        <td><a href="#">{{ request.student.student_id }}</a></td>
-                        <td><a href="#">{{ request.student.lastname|title }}</a></td>
-                        <td><a href="#">{{ request.student.firstname|title }}</a></td>
-                        <td><a href="#">{{ request.service_type }}</a></td>
-                        <td><a href="#">{{ request.date_requested }}</a></td>
+                        <td class="text-center"><a href="#">{{ request.student.student_id }}</a></td>
+                        <td class="text-center"><a href="#">{{ request.student.lastname|title }}</a></td>
+                        <td class="text-center"><a href="#">{{ request.student.firstname|title }}</a></td>
+                        <td class="text-center"><a href="#">{{ request.service_type }}</a></td>
+                        <td class="text-center"><a href="#">{{ request.date_requested }}</a></td>
                         <td>
                             <button class="action-button" onclick="openAppointmentForm('{{ request.student.student.student_id }}')">Set Appointment</button>
                         </td>
