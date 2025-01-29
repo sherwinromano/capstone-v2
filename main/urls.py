@@ -18,6 +18,7 @@ urlpatterns = [
     path('mental-health/', views.mental_health_view, name='mental_health'),
     path('mental-health/submit/', views.mental_health_submit, name='mental_health_submit'),
     path('mental-health/review/<int:record_id>/', views.mental_health_review, name='mental_health_review'),
+    path('logout/', views.logout_view, name='logout'),
 ]
 
 if settings.DEBUG:
