@@ -116,13 +116,6 @@
               >Mental Health Services</a
             >
           </li>
-          <li>
-            <a
-              class="flex justify-center items-center h-full tracking-tight hover:bg-[#f0f0f0] py-4 font-medium hover:border-r-[4px] hover:border-[#3b82f6] transition-all"
-              href="{% url 'medical:mental_health' %}"
-              >Mental Health Services</a
-            >
-          </li>
           {% else %}
           <li>
             <a
@@ -319,132 +312,145 @@
     </script>
     <script src="{% static 'scripts/jquery/jquery-3.7.1.min.js' %}"></script>
     <script src="{% static 'scripts/newmain.js' %}"></script>
-    {% block extra_js %}{% endblock %} {% if user.is_authenticated %} {% if
-    user.is_staff %}
-    <!-- Admin Dashboard Section -->
-    <!-- <div class="row">
-                <div class="col-md-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">Total Patients</h5>
-                            <p class="card-text">{{ total_patients }}</p>
-                        </div>
+    {% block extra_js %}{% endblock %}
+{% if user.is_authenticated %}
+    {% if user.is_staff %}
+        <!-- Admin Dashboard Section -->
+        <!-- 
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Total Patients</h5>
+                        <p class="card-text">{{ total_patients }}</p>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">Pending Clearances</h5>
-                            <p class="card-text">{{ pending_clearances }}</p>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Pending Clearances</h5>
+                        <p class="card-text">{{ pending_clearances }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        Recent Examinations
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Student ID</th>
+                                        <th>Name</th>
+                                        <th>Date</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for exam in recent_examinations %}
+                                    <tr>
+                                        <td>{{ exam.student.student_id }}</td>
+                                        <td>{{ exam.student.get_full_name }}</td>
+                                        <td>{{ exam.date_created|date:"F d, Y" }}</td>
+                                        <td>
+                                            <button class="btn btn-primary btn-sm">View Details</button>
+                                        </td>
+                                    </tr>
+                                    {% empty %}
+                                    <tr>
+                                        <td colspan="4" class="text-center">No recent examinations found.</td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
             </div>
+        </div> 
+        -->
+    {% else %}
+        <!-- Student Dashboard Section -->
+        <div class="col-md-4">
+          <div class="card">
+              <div class="card-header">Personal Information</div>
+              <div class="card-body">
+                  <p><strong>Age:</strong> {{ patient.age }}</p>
+                  <p><strong>Blood Type:</strong> {{ patient.bloodtype }}</p>
+                  <p><strong>Height:</strong> {{ patient.height }} cm</p>
+                  <p><strong>Weight:</strong> {{ patient.weight }} kg</p>
+              </div>
+          </div>
+      </div>
+        {% if patient %}
+            <!-- Student-specific content here -->
+        {% endif %}
+    {% endif %}
+{% endif %}
 
-            <div class="row mt-4">
-                <div class="col-12">
-                    <div class="card">
-                        <div class="card-header">
-                            Recent Examinations
-                        </div>
-                        <div class="card-body">
-                            <div class="table-responsive">
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <th>Student ID</th>
-                                            <th>Name</th>
-                                            <th>Date</th>
-                                            <th>Action</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        {% for exam in recent_examinations %}
-                                        <tr>
-                                            <td>{{ exam.student.student_id }}</td>
-                                            <td>{{ exam.student.get_full_name }}</td>
-                                            <td>{{ exam.date_created|date:"F d, Y" }}</td>
-                                            <td>
-                                                <button class="btn btn-primary btn-sm">View Details</button>
-                                            </td>
-                                        </tr>
-                                        {% empty %}
-                                        <tr>
-                                            <td colspan="4" class="text-center">No recent examinations found.</td>
-                                        </tr>
-                                        {% endfor %}
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
-    {% else %}
-    <!-- Student Dashboard Section -->
-    {% if patient %}
-    <div class="row">
-      <div class="col-md-4">
+<!-- <div class="row">
+    
+    <div class="col-md-4">
         <div class="card">
-          <div class="card-header">Personal Information</div>
-          <div class="card-body">
-            <p><strong>Age:</strong> {{ patient.age }}</p>
-            <p><strong>Blood Type:</strong> {{ patient.bloodtype }}</p>
-            <p><strong>Height:</strong> {{ patient.height }} cm</p>
-            <p><strong>Weight:</strong> {{ patient.weight }} kg</p>
-          </div>
+            <div class="card-header">Medical History</div>
+            <div class="card-body">
+                {% if medical_history %}
+                <ul class="list-unstyled">
+                    {% if medical_history.tuberculosis %}
+                    <li>✓ Tuberculosis</li>
+                    {% endif %}
+                    {% if medical_history.hypertension %}
+                    <li>✓ Hypertension</li>
+                    {% endif %}
+                    {% if medical_history.heart_disease %}
+                    <li>✓ Heart Disease</li>
+                    {% endif %}
+                    {% if medical_history.asthma %}
+                    <li>✓ Asthma</li>
+                    {% endif %}
+                </ul>
+                {% else %}
+                <p>No medical history recorded.</p>
+                {% endif %}
+            </div>
         </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card">
-          <div class="card-header">Medical History</div>
-          <div class="card-body">
-            {% if medical_history %}
-            <ul class="list-unstyled">
-              {% if medical_history.tuberculosis %}
-              <li>✓ Tuberculosis</li>
-              {% endif %} {% if medical_history.hypertension %}
-              <li>✓ Hypertension</li>
-              {% endif %} {% if medical_history.heart_disease %}
-              <li>✓ Heart Disease</li>
-              {% endif %} {% if medical_history.asthma %}
-              <li>✓ Asthma</li>
-              {% endif %}
-            </ul>
-            {% else %}
-            <p>No medical history recorded.</p>
-            {% endif %}
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card">
-          <div class="card-header">Risk Assessment</div>
-          <div class="card-body">
-            {% if risk_assessment %}
-            <ul class="list-unstyled">
-              {% if risk_assessment.cardiovascular_disease %}
-              <li>✓ Cardiovascular Disease</li>
-              {% endif %} {% if risk_assessment.chronic_lung_disease %}
-              <li>✓ Chronic Lung Disease</li>
-              {% endif %} {% if risk_assessment.pwd %}
-              <li>✓ PWD: {{ risk_assessment.disability }}</li>
-              {% endif %}
-            </ul>
-            {% else %}
-            <p>No risk assessment recorded.</p>
-            {% endif %}
-          </div>
-        </div>
-      </div>
     </div>
-    {% else %}
-    <div class="alert alert-warning">
-      No medical records found. Please complete your medical form.
-      <a href="{% url 'main:patient_form' %}" class="btn btn-primary ml-3"
-        >Complete Medical Form</a
-      >
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-header">Risk Assessment</div>
+            <div class="card-body">
+                {% if risk_assessment %}
+                <ul class="list-unstyled">
+                    {% if risk_assessment.cardiovascular_disease %}
+                    <li>✓ Cardiovascular Disease</li>
+                    {% endif %}
+                    {% if risk_assessment.chronic_lung_disease %}
+                    <li>✓ Chronic Lung Disease</li>
+                    {% endif %}
+                    {% if risk_assessment.pwd %}
+                    <li>✓ PWD: {{ risk_assessment.disability }}</li>
+                    {% endif %}
+                </ul>
+                {% else %}
+                <p>No risk assessment recorded.</p>
+                {% endif %}
+            </div>
+        </div>
     </div>
-    {% endif %} {% endif %} {% endif %}
+</div> -->
+
+{% if not user.is_authenticated %}
+<div class="alert alert-warning">
+    No medical records found. Please complete your medical form.
+    <a href="{% url 'main:patient_form' %}" class="btn btn-primary ml-3">Complete Medical Form</a>
+</div>
+{% endif %}
   </body>
 </html>
