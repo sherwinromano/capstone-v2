@@ -122,12 +122,6 @@
                 Logout
             </a>
           </li>
-          <li class="mt-auto">
-            <a href="{% url 'main:logout' %}" 
-               class="flex justify-center items-center h-full tracking-tight hover:bg-[#f0f0f0] py-4 font-medium hover:border-r-[4px] hover:border-[#3b82f6] transition-all">
-                Logout
-            </a>
-          </li>
           {% else %}
           <li>
             <a
@@ -160,9 +154,6 @@
           </li>
           {% endif %}
         </ul>
-        <a href="{% url 'main:logout' %}" class="flex items-center px-4 py-2 text-gray-700 hover:text-[#3b82f6] transition-colors {% if user.is_superuser or user.is_staff %}mt-auto{% endif %}">
-          <span class="font-medium">Logout</span>
-        </a>
         <svg
           id="toggleMenuBtn"
           xmlns="http://www.w3.org/2000/svg"
