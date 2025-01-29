@@ -1,4 +1,4 @@
-{% load static %}
+{% load static tailwind_tags %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,330 +6,316 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HealthHub Connect | Patient Form</title>
     <link rel="shortcut icon" href="{% static 'images/CTU_logo.png' %}" type="image/x-icon">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{% static 'styles/patient_form.css' %}">
+    {% tailwind_css %}
+    <link rel="stylesheet" href="{% static 'styles/base.css' %}">
 </head>
 <body>
-    <div class="container">
-        <div class="form-container">
-            <div class="header">
-                <img src="{% static 'images/CTU_logo.png' %}" alt="CTU Logo" class="logo">
-                <h1>Patient Information Form</h1>
-                <p>Please complete your medical information to proceed</p>
+    <div class="flex w-full h-fit bg-[#E5F2FF] p-8 justify-center">
+        <div class="bg-white xs:w-full md:w-1/2 lg:w-2/3 xs:p-4 lg:p-8 flex flex-col gap-2 rounded-[18px]">
+            <div class="flex flex-col items-center self-center">
+                <img src="{% static 'images/CTU_logo.png' %}" alt="CTU Logo" class="size-[7rem]">
+                <h1 class="text-[1.5rem] font-bold tracking-tight text-center xs:leading-[100%] lg:leading-normal xs:mt-4 lg:mt-0">Patient Information Form</h1>
+                <p class="text-base tracking-tight text-center xs:mt-2 lg:mt-0 xs:leading-[100%] lg:leading-normal">Please complete your medical information to proceed</p>
             </div>
-
-            {% if messages %}
-            <div class="messages">
-                {% for message in messages %}
-                <div class="message {% if message.tags %}message-{{ message.tags }}{% endif %}">
-                    {{ message }}
-                </div>
-                {% endfor %}
-            </div>
-            {% endif %}
-
-            <form method="POST" class="patient-form">
+            <form method="POST" class="flex flex-col gap-4 h-full">
                 {% csrf_token %}
-                
-                <div class="form-section">
-                    <h3>Personal Information</h3>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="birth_date">Birth Date</label>
-                            <input type="date" id="birth_date" name="birth_date" required>
+                <div class="flex flex-col gap-2">
+                    <h3 class="text-base tracking-tight font-bold">Personal Information</h3>
+                    <div class="flex xs:flex-col md:flex-row gap-4">
+                        <div class="w-full flex flex-col">
+                            <div class="flex flex-col">
+                                <label for="birth_date">Birth Date</label>
+                                <input class="rounded-sm" type="date" id="birth_date" name="birth_date" required>
+                            </div>
+                            <div class="flex flex-col">
+                                <label for="bloodtype">Blood Type</label>
+                                <select class="rounded-sm" id="bloodtype" name="bloodtype" required>
+                                    <option value="">Select Blood Type</option>
+                                    <option value="A+">A+</option>
+                                    <option value="A-">A-</option>
+                                    <option value="B+">B+</option>
+                                    <option value="B-">B-</option>
+                                    <option value="AB+">AB+</option>
+                                    <option value="AB-">AB-</option>
+                                    <option value="O+">O+</option>
+                                    <option value="O-">O-</option>
+                                </select>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label for="bloodtype">Blood Type</label>
-                            <select id="bloodtype" name="bloodtype" required>
-                                <option value="">Select Blood Type</option>
-                                <option value="A+">A+</option>
-                                <option value="A-">A-</option>
-                                <option value="B+">B+</option>
-                                <option value="B-">B-</option>
-                                <option value="AB+">AB+</option>
-                                <option value="AB-">AB-</option>
-                                <option value="O+">O+</option>
-                                <option value="O-">O-</option>
-                            </select>
+                        <div class="w-full flex flex-col">
+                            <div class="flex flex-col">
+                                <label for="height">Height (cm)</label>
+                                <input class="rounded-sm" type="number" step="0.01" id="height" name="height" required>
+                            </div>
+                            <div class="flex flex-col">
+                                <label for="weight">Weight (kg)</label>
+                                <input class="rounded-sm" type="number" step="0.01" id="weight" name="weight" required>
+                            </div>
                         </div>
                     </div>
-
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="height">Height (cm)</label>
-                            <input type="number" step="0.01" id="height" name="height" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="weight">Weight (kg)</label>
-                            <input type="number" step="0.01" id="weight" name="weight" required>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="form-section">
-                    <h3>Medical Information</h3>
                     
-                    <!-- Allergies Section -->
-                    <div class="form-group">
-                        <label>Allergies (select all that apply)</label>
-                        <div class="checkbox-group">
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="allergy_none" name="allergies" value="None">
-                                <label for="allergy_none">No Known Allergies</label>
+                </div>
+                <div class="flex flex-col gap-2">
+                    <h3 class="text-base tracking-tight font-bold">Medical Information</h3>
+                    <div class="flex xs:flex-col md:flex-row gap-4">
+                        <div class="w-full">
+                            <label class="mt-2">Allergies (select all that apply)</label>
+                            <div class="checkbox-group">
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="allergy_none" name="allergies" value="None">
+                                    <label for="allergy_none">No Known Allergies</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="allergy_drug" name="allergies" value="Drug Allergy">
+                                    <label for="allergy_drug">Drug Allergy</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="allergy_food" name="allergies" value="Food Allergy">
+                                    <label for="allergy_food">Food Allergy</label>
+                                </div>
                             </div>
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="allergy_drug" name="allergies" value="Drug Allergy">
-                                <label for="allergy_drug">Drug Allergy</label>
-                            </div>
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="allergy_food" name="allergies" value="Food Allergy">
-                                <label for="allergy_food">Food Allergy</label>
-                            </div>
-                        </div>
-                        <div class="form-group other-allergies" style="display: none;">
-                            <label for="other_allergies">Specify Other Allergies</label>
-                            <input type="text" id="other_allergies" name="other_allergies" placeholder="Enter other allergies, separate with commas">
-                        </div>
-                    </div>
-
-                    <!-- Medical History Section -->
-                    <div class="form-group">
-                        <label>Medical History (select all that apply)</label>
-                        <div class="checkbox-group">
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="history_none" name="medical_history" value="None">
-                                <label for="history_none">No Medical History</label>
-                            </div>
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="tuberculosis" name="medical_history" value="tuberculosis">
-                                <label for="tuberculosis">Tuberculosis</label>
-                            </div>
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="hypertension" name="medical_history" value="hypertension">
-                                <label for="hypertension">Hypertension</label>
-                            </div>
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="heart_disease" name="medical_history" value="heart_disease">
-                                <label for="heart_disease">Heart Disease</label>
-                            </div>
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="hernia" name="medical_history" value="hernia">
-                                <label for="hernia">Hernia</label>
-                            </div>
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="epilepsy" name="medical_history" value="epilepsy">
-                                <label for="epilepsy">Epilepsy</label>
-                            </div>
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="peptic_ulcer" name="medical_history" value="peptic_ulcer">
-                                <label for="peptic_ulcer">Peptic Ulcer</label>
-                            </div>
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="kidney_disease" name="medical_history" value="kidney_disease">
-                                <label for="kidney_disease">Kidney Disease</label>
-                            </div>
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="asthma" name="medical_history" value="asthma">
-                                <label for="asthma">Asthma</label>
-                            </div>
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="insomnia" name="medical_history" value="insomnia">
-                                <label for="insomnia">Insomnia</label>
-                            </div>
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="malaria" name="medical_history" value="malaria">
-                                <label for="malaria">Malaria</label>
-                            </div>
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="venereal_disease" name="medical_history" value="venereal_disease">
-                                <label for="venereal_disease">Venereal Disease</label>
-                            </div>
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="nervous_breakdown" name="medical_history" value="nervous_breakdown">
-                                <label for="nervous_breakdown">Nervous Breakdown</label>
-                            </div>
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="jaundice" name="medical_history" value="jaundice">
-                                <label for="jaundice">Jaundice</label>
+                            <div class="form-group other-allergies" style="display: none;">
+                                <label for="other_allergies">Specify Other Allergies</label>
+                                <input type="text" id="other_allergies" name="other_allergies" placeholder="Enter other allergies, separate with commas">
                             </div>
                         </div>
-                        <div class="form-group other-medical-history" style="display: none;">
-                            <label for="other_medical">Other Medical Conditions</label>
-                            <input type="text" id="other_medical" name="other_medical" placeholder="Specify other medical conditions">
-                        </div>
-                    </div>
-
-                    <!-- Family Medical History Section -->
-                    <div class="form-group">
-                        <label>Family Medical History (select all that apply)</label>
-                        <div class="checkbox-group">
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="family_none" name="family_history" value="None">
-                                <label for="family_none">No Family History</label>
+                        <div class="w-full">
+                            <label class="mt-2">Medical History (select all that apply)</label>
+                            <div class="checkbox-group">
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="history_none" name="medical_history" value="None">
+                                    <label for="history_none">No Medical History</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="tuberculosis" name="medical_history" value="tuberculosis">
+                                    <label for="tuberculosis">Tuberculosis</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="hypertension" name="medical_history" value="hypertension">
+                                    <label for="hypertension">Hypertension</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="heart_disease" name="medical_history" value="heart_disease">
+                                    <label for="heart_disease">Heart Disease</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="hernia" name="medical_history" value="hernia">
+                                    <label for="hernia">Hernia</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="epilepsy" name="medical_history" value="epilepsy">
+                                    <label for="epilepsy">Epilepsy</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="peptic_ulcer" name="medical_history" value="peptic_ulcer">
+                                    <label for="peptic_ulcer">Peptic Ulcer</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="kidney_disease" name="medical_history" value="kidney_disease">
+                                    <label for="kidney_disease">Kidney Disease</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="asthma" name="medical_history" value="asthma">
+                                    <label for="asthma">Asthma</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="insomnia" name="medical_history" value="insomnia">
+                                    <label for="insomnia">Insomnia</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="malaria" name="medical_history" value="malaria">
+                                    <label for="malaria">Malaria</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="venereal_disease" name="medical_history" value="venereal_disease">
+                                    <label for="venereal_disease">Venereal Disease</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="nervous_breakdown" name="medical_history" value="nervous_breakdown">
+                                    <label for="nervous_breakdown">Nervous Breakdown</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="jaundice" name="medical_history" value="jaundice">
+                                    <label for="jaundice">Jaundice</label>
+                                </div>
                             </div>
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="family_hypertension" name="family_history" value="hypertension">
-                                <label for="family_hypertension">Hypertension</label>
+                            <div class="form-group other-medical-history" style="display: none;">
+                                <label for="other_medical">Other Medical Conditions</label>
+                                <input type="text" id="other_medical" name="other_medical" placeholder="Specify other medical conditions">
                             </div>
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="family_asthma" name="family_history" value="asthma">
-                                <label for="family_asthma">Asthma</label>
-                            </div>
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="family_cancer" name="family_history" value="cancer">
-                                <label for="family_cancer">Cancer</label>
-                            </div>
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="family_tuberculosis" name="family_history" value="tuberculosis">
-                                <label for="family_tuberculosis">Tuberculosis</label>
-                            </div>
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="family_diabetes" name="family_history" value="diabetes">
-                                <label for="family_diabetes">Diabetes</label>
-                            </div>
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="family_bleeding" name="family_history" value="bleeding_disorder">
-                                <label for="family_bleeding">Bleeding Disorder</label>
-                            </div>
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="family_epilepsy" name="family_history" value="epilepsy">
-                                <label for="family_epilepsy">Epilepsy</label>
-                            </div>
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="family_mental" name="family_history" value="mental_disorder">
-                                <label for="family_mental">Mental Disorder</label>
-                            </div>
-                        </div>
-                        <div class="form-group other-family-history" style="display: none;">
-                            <label for="other_family_medical">Other Family Medical Conditions</label>
-                            <input type="text" id="other_family_medical" name="other_family_medical" placeholder="Specify other family medical conditions">
                         </div>
                     </div>
-
-                    <!-- Risk Assessment Section -->
-                    <div class="form-group">
-                        <label>Risk Assessment (select all that apply)</label>
-                        <div class="checkbox-group">
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="risk_none" name="risk_assessment" value="None">
-                                <label for="risk_none">No Risk Factors</label>
+                    <div class="flex xs:flex-col md:flex-row gap-4">
+                        <div class="w-full">
+                            <label class="mt-2">Family Medical History (select all that apply)</label>
+                            <div class="checkbox-group">
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="family_none" name="family_history" value="None">
+                                    <label for="family_none">No Family History</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="family_hypertension" name="family_history" value="hypertension">
+                                    <label for="family_hypertension">Hypertension</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="family_asthma" name="family_history" value="asthma">
+                                    <label for="family_asthma">Asthma</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="family_cancer" name="family_history" value="cancer">
+                                    <label for="family_cancer">Cancer</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="family_tuberculosis" name="family_history" value="tuberculosis">
+                                    <label for="family_tuberculosis">Tuberculosis</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="family_diabetes" name="family_history" value="diabetes">
+                                    <label for="family_diabetes">Diabetes</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="family_bleeding" name="family_history" value="bleeding_disorder">
+                                    <label for="family_bleeding">Bleeding Disorder</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="family_epilepsy" name="family_history" value="epilepsy">
+                                    <label for="family_epilepsy">Epilepsy</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="family_mental" name="family_history" value="mental_disorder">
+                                    <label for="family_mental">Mental Disorder</label>
+                                </div>
                             </div>
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="age_above_60" name="risk_assessment" value="age_above_60">
-                                <label for="age_above_60">Age Above 60</label>
-                            </div>
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="cardiovascular" name="risk_assessment" value="cardiovascular_disease">
-                                <label for="cardiovascular">Cardiovascular Disease</label>
-                            </div>
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="chronic_lung" name="risk_assessment" value="chronic_lung_disease">
-                                <label for="chronic_lung">Chronic Lung Disease</label>
-                            </div>
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="chronic_kidney" name="risk_assessment" value="chronic_kidney_disease">
-                                <label for="chronic_kidney">Chronic Kidney Disease</label>
-                            </div>
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="chronic_liver" name="risk_assessment" value="chronic_liver_disease">
-                                <label for="chronic_liver">Chronic Liver Disease</label>
-                            </div>
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="cancer_risk" name="risk_assessment" value="cancer">
-                                <label for="cancer_risk">Cancer</label>
-                            </div>
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="autoimmune" name="risk_assessment" value="autoimmune_disease">
-                                <label for="autoimmune">Autoimmune Disease</label>
-                            </div>
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="pwd" name="risk_assessment" value="pwd">
-                                <label for="pwd">Person with Disability (PWD)</label>
+                            <div class="form-group other-family-history" style="display: none;">
+                                <label for="other_family_medical">Other Family Medical Conditions</label>
+                                <input type="text" id="other_family_medical" name="other_family_medical" placeholder="Specify other family medical conditions">
                             </div>
                         </div>
-                        <div class="form-group pwd-details" style="display: none;">
-                            <label for="disability">Specify Disability</label>
-                            <input type="text" id="disability" name="disability" placeholder="Enter type of disability">
+                        <div class="w-full">
+                            <label class="mt-2">Risk Assessment (select all that apply)</label>
+                            <div class="checkbox-group">
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="risk_none" name="risk_assessment" value="None">
+                                    <label for="risk_none">No Risk Factors</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="age_above_60" name="risk_assessment" value="age_above_60">
+                                    <label for="age_above_60">Age Above 60</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="cardiovascular" name="risk_assessment" value="cardiovascular_disease">
+                                    <label for="cardiovascular">Cardiovascular Disease</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="chronic_lung" name="risk_assessment" value="chronic_lung_disease">
+                                    <label for="chronic_lung">Chronic Lung Disease</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="chronic_kidney" name="risk_assessment" value="chronic_kidney_disease">
+                                    <label for="chronic_kidney">Chronic Kidney Disease</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="chronic_liver" name="risk_assessment" value="chronic_liver_disease">
+                                    <label for="chronic_liver">Chronic Liver Disease</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="cancer_risk" name="risk_assessment" value="cancer">
+                                    <label for="cancer_risk">Cancer</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="autoimmune" name="risk_assessment" value="autoimmune_disease">
+                                    <label for="autoimmune">Autoimmune Disease</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="pwd" name="risk_assessment" value="pwd">
+                                    <label for="pwd">Person with Disability (PWD)</label>
+                                </div>
+                            </div>
+                            <div class="form-group pwd-details" style="display: none;">
+                                <label for="disability">Specify Disability</label>
+                                <input type="text" id="disability" name="disability" placeholder="Enter type of disability">
+                            </div>
                         </div>
                     </div>
                 </div>
-
-                <div class="form-section">
-                    <h3>Contact Details</h3>
+                <div class="flex flex-col gap-2">
+                    <h3 class="text-base tracking-tight font-bold">Contact Details</h3>
+                    <div class="flex xs:flex-col md:flex-row gap-4">
+                        <div class="w-full flex flex-col">
+                            <div class="flex flex-col">
+                                <label for="home_address">Complete Home Address</label>
+                                <input class="rounded-sm" type="text" id="home_address" name="home_address" required>
+                            </div>
+                            <div class="flex flex-col">
+                                <label for="civil_status">Civil Status</label>
+                                <select class="rounded-sm" id="civil_status" name="civil_status" required>
+                                    <option value="Single">Single</option>
+                                    <option value="Married">Married</option>
+                                    <option value="Widowed">Widowed</option>
+                                    <option value="Separated">Separated</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="w-full flex flex-col">
+                            <div class="flex flex-col">
+                                <label for="country">Country</label>
+                                <input class="rounded-sm" type="text" id="country" name="country" value="Philippines" required>
+                            </div>
+                            <div class="flex flex-col">
+                                <label for="city">City</label>
+                                <input class="rounded-sm" type="text" id="city" name="city" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex">
+                        <div class="w-full flex xs:flex-col md:flex-row gap-2">
+                            <div class="w-full flex flex-col">
+                                <label for="state_province">Province</label>
+                                <input class="rounded-sm" type="text" id="state_province" name="state_province" required>
+                            </div>
+                            <div class="w-full flex flex-col">
+                                <label for="postal_zipcode">Postal Code</label>
+                                <input class="rounded-sm" type="text" id="postal_zipcode" name="postal_zipcode" required>
+                            </div>
+                            <div class="w-full flex flex-col">
+                                <label for="nationality">Nationality</label>
+                                <input class="rounded-sm" type="text" id="nationality" name="nationality" value="Filipino" required>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-col gap-2 w-full">
+                    <h3 class="text-base tracking-tight font-bold">Emergency Contact</h3>
+                    <div class="flex xs:flex-col md:flex-row gap-4 w-full">
+                        <div class="flex flex-col w-full">
+                            <label for="parent_guardian">Parent/Guardian Name</label>
+                            <input class="rounded-sm" type="text" id="parent_guardian" name="parent_guardian" required>
+                        </div>
+                        <div class="flex flex-col w-full">
+                            <label for="parent_guardian_contact">Parent/Guardian Contact Number</label>
+                            <input class="rounded-sm" type="tel" 
+                                   id="parent_guardian_contact" 
+                                   name="parent_guardian_contact" 
+                                   maxlength="11"
+                                   pattern="09[0-9]{9}"
+                                   oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 11)"
+                                   placeholder="09XXXXXXXXX" 
+                                   required>
+                            <small class="input-hint text-blue-500">Please enter 11 digits starting with 09</small>
+                        </div>
+                    </div>
                     
-                    <!-- Address and Civil Status Row -->
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="home_address">Complete Home Address</label>
-                            <input type="text" id="home_address" name="home_address" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="civil_status">Civil Status</label>
-                            <select id="civil_status" name="civil_status" required>
-                                <option value="Single">Single</option>
-                                <option value="Married">Married</option>
-                                <option value="Widowed">Widowed</option>
-                                <option value="Separated">Separated</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <!-- Country and City Row -->
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="country">Country</label>
-                            <input type="text" id="country" name="country" value="Philippines" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="city">City</label>
-                            <input type="text" id="city" name="city" required>
-                        </div>
-                    </div>
-
-                    <!-- Province and Postal Code Row -->
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="state_province">Province</label>
-                            <input type="text" id="state_province" name="state_province" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="postal_zipcode">Postal Code</label>
-                            <input type="text" id="postal_zipcode" name="postal_zipcode" required>
-                        </div>
-                    </div>
-
-                    <!-- Nationality Row -->
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="nationality">Nationality</label>
-                            <input type="text" id="nationality" name="nationality" value="Filipino" required>
-                        </div>
-                    </div>
                 </div>
-
-                <div class="form-section">
-                    <h3>Emergency Contact</h3>
-                    <div class="form-group">
-                        <label for="parent_guardian">Parent/Guardian Name</label>
-                        <input type="text" id="parent_guardian" name="parent_guardian" required>
+                {% if messages %}
+                    <div class="text-base my-4">
+                        {% for message in messages %}
+                        <div class="message {% if message.tags %}message-{{ message.tags }}{% endif %}">
+                            {{ message }}
+                        </div>
+                        {% endfor %}
                     </div>
-                    <div class="form-group">
-                        <label for="parent_guardian_contact">Parent/Guardian Contact Number</label>
-                        <input type="tel" 
-                               id="parent_guardian_contact" 
-                               name="parent_guardian_contact" 
-                               maxlength="11"
-                               pattern="09[0-9]{9}"
-                               oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 11)"
-                               placeholder="09XXXXXXXXX" 
-                               required>
-                        <small class="input-hint">Please enter 11 digits starting with 09</small>
-                    </div>
-                </div>
-
-                <button type="submit" class="submit-btn">Submit Information</button>
+                {% endif %}
+                <button type="submit"class="bg-[#3b82f6] text-white text-[14px] p-3 mt-4 rounded-md w-full cursor-pointer">Submit Information</button>
             </form>
         </div>
     </div>

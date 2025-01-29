@@ -1,71 +1,78 @@
 {% extends 'mainv2.html' %}
+{% load static tailwind_tags %}
+
+{% block title %} HealthHub Connect | Student Dashboard {% endblock %}
+
+{% block extra_css %} 
+{% tailwind_css %}
+{% endblock %}
 
 {% block content %}
-<div class="container-fluid mt-4">
+<div class="bg-white xs:h-fit md:h-full xs:p-4 lg:p-8 flex flex-col gap-2 rounded-[18px] xs:w-full md:w-1/2">
     {% if patient %}
-        <div class="row">
-            <div class="col-md-4">
-                <div class="card">
-                    <div class="card-header">
-                        <h5 class="mb-0">Personal Information</h5>
-                    </div>
-                    <div class="card-body">
-                        <p><strong>Age:</strong> {{ patient.age }}</p>
-                        <p><strong>Blood Type:</strong> {{ patient.bloodtype }}</p>
-                        <p><strong>Height:</strong> {{ patient.height }} cm</p>
-                        <p><strong>Weight:</strong> {{ patient.weight }} kg</p>
-                    </div>
-                </div>
+    <div class="flex flex-col gap-2">
+        <h2 class="font-bold xs:text-[1.3rem] md:text-[1.5rem] lg:text-base text-black tracking-tight text-center">Patient Information</h2>
+        <div class="grid xs:grid-cols-1 md:grid-cols-2 gap-2">
+            <div class="bg-blue-400 p-3 rounded-md">
+                <h3 class="font-bold">Age</h3>
+                <p class="text-base">{{ patient.age }}</p>
             </div>
-            <div class="col-md-4">
-                <div class="card">
-                    <div class="card-header">
-                        <h5 class="mb-0">Medical History</h5>
-                    </div>
-                    <div class="card-body">
-                        {% if medical_history %}
-                            <ul class="list-unstyled">
-                                {% if medical_history.tuberculosis %}<li>✓ Tuberculosis</li>{% endif %}
-                                {% if medical_history.hypertension %}<li>✓ Hypertension</li>{% endif %}
-                                {% if medical_history.heart_disease %}<li>✓ Heart Disease</li>{% endif %}
-                                {% if medical_history.asthma %}<li>✓ Asthma</li>{% endif %}
-                            </ul>
-                        {% else %}
-                            <p>No medical history recorded.</p>
-                        {% endif %}
-                    </div>
-                </div>
+            <div class="bg-blue-400 p-3 rounded-md">
+                <h3 class="font-bold">Blood Type</h3>
+                <p class="text-base">{{ patient.bloodtype }}</p>
             </div>
-            <div class="col-md-4">
-                <div class="card">
-                    <div class="card-header">
-                        <h5 class="mb-0">Risk Assessment</h5>
-                    </div>
-                    <div class="card-body">
-                        {% if risk_assessment %}
-                            <ul class="list-unstyled">
-                                {% if risk_assessment.cardiovascular_disease %}
-                                    <li>✓ Cardiovascular Disease</li>
-                                {% endif %}
-                                {% if risk_assessment.chronic_lung_disease %}
-                                    <li>✓ Chronic Lung Disease</li>
-                                {% endif %}
-                                {% if risk_assessment.pwd %}
-                                    <li>✓ PWD: {{ risk_assessment.disability }}</li>
-                                {% endif %}
-                            </ul>
-                        {% else %}
-                            <p>No risk assessment recorded.</p>
-                        {% endif %}
-                    </div>
-                </div>
+            <div class="bg-blue-400 p-3 rounded-md">
+                <h3 class="font-bold">Height</h3>
+                <p class="text-base">{{ patient.height }}</p>
+            </div>
+            <div class="bg-blue-400 p-3 rounded-md">
+                <h3 class="font-bold">Weight</h3>
+                <p class="text-base">{{ patient.weight }}</p>
             </div>
         </div>
+    </div>
+    <div class="flex xs:flex-col md:flex-row xs:gap-4 md:gap-2 h-full">
+            <div class="w-full h-fit max-h-full flex flex-col">
+                <h5 class="font-bold">Medical History</h5>
+                <div class="card-body">
+                    {% if medical_history %}
+                        <ul class="list-unstyled">
+                            {% if medical_history.tuberculosis %}<li>✓ Tuberculosis</li>{% endif %}
+                            {% if medical_history.hypertension %}<li>✓ Hypertension</li>{% endif %}
+                            {% if medical_history.heart_disease %}<li>✓ Heart Disease</li>{% endif %}
+                            {% if medical_history.asthma %}<li>✓ Asthma</li>{% endif %}
+                        </ul>
+                    {% else %}
+                        <p>No medical history recorded.</p>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="w-full h-fit max-h-full flex flex-col">
+                <h5 class="font-bold">Risk Assessment</h5>
+                <div class="card-body">
+                    {% if risk_assessment %}
+                        <ul class="list-unstyled">
+                            {% if risk_assessment.cardiovascular_disease %}
+                                <li>✓ Cardiovascular Disease</li>
+                            {% endif %}
+                            {% if risk_assessment.chronic_lung_disease %}
+                                <li>✓ Chronic Lung Disease</li>
+                            {% endif %}
+                            {% if risk_assessment.pwd %}
+                                <li>✓ PWD: {{ risk_assessment.disability }}</li>
+                            {% endif %}
+                        </ul>
+                    {% else %}
+                        <p>No risk assessment recorded.</p>
+                    {% endif %}
+                </div>
+            </div>
+    </div>
     {% else %}
-        <div class="alert alert-warning">
+    <div class="alert alert-warning">
             No medical records found. Please complete your medical form.
             <a href="{% url 'main:patient_form' %}" class="btn btn-primary ml-3">Complete Medical Form</a>
-        </div>
+    </div>
     {% endif %}
 </div>
 {% endblock %}
