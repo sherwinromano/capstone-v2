@@ -107,6 +107,7 @@ def recovery(request):
 def password_reset(request):
     return render(request, 'password-reset.html')
 
+
 @login_required
 def main_view(request):
     if request.user.is_authenticated:

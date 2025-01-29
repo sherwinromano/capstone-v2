@@ -1,15 +1,14 @@
 {% extends 'mainv2.html' %}
-{% load static %}
+{% load static tailwind_tags%}
 
 {% block title %}Medical{% endblock %}
 
 {% block extra_css %}
-    <link rel="stylesheet" href="{% static 'styles/patientclearance.css' %}">
     <link rel="stylesheet" media="print" href="{% static 'styles/print.css' %}">
 {% endblock %}
 
 {% block content %}
-<div class="container">
+<div class="w-1/2 h-fit rounded-[14px] bg-white xs:p-4 md:p-8 flex flex-col gap-2">
     {% if messages %}
     <div class="message-container">
         {% for message in messages %}
@@ -17,11 +16,11 @@
         {% endfor %}
     </div>
     {% endif %}
-    <form id="medicalclearance-form" method="POST">
+    <form id="medicalclearance-form" class="flex flex-col h-full" method="POST">
         {% csrf_token %}
-        <div class="header">
-            <img class="ctu-bp-logo" src="{% static 'images/CTU_logo.png' %}" alt="CTU_logo">
-            <div class="header-text">
+        <div class="flex items-center self-center gap-4">
+            <img class="size-[8rem]" src="{% static 'images/CTU_logo.png' %}" alt="CTU_logo">
+            <div class="flex flex-col items-center">
                 <div class="content1">REPUBLIC OF THE PHILIPPINES</div>
                 <div class="content2">CEBU TECHNOLOGICAL UNIVERSITY</div>
                 <div class="content3">ARGAO CAMPUS</div>
@@ -29,86 +28,97 @@
                 <div class="content4">Website: https://www.argao.ctu.edu.ph E-mail: cdargao@ctu.edu.ph</div>
                 <div class="content4">Phone No.:(032) 401-0737 local 1700</div>
             </div>
-            <img class="ctu-bp-logo" src="{% static 'images/BP_logo.png' %}" alt="BP_logo">
+            <img class="size-[8rem]" src="{% static 'images/BP_logo.png' %}" alt="BP_logo">
         </div>
-        <h1>MEDICAL CLINIC</h1>
-        <h2>Medical Clearance for /OJT/Practicum</h2>
-        <fieldset>
+        <div class="flex flex-col items-center py-4 self-center">
+            <h1 class="font-bold text-[1.2rem] leading-tight">MEDICAL CLINIC</h1>
+            <h2 class="font-bold text-[1.1rem]">Medical Clearance for /OJT/Practicum</h2>
+        </div>
+        
+        <fieldset class="flex flex-col gap-2 py-4">
             <legend><strong>I. Information</strong></legend>
-            <div class="user-details">
-                <div class="input-box">
-                    <span class="details">Student ID:</span>
+            <div class="flex gap-2">
+                <div class="flex flex-col w-full">
+                    <label for="id">Student ID:</label>
                     <input type="text" name="id-number" value="{{ patient.student.student_id }}" required>
                 </div>
-                <div class="input-box">
-                    <span class="details">Surname:</span>
+                <div class="flex flex-col w-full">
+                    <label for="surname">Surname:</label>
                     <input type="text" name="surname" value="{{ patient.student.lastname }}" required>
                 </div>
-                <div class="input-box">
-                    <span class="details">Firstname:</span>
+                <div class="flex flex-col w-full">
+                    <label for="fName">First Name:</label>
                     <input type="text" name="firstname" value="{{ patient.student.firstname }}" required>
                 </div>
-                <div class="input-box">
-                    <span class="details">Middlename:</span>
+            </div>
+            <div class="flex gap-2">
+                <div class="flex flex-col w-full">
+                    <label for="mName">Middle Name:</label>
                     <input type="text" name="middlename" value="{{ patient.student.middlename }}" required>
                 </div>
-                <div class="input-box">
-                    <span class="details">Age:</span>
+                <div class="flex flex-col w-full">
+                    <label for="age">Age:</label>
                     <input type="number" name="age" value="{{ patient.age }}" required>
                 </div>
-                <div class="input-box">
-                    <span class="details">Sex:</span>
+                <div class="flex flex-col w-full">
+                    <label for="sex">Sex:</label>
                     <input type="text" name="sex" value="{{ patient.student.sex }}" required>
                 </div>
-                <div class="input-box">
-                    <span class="details">Contact Number:</span>
+            </div>
+            <div class="flex gap-2">
+                <div class="flex flex-col w-full">
+                    <label for="contact">Contact Number:</label>
                     <input type="text" name="contact-number" value="{{ patient.student.contact_number }}" required>
                 </div>
-                <div class="input-box">
-                    <span class="details">Email Address:</span>
-                    <input type="text" name="email-add" value="{{ patient.student.email }}" required>
+                <div class="flex flex-col w-full">
+                    <label for="email">Email Address:</label>
+                    <input type="text" name="email" value="{{ patient.student.email }}" required>
                 </div>
-                <div class="input-box">
+                <div class="flex flex-col w-full">
                     {% if clearance.birth_date %}
-                        <span class="details">Birth Date:</span>
+                        <label for="birthDate">Birth Date:</label>
                         <input type="text" id="birth-date" name="birth-date" value="{{ patient.birth_date }}" required>
                     {% else %}
-                        <span class="details">Birth Date:</span>
+                        <label for="birthDate">Birth Date:</label>
                         <input type="date" id="birth-date" name="birth-date" value="{{ patient.birth_date }}" required>
                     {% endif %}
                 </div>
-                <div class="input-box">
-                    <span class="details">Address:</span>
-                    <input type="text" name="street-address" value="{{ patient.home_address }}" required>
+            </div>
+            <div class="flex gap-2">
+                <div class="flex flex-col w-full">
+                    <label for="address">Address:</label>
+                    <input type="text" name="address" value="{{ patient.home_address }}" required>
                 </div>
-                <div class="input-box">
-                    <span class="details">City:</span>
+                <div class="flex flex-col w-full">
+                    <label for="city">City:</label>
                     <input type="text" name="city" value="{{ patient.city }}" required>
                 </div>
-                <div class="input-box">
-                    <span class="details">State/Province:</span>
+                <div class="flex flex-col w-full">
+                    <label for="state">State/Province:</label>
                     <input type="text" name="state-province" value="{{ patient.state_province }}" required>
                 </div>
-                <div class="input-box">
-                    <span class="details">Postal/ZIP Code:</span>
+            </div>
+            <div class="flex gap-2">
+                <div class="flex flex-col w-full">
+                    <label for="zip">Postal/ZIP Code:</label>
                     <input type="text" name="postal-zip-code" value="{{ patient.postal_zipcode }}" required>
                 </div>
-                <div class="input-box">
-                    <span class="details">Country:</span>
+                <div class="flex flex-col w-full">
+                    <label for="country">Country:</label>
                     <input type="text" name="country" value="{{ patient.country }}" required>
                 </div>
             </div>
         </fieldset>
-        <fieldset>
+        <fieldset class="flex flex-col gap-2 py-4">
             <legend><strong>II. Risk Assessment</strong></legend>
             <h3>Do you have any of these?</h3>
-            <div class="table-container">
-                <table>
+            <div class="flex">
+                <table class="w-full">
                     <thead>
                         <tr>
-                            <th>Condition</th>
-                            <th>Yes</th>
-                            <th>No</th>
+                            <th class="text-center">Condition</th>
+                            <th class="text-start">Yes</th>
+                            <th class="text-start">No</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -245,22 +255,21 @@
                     </div>
                 </div> 
             {% endif %}
-            <ul class="verify">
-                <li>If you answered yes to any of the above, you are advised against joining face-to-face activities and should opt for online mode of class/OJT/Practicum due to the health risk during the COVID-19 pandemic.</li>
-                <li>Insistence in joining face-to-face school activity will only be allowed upon the presentation of a medical certificate from an attending physician indicating the condition is stable and the patient is fit to physically attend class/OJT/Practicum. Student personnel will be responsible for acting against medical advice.</li>
-            </ul>
+            
+                <p class="text-justify">If you answered yes to any of the above, you are advised against joining face-to-face activities and should opt for online mode of class/OJT/Practicum due to the health risk during the COVID-19 pandemic. Insistence in joining face-to-face school activity will only be allowed upon the presentation of a medical certificate from an attending physician indicating the condition is stable and the patient is fit to physically attend class/OJT/Practicum. Student personnel will be responsible for acting against medical advice.</p>
+            
         </fieldset>
-        <fieldset>
+        <fieldset class="flex flex-col gap-2 py-4">
             <legend><strong>III. Medical Requirements</strong></legend>
-            <div class="table-container">
-                <table>
+            <div class="flex">
+                <table class="w-full">
                     <thead>
                         <tr>
-                            <th>Medical Requirement</th>
-                            <th>Status</th>
-                            <th>1st Dose</th>
-                            <th>2nd Dose</th>
-                            <th>Booster Shot</th>
+                            <th class="text-center">Medical Requirement</th>
+                            <th class="text-center">Status</th>
+                            <th class="text-center">1st Dose</th>
+                            <th class="text-center">2nd Dose</th>
+                            <th class="text-center">Booster Shot</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -270,7 +279,7 @@
                                 <td><input type="text" value="{{ med_requirements.vaccination_type }}" name="vaccination_type"></td>
                             {% else %}
                                 <td class="vacc-type">
-                                    <select name="vaccination_type" required>
+                                    <select name="vaccination_type" class="w-full" required>
                                         <option value="Pfizer">Pfizer</option>
                                         <option value="Moderna">Moderna</option>
                                         <option value="Johnson & Johnson">Johnson & Johnson</option>
@@ -305,57 +314,62 @@
                         </tr>
                         <tr>
                             <td>Chest X-Ray (PA view)</td>
-                            <td><input type="text" name="x-ray-remark" value="{{ med_requirements.x_ray_remarks  }}" style="outline: none;" required></td>
+                            <td><input type="text" name="x-ray-remark" value="{{ med_requirements.x_ray_remarks  }}" class="w-full" required></td>
                             <td colspan="3"></td>
                         </tr>
                         <tr>
                             <td>Complete Blood Count</td>
-                            <td><input type="text" name="cbc-remark" value="{{ med_requirements.cbc_remarks  }}" style="outline: none;" required></td>
+                            <td><input type="text" name="cbc-remark" value="{{ med_requirements.cbc_remarks  }}" class="w-full" required></td>
                             <td colspan="3"></td>
                         </tr>
                         <tr>
                             <td>Drug Test (from DOH Accredited Laboratory)</td>
-                            <td><input type="text" name="drug-test-remark" value="{{ med_requirements.drug_test_remarks   }}" style="outline: none;" required></td>
+                            <td><input type="text" name="drug-test-remark" value="{{ med_requirements.drug_test_remarks   }}" class="w-full" required></td>
                             <td colspan="3"></td>
                         </tr>
                         <tr>
                             <td>Stool Examination</td>
-                            <td><input type="text" name="stool-examination-remark" value="{{ med_requirements.stool_examination_remarks   }}" style="outline: none;" required></td>
+                            <td><input type="text" name="stool-examination-remark" value="{{ med_requirements.stool_examination_remarks   }}" class="w-full" required></td>
                             <td colspan="3"></td>
                         </tr>
                     </tbody>
                 </table>
             </div>
         </fieldset>
-        <fieldset>
+        <fieldset class="flex flex-col gap-2 py-4">
             <legend><strong>IV. Certification</strong></legend>
-            <div class="certification">
-                <div class="item">
+            <div class="flex flex-col">
+                <div class="flex flex-col py-5">
                     <p>Information I provided above are truthful and accurate. I have been appraised of health risk 
                     in joining face-to-face school activity during the COVID-19 pandemic. I will abide by the health protocols.</p>
-                    <br><br><br>
-                    <div class="item2">
-                        <p>Student</p>
-                        <p>Date</p>
+                    
+                    <div class="flex flex-col w-fit mt-14">
+                        <p class="border-t border-black pt-1">Student</p>
+                        <p>Date: _____</p>
                     </div>
                 </div>
-                <div style="border-left: 1px solid black;"></div>
-                <div class="item">
+                
+                <div class="flex flex-col py-5">
                     <p>Above student/personnel was evaluated and appraised of health risk in joining face-to-face school activity, 
                     and submitted the medical requirements. He/She is given medical clearance for face-to-face activity.</p>
-                    <br><br><br>
-                    <div class="item2">
-                        <p>Physician/Nurse</p>
-                        <p>Date</p>
+                    
+                    <div class="flex flex-col w-fit mt-14">
+                        <p class="border-t border-black pt-1">Physician/Nurse</p>
+                        <p>Date: _____</p>
                     </div>
                 </div>
             </div>
         </fieldset>
-        <div class="footer"><img src="{% static 'images/footer.png' %}" alt=""></div>
-        <div style="display: flex;">
-            <a class="schedule-button" href="{% url 'medical:viewrequest' %}">Back</a>
-            <input type="submit" value="Save" id="print-btn">
-            <input type="button" value="Print" id="print-btn" onclick="printSpecificContent()">
+        <div class="py-8"><img src="{% static 'images/footer.png' %}" alt=""></div>
+        <div class="flex justify-between w-full">
+            <div class="flex">
+                <a class="border border-yellow-400 rounded-md p-2" href="{% url 'medical:viewrequest' %}">Back</a>
+            </div>
+            <div class="flex gap-1">
+                <input class="bg-blue-500 rounded-md p-2" type="submit" value="Save" id="print-btn">
+                <input class="bg-yellow-400 rounded-md p-2" type="button" value="Print" id="print-btn" onclick="printSpecificContent()">
+            </div>
+            
         </div>
     </form>
 </div>

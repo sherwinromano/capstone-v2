@@ -1,25 +1,24 @@
 {% extends 'mainv2.html' %}
-{% load static %}
+{% load static tailwind_tags %}
 
 {% block title %}Medical{% endblock %}
 
 {% block extra_css %}
-    <link rel="stylesheet" href="{% static 'styles/physicalexam.css' %}">
     <link rel="stylesheet" media="print" href="{% static 'styles/print.css' %}">
 {% endblock %}
 
 {% block content %}
-<div class="container">
+<div class="w-full h-fit rounded-[14px] bg-white xs:p-4 md:p-8 flex flex-col gap-2">
     {% if messages %}
         {% for message in messages %}
             <p class="message {% if message.tags %}{{ message.tags }}{% endif %}">{{ message }}</p>
         {% endfor %}
     {% endif %}
-    <form method="POST" enctype="multipart/form-data" id="physical-exam-form">
+    <form class="flex flex-col gap-4" method="POST" enctype="multipart/form-data" id="physical-exam-form">
         {% csrf_token %}
-        <div class="header">
-            <img class="ctu-bp-logo" src="{% static 'images/CTU_logo.png' %}" alt="CTU_logo">
-            <div class="header-text">
+        <div class="flex items-center self-center gap-4">
+            <img class="size-[8rem]" src="{% static 'images/CTU_logo.png' %}" alt="CTU_logo">
+            <div class="flex flex-col items-center">
                 <div class="content1">REPUBLIC OF THE PHILIPPINES</div>
                 <div class="content2">CEBU TECHNOLOGICAL UNIVERSITY</div>
                 <div class="content3">ARGAO CAMPUS</div>
@@ -27,66 +26,61 @@
                 <div class="content4">Website: https://www.argao.ctu.edu.ph E-mail: cdargao@ctu.edu.ph</div>
                 <div class="content4">Phone No.:(032) 401-0737 local 1700</div>
             </div>
-            <img class="ctu-bp-logo" src="{% static 'images/BP_logo.png' %}" alt="BP_logo">
+            <img class="size-[8rem]" src="{% static 'images/BP_logo.png' %}" alt="BP_logo">
         </div>
-        <h1>PHYSICAL EXAMINATION</h1>
-        <fieldset>
+        <h1 class="font-bold self-center text-[1.3rem]">PHYSICAL EXAMINATION</h1>
+        <fieldset class="flex flex-col py-4">
             <legend><strong>I. Information</strong></legend>
             <input type="hidden" name="student_id" value="{{ students.student_id }}" disabled>
-            <div class="user-details">
-                <div class="input-box">
-                    <span class="details">Surname:</span>
+            <div class="flex gap-2">
+                <div class="flex flex-col w-full">
+                    <label class="surname">Surname:</label>
                     <input type="text" value="{{ patient.student.lastname|title }}" name="surname" disabled>
                 </div>
-                <div class="input-box">
-                    <span class="details">Firstname:</span>
+                <div class="flex flex-col w-full">
+                    <label class="fName">First Name:</label>
                     <input type="text" value="{{ patient.student.firstname|title }}" name="firstname" disabled>
                 </div>
-                <div class="input-box">
-                    <span class="details">Middlename:</span>
-                    <input type="text" value="{{ patient.student.middlename|title }}" name="middlename" disabled>
+                <div class="flex flex-col w-full">
+                    <label class="mName">Middle Name:</label>
+                    <input type="text" value="{{ patient.student.middlename|title }}" name="mName" disabled>
                 </div>
-                <div class="input-box">
+
+            </div>
+            <div class="flex gap-2">
+                <div class="flex flex-col w-full">
                     {% if examination.birth_date %}
-                        <span class="details">Birth Date:</span>
+                        <label for="birthDate">Birth Date:</label>
                         <input type="text" name="birth_date" value="{{ patient.birth_date }}" disabled>
                     {% else %}
-                        <span class="details">Birth Date:</span>
+                        <label for="birthDate">Birth Date:</label>
                         <input type="date" name="birth_date" value="{{ patient.birth_date }}" disabled>
                     {% endif %}
                 </div>
-                <div class="input-box">
-                    <span class="details">Home Address:</span>
+                <div class="flex flex-col w-full">
+                    <label for="address">Home Address:</label>
                     <input type="text" value="{{ patient.home_address|title }}" name="home_address" disabled>
                 </div>
-                <div class="input-box">
-                    <span class="details">Contact Number:</span>
+                <div class="flex flex-col w-full">
+                    <label for="contact">Contact Number:</label>
                     <input type="text" value="{{ patient.student.contact_number }}" name="contact-number" disabled>
                 </div>
-                <div class="input-box">
-                    <span class="details">Age:</span>
+            </div>
+            <div class="flex gap-2">
+                <div class="flex flex-col w-full">
+                    <label for="age">Age:</label>
                     <input type="number" value="{{ patient.age }}" name="age" disabled>
                 </div>
-                <div class="input-box">
-                    <span class="details">Sex:</span>
-                    <input type="text" name="sex" value="{{ patient.student.sex }}" disabled>
-                    <!-- <select name="sex" required>
-                        <option value="" selected disabled>Select your sex:</option>
-                        <option value="male">Male</option>
-                        <option value="female">Female</option>
-                        <option value="other">Other</option>
-                    </select> -->
-                </div>
-                <div class="input-box">
-                    <span class="details">Nationality:</span>
+                <div class="flex flex-col w-full">
+                    <label for="nationality">Nationality:</label>
                     <input type="text" value="{{ patient.nationality|title }}" name="nationality" disabled>
                 </div>
-                <div class="input-box">
+                <div class="flex flex-col w-full">
                     {% if  patient.civil_status %}
-                        <span class="details">Civil Status:</span>
+                        <label for="status">Civil Status:</label>
                         <input type="text" value="{{ patient.civil_status }}" name="civil_status" disabled>
                     {% else %}
-                        <span class="details">Civil Status:</span>
+                        <label for="status">Civil Status:</label>
                         <select name="civil_status" required disabled>
                             <option value="" selected disabled>Select your status:</option>
                             <option value="Single">Single</option>
@@ -95,51 +89,48 @@
                         </select>
                     {% endif %}
                 </div>
-                <div class="input-box">
-                    <span class="details">Number of Children:</span>
+            </div>
+            <div class="flex gap-2">
+                <div class="flex flex-col w-full">
+                    <label for="children">Number of Children:</label>
                     <input type="number" value="{{ patient.number_of_children }}" name="number_of_children" disabled>
                 </div>
-                <div class="input-box">
-                    <span class="details">Course:</span>
+                <div class="flex flex-col w-full">
+                    <label for="course">Course:</label>
                     <input type="text" value="{{ patient.student.degree|title }}" name="course" disabled>
                 </div>
-                <div class="input-box">
-                    <span class="details">Academic Year:</span>
-                    <input type="text" value="{{ patient.academic_year }}" name="academic_year" disabled>
-                </div>
-                <div class="input-box">
-                    <span class="details">Section:</span>
+                <div class="flex flex-col w-full">
+                    <label for="section">Section:</label>
                     <input type="text" value="{{ patient.section }}" name="section" disabled>
                 </div>
-                <div class="input-box">
-                    <span class="details">Parent/Guardian:</span>
+            </div>
+            <div class="flex gap-2">
+                <div class="flex flex-col w-full">
+                    <label for="parent/guardian">Parent/Guardian:</label>
                     <input type="text" value="{{ patient.parent_guardian }}" name="parent_guardian" disabled>
                 </div>
-                <div class="input-box">
-                    <span class="details">Contact Number:</span>
+                <div class="flex flex-col w-full">
+                    <label for="contact">Contact Number:</label>
                     <input type="text" value="{{ patient.parent_guardian_contact_number }}" name="parent_guardian_contact_number" disabled>
                 </div>
             </div>
         </fieldset>
-        <div class="input-box">
+        <div class="flex flex-col">
             {% if examination.date_of_physical_examination %}
-                <span class="details">Date of Examination:</span>
+                <label for="dateOfExam">Date of Examination:</label>
                 <input type="text" name="date" value="{{ examination.date_of_physical_examination }}">
             {% else %}
-                <span class="details">Date of Examination:</span>
+                <label for="dateOfExam">Date of Examination:</label>
                 <input type="date" name="date" value="{{ examination.date_of_physical_examination }}">
             {% endif %}
         </div>
-        <fieldset>
+        <fieldset class="flex flex-col py-4">
             <legend><strong>II. Medical History</strong></legend>
-            <div class="medical-history">
-                <div class="past-illnesses">
-                        <h3>Past Illnesses</h3>
-                        <br>
-                    <div class="row">
-                        <label>Past Illnesses (check if history is positive)</label>
-                    </div>
+            <div class="flex justify-between">
+                <div class="flex flex-col gap-2 w-1/2">
+                    <h3 class="font-medium">Past Illnesses</h3>
                     <div class="checkbox-group">
+                        <label>Past Illnesses (check if history is positive)</label>
                         <div>
                             {% if examination.medicalhistory.tuberculosis %}
                                 <input type="checkbox" id="tuberculosis" name="tuberculosis" checked>
@@ -252,11 +243,11 @@
                             {% endif %}
                             <label for="malaria">Malaria</label>
                         </div>
-                        <div>
+                        <div class="flex flex-col">
                             <label for="others">Others</label>
                             <input type="text" id="others" value="{{ patient.medicalhistory.others }}" name="others">
                         </div>
-                        <div>
+                        <div class="flex items-center gap-2">
                             {% if examination.medicalhistory.no_history %}
                                 <input type="checkbox" id="none" checked name="none">
                             {% else %}
@@ -265,22 +256,19 @@
                             <label for="none">None</label>
                         </div>
                     </div>  
-                    <div class="row">
+                    <div class="flex flex-col">
                         <label for="operations"><b>Operations, Injuries, Accidents, Hospital Admissions (date and circumstances)</b></label>
                         <textarea id="operations" name="operations">{{ examination.medicalhistory.hospital_admission }}</textarea>
                     </div>
-                    <div class="row">
+                    <div class="flex flex-col">
                         <label for="medications"><b>Medications taken at present</b></label>
                         <textarea id="medications" name="medications">{{ examination.medicalhistory.medications }}</textarea>
                     </div>
                 </div>
-                <div class="family-history">
-                    <h3>Family History</h3>
-                    <br>
-                    <div class="row">
-                        <label for="illnesses">Past Illnesses of your family (check if history is positive)</label>
-                    </div>
+                <div class="flex flex-col gap-2 w-1/2">
+                    <h3 class="font-medium">Family History</h3>
                     <div class="checkbox-group">
+                        <label for="illnesses">Past Illnesses of your family (check if history is positive)</label>
                         <div>
                             {% if examination.familymedicalhistory.hypertension %}
                                 <input type="checkbox" id="hypertension-family" name="hypertension-family" checked>
@@ -345,11 +333,11 @@
                             {% endif %}
                             <label for="mental-disorders">Mental Disorders</label>
                         </div>
-                        <div>
+                        <div class="flex flex-col">
                             <label>Others</label>
                             <input type="text" id="others" name="family-others" value="{{ patient.familymedicalhistory.other_medical_history }}">
                         </div>
-                        <div>
+                        <div class="flex items-center gap-2">
                             {% if examination.familymedicalhistory.no_history %}
                                 <input type="checkbox" id="family-none" checked name="no_history">
                             {% else %}
@@ -359,64 +347,67 @@
                         </div>
                     </div>
                 </div>
-                <div class="ob-gyne_history">
-                    <h3>OB-GYNE History</h3>
-                    <br>
-                    <div class="user-details">
-                        <div class="input-box">
-                            <label class="details" for="menarche">Menarche:</label>
-                            <input type="text" id="menarche" name="menarche" value="{{ examination.obgynehistory.menarche }}">
-                        </div>
-                        <div class="input-box">
-                            {% if examination.obgynehistory.lmp %}
-                                <label class="details" for="lmp">LMP:</label>
-                                <input type="text" id="lmp" name="lmp" value="{{ examination.obgynehistory.lmp }}">
-                            {% else %}
-                                <label class="details" for="lmp">LMP:</label>
-                                <input type="date" id="lmp" name="lmp" value="{{ examination.obgynehistory.lmp }}">
-                            {% endif %}
-                        </div>
+                
+            </div>
+            <div class="mt-8">
+                <h3 class="font-medium">OB-GYNE History</h3>
+               <div class="flex gap-2">
+                    <div class="flex flex-col w-full">
+                        <label class="details" for="menarche">Menarche:</label>
+                        <input type="text" id="menarche" name="menarche" value="{{ examination.obgynehistory.menarche }}">
                     </div>
-                    <div class="user-details">
-                        <div class="input-box">
-                            <label class="details" for="gravida">Gravida:</label>
-                            <input type="text" id="gravida" name="gravida" value="{{ examination.obgynehistory.gravida }}">
-                        </div>
-                        <div class="input-box">
-                            <label class="details" for="para">Para:</label>
-                            <input type="text" id="para" name="para" value="{{ examination.obgynehistory.para }}">
-                        </div>
+                    <div class="flex flex-col w-full">
+                        {% if examination.obgynehistory.lmp %}
+                            <label class="details" for="lmp">LMP:</label>
+                            <input type="text" id="lmp" name="lmp" value="{{ examination.obgynehistory.lmp }}">
+                        {% else %}
+                            <label class="details" for="lmp">LMP:</label>
+                            <input type="date" id="lmp" name="lmp" value="{{ examination.obgynehistory.lmp }}">
+                        {% endif %}
                     </div>
-                    <div class="user-details">
-                        <div class="input-box">
-                            <label class="details" for="menopause">Menopause:</label>
-                            <input type="text" id="menopause" name="menopause" value="{{ examination.obgynehistory.menopause }}">
-                        </div>
-                        <div class="input-box">
-                            <label class="details" for="pap_smear">Pap smear (date and result):</label>
-                            <input type="text" id="pap_smear" name="pap_smear" value="{{ examination.obgynehistory.pap_smear }}">
-                        </div>
+                    <div class="flex flex-col w-full">
+                        <label class="details" for="gravida">Gravida:</label>
+                        <input type="text" id="gravida" name="gravida" value="{{ examination.obgynehistory.gravida }}">
                     </div>
-                    <br>
-                    <div class="input-box">
-                        <label class="details" for="additional-history">Additional History</label>
-                        <textarea id="additional-history" name="additional-history">{{ examination.obgynehistory.additional_history }}</textarea>
+               </div>
+                <div class="flex gap-2">
+                    <div class="flex flex-col w-full">
+                        <label class="details" for="para">Para:</label>
+                        <input type="text" id="para" name="para" value="{{ examination.obgynehistory.para }}">
+                    </div>
+                    <div class="flex flex-col w-full">
+                        <label class="details" for="menopause">Menopause:</label>
+                        <input type="text" id="menopause" name="menopause" value="{{ examination.obgynehistory.menopause }}">
+                    </div>
+                    <div class="flex flex-col w-full">
+                        <label class="details" for="menopause">Menopause:</label>
+                        <input type="text" id="menopause" name="menopause" value="{{ examination.obgynehistory.menopause }}">
                     </div>
                 </div>
+                <div class="flex flex-col w-1/2">
+                    <label class="details" for="additional-history">Additional History</label>
+                    <textarea id="additional-history" name="additional-history">{{ examination.obgynehistory.additional_history }}</textarea>
+                </div>
+            
             </div>
         </fieldset>
-        <fieldset>
+        <fieldse class="flex flex-col py-4">
             <legend><strong>III. Declaration</strong></legend>
-            <div>
+            <p>
                 I declare that the answers above are all correct. I understand that any falsification of answer will be considered 
 			    sufficient reason for my dismissal from employment/school and disqualification for whatever purpose this may serve.
-            </div>
-        </fieldset>
+            </p>
+        </fieldse>
         <div class="footer"><img src="{% static 'images/footer.png' %}" alt=""></div>
-        <div style="display: flex;">
-            <a class="schedule-button" id="schedule-button" href="{% url 'medical:patient_profile' %}">Back</a>
-            <input type="submit" value="Save" id="print-btn">
-            <input type="button" value="Print" id="print-btn" onclick="printSpecificContent()">
+        <div class="flex justify-between w-full">
+            <div class="flex">
+                <a class="border border-yellow-400 rounded-md p-2" href="{% url 'medical:patient_profile' %}">Back</a>
+            </div>
+            <div class="flex gap-1">
+                <input class="bg-blue-500 rounded-md p-2" type="submit" value="Save" id="print-btn">
+                <input class="bg-yellow-400 rounded-md p-2" type="button" value="Print" id="print-btn" onclick="printSpecificContent()">
+            </div>
+            
         </div>
     </form>
 </div>
