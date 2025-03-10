@@ -113,7 +113,7 @@ class MedicalClearance(models.Model):
         return f"Medical clearance for {self.patient.student.firstname} {self.patient.student.lastname}"
 
 class RiskAssessment(models.Model):
-    medical_clearance = models.OneToOneField(MedicalClearance, on_delete=models.CASCADE, related_name="riskassessment", null=True, blank=True)
+    medical_clearance_id = models.OneToOneField(MedicalClearance, on_delete=models.CASCADE, related_name="riskassessment", null=True, blank=True)
     id = models.AutoField(primary_key=True)
     clearance = models.OneToOneField(Patient, on_delete=models.CASCADE)
     cardiovascular_disease = models.BooleanField(default=False)

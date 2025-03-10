@@ -2,3 +2,4 @@
 venv
 Pipfile
 Pipfile.lock
+*.pyc

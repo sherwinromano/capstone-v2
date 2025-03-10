@@ -40,7 +40,9 @@ def login_view(request):
         if user is not None:
             login(request, user)
             
+            #kani nga condition siguro ang issue
             redirect_url = 'main:main' if user.is_staff or user.is_superuser else 'main:patient_form'
+            
             
             return JsonResponse({
                 'status': 'success',
@@ -141,7 +143,13 @@ def patient_form(request):
         # Get the medical student instance
         medical_student = medical_models.Student.objects.get(student_id=request.user.username)
         
+        if request.method == 'GET':
+            patient = medical_models.Patient.objects.get(student_id=request.user.username)
+            
+            return redirect('main:student_dashboard') if patient else None
+        
         if request.method == 'POST':
+            # print("test", f"test {request.POST.get('birth_date')}")
             # Create PhysicalExamination first
             physical_exam = medical_models.PhysicalExamination.objects.create(
                 student=medical_student,
@@ -159,7 +167,7 @@ def patient_form(request):
                 allergies=request.POST.get('allergies'),
                 medications=request.POST.get('medications', 'None'),
                 home_address=request.POST.get('home_address'),
-                city=request.POST.get('city'),
+                city='Cebu City', #request.POST.get('city'),
                 state_province=request.POST.get('state_province'),
                 postal_zipcode=request.POST.get('postal_zipcode'),
                 country=request.POST.get('country'),
@@ -195,6 +203,7 @@ def patient_form(request):
         messages.error(request, 'Student profile not found.')
         return redirect('main:login')
     except Exception as e:
+        print(e)
         messages.error(request, f'Error saving patient information: {str(e)}')
         
     return render(request, 'patient_form.html')

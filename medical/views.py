@@ -531,55 +531,62 @@ def physical_examination(request, student_id):
                 # Save
                 examination.save()
 
-                # Update Medical History
-                medical_history = MedicalHistory.objects.get(examination__patient__student__student_id = student_id)
-                medical_history.tuberculosis = tuberculosis
-                medical_history.hypertension = hypertension
-                medical_history.heart_disease = heart_disease
-                medical_history.hernia = hernia
-                medical_history.epilepsy = epilepsy
-                medical_history.peptic_ulcer = peptic_ulcer
-                medical_history.kidney_disease = kidney_disease
-                medical_history.asthma = asthma
-                medical_history.insomnia = insomnia
-                medical_history.malaria = malaria
-                medical_history.venereal_disease = venereal
-                medical_history.allergic_reaction = allergic_reaction
-                medical_history.nervous_breakdown = nervous_breakdown
-                medical_history.jaundice = jaundice
-                medical_history.others = others
-                medical_history.no_history = no_history
-                medical_history.hospital_admission = hospital_admission
-                medical_history.medications = medications
-                # Save
-                medical_history.save()
+                # Update or create Medical History
+                medical_history, created = MedicalHistory.objects.update_or_create(
+                    examination=examination,
+                    defaults={
+                        'tuberculosis': tuberculosis,
+                        'hypertension': hypertension,
+                        'heart_disease': heart_disease,
+                        'hernia': hernia,
+                        'epilepsy': epilepsy,
+                        'peptic_ulcer': peptic_ulcer,
+                        'kidney_disease': kidney_disease,
+                        'asthma': asthma,
+                        'insomnia': insomnia,
+                        'malaria': malaria,
+                        'venereal_disease': venereal,
+                        'allergic_reaction': allergic_reaction,
+                        'nervous_breakdown': nervous_breakdown,
+                        'jaundice': jaundice,
+                        'others': others,
+                        'no_history': no_history,
+                        'hospital_admission': hospital_admission,
+                        'medications': medications
+                    }
+                )
 
-                # Update Family History
-                family_history = FamilyMedicalHistory.objects.get(examination__patient__student__student_id = student_id)
-                family_history.hypertension = hypertension_family
-                family_history.asthma = asthma_family
-                family_history.cancer = cancer
-                family_history.tuberculosis = tuberculosis_family
-                family_history.diabetes = diabetes
-                family_history.bleeding_disorder = bleeding_disorder
-                family_history.epilepsy = epilepsy_family
-                family_history.mental_disorder = mental_disorders
-                family_history.no_history = family_no_history
-                family_history.other_medical_history = family_others
-                # Save
-                family_history.save()
+                # Update or create Family History
+                family_history, created = FamilyMedicalHistory.objects.update_or_create(
+                    examination=examination,
+                    defaults={
+                        'hypertension': hypertension_family,
+                        'asthma': asthma_family,
+                        'cancer': cancer,
+                        'tuberculosis': tuberculosis_family,
+                        'diabetes': diabetes,
+                        'bleeding_disorder': bleeding_disorder,
+                        'epilepsy': epilepsy_family,
+                        'mental_disorder': mental_disorders,
+                        'no_history': family_no_history,
+                        'other_medical_history': family_others
+                    }
+                )
 
-                # ObgyneHistory
-                obgyne = ObgyneHistory.objects.get(examination__patient__student__student_id = student_id)
-                obgyne.menarche = menarche
-                obgyne.lmp = lmp
-                obgyne.pap_smear = pap_smear
-                obgyne.gravida = gravida
-                obgyne.para = para
-                obgyne.menopause = menopause
-                obgyne.additional_history = additional_history
-                # Save
-                obgyne.save()
+                # Update or create Obgyne History
+                obgyne, created = ObgyneHistory.objects.update_or_create(
+                    examination=examination,
+                    defaults={
+                        'menarche': menarche,
+                        'lmp': lmp,
+                        'pap_smear': pap_smear,
+                        'gravida': gravida,
+                        'para': para,
+                        'menopause': menopause,
+                        'additional_history': additional_history
+                    }
+                )
+
                 messages.success(request, "Record Updated")
                 return render(request, "admin/physicalexamcomp.html", {"examination": examination, "patient": patient})
         
