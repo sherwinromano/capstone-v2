@@ -1,0 +1,5 @@
+.venv
+venv
+Pipfile
+Pipfile.lock
+*.pyc
